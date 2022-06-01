@@ -1,0 +1,9 @@
+[Actors]Ethan,???,Malware
+0:I need to find all the viruses in my computer!
+1:Muahahaha
+0:Who's there?
+1:It is I...
+1:Your worst nightmare!
+2:I am Malware, and I'm responsible for harming your computer!
+2:I can track your personal information and infect your computer with ads!
+0:Not if I can help it!
