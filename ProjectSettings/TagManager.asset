@@ -12,6 +12,8 @@ TagManager:
   - RealVirus
   - FakeVirus
   - MalwarePopup
+  - CorrectReply
+  - WrongReply
   layers:
   - Default
   - TransparentFX
