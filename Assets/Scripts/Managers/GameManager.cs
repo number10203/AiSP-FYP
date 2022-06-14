@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
 
     public int globalMalwareScore, currentMalwareScore;
 
+    public int globalScamScore, currentScamScore;
+
     private void Start()
     {
         QualitySettings.vSyncCount = 0;

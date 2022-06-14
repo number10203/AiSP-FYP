@@ -14,7 +14,7 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] private float buttonAnimDuration = 1f;
     [SerializeField] private GameObject sceneTransition;
 
-    private int shoppingScore, malwareScore;
+    private int shoppingScore, malwareScore, scamScore;
 
     private SceneController sceneController;
 
@@ -26,6 +26,7 @@ public class LevelSelectManager : MonoBehaviour
 
         shoppingScore = GameManager.INSTANCE.globalShoppingScore;
         malwareScore = GameManager.INSTANCE.globalMalwareScore;
+        scamScore = GameManager.INSTANCE.globalScamScore;
 
         foreach (GameObject i in shoppingStars)
         {
