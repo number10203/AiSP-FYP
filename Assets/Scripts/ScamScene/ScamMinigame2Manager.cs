@@ -159,63 +159,70 @@ public class ScamMinigame2Manager : MonoBehaviour
         scoreUI.SetActive(true);
         canvasGroup.blocksRaycasts = true;
     }
-    public void ReplyMessage()
+    public void ReplyMessage(int buttonID)
     {
-        StartCoroutine(DoReplyMessage());
+        StartCoroutine(DoReplyMessage(buttonID));
     }
 
-    private IEnumerator DoReplyMessage()
+    private IEnumerator DoReplyMessage(int buttonID)
     {
         canvasGroup.blocksRaycasts = false;
 
         GameObject buttonPressed = EventSystem.current.currentSelectedGameObject;
         GameObject ui = null;
-
-        if (buttonPressed.CompareTag("WrongReply"))
-        {
-            ui = Instantiate(cross, buttonPressed.transform.parent.transform);
-            audioManager.Play(wrongEffect);
-
-            if (score <= 50)
-            {
-                score = 0;
-            }
-            else
-            {
-                score -= 100;
-            }
+        switch(buttonID){
+            case 1:
+                GameObject.Find("ReplyButton1").SetActive(true);
+                GameObject.Find("ReplyButton2").SetActive(true);
+                GameObject.Find("TipText").SetActive(false);
+                GameObject.Find("ConfirmButton").SetActive(false);
+                break;
         }
-        else
-        {
-            ++correct;
+        //if (buttonPressed.CompareTag("WrongReply"))
+        //{
+        //    ui = Instantiate(cross, buttonPressed.transform.parent.transform);
+        //    audioManager.Play(wrongEffect);
 
-            ui = Instantiate(tick, buttonPressed.transform.parent.transform);
-            audioManager.Play(correctEffect);
+        //    if (score <= 50)
+        //    {
+        //        score = 0;
+        //    }
+        //    else
+        //    {
+        //        score -= 100;
+        //    }
+        //}
+        //else
+        //{
+        //    ++correct;
 
-            score += 150;
-        }
+        //    ui = Instantiate(tick, buttonPressed.transform.parent.transform);
+        //    audioManager.Play(correctEffect);
+
+        //    score += 350;
+        //}
 
         yield return new WaitForSeconds(1f);
 
-        //Bring to next stage
-        if (qnNumber == 2)
-        {
-            PlayCutscene();
-        }
-        else
-        {
-            messageLists[qnNumber+1].SetActive(true);
-            LeanTween.moveLocalX(messageLists[qnNumber+1], messageLists[qnNumber+1].transform.localPosition.x + 1300f, 1f).setEaseInOutBack();
-            LeanTween.moveLocalX(messageLists[qnNumber], messageLists[qnNumber].transform.localPosition.x + 1300f, 1f).setEaseInOutBack();
-            audioManager.Play(swooshEffect);
-            //for (int i = 0; i < messageLists.Length; ++i)
-            //{
-            //    LeanTween.moveLocalY(messageLists[i], messageLists[i].transform.localPosition.y + 800f, 1f).setEaseInOutBack();
-            //    audioManager.Play(swooshEffect);
-            //}
-        }
+        ////Bring to next stage
+        //if (qnNumber == 2)
+        //{
+        //    PlayCutscene();
+        //}
+        //else
+        //{
+        //    messageLists[qnNumber+1].SetActive(true);
+        //    LeanTween.moveLocalX(messageLists[qnNumber+1], messageLists[qnNumber+1].transform.localPosition.x + 1300f, 1f).setEaseInOutBack();
+        //    LeanTween.moveLocalX(messageLists[qnNumber], messageLists[qnNumber].transform.localPosition.x + 1300f, 1f).setEaseInOutBack();
+        //    audioManager.Play(swooshEffect);
+        //    //for (int i = 0; i < messageLists.Length; ++i)
+        //    //{
+        //    //    LeanTween.moveLocalY(messageLists[i], messageLists[i].transform.localPosition.y + 800f, 1f).setEaseInOutBack();
+        //    //    audioManager.Play(swooshEffect);
+        //    //}
+        //}
 
-        ++qnNumber;
+        //++qnNumber;
 
         yield return new WaitForSeconds(1f);
 
