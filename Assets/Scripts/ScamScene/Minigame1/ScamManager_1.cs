@@ -8,11 +8,12 @@ using UnityEngine.UI;
 
 public class ScamManager_1 : MonoBehaviour
 {
+    //TODO:
     //change to whack a mole
 
     // Public variables
     public TextMeshProUGUI scoreText;
-    //public TextMeshProUGUI endScoreText;
+    public TextMeshProUGUI endScoreText;
     public static ScamManager_1 Instance
     {
         get; private set;
@@ -20,25 +21,23 @@ public class ScamManager_1 : MonoBehaviour
 
     //public GameObject confettiParticle, stripesGameobject;
 
-    //public GameObject infographic;
+    public GameObject infographic;
 
     //public Slider scoreSlider;
 
-    //public AudioClip BGM;
+    public AudioClip BGM;
 
     // Private variables
-    //[SerializeField] private GameObject startingFade, sceneTransition;
+    [SerializeField] private GameObject startingFade, sceneTransition;
 
-    //[SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
+    [SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
     [SerializeField] private GameObject minigame, scoreUI;
-    //[SerializeField] private GameObject endCutscene;
-    //[SerializeField] private CutsceneSubtitleManager subtitleManager;
+    [SerializeField] private GameObject endCutscene;
+    [SerializeField] private CutsceneSubtitleManager subtitleManager;
     //[SerializeField] private AudioClip loseAudio, winAudio;
-    //[SerializeField] private GameObject instructions1, instructions2, results;
-    //[SerializeField] private CanvasGroup canvasGroup;
-    //[SerializeField] private GameObject[] productLists;
-    //[SerializeField] private GameObject tick, cross;
+    [SerializeField] private GameObject instructions1, instructions2, results;
+    [SerializeField] private CanvasGroup canvasGroup;
 
     internal int score = 0;
     private bool gameEnd = false;

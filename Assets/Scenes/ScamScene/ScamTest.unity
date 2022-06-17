@@ -695,8 +695,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 817033967}
+  endScoreText: {fileID: 0}
+  infographic: {fileID: 0}
+  BGM: {fileID: 0}
+  startingFade: {fileID: 0}
+  sceneTransition: {fileID: 0}
+  correctEffect: {fileID: 0}
+  wrongEffect: {fileID: 0}
+  swooshEffect: {fileID: 0}
   minigame: {fileID: 1562362478}
   scoreUI: {fileID: 1192684950}
+  endCutscene: {fileID: 0}
+  subtitleManager: {fileID: 0}
+  instructions1: {fileID: 0}
+  instructions2: {fileID: 0}
+  results: {fileID: 0}
+  canvasGroup: {fileID: 0}
 --- !u!114 &779635398
 MonoBehaviour:
   m_ObjectHideFlags: 0
