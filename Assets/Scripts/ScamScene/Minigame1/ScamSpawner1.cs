@@ -15,10 +15,16 @@ public class ScamSpawner1 : MonoBehaviour
     private float nexttime;
     public bool test = true;
 
-    private List<Transform> spawnPoints = new List<Transform>();
+    public List<Transform> spawnPoints = new List<Transform>();
+
+    public static ScamSpawner1 Instance
+    {
+        get; private set;
+    }
 
     public void Start()
     {
+        Instance = this;
         //starttime += Time.time;
 
 
@@ -42,23 +48,29 @@ public class ScamSpawner1 : MonoBehaviour
         }
     }
 
+    //private void ResetSpawnPoint(Transform currentpos)
+    //{
+    //    spawnPoints.Add(currentpos);
+
+    //}
+
     private IEnumerator SpawnScammer()
     {
 
         if (spawnPoints.Count == 0)
             yield break;
 
-        if (NumberOfBushesToSpawn >= spawnPoints.Count)
-        {
-            foreach (Transform point in spawnPoints)
-            {
-                GameObject scammerSpawned = Instantiate(scammerPrefab[0], point.position, Quaternion.identity);
-                scammerSpawned.transform.parent = mainCanvas.transform;
-                point.gameObject.SetActive(false);
-                yield return new WaitForSeconds(timeinterval);
+        //if (NumberOfBushesToSpawn >= spawnPoints.Count)
+        //{
+        //    foreach (Transform point in spawnPoints)
+        //    {
+        //        GameObject scammerSpawned = Instantiate(scammerPrefab[0], point.position, Quaternion.identity);
+        //        scammerSpawned.transform.parent = mainCanvas.transform;
+        //        point.gameObject.SetActive(false);
+        //        yield return new WaitForSeconds(timeinterval);
 
-            }
-        }
+        //    }
+        //}
 
 
         for (Numberspawned = 0; Numberspawned < NumberOfBushesToSpawn; Numberspawned++)
@@ -85,6 +97,13 @@ public class ScamSpawner1 : MonoBehaviour
 
 
         yield return null;
+    }
+
+    private void SpawnWave(int numberOfEntities, int intervalForSpawning)
+    {
+        //TO DO:
+        //move spawning of entity code here
+        //make it ased on numberofentities
     }
 
     #region Helper Functions

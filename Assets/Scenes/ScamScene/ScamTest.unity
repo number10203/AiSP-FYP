@@ -740,16 +740,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCanvas: {fileID: 1421163285}
   scammerPrefab:
-  - {fileID: 3470685247972459381, guid: 2febdc754f2596e449a75cc7b95f83ce, type: 3}
+  - {fileID: 3470685247972459381, guid: 7f52972bb65a2494389f1ecd922e5141, type: 3}
   - {fileID: 5701373974322771897, guid: e499491b434109f4f8d47724111d9f64, type: 3}
   - {fileID: 3848211219075982597, guid: 5200354d139c81d4688d62ed452cac57, type: 3}
   - {fileID: 3114346557998362123, guid: 750262d9fd494c245bd589bfa610abe0, type: 3}
   - {fileID: 3114346557998362123, guid: 4068523684afd7e44840d6eb4350d42c, type: 3}
   spawnPointOrigin: {fileID: 1840166240}
-  NumberOfBushesToSpawn: 9
+  NumberOfBushesToSpawn: 15
   starttime: 0
   timeinterval: 5
   test: 0
+  spawnPoints: []
 --- !u!4 &948079789
 Transform:
   m_ObjectHideFlags: 0
