@@ -23,8 +23,6 @@ public class ScamManager_1 : MonoBehaviour
 
     public GameObject infographic;
 
-    //public Slider scoreSlider;
-
     public AudioClip BGM;
 
     // Private variables
@@ -33,11 +31,13 @@ public class ScamManager_1 : MonoBehaviour
     [SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
     [SerializeField] private GameObject minigame, scoreUI;
+    [SerializeField] private GameObject startCutscene;
     [SerializeField] private GameObject endCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     //[SerializeField] private AudioClip loseAudio, winAudio;
-    [SerializeField] private GameObject instructions1, instructions2, results;
-    [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private InstructionsManager instructionsManager;
+    [SerializeField] private GameObject results;
+    //[SerializeField] private CanvasGroup canvasGroup;
 
     internal int score = 0;
     private bool gameEnd = false;
@@ -98,31 +98,26 @@ public class ScamManager_1 : MonoBehaviour
 
     private void Update()
     {
-   
-
         scoreText.text = "Score: " + score;
     }
 
     private void InitGameObjects()
     {
-
-        minigame.SetActive(true);
+        //minigame.SetActive(true);
         //resultsScreen.SetActive(false);
         //results.SetActive(false);
         scoreUI.SetActive(true);
 
     }
 
-    public void NextInstruction()
+    public void SkipCutscene()
     {
-        //instructions1.SetActive(false);
-        //instructions2.SetActive(true);
-    }
-
-    public void PrevInstruction()
-    {
-        //instructions1.SetActive(true);
-        //instructions2.SetActive(false);
+        //set cutscenesubtitle timer
+        startCutscene.GetComponent<Cutscene>().SkipCutscene();
+        startCutscene.GetComponent<Animator>().Play("JennieStartCutscene_Unskippable");
+        //destroy / stop audio related to cutscene
+        StopAllCoroutines();
+        //start coroutine to transition to minigame
     }
 
     public void StartGame()
@@ -142,65 +137,6 @@ public class ScamManager_1 : MonoBehaviour
         score += 50;
         yield return new WaitForSeconds(1f);
     }
-
-    //private IEnumerator DoBuyProduct()
-    //{
-    //canvasGroup.blocksRaycasts = false;
-
-    //GameObject buttonPressed = EventSystem.current.currentSelectedGameObject;
-    //GameObject ui = null;
-
-    //if (buttonPressed.transform.parent.CompareTag("ScamPurchase"))
-    //{
-    //    ui = Instantiate(cross, buttonPressed.transform.parent.transform);
-    //    audioManager.Play(wrongEffect);
-
-    //    if (score <= 50)
-    //    {
-    //        score = 0;
-    //    }
-    //    else
-    //    {
-    //        score -= 100;
-    //    }
-    //}
-    //else
-    //{
-    //    ++correct;
-
-    //    ui = Instantiate(tick, buttonPressed.transform.parent.transform);
-    //    audioManager.Play(correctEffect);
-
-    //    score += 150;
-    //}
-
-    //yield return new WaitForSeconds(1f);
-
-    //// Bring to next stage
-    //if (qnNumber == 2)
-    //{
-    //    PlayCutscene();
-    //}
-    //else
-    //{
-    //    for (int i = 0; i < productLists.Length; ++i)
-    //    {
-    //        LeanTween.moveLocalY(productLists[i], productLists[i].transform.localPosition.y + 800f, 1f).setEaseInOutBack();
-    //        audioManager.Play(swooshEffect);
-    //    }
-    //}
-
-    //++qnNumber;
-
-    //yield return new WaitForSeconds(1f);
-
-    //canvasGroup.blocksRaycasts = true;
-    //Destroy(ui);
-    //}
-
-
-
-
 
     private void PlayCutscene()
     {
