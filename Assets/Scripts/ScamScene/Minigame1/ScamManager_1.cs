@@ -115,7 +115,7 @@ public class ScamManager_1 : MonoBehaviour
         //set cutscenesubtitle timer
         startCutscene.GetComponent<Cutscene>().SkipCutscene();
         startCutscene.GetComponent<Animator>().Play("JennieStartCutscene_Unskippable");
-        //destroy / stop audio related to cutscene
+        //destroy OR stop audio related to cutscene
         StopAllCoroutines();
         //start coroutine to transition to minigame
     }
