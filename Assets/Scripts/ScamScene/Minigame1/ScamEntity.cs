@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScamEntity : MonoBehaviour
 {
     public Image displayImage;
+    public Transform spawnPoint;
 
     [HideInInspector]
     private float timeUntilSpawn;
@@ -27,6 +28,8 @@ public class ScamEntity : MonoBehaviour
         public ENTITY_TYPE type;
         public Sprite entitySprite;
         public int score;
+        public float timealive;
+        public float timedie;
     }
 
     [SerializeField]
@@ -48,17 +51,48 @@ public class ScamEntity : MonoBehaviour
 
     private void Update()
     {
+        currentEntity.timealive += Time.deltaTime;
+        if (currentEntity.timealive >= currentEntity.timedie)
+        {
+            if (currentEntity.score >= 0)
+            {
+                if (ScamManager_1.Instance.score != 0)
+                {
+                    ScamManager_1.Instance.score -= currentEntity.score / 2;
+                }
+            }
+            else
+            {
+                ScamManager_1.Instance.score -= currentEntity.score;
+            }
+            this.gameObject.SetActive(false);
+            spawnPoint.gameObject.SetActive(true);
+            Destroy(this.gameObject);
+        }
 
     }
 
     public void OnClickkk()
     {
-        
+
 
         //Debug.Log(scoreWhenWhacked);
         //entityCanvasGroup.alpha = 0;
-        ScamManager_1.Instance.score += currentEntity.score;
+        if (currentEntity.score <= 0)
+        {
+            if(ScamManager_1.Instance.score != 0)
+            {
+                ScamManager_1.Instance.score += currentEntity.score;
+            }
+        }
+        else
+        {
+            ScamManager_1.Instance.score += currentEntity.score;
+        }
         this.gameObject.SetActive(false);
+        spawnPoint.gameObject.SetActive(true);
+        Destroy(this.gameObject);
+
         //currpos = this.gameObject.transform.position;
         //spawnPoint = Instantiate(ScamSpawner1.Instance.spawnPointOrigin, currpos, Quaternion.identity);
         //ScamSpawner1.Instance.spawnPoints.Add(spawnPoint);

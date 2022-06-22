@@ -20,6 +20,11 @@ public class Cutscene : MonoBehaviour
 
     public void PlayUnskippable()
     {
+        if (unskippable == null)
+        {
+            Debug.LogError("No unskippable dialogue provided");
+            return;
+        }
         audioManager.Play(unskippable);
     }
 

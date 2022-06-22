@@ -7,11 +7,11 @@ public class ScamSpawner1 : MonoBehaviour
     public GameObject mainCanvas;
     public GameObject[] scammerPrefab;
     public RectTransform spawnPointOrigin;
-    public int NumberOfBushesToSpawn;
+    //private int NumberOfBushesToSpawn;
     private int Numberspawned;
     private int SelectSprite;
     public float starttime;
-    public float timeinterval;
+    private float timeinterval;
     private float nexttime;
     public bool test = true;
 
@@ -29,9 +29,9 @@ public class ScamSpawner1 : MonoBehaviour
 
 
         SetSpawnPoints(3, 4, 200, 100, 75, -75);
-        //StartCoroutine(SpawnScammer());
-        StartCoroutine(SpawnScammer());
 
+        SpawnWave(1);
+        //StartCoroutine(SpawnScammer(6));
 
     }
 
@@ -54,7 +54,19 @@ public class ScamSpawner1 : MonoBehaviour
 
     //}
 
-    private IEnumerator SpawnScammer()
+    private void SpawnWave(int numberOfWaves)
+    {
+        //TO DO:
+        //move spawning of entity code here
+        //make it based on numberofentities
+        for (int i = 0; i < numberOfWaves; i++)
+        {
+            StartCoroutine(SpawnScammer(20));
+        }
+
+    }
+
+    private IEnumerator SpawnScammer(int numberOfEntities)
     {
 
         if (spawnPoints.Count == 0)
@@ -72,8 +84,9 @@ public class ScamSpawner1 : MonoBehaviour
         //    }
         //}
 
+        //NumberOfBushesToSpawn = 1;
 
-        for (Numberspawned = 0; Numberspawned < NumberOfBushesToSpawn; Numberspawned++)
+        for (Numberspawned = 0; Numberspawned < numberOfEntities; Numberspawned++)
         {
             //Randomize sprite to spawn
             //SelectSprite = Random.Range(0, scammerPrefab.Length);
@@ -87,9 +100,13 @@ public class ScamSpawner1 : MonoBehaviour
 
             GameObject scammerSpawned = Instantiate(scammerPrefab[SelectSprite], pointGiven.position, Quaternion.identity);
             scammerSpawned.transform.parent = mainCanvas.transform;
+            scammerSpawned.GetComponent<ScamEntity>().spawnPoint = pointGiven; 
+
+            
 
             pointGiven.gameObject.SetActive(false);
             test = true;
+            timeinterval = Random.Range(1, 5);
             yield return new WaitForSeconds(timeinterval);
 
         }
@@ -99,12 +116,7 @@ public class ScamSpawner1 : MonoBehaviour
         yield return null;
     }
 
-    private void SpawnWave(int numberOfEntities, int intervalForSpawning)
-    {
-        //TO DO:
-        //move spawning of entity code here
-        //make it ased on numberofentities
-    }
+
 
     #region Helper Functions
 
@@ -132,9 +144,5 @@ public class ScamSpawner1 : MonoBehaviour
         return validPoint;
     }
 
-    private void CreateObject(GameObject prefabObject, Vector3 position)
-    {
-        GameObject scammer = Instantiate(scammerPrefab[0], position, Quaternion.identity);
-    }
     #endregion
 }

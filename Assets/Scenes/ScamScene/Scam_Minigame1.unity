@@ -445,8 +445,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 817033967}
+  endScoreText: {fileID: 0}
+  infographic: {fileID: 0}
+  BGM: {fileID: 0}
+  startingFade: {fileID: 0}
+  sceneTransition: {fileID: 0}
+  correctEffect: {fileID: 0}
+  wrongEffect: {fileID: 0}
+  swooshEffect: {fileID: 0}
   minigame: {fileID: 1562362478}
   scoreUI: {fileID: 1192684950}
+  endCutscene: {fileID: 0}
+  subtitleManager: {fileID: 0}
+  instructions1: {fileID: 0}
+  instructions2: {fileID: 0}
+  results: {fileID: 0}
+  canvasGroup: {fileID: 0}
 --- !u!1 &817033966
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,9 +760,7 @@ MonoBehaviour:
   - {fileID: 3114346557998362123, guid: 750262d9fd494c245bd589bfa610abe0, type: 3}
   - {fileID: 3114346557998362123, guid: 4068523684afd7e44840d6eb4350d42c, type: 3}
   spawnPointOrigin: {fileID: 1840166240}
-  NumberOfBushesToSpawn: 15
   starttime: 0
-  timeinterval: 5
   test: 0
   spawnPoints: []
 --- !u!4 &948079789
@@ -998,8 +1010,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: ce7432a58246f4047abe95fd4aba6cac, type: 3}
-  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 87c036cbbce6b49448fbc48ab25ffe7e, type: 3}
+  m_Color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1017,8 +1029,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256686728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: -0.0055, y: -0.0031, z: 0}
+  m_LocalScale: {x: 1.1134197, y: 1.1134197, z: 1.1134197}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1321,7 +1333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 156, y: -256}
+  m_AnchoredPosition: {x: 154, y: -314}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1880907894
