@@ -7,13 +7,15 @@ public class ScamSpawner1 : MonoBehaviour
     public GameObject mainCanvas;
     public GameObject[] scammerPrefab;
     public RectTransform spawnPointOrigin;
+    private SpriteRenderer rend;
     //private int NumberOfBushesToSpawn;
     private int Numberspawned;
     private int SelectSprite;
     public float starttime;
     private float timeinterval;
+    private int spawnspeed;
     private float nexttime;
-    public bool test = true;
+    private int wavecheck;
 
     public List<Transform> spawnPoints = new List<Transform>();
 
@@ -27,10 +29,12 @@ public class ScamSpawner1 : MonoBehaviour
         Instance = this;
         //starttime += Time.time;
 
+        spawnspeed = 1;
+
 
         SetSpawnPoints(3, 4, 200, 100, 75, -75);
 
-        SpawnWave(1);
+        StartCoroutine(SpawnWave(2));
         //StartCoroutine(SpawnScammer(6));
 
     }
@@ -54,14 +58,21 @@ public class ScamSpawner1 : MonoBehaviour
 
     //}
 
-    private void SpawnWave(int numberOfWaves)
+    private IEnumerator SpawnWave(int numberOfWaves)
     {
         //TO DO:
         //move spawning of entity code here
         //make it based on numberofentities
+
         for (int i = 0; i < numberOfWaves; i++)
         {
-            StartCoroutine(SpawnScammer(20));
+            StartCoroutine(SpawnScammer(20 * spawnspeed));
+            //waiting time for one wave
+            yield return new WaitForSeconds(65);
+            //checks what wave it is
+            wavecheck += 1;
+            //increase speed
+            spawnspeed += 2;
         }
 
     }
@@ -90,6 +101,9 @@ public class ScamSpawner1 : MonoBehaviour
         {
             //Randomize sprite to spawn
             //SelectSprite = Random.Range(0, scammerPrefab.Length);
+            timeinterval = Random.Range(1, 5);
+            yield return new WaitForSeconds(timeinterval / spawnspeed);
+
             SelectSprite = 0;
 
             //Find a valid spawnpoint
@@ -100,14 +114,20 @@ public class ScamSpawner1 : MonoBehaviour
 
             GameObject scammerSpawned = Instantiate(scammerPrefab[SelectSprite], pointGiven.position, Quaternion.identity);
             scammerSpawned.transform.parent = mainCanvas.transform;
-            scammerSpawned.GetComponent<ScamEntity>().spawnPoint = pointGiven; 
+            scammerSpawned.GetComponent<ScamEntity>().spawnPoint = pointGiven;
 
-            
+            //if (scammerSpawned.transform.position.y >= 50)
+            //{
+            //    rend.sortingOrder -= 1;
+            //}
+
+            //else if (scammerSpawned.transform.position.y <= -250)
+            //{
+            //    rend.sortingOrder += 1;
+            //}
+                        
 
             pointGiven.gameObject.SetActive(false);
-            test = true;
-            timeinterval = Random.Range(1, 5);
-            yield return new WaitForSeconds(timeinterval);
 
         }
 
