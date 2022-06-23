@@ -98,6 +98,9 @@ public class ScamManager_1 : MonoBehaviour
 
     private void Update()
     {
+        if (score < 0)
+            score = 0;
+
         scoreText.text = "Score: " + score;
     }
 

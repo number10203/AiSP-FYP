@@ -4,8 +4,4 @@ using UnityEngine;
 
 public class ScamEntityFriendly : ScamEntity
 {
-    new void RunOnClick()
-    {
-        base.OnClickkk();
-    }
 }

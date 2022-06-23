@@ -7,7 +7,6 @@ public class ScamSpawner1 : MonoBehaviour
     public GameObject mainCanvas;
     public GameObject[] scammerPrefab;
     public RectTransform spawnPointOrigin;
-    private SpriteRenderer rend;
     //private int NumberOfBushesToSpawn;
     private int Numberspawned;
     private int SelectSprite;
@@ -114,18 +113,9 @@ public class ScamSpawner1 : MonoBehaviour
 
             GameObject scammerSpawned = Instantiate(scammerPrefab[SelectSprite], pointGiven.position, Quaternion.identity);
             scammerSpawned.transform.parent = mainCanvas.transform;
-            scammerSpawned.GetComponent<ScamEntity>().spawnPoint = pointGiven;
+            scammerSpawned.GetComponentInChildren<ScamEntity>().spawnPoint = pointGiven;
+            scammerSpawned.transform.GetChild(0).GetComponent<RectTransform>().position = pointGiven.position;
 
-            //if (scammerSpawned.transform.position.y >= 50)
-            //{
-            //    rend.sortingOrder -= 1;
-            //}
-
-            //else if (scammerSpawned.transform.position.y <= -250)
-            //{
-            //    rend.sortingOrder += 1;
-            //}
-                        
 
             pointGiven.gameObject.SetActive(false);
 
@@ -136,7 +126,17 @@ public class ScamSpawner1 : MonoBehaviour
         yield return null;
     }
 
+    public void DeleteEntity(GameObject canvasOfEntity)
+    {
+        StartCoroutine(DestroyScamEntity(canvasOfEntity));
+    }
 
+    private IEnumerator DestroyScamEntity(GameObject entity)
+    {
+        yield return null;
+
+        Destroy(entity);
+    }
 
     #region Helper Functions
 
