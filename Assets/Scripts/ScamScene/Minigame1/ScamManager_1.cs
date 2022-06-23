@@ -103,11 +103,30 @@ public class ScamManager_1 : MonoBehaviour
 
     private void InitGameObjects()
     {
-        //minigame.SetActive(true);
-        //resultsScreen.SetActive(false);
-        //results.SetActive(false);
-        scoreUI.SetActive(true);
+        // Init transitions
+        startingFade.SetActive(true);
+        sceneTransition.SetActive(false);
 
+        // Init cutscene
+        startCutscene.SetActive(true);
+        //cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
+        subtitleManager.InitSubtitles("Jennie_Cutscene1_Eng");
+        StartCoroutine(TransitionToGame(30f));
+    }
+
+    private IEnumerator TransitionToGame(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        sceneTransition.SetActive(true);
+
+        yield return new WaitForSeconds(1.3f);
+
+        startCutscene.SetActive(false);
+        instructionsManager.StartInstructions();
+        sceneTransition.SetActive(false);
+        startingFade.SetActive(true);
+        //audioManager.PlayMusic(music);
     }
 
     public void SkipCutscene()
@@ -117,6 +136,7 @@ public class ScamManager_1 : MonoBehaviour
         startCutscene.GetComponent<Animator>().Play("JennieStartCutscene_Unskippable");
         //destroy OR stop audio related to cutscene
         StopAllCoroutines();
+        StartCoroutine(TransitionToGame(3f));
         //start coroutine to transition to minigame
     }
 
