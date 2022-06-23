@@ -111,9 +111,9 @@ public class ScamManager_1 : MonoBehaviour
         sceneTransition.SetActive(false);
 
         // Init cutscene
-        startCutscene.SetActive(true);
+        //startCutscene.SetActive(true);
         //cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
-        subtitleManager.InitSubtitles("Jennie_Cutscene1_Eng");
+        //subtitleManager.InitSubtitles("Jennie_Cutscene1_Eng");
         StartCoroutine(TransitionToGame(30f));
     }
 
@@ -126,7 +126,7 @@ public class ScamManager_1 : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
 
         startCutscene.SetActive(false);
-        instructionsManager.StartInstructions();
+        //instructionsManager.StartInstructions();
         sceneTransition.SetActive(false);
         startingFade.SetActive(true);
         //audioManager.PlayMusic(music);
