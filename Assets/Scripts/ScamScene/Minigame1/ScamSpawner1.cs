@@ -117,7 +117,7 @@ public class ScamSpawner1 : MonoBehaviour
                 continue;
 
             GameObject scammerSpawned = Instantiate(scammerPrefab[SelectSprite], pointGiven.position, Quaternion.identity);
-            scammerSpawned.transform.parent = mainCanvas.transform;
+            scammerSpawned.transform.parent = this.transform.parent.transform;
             scammerSpawned.GetComponentInChildren<ScamEntity>().spawnPoint = pointGiven;
             scammerSpawned.transform.GetChild(0).GetComponent<RectTransform>().position = pointGiven.position;
 

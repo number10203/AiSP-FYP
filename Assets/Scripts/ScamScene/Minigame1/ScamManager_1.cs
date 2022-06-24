@@ -8,12 +8,6 @@ using UnityEngine.UI;
 
 public class ScamManager_1 : MonoBehaviour
 {
-    //TODO:
-    //change to whack a mole
-
-    // Public variables
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI endScoreText;
     public static ScamManager_1 Instance
     {
         get; private set;
@@ -21,28 +15,34 @@ public class ScamManager_1 : MonoBehaviour
 
     //public GameObject confettiParticle, stripesGameobject;
 
+    [Header("UI References")]
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI endScoreText;
     public GameObject infographic;
-
     public AudioClip BGM;
-
-    // Private variables
     [SerializeField] private GameObject startingFade, sceneTransition;
-
-    [SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
-
-    [SerializeField] private GameObject minigame;
     [SerializeField] private GameObject startCutscene;
     [SerializeField] private GameObject endCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
-    //[SerializeField] private AudioClip loseAudio, winAudio;
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject results;
-    //[SerializeField] private CanvasGroup canvasGroup;
+
+    [Header ("Audio References")]
+    [SerializeField] private AudioClip loseAudio;
+    [SerializeField] private AudioClip winAudio;
+    private AudioManager audioManager;
+
+    [Header ("Minigame References")]
+    [SerializeField] private GameObject minigame;
+    [SerializeField] private float secondsUntilFinish;
+
+    //[SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
+
 
     internal int score = 0;
+    private int counter = 0;
     private bool gameEnd = false;
-
-    private AudioManager audioManager;
 
     private void Awake()
     {
@@ -59,48 +59,67 @@ public class ScamManager_1 : MonoBehaviour
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         InitGameObjects();
-
         //audioManager.PlayMusic(BGM);
     }
 
     private void FixedUpdate()
     {
-        //if (results.activeInHierarchy == true)
-        //{
-        //    stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
-        //    endScoreText.text = "Total Score: " + localScore;
-
-        //    if (localScore != score)
-        //    {
-        //        localScore += 10;
-
-        //        scoreSlider.value = Mathf.Lerp(600, localScore, 1.0f);
-        //    }
-        //    else
-        //    {
-        //        if (score >= 600)
-        //        {
-        //            confettiParticle.SetActive(true);
-        //        }
-
-        //        //Play End Star sound here
-        //        //audioManager.(starEnd);
-
-        //        if (!starPlay)
-        //        {
-        //            audioManager.PlayAndGetObject(starEnd);
-        //            starPlay = true;
-        //        }
-        //    }
-        //}
-    }
-
-    private void Update()
-    {
         if (score < 0)
             score = 0;
 
         scoreText.text = "Score: " + score;
+        
+    }
+
+    private void Update()
+    {
+        if (minigame.activeInHierarchy)
+        {
+            secondsUntilFinish -= Time.deltaTime;
+            timerText.text = "Time Left: " + (int) secondsUntilFinish + "s";
+
+            if (secondsUntilFinish <= 0.0f)
+            {
+                gameEnd = true;
+            }
+        }
+
+        if (gameEnd)
+        {
+            results.SetActive(true);
+            minigame.SetActive(false);
+
+            if (counter != score)
+            {
+                counter += 5;
+                endScoreText.text = "Score: " + counter;
+            }
+            //stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
+            //endScoreText.text = "Total Score: " + localScore;
+            //
+            //if (localScore != score)
+            //{
+            //    localScore += 10;
+            //
+            //    scoreSlider.value = Mathf.Lerp(600, localScore, 1.0f);
+            //}
+            //else
+            //{
+            //    if (score >= 600)
+            //    {
+            //        confettiParticle.SetActive(true);
+            //    }
+            //
+            //    //Play End Star sound here
+            //    //audioManager.(starEnd);
+            //
+            //    if (!starPlay)
+            //    {
+            //        audioManager.PlayAndGetObject(starEnd);
+            //        starPlay = true;
+            //    }
+            //}
+        }
     }
 
     private void InitGameObjects()
@@ -110,7 +129,10 @@ public class ScamManager_1 : MonoBehaviour
         sceneTransition.SetActive(false);
 
         // Init cutscene
-        //startCutscene.SetActive(true);
+        startCutscene.SetActive(true);
+        instructions.SetActive(false);
+        minigame.SetActive(false);
+        results.SetActive(false);
         //cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
         subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
         StartCoroutine(TransitionToGame(30f));
@@ -133,7 +155,7 @@ public class ScamManager_1 : MonoBehaviour
 
     public void SkipCutscene()
     {
-        //set cutscenesubtitle timer
+        subtitleManager.SetTimer(27.05f);
         startCutscene.GetComponent<Cutscene>().SkipCutscene();
         startCutscene.GetComponent<Animator>().Play("JennieStartCutscene_Unskippable");
         //destroy OR stop audio related to cutscene
@@ -145,7 +167,6 @@ public class ScamManager_1 : MonoBehaviour
     {
         instructions.gameObject.SetActive(false);
         minigame.gameObject.SetActive(true);
-        //scoreUI.SetActive(true);
         //canvasGroup.blocksRaycasts = true;
     }
 
@@ -158,30 +179,6 @@ public class ScamManager_1 : MonoBehaviour
     {
         score += 50;
         yield return new WaitForSeconds(1f);
-    }
-
-    private void PlayCutscene()
-    {
-        audioManager.StopMusic();
-
-        minigame.SetActive(false);
-        //resultsScreen.SetActive(true);
-        //endCutscene.SetActive(true);
-
-        //if (score >= 600)
-        //{
-        //    subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
-        //    endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
-        //    audioManager.Play(winAudio);
-        //    StartCoroutine(StopCutscene(17f));
-        //}
-        //else
-        //{
-        //    subtitleManager.InitSubtitles("Jennie_Cutscene2_Eng");
-        //    endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
-        //    audioManager.Play(loseAudio);
-        //    StartCoroutine(StopCutscene(6f));
-        //}
     }
 
     private IEnumerator StopCutscene(float time)
