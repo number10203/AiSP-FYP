@@ -1202,6 +1202,7 @@ GameObject:
   - component: {fileID: 779635396}
   - component: {fileID: 779635395}
   - component: {fileID: 779635397}
+  - component: {fileID: 779635398}
   m_Layer: 0
   m_Name: CurrentSceneManager
   m_TagString: Untagged
@@ -1266,9 +1267,22 @@ MonoBehaviour:
   minigame: {fileID: 1562362478}
   startCutscene: {fileID: 169649106}
   endCutscene: {fileID: 0}
-  subtitleManager: {fileID: 0}
+  subtitleManager: {fileID: 779635398}
   instructions: {fileID: 1035982779}
   results: {fileID: 0}
+--- !u!114 &779635398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779635394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32001376a261b374fabdfe52ca8591a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captions: {fileID: 1862032404}
 --- !u!1 &817033966
 GameObject:
   m_ObjectHideFlags: 0

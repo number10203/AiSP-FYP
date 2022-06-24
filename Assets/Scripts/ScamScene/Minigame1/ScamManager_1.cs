@@ -112,7 +112,7 @@ public class ScamManager_1 : MonoBehaviour
         // Init cutscene
         //startCutscene.SetActive(true);
         //cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
-        //subtitleManager.InitSubtitles("Jennie_Cutscene1_Eng");
+        subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
         StartCoroutine(TransitionToGame(30f));
     }
 
