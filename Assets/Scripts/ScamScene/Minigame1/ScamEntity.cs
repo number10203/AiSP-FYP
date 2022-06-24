@@ -55,17 +55,19 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         thisTransform.sizeDelta = new Vector2(currentEntity.entitySprite.rect.width * 0.02f, currentEntity.entitySprite.rect.height * 0.02f);
         inputCollider.size = new Vector2(thisTransform.rect.width, thisTransform.rect.height);
         rend = this.transform.parent.gameObject.GetComponent<Canvas>();
-        if (this.gameObject.transform.position.y >= 100)
-        {
-            rend.overrideSorting = true;
-            rend.sortingOrder -= 1;
-            if (this.gameObject.transform.position.y >= 200)
-            {
-                rend.sortingOrder -= 1;
-            }
-        }
-
-
+        //if (this.gameObject.transform.position.y >= 100)
+        //{
+        //    rend.overrideSorting = true;
+        //    rend.sortingOrder -= 1;
+        //    if (this.gameObject.transform.position.y >= 200)
+        //    {
+        //        rend.sortingOrder -= 1;
+        //    }
+        //}
+        int spawnPointIndex = spawnPoint.GetSiblingIndex();
+        float rowOfSpawnPoint = Mathf.Ceil((float) spawnPointIndex / (float) ScamSpawner1.Instance.columns);
+        rend.overrideSorting = true;
+        rend.sortingOrder = (int) rowOfSpawnPoint;
 
     }
 

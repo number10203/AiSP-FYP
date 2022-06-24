@@ -63,12 +63,12 @@ MonoBehaviour:
   maximumTimeUntilSpawn: 0
   imagesCollection:
   - type: 0
-    entitySprite: {fileID: 21300000, guid: c6b3ba753c2681b42bf7064bf69636fd, type: 3}
+    entitySprite: {fileID: 21300000, guid: d8b7a3233041d6a42b57aaf301555c54, type: 3}
     score: -10
     timealive: 0
     timedie: 5
   - type: 0
-    entitySprite: {fileID: 21300000, guid: 7ebda1f39ad9c59408a54c49ae68a6a7, type: 3}
+    entitySprite: {fileID: 21300000, guid: a84feb01bd68e85458bfa2e26b8a23b6, type: 3}
     score: -10
     timealive: 0
     timedie: 5
@@ -80,6 +80,16 @@ MonoBehaviour:
   - type: 2
     entitySprite: {fileID: 21300000, guid: b8b9df8cb2f0cbe4a9a383c2093e4548, type: 3}
     score: 10
+    timealive: 0
+    timedie: 5
+  - type: 0
+    entitySprite: {fileID: 21300000, guid: d8b7a3233041d6a42b57aaf301555c54, type: 3}
+    score: -10
+    timealive: 0
+    timedie: 5
+  - type: 0
+    entitySprite: {fileID: 21300000, guid: a84feb01bd68e85458bfa2e26b8a23b6, type: 3}
+    score: -10
     timealive: 0
     timedie: 5
 --- !u!61 &3872068042971755836

@@ -16,6 +16,10 @@ public class ScamSpawner1 : MonoBehaviour
     private float nexttime;
     private int wavecheck;
 
+    [Header("How many rows and columns to generate spawnpoints in")]
+    public int rows;
+    public int columns;
+    
     public List<Transform> spawnPoints = new List<Transform>();
 
     public static ScamSpawner1 Instance
@@ -28,10 +32,10 @@ public class ScamSpawner1 : MonoBehaviour
         Instance = this;
         //starttime += Time.time;
 
-        spawnspeed = 1;
+        spawnspeed = 10;
 
 
-        SetSpawnPoints(3, 4, 200, 100, 75, -75);
+        SetSpawnPoints(rows, columns, 400, 200, 75, -75);
 
         StartCoroutine(SpawnWave(2));
         //StartCoroutine(SpawnScammer(6));
@@ -47,6 +51,7 @@ public class ScamSpawner1 : MonoBehaviour
                 Vector3 newPosition = spawnPointOrigin.position + new Vector3(j * xInterval + xOffSet, i * -yInterval + yOffSet, 0);
                 Transform spawnPoint = Instantiate(spawnPointOrigin, newPosition, Quaternion.identity);
                 spawnPoints.Add(spawnPoint);
+                spawnPoint.parent = spawnPointOrigin.transform;
             }
         }
     }
