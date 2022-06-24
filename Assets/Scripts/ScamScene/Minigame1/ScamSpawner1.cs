@@ -8,14 +8,25 @@ public class ScamSpawner1 : MonoBehaviour
     public GameObject[] scammerPrefab;
     public RectTransform spawnPointOrigin;
     public int NumberOfBushesToSpawn;
-    public int timeinterval;
+    private int Numberspawned;
+    private int SelectSprite;
+    public float starttime;
+    public float timeinterval;
+    private float nexttime;
+    public bool test = true;
 
     private List<Transform> spawnPoints = new List<Transform>();
 
-    void Start()
+    public void Start()
     {
-        SetSpawnPoints(3, 3, 200, 100, 75, -75);
+        //starttime += Time.time;
+
+
+        SetSpawnPoints(3, 4, 200, 100, 75, -75);
+        //StartCoroutine(SpawnScammer());
         StartCoroutine(SpawnScammer());
+
+
     }
 
     private void SetSpawnPoints(int rows, int columns, int xInterval, int yInterval, int xOffSet = 0, int yOffSet = 0)
@@ -33,6 +44,7 @@ public class ScamSpawner1 : MonoBehaviour
 
     private IEnumerator SpawnScammer()
     {
+
         if (spawnPoints.Count == 0)
             yield break;
 
@@ -43,22 +55,34 @@ public class ScamSpawner1 : MonoBehaviour
                 GameObject scammerSpawned = Instantiate(scammerPrefab[0], point.position, Quaternion.identity);
                 scammerSpawned.transform.parent = mainCanvas.transform;
                 point.gameObject.SetActive(false);
+                yield return new WaitForSeconds(timeinterval);
+
             }
         }
 
-        for (int i = 0; i < NumberOfBushesToSpawn; i++)
+
+        for (Numberspawned = 0; Numberspawned < NumberOfBushesToSpawn; Numberspawned++)
         {
+            //Randomize sprite to spawn
+            //SelectSprite = Random.Range(0, scammerPrefab.Length);
+            SelectSprite = 0;
+
             //Find a valid spawnpoint
             Transform pointGiven = FindValidPoint();
 
             if (pointGiven == null)
                 continue;
 
-            GameObject scammerSpawned = Instantiate(scammerPrefab[0], pointGiven.position, Quaternion.identity);
+            GameObject scammerSpawned = Instantiate(scammerPrefab[SelectSprite], pointGiven.position, Quaternion.identity);
             scammerSpawned.transform.parent = mainCanvas.transform;
 
             pointGiven.gameObject.SetActive(false);
+            test = true;
+            yield return new WaitForSeconds(timeinterval);
+
         }
+
+
 
         yield return null;
     }
