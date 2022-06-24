@@ -63,33 +63,58 @@ MonoBehaviour:
   maximumTimeUntilSpawn: 0
   imagesCollection:
   - type: 0
-    entitySprite: {fileID: 21300000, guid: d8b7a3233041d6a42b57aaf301555c54, type: 3}
+    entitySprite: {fileID: 21300000, guid: 6fd974ad6e2323649b5ad28b27a0b51a, type: 3}
     score: -10
     timealive: 0
     timedie: 5
   - type: 0
-    entitySprite: {fileID: 21300000, guid: a84feb01bd68e85458bfa2e26b8a23b6, type: 3}
+    entitySprite: {fileID: 21300000, guid: 6f8fb23efe8becf40b5e6c9f8a789cf3, type: 3}
     score: -10
     timealive: 0
     timedie: 5
   - type: 1
-    entitySprite: {fileID: 21300000, guid: 20c508ed28f46dc4487c1caf68deaed5, type: 3}
+    entitySprite: {fileID: 21300000, guid: 4fa45ea9d8fd82c4e825ea7648215c05, type: 3}
+    score: 10
+    timealive: 0
+    timedie: 5
+  - type: 1
+    entitySprite: {fileID: 21300000, guid: a97ef70a85f805e428fc0c2c9fa4284e, type: 3}
+    score: 10
+    timealive: 0
+    timedie: 5
+  - type: 1
+    entitySprite: {fileID: 21300000, guid: 2fec634112f22f24caaa1da14bd74a5e, type: 3}
+    score: 10
+    timealive: 0
+    timedie: 5
+  - type: 1
+    entitySprite: {fileID: 21300000, guid: 344e0ea98e0915f429617a01fc86738c, type: 3}
     score: 10
     timealive: 0
     timedie: 5
   - type: 2
-    entitySprite: {fileID: 21300000, guid: b8b9df8cb2f0cbe4a9a383c2093e4548, type: 3}
+    entitySprite: {fileID: 21300000, guid: bd306fa34e948ae4290737ab4c2596a0, type: 3}
     score: 10
     timealive: 0
     timedie: 5
-  - type: 0
-    entitySprite: {fileID: 21300000, guid: d8b7a3233041d6a42b57aaf301555c54, type: 3}
-    score: -10
+  - type: 2
+    entitySprite: {fileID: 21300000, guid: ca8fb5ed06cbb32488fd7a045309799b, type: 3}
+    score: 10
     timealive: 0
     timedie: 5
-  - type: 0
-    entitySprite: {fileID: 21300000, guid: a84feb01bd68e85458bfa2e26b8a23b6, type: 3}
-    score: -10
+  - type: 2
+    entitySprite: {fileID: 21300000, guid: f3c569209ea3fe44e9c5f99330c4c9ea, type: 3}
+    score: 10
+    timealive: 0
+    timedie: 5
+  - type: 2
+    entitySprite: {fileID: 21300000, guid: c031462ed6ec66042acfee04eb31abdc, type: 3}
+    score: 10
+    timealive: 0
+    timedie: 5
+  - type: 2
+    entitySprite: {fileID: 21300000, guid: 89a61f6a7cacf5945bc7003c23643104, type: 3}
+    score: 10
     timealive: 0
     timedie: 5
 --- !u!61 &3872068042971755836
