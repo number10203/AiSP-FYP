@@ -30,12 +30,12 @@ public class ScamManager_1 : MonoBehaviour
 
     [SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
-    [SerializeField] private GameObject minigame, scoreUI;
+    [SerializeField] private GameObject minigame;
     [SerializeField] private GameObject startCutscene;
     [SerializeField] private GameObject endCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     //[SerializeField] private AudioClip loseAudio, winAudio;
-    [SerializeField] private InstructionsManager instructionsManager;
+    [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject results;
     //[SerializeField] private CanvasGroup canvasGroup;
 
@@ -60,7 +60,6 @@ public class ScamManager_1 : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         InitGameObjects();
 
-        //score = GameManager.INSTANCE.currentShoppingScore;
         //audioManager.PlayMusic(BGM);
     }
 
@@ -126,7 +125,7 @@ public class ScamManager_1 : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
 
         startCutscene.SetActive(false);
-        //instructionsManager.StartInstructions();
+        instructions.gameObject.SetActive(true);
         sceneTransition.SetActive(false);
         startingFade.SetActive(true);
         //audioManager.PlayMusic(music);
@@ -140,13 +139,13 @@ public class ScamManager_1 : MonoBehaviour
         //destroy OR stop audio related to cutscene
         StopAllCoroutines();
         StartCoroutine(TransitionToGame(3f));
-        //start coroutine to transition to minigame
     }
 
     public void StartGame()
     {
-        //instructions2.gameObject.SetActive(false);
-        scoreUI.SetActive(true);
+        instructions.gameObject.SetActive(false);
+        minigame.gameObject.SetActive(true);
+        //scoreUI.SetActive(true);
         //canvasGroup.blocksRaycasts = true;
     }
 
