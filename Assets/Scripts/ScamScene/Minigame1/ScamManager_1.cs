@@ -157,7 +157,7 @@ public class ScamManager_1 : MonoBehaviour
     {
         subtitleManager.SetTimer(27.05f);
         startCutscene.GetComponent<Cutscene>().SkipCutscene();
-        startCutscene.GetComponent<Animator>().Play("JennieStartCutscene_Unskippable");
+        startCutscene.GetComponent<Animator>().Play("AhHuatStartingCutscene_Unskippable");
         //destroy OR stop audio related to cutscene
         StopAllCoroutines();
         StartCoroutine(TransitionToGame(3f));
