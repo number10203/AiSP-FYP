@@ -40,6 +40,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
     public struct OnHitSpriteTypes
     {
         public ENTITY_TYPE type;
+        public string name;
         public List<Sprite> onHitSprites;
     }
 
@@ -76,6 +77,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         rend.overrideSorting = true;
         rend.sortingOrder = (int) rowOfSpawnPoint;
 
+        this.name = currentEntity.entitySprite.name;
     }
 
     private void Update()
@@ -138,6 +140,11 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         {
             if (onHitSprites.type == currentEntity.type)
             {
+                if (onHitSprites.type != ENTITY_TYPE.FRIENDLY && onHitSprites.name == this.name)
+                {
+                    continue;
+                }
+
                 for (int i = 1; i - 1 < onHitSprites.onHitSprites.Count; i++)
                 {
                     images[i].sprite = onHitSprites.onHitSprites[i - 1];

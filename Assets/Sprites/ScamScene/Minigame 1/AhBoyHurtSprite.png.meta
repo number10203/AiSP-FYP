@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: d3709decd200022468a7a10d96373799
+guid: 2c445f6052b93d146bede840f5d1421c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6663041640970127073
-    second: ScammerHurtSprite_0
+      213: 2196950525547950466
+    second: AhBoyHurtSprite_0
   - first:
-      213: -8803928067744896879
-    second: ScammerHurtSprite_1
+      213: 3517947324380041804
+    second: AhBoyHurtSprite_1
   - first:
-      213: 9168831233324564301
-    second: ScammerHurtSprite_2
+      213: -2746689551370366082
+    second: AhBoyHurtSprite_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ScammerHurtSprite_0
+      name: AhBoyHurtSprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,14 +114,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e609a5f111e77c50800000000000000
-      internalID: 6663041640970127073
+      spriteID: 281b460fcd22d7e10800000000000000
+      internalID: 2196950525547950466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScammerHurtSprite_1
+      name: AhBoyHurtSprite_1
       rect:
         serializedVersion: 2
         x: 512
@@ -135,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19869fd411a22d580800000000000000
-      internalID: -8803928067744896879
+      spriteID: c425530e37242d030800000000000000
+      internalID: 3517947324380041804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScammerHurtSprite_2
+      name: AhBoyHurtSprite_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4f31db9d6b3e3f70800000000000000
-      internalID: 9168831233324564301
+      spriteID: e73da46d76cc1e9d0800000000000000
+      internalID: -2746689551370366082
       vertices: []
       indices: 
       edges: []
