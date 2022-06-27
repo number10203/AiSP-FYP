@@ -140,9 +140,9 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         AssignSpritesForOnHit();
 
         yield return null;
-        entityAnimator.Play("Entity_OnHit");
+        entityAnimator.SetTrigger("HitEntity");
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         entityAnimator.SetTrigger("DespawnEntity");
     }
 
@@ -160,14 +160,6 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
                 for (int i = 1; i - 1 < onHitSprites.onHitSprites.Count; i++)
                 {
                     images[i].sprite = onHitSprites.onHitSprites[i - 1];
-
-                    //RectTransform[] thisTransforms = this.gameObject.GetComponentsInChildren<RectTransform>(true);
-                    //thisTransforms[i].sizeDelta = new Vector2(onHitSprites.onHitSprites[i - 1].rect.width * 0.02f, onHitSprites.onHitSprites[i - 1].rect.height * 0.02f);
-                    //Vector3 newPosition = new Vector3();
-                    //newPosition.x = thisTransforms[0].position.x + (onHitSprites.onHitSprites[i - 1].rect.width - currentEntity.entitySprite.rect.width);
-                    //newPosition.y = thisTransforms[0].position.y + (onHitSprites.onHitSprites[i - 1].rect.height - currentEntity.entitySprite.rect.height);
-                    //
-                    //thisTransforms[0].position = newPosition;
                 }
                 break;
             }
