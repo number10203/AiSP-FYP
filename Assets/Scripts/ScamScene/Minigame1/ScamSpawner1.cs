@@ -32,7 +32,7 @@ public class ScamSpawner1 : MonoBehaviour
         Instance = this;
         //starttime += Time.time;
 
-        spawnspeed = 1;
+        spawnspeed = 10;
 
 
         SetSpawnPoints(rows, columns, 400, 200, 75, -75);
@@ -72,7 +72,7 @@ public class ScamSpawner1 : MonoBehaviour
         {
             StartCoroutine(SpawnScammer(20 * spawnspeed));
             //waiting time for one wave
-            yield return new WaitForSeconds(55);
+            yield return new WaitForSeconds(50);
             //checks what wave it is
             wavecheck += 1;
             //increase speed

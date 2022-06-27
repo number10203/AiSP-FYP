@@ -66,8 +66,10 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         //}
         int spawnPointIndex = spawnPoint.GetSiblingIndex();
         if (spawnPointIndex == 0)
-            spawnPointIndex = 1;
+            spawnPointIndex++;
         float rowOfSpawnPoint = Mathf.Ceil((float) spawnPointIndex / (float) ScamSpawner1.Instance.columns);
+        if (spawnPointIndex % ScamSpawner1.Instance.columns == 0)
+            rowOfSpawnPoint++;
         rend.overrideSorting = true;
         rend.sortingOrder = (int) rowOfSpawnPoint;
 

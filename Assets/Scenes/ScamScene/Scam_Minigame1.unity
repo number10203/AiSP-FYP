@@ -1615,7 +1615,7 @@ MonoBehaviour:
   loseAudio: {fileID: 0}
   winAudio: {fileID: 0}
   minigame: {fileID: 1562362478}
-  secondsUntilFinish: 60
+  secondsUntilFinish: 100
 --- !u!114 &779635398
 MonoBehaviour:
   m_ObjectHideFlags: 0
