@@ -12,6 +12,7 @@ TagManager:
   - RealVirus
   - FakeVirus
   - MalwarePopup
+  - ScamCutscene
   layers:
   - Default
   - TransparentFX

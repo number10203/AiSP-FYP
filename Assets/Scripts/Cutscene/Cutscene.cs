@@ -20,11 +20,19 @@ public class Cutscene : MonoBehaviour
 
     public void PlayUnskippable()
     {
+        if (unskippable == null)
+        {
+            Debug.LogError("No unskippable dialogue provided");
+            return;
+        }
         audioManager.Play(unskippable);
     }
 
     public void SkipCutscene()
     {
+        AudioSource audioSource = this.GetComponent<AudioSource>();
+        if (audioSource != null)
+            audioSource.Stop();
         skipButton.SetActive(false);
     }
 }

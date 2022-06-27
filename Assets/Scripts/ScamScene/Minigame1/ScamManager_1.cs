@@ -8,42 +8,40 @@ using UnityEngine.UI;
 
 public class ScamManager_1 : MonoBehaviour
 {
-    //change to whack a mole
-
-    // Public variables
-    public TextMeshProUGUI scoreText;
-    //public TextMeshProUGUI endScoreText;
     public static ScamManager_1 Instance
     {
         get; private set;
     }
 
-    //public GameObject confettiParticle, stripesGameobject;
+    [Header("UI References")]
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI endScoreText;
+    public GameObject infographic;
+    public AudioClip BGM;
+    [SerializeField] private GameObject startingFade, sceneTransition;
+    [SerializeField] private GameObject startCutscene;
+    [SerializeField] private CutsceneSubtitleManager subtitleManager;
+    [SerializeField] private GameObject instructions;
+    [SerializeField] private GameObject results;
 
-    //public GameObject infographic;
+    [Header ("Audio References")]
+    [SerializeField] private AudioClip loseAudio;
+    [SerializeField] private AudioClip winAudio;
+    [SerializeField] private AudioClip startCutscene_1;
+    private AudioManager audioManager;
 
-    //public Slider scoreSlider;
-
-    //public AudioClip BGM;
-
-    // Private variables
-    //[SerializeField] private GameObject startingFade, sceneTransition;
+    [Header ("Minigame References")]
+    [SerializeField] private GameObject minigame;
+    [SerializeField] private float secondsUntilFinish;
 
     //[SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
-    [SerializeField] private GameObject minigame, scoreUI;
-    //[SerializeField] private GameObject endCutscene;
-    //[SerializeField] private CutsceneSubtitleManager subtitleManager;
-    //[SerializeField] private AudioClip loseAudio, winAudio;
-    //[SerializeField] private GameObject instructions1, instructions2, results;
-    //[SerializeField] private CanvasGroup canvasGroup;
-    //[SerializeField] private GameObject[] productLists;
-    //[SerializeField] private GameObject tick, cross;
+    private GameObject cutsceneAudio;
 
     internal int score = 0;
+    private int counter = 0;
     private bool gameEnd = false;
-
-    private AudioManager audioManager;
 
     private void Awake()
     {
@@ -60,76 +58,91 @@ public class ScamManager_1 : MonoBehaviour
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         InitGameObjects();
-
-        //score = GameManager.INSTANCE.currentShoppingScore;
         //audioManager.PlayMusic(BGM);
     }
 
     private void FixedUpdate()
     {
-        //if (results.activeInHierarchy == true)
-        //{
-        //    stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
-        //    endScoreText.text = "Total Score: " + localScore;
+        if (score < 0)
+            score = 0;
 
-        //    if (localScore != score)
-        //    {
-        //        localScore += 10;
-
-        //        scoreSlider.value = Mathf.Lerp(600, localScore, 1.0f);
-        //    }
-        //    else
-        //    {
-        //        if (score >= 600)
-        //        {
-        //            confettiParticle.SetActive(true);
-        //        }
-
-        //        //Play End Star sound here
-        //        //audioManager.(starEnd);
-
-        //        if (!starPlay)
-        //        {
-        //            audioManager.PlayAndGetObject(starEnd);
-        //            starPlay = true;
-        //        }
-        //    }
-        //}
+        scoreText.text = "Score: " + score;
+        
     }
 
     private void Update()
     {
-   
+        if (minigame.activeInHierarchy)
+        {
+            secondsUntilFinish -= Time.deltaTime;
+            timerText.text = "Time Left: " + (int) secondsUntilFinish + "s";
 
-        scoreText.text = "Score: " + score;
+            if (secondsUntilFinish <= 0.0f)
+            {
+                gameEnd = true;
+            }
+        }
+
+        if (gameEnd)
+        {
+            results.SetActive(true);
+            minigame.SetActive(false);
+
+            if (counter != score)
+            {
+                counter += 5;
+                endScoreText.text = "Score: " + counter;
+            }
+        }
     }
 
     private void InitGameObjects()
     {
+        // Init transitions
+        startingFade.SetActive(true);
+        sceneTransition.SetActive(false);
 
-        minigame.SetActive(true);
-        //resultsScreen.SetActive(false);
-        //results.SetActive(false);
-        scoreUI.SetActive(true);
-
+        // Init cutscene
+        startCutscene.SetActive(true);
+        infographic.SetActive(false);
+        instructions.SetActive(false);
+        minigame.SetActive(false);
+        results.SetActive(false);
+        cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
+        subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
+        StartCoroutine(TransitionToGame(30f));
     }
 
-    public void NextInstruction()
+    private IEnumerator TransitionToGame(float time)
     {
-        //instructions1.SetActive(false);
-        //instructions2.SetActive(true);
+        yield return new WaitForSeconds(time);
+
+        sceneTransition.SetActive(true);
+
+        yield return new WaitForSeconds(1.3f);
+
+        startCutscene.SetActive(false);
+        instructions.gameObject.SetActive(true);
+        sceneTransition.SetActive(false);
+        startingFade.SetActive(true);
+        //audioManager.PlayMusic(music);
     }
 
-    public void PrevInstruction()
+    public void SkipCutscene()
     {
-        //instructions1.SetActive(true);
-        //instructions2.SetActive(false);
+        subtitleManager.SetTimer(22.00f);
+        startCutscene.GetComponent<Cutscene>().SkipCutscene();
+        startCutscene.GetComponent<Animator>().Play("AhHuatStartingCutscene_Unskippable");
+
+        Destroy(cutsceneAudio.gameObject);
+        StopAllCoroutines();
+        StartCoroutine(TransitionToGame(5f));
     }
 
     public void StartGame()
     {
-        //instructions2.gameObject.SetActive(false);
-        scoreUI.SetActive(true);
+        instructions.gameObject.SetActive(false);
+        minigame.gameObject.SetActive(true);
         //canvasGroup.blocksRaycasts = true;
     }
 
@@ -142,89 +155,6 @@ public class ScamManager_1 : MonoBehaviour
     {
         score += 50;
         yield return new WaitForSeconds(1f);
-    }
-
-    //private IEnumerator DoBuyProduct()
-    //{
-    //canvasGroup.blocksRaycasts = false;
-
-    //GameObject buttonPressed = EventSystem.current.currentSelectedGameObject;
-    //GameObject ui = null;
-
-    //if (buttonPressed.transform.parent.CompareTag("ScamPurchase"))
-    //{
-    //    ui = Instantiate(cross, buttonPressed.transform.parent.transform);
-    //    audioManager.Play(wrongEffect);
-
-    //    if (score <= 50)
-    //    {
-    //        score = 0;
-    //    }
-    //    else
-    //    {
-    //        score -= 100;
-    //    }
-    //}
-    //else
-    //{
-    //    ++correct;
-
-    //    ui = Instantiate(tick, buttonPressed.transform.parent.transform);
-    //    audioManager.Play(correctEffect);
-
-    //    score += 150;
-    //}
-
-    //yield return new WaitForSeconds(1f);
-
-    //// Bring to next stage
-    //if (qnNumber == 2)
-    //{
-    //    PlayCutscene();
-    //}
-    //else
-    //{
-    //    for (int i = 0; i < productLists.Length; ++i)
-    //    {
-    //        LeanTween.moveLocalY(productLists[i], productLists[i].transform.localPosition.y + 800f, 1f).setEaseInOutBack();
-    //        audioManager.Play(swooshEffect);
-    //    }
-    //}
-
-    //++qnNumber;
-
-    //yield return new WaitForSeconds(1f);
-
-    //canvasGroup.blocksRaycasts = true;
-    //Destroy(ui);
-    //}
-
-
-
-
-
-    private void PlayCutscene()
-    {
-        audioManager.StopMusic();
-
-        minigame.SetActive(false);
-        //resultsScreen.SetActive(true);
-        //endCutscene.SetActive(true);
-
-        //if (score >= 600)
-        //{
-        //    subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
-        //    endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
-        //    audioManager.Play(winAudio);
-        //    StartCoroutine(StopCutscene(17f));
-        //}
-        //else
-        //{
-        //    subtitleManager.InitSubtitles("Jennie_Cutscene2_Eng");
-        //    endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
-        //    audioManager.Play(loseAudio);
-        //    StartCoroutine(StopCutscene(6f));
-        //}
     }
 
     private IEnumerator StopCutscene(float time)
@@ -242,7 +172,13 @@ public class ScamManager_1 : MonoBehaviour
 
     public void ShowInfoGraphic()
     {
-        //infographic.SetActive(true);
+        results.SetActive(false);
+        infographic.SetActive(true);
+    }
+    public void NextMinigame()
+    {
+        sceneTransition.SetActive(true);
+        SceneController.INSTANCE.LoadSceneAsync(7);
     }
 
     public void BackToMainMenu()

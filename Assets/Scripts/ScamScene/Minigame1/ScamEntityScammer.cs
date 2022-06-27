@@ -4,9 +4,4 @@ using UnityEngine;
 
 public class ScamEntityScammer : ScamEntity
 {
-    new void RunOnClick()
-    {
-        Debug.Log("wham2");
-        base.OnClickkk();
-    }
 }

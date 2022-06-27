@@ -125,11 +125,11 @@ public class ScamMinigame2Manager : MonoBehaviour
         //startingFade.SetActive(true);
         //sceneTransition.SetActive(false);
 
-        minigame.SetActive(true);
+        minigame.SetActive(false);
         resultsScreen.SetActive(false);
         //endCutscene.gameObject.SetActive(false);
         //canvasGroup.blocksRaycasts = false;
-        instructions1.gameObject.SetActive(true);
+        instructions1.gameObject.SetActive(false);
         instructions2.gameObject.SetActive(false);
         results.SetActive(false);
         scoreUI.SetActive(false);

@@ -95,6 +95,8 @@ public class ShoppingSceneManager : MonoBehaviour
         // Init GUI
         objectivesObj.SetActive(false);
         endPanel.SetActive(false);
+
+ 
     }
 
     private IEnumerator TransitionToGame(float time)
@@ -117,6 +119,7 @@ public class ShoppingSceneManager : MonoBehaviour
         cutsceneSubtitles.SetTimer(27.05f);
         cutscene.SkipCutscene();
         cutsceneObj.GetComponent<Animator>().Play("JennieStartCutscene_Unskippable");
+
         Destroy(cutsceneAudio.gameObject);
         StopAllCoroutines();
         StartCoroutine(TransitionToGame(3f));
