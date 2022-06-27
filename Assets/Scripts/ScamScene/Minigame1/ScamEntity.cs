@@ -78,6 +78,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         rend.sortingOrder = (int) rowOfSpawnPoint;
 
         this.name = currentEntity.entitySprite.name;
+        entityAnimator.Play("Entity_Spawn");
     }
 
     private void Update()
