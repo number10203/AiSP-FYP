@@ -1234,7 +1234,7 @@ RectTransform:
   m_Children:
   - {fileID: 1815482930}
   m_Father: {fileID: 1668947472}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5189,6 +5189,7 @@ MonoBehaviour:
   correctEffect: {fileID: 8300000, guid: d56de7413cf16204180117210dacef68, type: 3}
   wrongEffect: {fileID: 8300000, guid: 4c6b2c9ffff7c594ea4cfb2918f3385c, type: 3}
   swooshEffect: {fileID: 0}
+  startingFade: {fileID: 2003003611}
   minigame: {fileID: 1161797379}
   resultsScreen: {fileID: 1276573388}
   scoreUI: {fileID: 379782609}
@@ -12818,10 +12819,10 @@ RectTransform:
   m_Children:
   - {fileID: 1161797380}
   - {fileID: 1276573389}
-  - {fileID: 2003003612}
   - {fileID: 2059098094}
   - {fileID: 1693492188}
   - {fileID: 147145630}
+  - {fileID: 2003003612}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12879,7 +12880,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1668947472}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14046,7 +14047,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1668947472}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14702,7 +14703,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1668947472}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
