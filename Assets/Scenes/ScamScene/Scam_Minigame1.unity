@@ -2737,9 +2737,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 779635394}
-        m_TargetAssemblyTypeName: ShoppingSceneManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 779635397}
+        m_TargetAssemblyTypeName: ScamManager_1, Assembly-CSharp
+        m_MethodName: NextMinigame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
