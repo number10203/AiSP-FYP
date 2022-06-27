@@ -196,7 +196,8 @@ public class ScamManager_1 : MonoBehaviour
 
     public void ShowInfoGraphic()
     {
-        //infographic.SetActive(true);
+        results.SetActive(false);
+        infographic.SetActive(true);
     }
 
     public void BackToMainMenu()
