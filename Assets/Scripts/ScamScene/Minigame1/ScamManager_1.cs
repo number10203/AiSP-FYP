@@ -28,6 +28,7 @@ public class ScamManager_1 : MonoBehaviour
     [Header ("Audio References")]
     [SerializeField] private AudioClip loseAudio;
     [SerializeField] private AudioClip winAudio;
+    [SerializeField] private AudioClip startCutscene_1;
     private AudioManager audioManager;
 
     [Header ("Minigame References")]
@@ -36,6 +37,7 @@ public class ScamManager_1 : MonoBehaviour
 
     //[SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
+    private GameObject cutsceneAudio;
 
     internal int score = 0;
     private int counter = 0;
@@ -106,7 +108,7 @@ public class ScamManager_1 : MonoBehaviour
         instructions.SetActive(false);
         minigame.SetActive(false);
         results.SetActive(false);
-        //cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
+        cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
         subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
         StartCoroutine(TransitionToGame(30f));
     }
@@ -128,12 +130,13 @@ public class ScamManager_1 : MonoBehaviour
 
     public void SkipCutscene()
     {
-        subtitleManager.SetTimer(27.05f);
+        subtitleManager.SetTimer(22.00f);
         startCutscene.GetComponent<Cutscene>().SkipCutscene();
         startCutscene.GetComponent<Animator>().Play("AhHuatStartingCutscene_Unskippable");
-        //destroy OR stop audio related to cutscene
+
+        Destroy(cutsceneAudio.gameObject);
         StopAllCoroutines();
-        StartCoroutine(TransitionToGame(3f));
+        StartCoroutine(TransitionToGame(5f));
     }
 
     public void StartGame()
