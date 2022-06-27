@@ -32,7 +32,7 @@ public class ScamSpawner1 : MonoBehaviour
         Instance = this;
         //starttime += Time.time;
 
-        spawnspeed = 5;
+        spawnspeed = 3;
 
 
         SetSpawnPoints(rows, columns, 400, 200, 75, -75);
