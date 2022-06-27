@@ -108,6 +108,9 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData p)
     {
+        if (wasHit)
+            return;
+
         wasHit = true;
         if (currentEntity.score <= 0)
         {
@@ -123,13 +126,23 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
 
         if (entityAnimator != null)
         {
-            AssignSpritesForOnHit();
-            entityAnimator.Play("Entity_OnHit");
+            StartCoroutine(AnimateOnHit());
         }
         else
         {
             DespawnEntity();
         }
+    }
+
+    IEnumerator AnimateOnHit()
+    {
+        AssignSpritesForOnHit();
+
+        yield return null;
+        entityAnimator.Play("Entity_OnHit");
+
+        yield return new WaitForSeconds(2f);
+        entityAnimator.SetTrigger("DespawnEntity");
     }
 
     public void AssignSpritesForOnHit()
@@ -140,14 +153,20 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         {
             if (onHitSprites.type == currentEntity.type)
             {
-                if (onHitSprites.type != ENTITY_TYPE.FRIENDLY && onHitSprites.name == this.name)
-                {
+                if (onHitSprites.name != this.name && onHitSprites.type == ENTITY_TYPE.FRIENDLY)
                     continue;
-                }
 
                 for (int i = 1; i - 1 < onHitSprites.onHitSprites.Count; i++)
                 {
                     images[i].sprite = onHitSprites.onHitSprites[i - 1];
+
+                    //RectTransform[] thisTransforms = this.gameObject.GetComponentsInChildren<RectTransform>(true);
+                    //thisTransforms[i].sizeDelta = new Vector2(onHitSprites.onHitSprites[i - 1].rect.width * 0.02f, onHitSprites.onHitSprites[i - 1].rect.height * 0.02f);
+                    //Vector3 newPosition = new Vector3();
+                    //newPosition.x = thisTransforms[0].position.x + (onHitSprites.onHitSprites[i - 1].rect.width - currentEntity.entitySprite.rect.width);
+                    //newPosition.y = thisTransforms[0].position.y + (onHitSprites.onHitSprites[i - 1].rect.height - currentEntity.entitySprite.rect.height);
+                    //
+                    //thisTransforms[0].position = newPosition;
                 }
                 break;
             }

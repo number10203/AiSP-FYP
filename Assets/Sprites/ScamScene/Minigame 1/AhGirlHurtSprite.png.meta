@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: 6171715312439252644
     second: AhGirlHurtSprite_2
+  - first:
+      213: -3872526495606649317
+    second: AhGirlHurtSprite_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,8 +108,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
-        height: 512
+        width: 200
+        height: 291
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,8 +129,8 @@ TextureImporter:
         serializedVersion: 2
         x: 512
         y: 0
-        width: 512
-        height: 512
+        width: 200
+        height: 291
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +150,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1024
         y: 0
-        width: 512
-        height: 512
+        width: 200
+        height: 291
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +159,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a6d7c4a06656a550800000000000000
-      internalID: 6171715312439252644
+      spriteID: b1ec3167ba5024ac0800000000000000
+      internalID: -3872526495606649317
       vertices: []
       indices: 
       edges: []

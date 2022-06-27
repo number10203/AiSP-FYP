@@ -198,20 +198,29 @@ MonoBehaviour:
     timedie: 5
   onHitSpritesCollection:
   - type: 0
+    name: AhBoy
     onHitSprites:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 2196950525547950466, guid: 2c445f6052b93d146bede840f5d1421c, type: 3}
+    - {fileID: 3517947324380041804, guid: 2c445f6052b93d146bede840f5d1421c, type: 3}
+    - {fileID: -2746689551370366082, guid: 2c445f6052b93d146bede840f5d1421c, type: 3}
+  - type: 0
+    name: AhGirl
+    onHitSprites:
+    - {fileID: 3131366547140161936, guid: 2380c1ccb49fa30419f26fe2e2b102f8, type: 3}
+    - {fileID: -7343026058020496332, guid: 2380c1ccb49fa30419f26fe2e2b102f8, type: 3}
+    - {fileID: 6171715312439252644, guid: 2380c1ccb49fa30419f26fe2e2b102f8, type: 3}
   - type: 1
+    name: scammer
     onHitSprites:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 6663041640970127073, guid: 361858281e4a5c146b96d1af1427d50c, type: 3}
+    - {fileID: -8803928067744896879, guid: 361858281e4a5c146b96d1af1427d50c, type: 3}
+    - {fileID: 9168831233324564301, guid: 361858281e4a5c146b96d1af1427d50c, type: 3}
   - type: 2
+    name: unknown
     onHitSprites:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: -7268587551469934031, guid: 0bda406935dc5994e84028604636556f, type: 3}
+    - {fileID: -5648693526544465684, guid: 0bda406935dc5994e84028604636556f, type: 3}
+    - {fileID: 4134462508519648209, guid: 0bda406935dc5994e84028604636556f, type: 3}
 --- !u!61 &3872068042971755836
 BoxCollider2D:
   m_ObjectHideFlags: 0
