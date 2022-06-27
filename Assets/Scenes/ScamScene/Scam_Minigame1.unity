@@ -561,7 +561,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 9999'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 7009b2b85a289904cb93c8f2b091870c, type: 2}
@@ -1363,7 +1363,7 @@ MonoBehaviour:
   loseAudio: {fileID: 0}
   winAudio: {fileID: 0}
   minigame: {fileID: 1562362478}
-  secondsUntilFinish: 5
+  secondsUntilFinish: 60
 --- !u!114 &779635398
 MonoBehaviour:
   m_ObjectHideFlags: 0
