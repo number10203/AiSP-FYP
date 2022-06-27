@@ -30,6 +30,9 @@ public class Cutscene : MonoBehaviour
 
     public void SkipCutscene()
     {
+        AudioSource audioSource = this.GetComponent<AudioSource>();
+        if (audioSource != null)
+            audioSource.Stop();
         skipButton.SetActive(false);
     }
 }

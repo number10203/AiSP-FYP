@@ -13,8 +13,6 @@ public class ScamManager_1 : MonoBehaviour
         get; private set;
     }
 
-    //public GameObject confettiParticle, stripesGameobject;
-
     [Header("UI References")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
@@ -23,7 +21,6 @@ public class ScamManager_1 : MonoBehaviour
     public AudioClip BGM;
     [SerializeField] private GameObject startingFade, sceneTransition;
     [SerializeField] private GameObject startCutscene;
-    [SerializeField] private GameObject endCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject results;
@@ -94,31 +91,6 @@ public class ScamManager_1 : MonoBehaviour
                 counter += 5;
                 endScoreText.text = "Score: " + counter;
             }
-            //stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
-            //endScoreText.text = "Total Score: " + localScore;
-            //
-            //if (localScore != score)
-            //{
-            //    localScore += 10;
-            //
-            //    scoreSlider.value = Mathf.Lerp(600, localScore, 1.0f);
-            //}
-            //else
-            //{
-            //    if (score >= 600)
-            //    {
-            //        confettiParticle.SetActive(true);
-            //    }
-            //
-            //    //Play End Star sound here
-            //    //audioManager.(starEnd);
-            //
-            //    if (!starPlay)
-            //    {
-            //        audioManager.PlayAndGetObject(starEnd);
-            //        starPlay = true;
-            //    }
-            //}
         }
     }
 
@@ -130,6 +102,7 @@ public class ScamManager_1 : MonoBehaviour
 
         // Init cutscene
         startCutscene.SetActive(true);
+        infographic.SetActive(false);
         instructions.SetActive(false);
         minigame.SetActive(false);
         results.SetActive(false);
@@ -196,7 +169,13 @@ public class ScamManager_1 : MonoBehaviour
 
     public void ShowInfoGraphic()
     {
-        //infographic.SetActive(true);
+        results.SetActive(false);
+        infographic.SetActive(true);
+    }
+    public void NextMinigame()
+    {
+        sceneTransition.SetActive(true);
+        SceneController.INSTANCE.LoadSceneAsync(7);
     }
 
     public void BackToMainMenu()
