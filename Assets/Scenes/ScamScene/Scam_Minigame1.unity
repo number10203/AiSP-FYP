@@ -1363,7 +1363,7 @@ MonoBehaviour:
   loseAudio: {fileID: 0}
   winAudio: {fileID: 0}
   minigame: {fileID: 1562362478}
-  secondsUntilFinish: 60
+  secondsUntilFinish: 5
 --- !u!114 &779635398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3361,7 +3361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1785496523
 RectTransform:
   m_ObjectHideFlags: 0
