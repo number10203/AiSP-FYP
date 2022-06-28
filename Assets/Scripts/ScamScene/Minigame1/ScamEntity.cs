@@ -140,8 +140,8 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
 
         if (entityAnimator != null)
         {
-            StartCoroutine(AnimateOnHit());
             audioManager.Play(Bonk);
+            StartCoroutine(AnimateOnHit());
         }
         else
         {
