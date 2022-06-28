@@ -15,6 +15,9 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
     private bool wasHit = false;
 
     [SerializeField]
+    private Sprite plusText, minusText;
+
+    [SerializeField]
     [Range(0, 100)]
     private int maximumTimeUntilSpawn;
 
@@ -92,6 +95,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         {
             if (currentEntity.score >= 0)
             {
+                this.GetComponentsInChildren<Image>(true)[4].sprite = minusText;
                 if (ScamManager_1.Instance.score != 0)
                 {
                     ScamManager_1.Instance.score -= currentEntity.score;
@@ -99,6 +103,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
             }
             else
             {
+                this.GetComponentsInChildren<Image>(true)[4].sprite = plusText;
                 ScamManager_1.Instance.score -= currentEntity.score;
             }
 
@@ -117,6 +122,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         wasHit = true;
         if (currentEntity.score <= 0)
         {
+            this.GetComponentsInChildren<Image>(true)[4].sprite = minusText;
             if (ScamManager_1.Instance.score != 0)
             {
                 ScamManager_1.Instance.score += currentEntity.score;
@@ -124,6 +130,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         }
         else
         {
+            this.GetComponentsInChildren<Image>(true)[4].sprite = plusText;
             ScamManager_1.Instance.score += currentEntity.score;
         }
 
