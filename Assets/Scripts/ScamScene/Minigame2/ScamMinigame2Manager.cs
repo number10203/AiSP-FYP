@@ -19,6 +19,7 @@ public class ScamMinigame2Manager : MonoBehaviour
 
     [SerializeField] private GameObject startingFade;
     [SerializeField] private GameObject minigame, resultsScreen, scoreUI, infoScreen;
+    [SerializeField] private GameObject minigamePhoneCanvas;
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
@@ -146,6 +147,7 @@ public class ScamMinigame2Manager : MonoBehaviour
     public void StartGame()
     {
         instructions.SetActive(false);
+        minigamePhoneCanvas.SetActive(true);
         scoreUI.SetActive(true);
         canvasGroup.blocksRaycasts = true;
     }
@@ -432,14 +434,16 @@ public class ScamMinigame2Manager : MonoBehaviour
 
         if (score >= 600)
         {
-            subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
+            subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
+            subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Eng");
             winCutscene.SetActive(true);
             audioManager.Play(winAudio);
-            StartCoroutine(StopCutscene(30f));
+            StartCoroutine(StopCutscene(32f));
         }
         else
         {
-            subtitleManager.InitSubtitles("Jennie_Cutscene2_Eng");
+            subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
+            subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
             loseCutscene.SetActive(true);
             audioManager.Play(loseAudio);
             StartCoroutine(StopCutscene(6f));
@@ -450,9 +454,9 @@ public class ScamMinigame2Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
+        results.SetActive(true);
         winCutscene.SetActive(false);
         loseCutscene.SetActive(false);
-        results.SetActive(true);
 
         if (score > GameManager.INSTANCE.globalScamScore)
         {
