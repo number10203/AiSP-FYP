@@ -433,14 +433,14 @@ public class ScamMinigame2Manager : MonoBehaviour
 
         if (score >= 600)
         {
-            subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
+            subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Eng");
             winCutscene.SetActive(true);
             audioManager.Play(winAudio);
-            StartCoroutine(StopCutscene(30f));
+            StartCoroutine(StopCutscene(32f));
         }
         else
         {
-            subtitleManager.InitSubtitles("Jennie_Cutscene2_Eng");
+            subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
             loseCutscene.SetActive(true);
             audioManager.Play(loseAudio);
             StartCoroutine(StopCutscene(6f));
@@ -459,5 +459,19 @@ public class ScamMinigame2Manager : MonoBehaviour
         {
             GameManager.INSTANCE.globalScamScore = score;
         }
+    }
+    public void ShowInfoGraphic()
+    {
+        results.SetActive(false);
+        infoScreen.SetActive(true);
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneController.INSTANCE.LoadScene(1);
+    }
+    public void RestartLevel()
+    {
+        SceneController.INSTANCE.Retry();
     }
 }
