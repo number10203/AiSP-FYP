@@ -87,6 +87,7 @@ public class ScamManager_1 : MonoBehaviour
         {
             results.SetActive(true);
             minigame.SetActive(false);
+            GameManager.INSTANCE.currentScamScore = score;
 
             if (counter != score)
             {
