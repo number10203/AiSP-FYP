@@ -93,7 +93,7 @@ public class LevelSelectManager : MonoBehaviour
         }
         else if (scamScore >= 900)
         {
-            foreach (GameObject gameObject in malwareStars)
+            foreach (GameObject gameObject in scamStars)
             {
                 gameObject.SetActive(true);
             }
