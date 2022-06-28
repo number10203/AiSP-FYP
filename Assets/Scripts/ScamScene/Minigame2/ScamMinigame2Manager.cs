@@ -435,7 +435,7 @@ public class ScamMinigame2Manager : MonoBehaviour
         if (score >= 600)
         {
             subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
+            subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Eng");
             winCutscene.SetActive(true);
             audioManager.Play(winAudio);
             StartCoroutine(StopCutscene(32f));
