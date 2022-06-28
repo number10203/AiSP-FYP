@@ -5250,7 +5250,7 @@ MonoBehaviour:
   loseCutscene: {fileID: 743874068}
   subtitleManager: {fileID: 700458204}
   loseAudio: {fileID: 8300000, guid: c4a3e57f33462954a837cda616f60cc4, type: 3}
-  winAudio: {fileID: 0}
+  winAudio: {fileID: 8300000, guid: 0fd043d79de91b64d9a74c3ecf3006dd, type: 3}
   results: {fileID: 726536849}
   canvasGroup: {fileID: 1410657250}
   MessageLists:
