@@ -18,7 +18,7 @@ public class ScamMinigame2Manager : MonoBehaviour
     [SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
     [SerializeField] private GameObject startingFade;
-    [SerializeField] private GameObject minigame, resultsScreen, scoreUI;
+    [SerializeField] private GameObject minigame, resultsScreen, scoreUI, infoScreen;
     [SerializeField] private GameObject endCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private AudioClip loseAudio, winAudio;
@@ -135,7 +135,7 @@ public class ScamMinigame2Manager : MonoBehaviour
         results.SetActive(false);
         scoreUI.SetActive(false);
         confettiParticle.SetActive(false);
-        //infographic.SetActive(false);
+        infoScreen.SetActive(false);
 
         foreach (GameObject gameObject in stars)
         {
@@ -445,9 +445,10 @@ public class ScamMinigame2Manager : MonoBehaviour
         if (score >= 600)
         {
             subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
-            endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
+            endCutscene.GetComponentsInChildren<RectTransform>()[1].gameObject.SetActive(true);
+            //endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
             audioManager.Play(winAudio);
-            StartCoroutine(StopCutscene(17f));
+            StartCoroutine(StopCutscene(30f));
         }
         else
         {
