@@ -435,7 +435,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
             winCutscene.SetActive(true);
             audioManager.Play(winAudio);
-            StartCoroutine(StopCutscene(30f));
+            StartCoroutine(StopCutscene(32f));
         }
         else
         {
@@ -450,9 +450,9 @@ public class ScamMinigame2Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
+        results.SetActive(true);
         winCutscene.SetActive(false);
         loseCutscene.SetActive(false);
-        results.SetActive(true);
 
         if (score > GameManager.INSTANCE.globalScamScore)
         {
