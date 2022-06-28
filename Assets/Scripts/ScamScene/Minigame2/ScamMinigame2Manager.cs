@@ -19,7 +19,6 @@ public class ScamMinigame2Manager : MonoBehaviour
 
     [SerializeField] private GameObject startingFade;
     [SerializeField] private GameObject minigame, resultsScreen, scoreUI, infoScreen;
-    [SerializeField] private GameObject minigamePhoneCanvas;
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
@@ -46,6 +45,7 @@ public class ScamMinigame2Manager : MonoBehaviour
 
         score = GameManager.INSTANCE.currentScamScore;
         audioManager.PlayMusic(BGM);
+
     }
 
     private void FixedUpdate()
@@ -147,7 +147,6 @@ public class ScamMinigame2Manager : MonoBehaviour
     public void StartGame()
     {
         instructions.SetActive(false);
-        minigamePhoneCanvas.SetActive(true);
         scoreUI.SetActive(true);
         canvasGroup.blocksRaycasts = true;
     }
@@ -434,16 +433,14 @@ public class ScamMinigame2Manager : MonoBehaviour
 
         if (score >= 600)
         {
-            subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
             subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
             winCutscene.SetActive(true);
             audioManager.Play(winAudio);
-            StartCoroutine(StopCutscene(32f));
+            StartCoroutine(StopCutscene(30f));
         }
         else
         {
-            subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
+            subtitleManager.InitSubtitles("Jennie_Cutscene2_Eng");
             loseCutscene.SetActive(true);
             audioManager.Play(loseAudio);
             StartCoroutine(StopCutscene(6f));
@@ -454,9 +451,9 @@ public class ScamMinigame2Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        results.SetActive(true);
         winCutscene.SetActive(false);
         loseCutscene.SetActive(false);
+        results.SetActive(true);
 
         if (score > GameManager.INSTANCE.globalScamScore)
         {
