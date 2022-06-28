@@ -15,6 +15,9 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
     private bool wasHit = false;
 
     [SerializeField]
+    private Sprite plusText, minusText;
+
+    [SerializeField]
     [Range(0, 100)]
     private int maximumTimeUntilSpawn;
 
@@ -40,6 +43,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
     public struct OnHitSpriteTypes
     {
         public ENTITY_TYPE type;
+        public string name;
         public List<Sprite> onHitSprites;
     }
 
@@ -76,39 +80,49 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         rend.overrideSorting = true;
         rend.sortingOrder = (int) rowOfSpawnPoint;
 
+        this.name = currentEntity.entitySprite.name;
+        entityAnimator.Play("Entity_Spawn");
     }
 
     private void Update()
     {
-        if (!wasHit)
-            currentEntity.timealive += Time.deltaTime;
+        if (wasHit)
+            return;
+        
+        currentEntity.timealive += Time.deltaTime;
 
         if (currentEntity.timealive >= currentEntity.timedie)
         {
             if (currentEntity.score >= 0)
             {
+                this.GetComponentsInChildren<Image>(true)[4].sprite = minusText;
                 if (ScamManager_1.Instance.score != 0)
                 {
-                    ScamManager_1.Instance.score -= currentEntity.score / 2;
+                    ScamManager_1.Instance.score -= currentEntity.score;
                 }
             }
             else
             {
+                this.GetComponentsInChildren<Image>(true)[4].sprite = plusText;
                 ScamManager_1.Instance.score -= currentEntity.score;
             }
 
-            this.gameObject.SetActive(false);
-            spawnPoint.gameObject.SetActive(true);
-            ScamSpawner1.Instance.DeleteEntity(this.transform.parent.gameObject);
+            this.GetComponentsInChildren<Image>(true)[3].sprite = currentEntity.entitySprite;
+            entityAnimator.SetTrigger("DespawnEntity");
+            wasHit = true;
         }
 
     }
 
     public void OnPointerDown(PointerEventData p)
     {
+        if (wasHit)
+            return;
+
         wasHit = true;
         if (currentEntity.score <= 0)
         {
+            this.GetComponentsInChildren<Image>(true)[4].sprite = minusText;
             if (ScamManager_1.Instance.score != 0)
             {
                 ScamManager_1.Instance.score += currentEntity.score;
@@ -116,18 +130,29 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         }
         else
         {
+            this.GetComponentsInChildren<Image>(true)[4].sprite = plusText;
             ScamManager_1.Instance.score += currentEntity.score;
         }
 
         if (entityAnimator != null)
         {
-            AssignSpritesForOnHit();
-            entityAnimator.Play("Entity_OnHit");
+            StartCoroutine(AnimateOnHit());
         }
         else
         {
             DespawnEntity();
         }
+    }
+
+    IEnumerator AnimateOnHit()
+    {
+        AssignSpritesForOnHit();
+
+        yield return null;
+        entityAnimator.SetTrigger("HitEntity");
+
+        yield return new WaitForSeconds(1f);
+        entityAnimator.SetTrigger("DespawnEntity");
     }
 
     public void AssignSpritesForOnHit()
@@ -138,6 +163,9 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         {
             if (onHitSprites.type == currentEntity.type)
             {
+                if (onHitSprites.name != this.name && onHitSprites.type == ENTITY_TYPE.FRIENDLY)
+                    continue;
+
                 for (int i = 1; i - 1 < onHitSprites.onHitSprites.Count; i++)
                 {
                     images[i].sprite = onHitSprites.onHitSprites[i - 1];

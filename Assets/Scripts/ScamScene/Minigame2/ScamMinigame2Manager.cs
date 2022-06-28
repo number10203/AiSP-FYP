@@ -17,11 +17,12 @@ public class ScamMinigame2Manager : MonoBehaviour
     private bool starPlay = false;
     [SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
-    [SerializeField] private GameObject minigame, resultsScreen, scoreUI;
-    [SerializeField] private GameObject endCutscene;
+    [SerializeField] private GameObject startingFade;
+    [SerializeField] private GameObject minigame, resultsScreen, scoreUI, infoScreen;
+    [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private AudioClip loseAudio, winAudio;
-    [SerializeField] private GameObject instructions1, instructions2, results;
+    [SerializeField] private GameObject results;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject[] MessageLists;
     [SerializeField] private GameObject tick, cross;
@@ -38,11 +39,10 @@ public class ScamMinigame2Manager : MonoBehaviour
     private void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-       
 
         InitGameObjects();
 
-        score = GameManager.INSTANCE.currentShoppingScore;
+        score = GameManager.INSTANCE.currentScamScore;
         audioManager.PlayMusic(BGM);
     }
 
@@ -122,40 +122,27 @@ public class ScamMinigame2Manager : MonoBehaviour
         star2Anim = false;
         star3Anim = false;
 
-        //startingFade.SetActive(true);
+        startingFade.SetActive(true);
         //sceneTransition.SetActive(false);
 
-        minigame.SetActive(false);
+        minigame.SetActive(true);
         resultsScreen.SetActive(false);
-        //endCutscene.gameObject.SetActive(false);
+        winCutscene.SetActive(false);
+        loseCutscene.SetActive(false);
         //canvasGroup.blocksRaycasts = false;
-        instructions1.gameObject.SetActive(false);
-        instructions2.gameObject.SetActive(false);
         results.SetActive(false);
         scoreUI.SetActive(false);
         confettiParticle.SetActive(false);
-        //infographic.SetActive(false);
+        infoScreen.SetActive(false);
 
         foreach (GameObject gameObject in stars)
         {
             gameObject.SetActive(false);
         }
     }
-    public void NextInstruction()
-    {
-        instructions1.SetActive(false);
-        instructions2.SetActive(true);
-    }
-
-    public void PrevInstruction()
-    {
-        instructions1.SetActive(true);
-        instructions2.SetActive(false);
-    }
 
     public void StartGame()
     {
-        instructions2.gameObject.SetActive(false);
         scoreUI.SetActive(true);
         canvasGroup.blocksRaycasts = true;
     }
@@ -439,19 +426,18 @@ public class ScamMinigame2Manager : MonoBehaviour
 
         minigame.SetActive(false);
         resultsScreen.SetActive(true);
-        endCutscene.SetActive(true);
 
         if (score >= 600)
         {
             subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
-            endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
+            winCutscene.SetActive(true);
             audioManager.Play(winAudio);
-            StartCoroutine(StopCutscene(17f));
+            StartCoroutine(StopCutscene(30f));
         }
         else
         {
             subtitleManager.InitSubtitles("Jennie_Cutscene2_Eng");
-            endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
+            loseCutscene.SetActive(true);
             audioManager.Play(loseAudio);
             StartCoroutine(StopCutscene(6f));
         }
@@ -461,7 +447,8 @@ public class ScamMinigame2Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        endCutscene.SetActive(false);
+        winCutscene.SetActive(false);
+        loseCutscene.SetActive(false);
         results.SetActive(true);
 
         if (score > GameManager.INSTANCE.globalShoppingScore)
