@@ -11,6 +11,8 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
     private BoxCollider2D inputCollider;
     private Image spriteRenderer;
     private Animator entityAnimator;
+    private AudioManager audioManager;
+    public AudioClip Bonk;
 
     private bool wasHit = false;
 
@@ -63,6 +65,8 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         inputCollider = this.GetComponent<BoxCollider2D>();
         spriteRenderer = this.GetComponent<Image>();
         entityAnimator = this.GetComponent<Animator>();
+
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         currentEntity = imagesCollection[Random.Range(0, imagesCollection.Count)];
         spriteRenderer.sprite = currentEntity.entitySprite;
@@ -137,6 +141,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         if (entityAnimator != null)
         {
             StartCoroutine(AnimateOnHit());
+            audioManager.Play(Bonk);
         }
         else
         {
