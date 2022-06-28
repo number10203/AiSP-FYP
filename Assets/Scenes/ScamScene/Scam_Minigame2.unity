@@ -5116,7 +5116,7 @@ MonoBehaviour:
   winCutscene: {fileID: 320758751}
   loseCutscene: {fileID: 0}
   subtitleManager: {fileID: 700458204}
-  loseAudio: {fileID: 0}
+  loseAudio: {fileID: 8300000, guid: c4a3e57f33462954a837cda616f60cc4, type: 3}
   winAudio: {fileID: 0}
   results: {fileID: 726536849}
   canvasGroup: {fileID: 1410657250}
