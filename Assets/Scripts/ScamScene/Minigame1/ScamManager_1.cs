@@ -58,7 +58,7 @@ public class ScamManager_1 : MonoBehaviour
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         InitGameObjects();
-        //audioManager.PlayMusic(BGM);
+        
     }
 
     private void FixedUpdate()
@@ -126,7 +126,7 @@ public class ScamManager_1 : MonoBehaviour
         instructions.gameObject.SetActive(true);
         sceneTransition.SetActive(false);
         startingFade.SetActive(true);
-        //audioManager.PlayMusic(music);
+        audioManager.PlayMusic(BGM);
     }
 
     public void SkipCutscene()
