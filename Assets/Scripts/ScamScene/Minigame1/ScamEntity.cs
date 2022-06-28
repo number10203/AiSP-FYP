@@ -83,8 +83,10 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
 
     private void Update()
     {
-        if (!wasHit)
-            currentEntity.timealive += Time.deltaTime;
+        if (wasHit)
+            return;
+        
+        currentEntity.timealive += Time.deltaTime;
 
         if (currentEntity.timealive >= currentEntity.timedie)
         {
@@ -92,7 +94,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
             {
                 if (ScamManager_1.Instance.score != 0)
                 {
-                    ScamManager_1.Instance.score -= currentEntity.score / 2;
+                    ScamManager_1.Instance.score -= currentEntity.score;
                 }
             }
             else
@@ -100,9 +102,9 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
                 ScamManager_1.Instance.score -= currentEntity.score;
             }
 
-            this.gameObject.SetActive(false);
-            spawnPoint.gameObject.SetActive(true);
-            ScamSpawner1.Instance.DeleteEntity(this.transform.parent.gameObject);
+            this.GetComponentsInChildren<Image>(true)[3].sprite = currentEntity.entitySprite;
+            entityAnimator.SetTrigger("DespawnEntity");
+            wasHit = true;
         }
 
     }
