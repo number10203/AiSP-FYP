@@ -165,9 +165,9 @@ public class ScamManager_1 : MonoBehaviour
         //endCutscene.SetActive(false);
         //results.SetActive(true);
 
-        if (score > GameManager.INSTANCE.globalShoppingScore)
+        if (score > GameManager.INSTANCE.globalScamScore)
         {
-            GameManager.INSTANCE.globalShoppingScore = score;
+            GameManager.INSTANCE.globalScamScore = score;
         }
     }
 
@@ -180,11 +180,6 @@ public class ScamManager_1 : MonoBehaviour
     {
         sceneTransition.SetActive(true);
         SceneController.INSTANCE.LoadSceneAsync(7);
-    }
-
-    public void BackToMainMenu()
-    {
-        SceneController.INSTANCE.LoadScene(1);
     }
 
     public void RestartLevel()
