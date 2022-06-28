@@ -443,7 +443,7 @@ public class ScamMinigame2Manager : MonoBehaviour
         else
         {
             subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("Jennie_Cutscene2_Eng");
+            subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
             loseCutscene.SetActive(true);
             audioManager.Play(loseAudio);
             StartCoroutine(StopCutscene(6f));
