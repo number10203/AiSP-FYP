@@ -19,6 +19,7 @@ public class ScamMinigame2Manager : MonoBehaviour
 
     [SerializeField] private GameObject startingFade;
     [SerializeField] private GameObject minigame, resultsScreen, scoreUI, infoScreen;
+    [SerializeField] private GameObject minigamePhoneCanvas;
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
@@ -146,6 +147,7 @@ public class ScamMinigame2Manager : MonoBehaviour
     public void StartGame()
     {
         instructions.SetActive(false);
+        minigamePhoneCanvas.SetActive(true);
         scoreUI.SetActive(true);
         canvasGroup.blocksRaycasts = true;
     }
