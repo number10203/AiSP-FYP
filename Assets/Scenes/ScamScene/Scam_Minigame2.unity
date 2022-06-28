@@ -2759,7 +2759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -712.83, y: 476.47}
+  m_AnchoredPosition: {x: 712.37006, y: 478.57}
   m_SizeDelta: {x: 495.26, y: 122.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &379782611
@@ -5091,7 +5091,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1486338551}
   endScoreText: {fileID: 679305427}
-  stars: []
+  stars:
+  - {fileID: 1118716481}
+  - {fileID: 44132486}
+  - {fileID: 524087380}
   confettiParticle: {fileID: 7625352986155355497}
   stripesGameobject: {fileID: 1141392731}
   scoreSlider: {fileID: 431003493}
@@ -8267,7 +8270,7 @@ RectTransform:
   m_Children:
   - {fileID: 1740331695}
   m_Father: {fileID: 1668947472}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12828,10 +12831,10 @@ RectTransform:
   m_Children:
   - {fileID: 1161797380}
   - {fileID: 1276573389}
+  - {fileID: 1084453854}
   - {fileID: 2003003612}
   - {fileID: 2059098094}
   - {fileID: 1693492188}
-  - {fileID: 1084453854}
   - {fileID: 147145630}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -12890,7 +12893,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1668947472}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14000,7 +14003,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1668947472}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14553,7 +14556,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1668947472}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
