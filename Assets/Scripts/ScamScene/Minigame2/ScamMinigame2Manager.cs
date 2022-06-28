@@ -19,6 +19,7 @@ public class ScamMinigame2Manager : MonoBehaviour
 
     [SerializeField] private GameObject startingFade;
     [SerializeField] private GameObject minigame, resultsScreen, scoreUI, infoScreen;
+    [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private AudioClip loseAudio, winAudio;
@@ -125,10 +126,11 @@ public class ScamMinigame2Manager : MonoBehaviour
         startingFade.SetActive(true);
         //sceneTransition.SetActive(false);
 
+        instructions.SetActive(true);
         minigame.SetActive(true);
         resultsScreen.SetActive(false);
         winCutscene.SetActive(false);
-        loseCutscene.SetActive(false);
+        //loseCutscene.SetActive(false);
         //canvasGroup.blocksRaycasts = false;
         results.SetActive(false);
         scoreUI.SetActive(false);
@@ -143,6 +145,7 @@ public class ScamMinigame2Manager : MonoBehaviour
 
     public void StartGame()
     {
+        instructions.SetActive(false);
         scoreUI.SetActive(true);
         canvasGroup.blocksRaycasts = true;
     }
@@ -451,9 +454,9 @@ public class ScamMinigame2Manager : MonoBehaviour
         loseCutscene.SetActive(false);
         results.SetActive(true);
 
-        if (score > GameManager.INSTANCE.globalShoppingScore)
+        if (score > GameManager.INSTANCE.globalScamScore)
         {
-            GameManager.INSTANCE.globalShoppingScore = score;
+            GameManager.INSTANCE.globalScamScore = score;
         }
     }
 }
