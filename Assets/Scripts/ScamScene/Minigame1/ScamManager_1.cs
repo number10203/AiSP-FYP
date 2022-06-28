@@ -58,7 +58,8 @@ public class ScamManager_1 : MonoBehaviour
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         InitGameObjects();
-        
+
+        GameManager.INSTANCE.currentScamScore = 0;
     }
 
     private void FixedUpdate()

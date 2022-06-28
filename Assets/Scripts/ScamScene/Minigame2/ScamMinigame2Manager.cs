@@ -125,14 +125,13 @@ public class ScamMinigame2Manager : MonoBehaviour
         star3Anim = false;
 
         startingFade.SetActive(true);
-        //sceneTransition.SetActive(false);
 
         instructions.SetActive(true);
         minigame.SetActive(true);
         resultsScreen.SetActive(false);
         winCutscene.SetActive(false);
-        //loseCutscene.SetActive(false);
-        //canvasGroup.blocksRaycasts = false;
+        loseCutscene.SetActive(false);
+        canvasGroup.blocksRaycasts = false;
         results.SetActive(false);
         scoreUI.SetActive(false);
         confettiParticle.SetActive(false);
@@ -147,6 +146,7 @@ public class ScamMinigame2Manager : MonoBehaviour
     public void StartGame()
     {
         instructions.SetActive(false);
+        canvasGroup.gameObject.SetActive(true);
         scoreUI.SetActive(true);
         canvasGroup.blocksRaycasts = true;
     }
@@ -433,6 +433,7 @@ public class ScamMinigame2Manager : MonoBehaviour
 
         if (score >= 600)
         {
+            subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
             subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Eng");
             winCutscene.SetActive(true);
             audioManager.Play(winAudio);
@@ -440,6 +441,7 @@ public class ScamMinigame2Manager : MonoBehaviour
         }
         else
         {
+            subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
             subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
             loseCutscene.SetActive(true);
             audioManager.Play(loseAudio);

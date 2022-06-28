@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LevelSelectManager : MonoBehaviour
 {
     // Public variables
-    public GameObject[] shoppingStars, malwareStars;
+    public GameObject[] shoppingStars, malwareStars, scamStars;
 
     // Private variables
     [SerializeField] private float buttonAnimScale = 1.2f;
@@ -34,6 +34,11 @@ public class LevelSelectManager : MonoBehaviour
         }
 
         foreach (GameObject i in malwareStars)
+        {
+            i.SetActive(false);
+        }
+
+        foreach (GameObject i in scamStars)
         {
             i.SetActive(false);
         }
@@ -70,6 +75,23 @@ public class LevelSelectManager : MonoBehaviour
             malwareStars[1].SetActive(true);
         }
         else if (malwareScore >= 900)
+        {
+            foreach (GameObject gameObject in malwareStars)
+            {
+                gameObject.SetActive(true);
+            }
+        }
+
+        if (scamScore >= 600 && scamScore < 750)
+        {
+            scamStars[0].SetActive(true);
+        }
+        else if (scamScore >= 750 && scamScore < 900)
+        {
+            scamStars[0].SetActive(true);
+            scamStars[1].SetActive(true);
+        }
+        else if (scamScore >= 900)
         {
             foreach (GameObject gameObject in malwareStars)
             {
