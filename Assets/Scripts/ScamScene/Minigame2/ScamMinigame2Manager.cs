@@ -17,6 +17,7 @@ public class ScamMinigame2Manager : MonoBehaviour
     private bool starPlay = false;
     [SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
+    [SerializeField] private GameObject startingFade;
     [SerializeField] private GameObject minigame, resultsScreen, scoreUI;
     [SerializeField] private GameObject endCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
@@ -122,14 +123,14 @@ public class ScamMinigame2Manager : MonoBehaviour
         star2Anim = false;
         star3Anim = false;
 
-        //startingFade.SetActive(true);
+        startingFade.SetActive(true);
         //sceneTransition.SetActive(false);
 
-        minigame.SetActive(false);
+        minigame.SetActive(true);
         resultsScreen.SetActive(false);
         //endCutscene.gameObject.SetActive(false);
         //canvasGroup.blocksRaycasts = false;
-        instructions1.gameObject.SetActive(false);
+        instructions1.gameObject.SetActive(true);
         instructions2.gameObject.SetActive(false);
         results.SetActive(false);
         scoreUI.SetActive(false);
