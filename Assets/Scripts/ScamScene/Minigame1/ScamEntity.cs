@@ -15,6 +15,9 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
     private bool wasHit = false;
 
     [SerializeField]
+    private Sprite plusText, minusText;
+
+    [SerializeField]
     [Range(0, 100)]
     private int maximumTimeUntilSpawn;
 
@@ -83,26 +86,30 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
 
     private void Update()
     {
-        if (!wasHit)
-            currentEntity.timealive += Time.deltaTime;
+        if (wasHit)
+            return;
+        
+        currentEntity.timealive += Time.deltaTime;
 
         if (currentEntity.timealive >= currentEntity.timedie)
         {
             if (currentEntity.score >= 0)
             {
+                this.GetComponentsInChildren<Image>(true)[4].sprite = minusText;
                 if (ScamManager_1.Instance.score != 0)
                 {
-                    ScamManager_1.Instance.score -= currentEntity.score / 2;
+                    ScamManager_1.Instance.score -= currentEntity.score;
                 }
             }
             else
             {
+                this.GetComponentsInChildren<Image>(true)[4].sprite = plusText;
                 ScamManager_1.Instance.score -= currentEntity.score;
             }
 
-            this.gameObject.SetActive(false);
-            spawnPoint.gameObject.SetActive(true);
-            ScamSpawner1.Instance.DeleteEntity(this.transform.parent.gameObject);
+            this.GetComponentsInChildren<Image>(true)[3].sprite = currentEntity.entitySprite;
+            entityAnimator.SetTrigger("DespawnEntity");
+            wasHit = true;
         }
 
     }
@@ -115,6 +122,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         wasHit = true;
         if (currentEntity.score <= 0)
         {
+            this.GetComponentsInChildren<Image>(true)[4].sprite = minusText;
             if (ScamManager_1.Instance.score != 0)
             {
                 ScamManager_1.Instance.score += currentEntity.score;
@@ -122,6 +130,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         }
         else
         {
+            this.GetComponentsInChildren<Image>(true)[4].sprite = plusText;
             ScamManager_1.Instance.score += currentEntity.score;
         }
 
