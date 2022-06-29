@@ -42,6 +42,7 @@ public class ScamManager_1 : MonoBehaviour
     internal int score = 0;
     private int counter = 0;
     private bool gameEnd = false;
+    private bool toggleText = false;
 
     private void Awake()
     {
