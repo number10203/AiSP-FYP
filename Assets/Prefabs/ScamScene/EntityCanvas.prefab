@@ -287,7 +287,7 @@ MonoBehaviour:
     timedie: 5
   - type: 2
     entitySprite: {fileID: 21300000, guid: c031462ed6ec66042acfee04eb31abdc, type: 3}
-    score: 10
+    score: -10
     timealive: 0
     timedie: 5
   - type: 2
