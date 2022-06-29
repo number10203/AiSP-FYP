@@ -100,6 +100,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
             if (currentEntity.score >= 0)
             {
                 this.GetComponentsInChildren<Image>(true)[4].sprite = minusText;
+                this.GetComponentsInChildren<Animator>(true)[1].SetTrigger("scoreTrigger");
                 if (ScamManager_1.Instance.score != 0)
                 {
                     ScamManager_1.Instance.score -= currentEntity.score;
@@ -108,6 +109,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
             else
             {
                 this.GetComponentsInChildren<Image>(true)[4].sprite = plusText;
+                this.GetComponentsInChildren<Animator>(true)[1].SetTrigger("scoreTrigger");
                 ScamManager_1.Instance.score -= currentEntity.score;
             }
 
@@ -127,6 +129,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         if (currentEntity.score <= 0)
         {
             this.GetComponentsInChildren<Image>(true)[4].sprite = minusText;
+            this.GetComponentsInChildren<Animator>(true)[1].SetTrigger("scoreTrigger");
             if (ScamManager_1.Instance.score != 0)
             {
                 ScamManager_1.Instance.score += currentEntity.score;
@@ -135,6 +138,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         else
         {
             this.GetComponentsInChildren<Image>(true)[4].sprite = plusText;
+            this.GetComponentsInChildren<Animator>(true)[1].SetTrigger("scoreTrigger");
             ScamManager_1.Instance.score += currentEntity.score;
         }
 
