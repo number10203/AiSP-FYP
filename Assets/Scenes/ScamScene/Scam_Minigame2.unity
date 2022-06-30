@@ -1474,7 +1474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &147145630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6368,7 +6368,6 @@ MonoBehaviour:
   starEnd: {fileID: 0}
   correctEffect: {fileID: 8300000, guid: d56de7413cf16204180117210dacef68, type: 3}
   wrongEffect: {fileID: 8300000, guid: 4c6b2c9ffff7c594ea4cfb2918f3385c, type: 3}
-  swooshEffect: {fileID: 0}
   startingFade: {fileID: 2003003611}
   minigame: {fileID: 1161797379}
   resultsScreen: {fileID: 1276573388}
@@ -6414,6 +6413,11 @@ MonoBehaviour:
   - {fileID: 1550595121}
   tick: {fileID: 7514544654595240439, guid: 02a0ba3d11edde8419cb313522f883a2, type: 3}
   cross: {fileID: 4532121912327519011, guid: 4d82dcfe3cdd0e14490215a97911fa71, type: 3}
+  phoneBackgrounds:
+  - {fileID: 1501433823}
+  - {fileID: 132090437}
+  - {fileID: 1297256484}
+  phone: {fileID: 211575866}
 --- !u!1 &702709385
 GameObject:
   m_ObjectHideFlags: 0
@@ -10175,7 +10179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1161797380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11060,7 +11064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1276573389
 RectTransform:
   m_ObjectHideFlags: 0

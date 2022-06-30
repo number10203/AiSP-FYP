@@ -26,6 +26,8 @@ public class ScamMinigame2Manager : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject[] MessageLists;
     [SerializeField] private GameObject tick, cross;
+    [SerializeField] private Image[] phoneBackgrounds;
+    [SerializeField] private GameObject phone;
 
     private bool star1Anim = false, star2Anim = false, star3Anim = false;
 
@@ -165,6 +167,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 1:
                 score += 100;
                 audioManager.Play(correctEffect);
+                ResultVFX(true);
                 MessageLists[23].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[23], MessageLists[23].transform.localPosition.y + 260f, .5f);
                 yield return new WaitForSeconds(1.5f);
@@ -178,6 +181,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 2:
                 score += 100;
                 audioManager.Play(correctEffect);
+                ResultVFX(true);
                 MessageLists[24].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[24], MessageLists[24].transform.localPosition.y + 260f, .5f);
                 yield return new WaitForSeconds(1.5f);
@@ -191,6 +195,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 3:
                 score += 100;
                 audioManager.Play(correctEffect);
+                ResultVFX(true);
                 MessageLists[25].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[25], MessageLists[25].transform.localPosition.y + 260f, .5f);
                 yield return new WaitForSeconds(1.5f);
@@ -205,6 +210,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 11:
                 score += 100;
                 audioManager.Play(correctEffect);
+                ResultVFX(true);
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[3].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[3], MessageLists[3].transform.localPosition.y + 130f, .25f);
@@ -219,6 +225,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 12:
                 score += 100;
                 audioManager.Play(correctEffect);
+                ResultVFX(true);
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[4].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[4], MessageLists[4].transform.localPosition.y + 130f, .25f);
@@ -233,6 +240,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 13:
                 score += 100;
                 audioManager.Play(correctEffect);
+                ResultVFX(true);
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[5].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[5], MessageLists[5].transform.localPosition.y + 130f, .25f);
@@ -246,6 +254,7 @@ public class ScamMinigame2Manager : MonoBehaviour
                 break;
             case 21:
                 audioManager.Play(wrongEffect);
+                ResultVFX(false);
                 if (score - 100 < 0)
                     score = 0;
 
@@ -264,6 +273,7 @@ public class ScamMinigame2Manager : MonoBehaviour
                 break;
             case 22:
                 audioManager.Play(wrongEffect);
+                ResultVFX(false);
                 if (score - 50 < 0)
                     score = 0;
                 else
@@ -291,6 +301,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 23:
                 score += 100;
                 audioManager.Play(correctEffect);
+                ResultVFX(true);
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[12].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[12], MessageLists[12].transform.localPosition.y + 200f, .25f);
@@ -305,6 +316,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 24:
                 score += 200;
                 audioManager.Play(correctEffect);
+                ResultVFX(true);
                 startingFade.SetActive(true);
                 MessageLists[21].SetActive(false);
                 yield return new WaitForSeconds(1.5f);
@@ -336,6 +348,7 @@ public class ScamMinigame2Manager : MonoBehaviour
                 break;
             case 25:
                 audioManager.Play(wrongEffect);
+                ResultVFX(false);
                 score = GameManager.INSTANCE.currentScamScore;
                 MessageLists[8].SetActive(true);
                 TextMeshProUGUI[] credentials = new TextMeshProUGUI[2];
@@ -359,6 +372,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 31:
                 audioManager.Play(wrongEffect);
                 score = GameManager.INSTANCE.currentScamScore;
+                ResultVFX(false);
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[16].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[16], MessageLists[16].transform.localPosition.y + 200f, .25f);
@@ -371,6 +385,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 32:
                 score += 100;
                 audioManager.Play(correctEffect);
+                ResultVFX(true);
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[17].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[17], MessageLists[17].transform.localPosition.y + 200f, .25f);
@@ -387,6 +402,7 @@ public class ScamMinigame2Manager : MonoBehaviour
                 break;
             case 41:
                 audioManager.Play(wrongEffect);
+                ResultVFX(false);
                 score = GameManager.INSTANCE.currentScamScore;
                 MessageLists[26].SetActive(true);
                 if (MessageLists[28].activeInHierarchy && MessageLists[22].activeInHierarchy && MessageLists[6].activeInHierarchy)
@@ -407,6 +423,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 42:
                 score += 150;
                 audioManager.Play(correctEffect);
+                ResultVFX(true);
                 MessageLists[27].SetActive(true);
                 if (MessageLists[28].activeInHierarchy && MessageLists[22].activeInHierarchy && MessageLists[6].activeInHierarchy)
                 {
@@ -482,6 +499,44 @@ public class ScamMinigame2Manager : MonoBehaviour
 
         canvasGroup.blocksRaycasts = true;
         Destroy(ui);
+    }
+
+    public void ResultVFX(bool result)
+    {
+        StartCoroutine(ResultAnimation(result));
+    }
+
+    IEnumerator ResultAnimation(bool result)
+    {
+        if (result)
+        {
+            foreach (Image background in phoneBackgrounds)
+            {
+                background.color = new Color32(46, 204, 113, 255);
+            }
+        }
+        else
+        {
+            foreach (Image background in phoneBackgrounds)
+            {
+                background.color = new Color32(192, 57, 43, 255);
+            }
+        }
+
+        float originalPos = phone.transform.localPosition.x;
+        for (int i = 0; i < 10; i++)
+        {
+            LeanTween.moveLocalX(phone, originalPos - 7f, .1f);
+            yield return new WaitForSeconds(.1f);
+            LeanTween.moveLocalX(phone, originalPos + 7f, .1f);
+            yield return new WaitForSeconds(.1f);
+        }
+        LeanTween.moveLocalX(phone, originalPos, .1f);
+        foreach (Image background in phoneBackgrounds)
+        {
+            background.color = new Color32(255, 255, 255, 255);
+        }
+        yield break;
     }
     IEnumerator FadeImage(GameObject img)
     {
