@@ -137,6 +137,7 @@ public class ScamManager_1 : MonoBehaviour
         startCutscene.GetComponent<Animator>().Play("AhHuatStartingCutscene_Unskippable");
 
         Destroy(cutsceneAudio.gameObject);
+
         StopAllCoroutines();
         StartCoroutine(TransitionToGame(5f));
     }

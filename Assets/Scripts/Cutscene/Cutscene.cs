@@ -25,7 +25,9 @@ public class Cutscene : MonoBehaviour
             Debug.LogError("No unskippable dialogue provided");
             return;
         }
-        audioManager.Play(unskippable);
+        //audioManager.PlayOneShot(unskippable);
+        GetComponent<AudioSource>().PlayOneShot(unskippable);
+       
     }
 
     public void SkipCutscene()
