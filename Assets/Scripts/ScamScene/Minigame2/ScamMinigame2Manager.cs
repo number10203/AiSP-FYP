@@ -16,7 +16,6 @@ public class ScamMinigame2Manager : MonoBehaviour
     public AudioClip BGM, starPop1, starPop2, starPop3, starEnd;
     private bool starPlay = false;
     [SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
-
     [SerializeField] private GameObject startingFade;
     [SerializeField] private GameObject minigame, resultsScreen, scoreUI, infoScreen;
     [SerializeField] private GameObject instructions;
@@ -166,36 +165,36 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 1:
                 score += 100;
                 MessageLists[23].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[23], MessageLists[23].transform.localPosition.y + 270f, .5f);
+                LeanTween.moveLocalY(MessageLists[23], MessageLists[23].transform.localPosition.y + 260f, .5f);
                 yield return new WaitForSeconds(1.5f);
                 //MessageLists[6].SetActive(true);
                 //LeanTween.moveLocalY(MessageLists[6], MessageLists[6].transform.localPosition.y + 200f, .5f);
                 yield return new WaitForSeconds(2f);
-                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
+                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 190f, 1f);
                 MessageLists[2].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[2], MessageLists[2].transform.localPosition.y + 100f, .5f);
                 break;
             case 2:
                 score += 150;
                 MessageLists[24].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[24], MessageLists[24].transform.localPosition.y + 270f, .5f);
+                LeanTween.moveLocalY(MessageLists[24], MessageLists[24].transform.localPosition.y + 260f, .5f);
                 yield return new WaitForSeconds(1.5f);
                 //MessageLists[6].SetActive(true);
                 //LeanTween.moveLocalY(MessageLists[6], MessageLists[6].transform.localPosition.y + 200f, .5f);
                 yield return new WaitForSeconds(2f);
-                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
+                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 190f, 1f);
                 MessageLists[2].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[2], MessageLists[2].transform.localPosition.y + 100f, .5f);
                 break;
             case 3:
                 score += 150;
                 MessageLists[25].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[25], MessageLists[25].transform.localPosition.y + 270f, .5f);
+                LeanTween.moveLocalY(MessageLists[25], MessageLists[25].transform.localPosition.y + 260f, .5f);
                 yield return new WaitForSeconds(1.5f);
                 //MessageLists[6].SetActive(true);
                 //LeanTween.moveLocalY(MessageLists[6], MessageLists[6].transform.localPosition.y + 200f, .5f);
                 yield return new WaitForSeconds(2f);
-                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
+                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 190f, 1f);
                 MessageLists[2].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[2], MessageLists[2].transform.localPosition.y + 100f, .5f);
                 break;
