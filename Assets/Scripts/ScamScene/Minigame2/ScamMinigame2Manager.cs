@@ -295,7 +295,34 @@ public class ScamMinigame2Manager : MonoBehaviour
                 break;
             case 24:
                 score += 200;
+                startingFade.SetActive(true);
                 MessageLists[21].SetActive(false);
+                yield return new WaitForSeconds(1.5f);
+                MessageLists[14].SetActive(true);
+                if (MessageLists[6].activeInHierarchy)
+                {
+                    LeanTween.moveLocalY(MessageLists[14], MessageLists[14].transform.localPosition.y + 210f, .25f);
+                    yield return new WaitForSeconds(2f);
+                    LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 170f, 1f);
+                    MessageLists[20].SetActive(true);
+                    LeanTween.moveLocalY(MessageLists[20], MessageLists[20].transform.localPosition.y + 260f, .25f);
+                }
+                else if (MessageLists[22].activeInHierarchy)
+                {
+                    LeanTween.moveLocalY(MessageLists[14], MessageLists[14].transform.localPosition.y + 380f, .25f);
+                    yield return new WaitForSeconds(2f);
+                    LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 200f, 1f);
+                    MessageLists[20].SetActive(true);
+                    LeanTween.moveLocalY(MessageLists[20], MessageLists[20].transform.localPosition.y + 430f, .25f);
+                }
+                else
+                {
+                    LeanTween.moveLocalY(MessageLists[14], MessageLists[14].transform.localPosition.y + 620f, .25f);
+                    yield return new WaitForSeconds(2f);
+                    LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
+                    MessageLists[20].SetActive(true);
+                    LeanTween.moveLocalY(MessageLists[20], MessageLists[20].transform.localPosition.y + 660f, .25f);
+                }
                 break;
             case 25:
                 score = GameManager.INSTANCE.currentScamScore;
@@ -348,17 +375,45 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 41:
                 score = GameManager.INSTANCE.currentScamScore;
                 MessageLists[26].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[26], MessageLists[26].transform.localPosition.y + 200f, .5f);
+                if (MessageLists[28].activeInHierarchy && MessageLists[22].activeInHierarchy && MessageLists[6].activeInHierarchy)
+                {
+                    LeanTween.moveLocalY(MessageLists[26], MessageLists[26].transform.localPosition.y + 200f, .25f);
+                }
+                else if (MessageLists[28].activeInHierarchy && MessageLists[22].activeInHierarchy)
+                {
+                    LeanTween.moveLocalY(MessageLists[26], MessageLists[26].transform.localPosition.y + 380f, .25f);
+                }
+                else if (MessageLists[28].activeInHierarchy && !MessageLists[22].activeInHierarchy)
+                {
+                    LeanTween.moveLocalY(MessageLists[26], MessageLists[26].transform.localPosition.y + 620f, .25f);
+                }
                 yield return new WaitForSeconds(2f);
                 PlayCutscene();
                 break;
             case 42:
                 score += 150;
                 MessageLists[27].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[27], MessageLists[27].transform.localPosition.y + 200f, .5f);
-                yield return new WaitForSeconds(1.5f);
-                MessageLists[7].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[7], MessageLists[7].transform.localPosition.y + 200f, .5f);
+                if (MessageLists[28].activeInHierarchy && MessageLists[22].activeInHierarchy && MessageLists[6].activeInHierarchy)
+                {
+                    LeanTween.moveLocalY(MessageLists[27], MessageLists[27].transform.localPosition.y + 200f, .25f);
+                    yield return new WaitForSeconds(1.5f);
+                    MessageLists[7].SetActive(true);
+                    LeanTween.moveLocalY(MessageLists[7], MessageLists[7].transform.localPosition.y + 200f, .5f);
+                }
+                else if (MessageLists[28].activeInHierarchy && MessageLists[22].activeInHierarchy)
+                {
+                    LeanTween.moveLocalY(MessageLists[27], MessageLists[27].transform.localPosition.y + 380f, .25f);
+                    yield return new WaitForSeconds(1.5f);
+                    MessageLists[7].SetActive(true);
+                    LeanTween.moveLocalY(MessageLists[7], MessageLists[7].transform.localPosition.y + 380f, .5f);
+                }
+                else if (MessageLists[28].activeInHierarchy && !MessageLists[22].activeInHierarchy)
+                {
+                    LeanTween.moveLocalY(MessageLists[27], MessageLists[27].transform.localPosition.y + 620f, .25f);
+                    yield return new WaitForSeconds(1.5f);
+                    MessageLists[7].SetActive(true);
+                    LeanTween.moveLocalY(MessageLists[7], MessageLists[7].transform.localPosition.y + 620f, .5f);
+                }
                 PlayCutscene();
                 break;
         }
