@@ -130,23 +130,45 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
             if (ScamManager_1.Instance.score != 0)
             {
                 ScamManager_1.Instance.score += currentEntity.score;
+                StartCoroutine(AnimateBonkWrong());
+
             }
         }
         else
         {
             this.GetComponentsInChildren<Image>(true)[4].sprite = plusText;
             ScamManager_1.Instance.score += currentEntity.score;
+            StartCoroutine(AnimateBonkRight());
         }
 
         if (entityAnimator != null)
         {
             audioManager.Play(Bonk);
             StartCoroutine(AnimateOnHit());
+
         }
         else
         {
             DespawnEntity();
         }
+    }
+
+    IEnumerator AnimateBonkRight()
+    {
+        RectTransform thisTransformBonk = this.transform.GetChild(4).GetComponent<RectTransform>();
+        thisTransformBonk.sizeDelta = new Vector2(currentEntity.entitySprite.rect.width * 0.02f, currentEntity.entitySprite.rect.height * 0.02f);
+        this.transform.GetChild(4).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.25f);
+        this.transform.GetChild(4).gameObject.SetActive(false);
+    }
+
+    IEnumerator AnimateBonkWrong()
+    {
+        //RectTransform thisTransformBonk = this.transform.GetChild(5).GetComponent<RectTransform>();
+        //thisTransformBonk.sizeDelta = new Vector2(currentEntity.entitySprite.rect.width * 0.02f, currentEntity.entitySprite.rect.height * 0.02f);
+        this.transform.GetChild(5).gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        this.transform.GetChild(5).gameObject.SetActive(false);
     }
 
     IEnumerator AnimateOnHit()
