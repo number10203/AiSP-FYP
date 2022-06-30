@@ -13,6 +13,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
     private Animator entityAnimator;
     private AudioManager audioManager;
     public AudioClip Bonk;
+    public AudioClip Heartbreak;
 
     private bool wasHit = false;
 
@@ -124,15 +125,17 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
             return;
 
         wasHit = true;
+        audioManager.Play(Bonk);
         if (currentEntity.score <= 0)
         {
             this.GetComponentsInChildren<Image>(true)[4].sprite = minusText;
             if (ScamManager_1.Instance.score != 0)
             {
                 ScamManager_1.Instance.score += currentEntity.score;
-                StartCoroutine(AnimateBonkWrong());
 
             }
+
+            StartCoroutine(AnimateBonkWrong());
         }
         else
         {
@@ -143,9 +146,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
 
         if (entityAnimator != null)
         {
-            audioManager.Play(Bonk);
             StartCoroutine(AnimateOnHit());
-
         }
         else
         {
@@ -155,10 +156,10 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
 
     IEnumerator AnimateBonkRight()
     {
-        RectTransform thisTransformBonk = this.transform.GetChild(4).GetComponent<RectTransform>();
-        thisTransformBonk.sizeDelta = new Vector2(currentEntity.entitySprite.rect.width * 0.02f, currentEntity.entitySprite.rect.height * 0.02f);
+        //RectTransform thisTransformBonk = this.transform.GetChild(4).GetComponent<RectTransform>();
+        //thisTransformBonk.sizeDelta = new Vector2(currentEntity.entitySprite.rect.width * 0.02f, currentEntity.entitySprite.rect.height * 0.02f);
         this.transform.GetChild(4).gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(1.0f);
         this.transform.GetChild(4).gameObject.SetActive(false);
     }
 
@@ -166,8 +167,9 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
     {
         //RectTransform thisTransformBonk = this.transform.GetChild(5).GetComponent<RectTransform>();
         //thisTransformBonk.sizeDelta = new Vector2(currentEntity.entitySprite.rect.width * 0.02f, currentEntity.entitySprite.rect.height * 0.02f);
+        audioManager.Play(Heartbreak);
         this.transform.GetChild(5).gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.2f);
         this.transform.GetChild(5).gameObject.SetActive(false);
     }
 
