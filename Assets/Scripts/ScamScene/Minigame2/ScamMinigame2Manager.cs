@@ -175,7 +175,7 @@ public class ScamMinigame2Manager : MonoBehaviour
                 LeanTween.moveLocalY(MessageLists[2], MessageLists[2].transform.localPosition.y + 100f, .5f);
                 break;
             case 2:
-                score += 150;
+                score += 100;
                 MessageLists[24].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[24], MessageLists[24].transform.localPosition.y + 260f, .5f);
                 yield return new WaitForSeconds(1.5f);
@@ -187,7 +187,7 @@ public class ScamMinigame2Manager : MonoBehaviour
                 LeanTween.moveLocalY(MessageLists[2], MessageLists[2].transform.localPosition.y + 100f, .5f);
                 break;
             case 3:
-                score += 150;
+                score += 100;
                 MessageLists[25].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[25], MessageLists[25].transform.localPosition.y + 260f, .5f);
                 yield return new WaitForSeconds(1.5f);
@@ -200,46 +200,43 @@ public class ScamMinigame2Manager : MonoBehaviour
                 break;
 
             case 11:
-                if (score - 100 < 0)
-                    score = 0;
-                else
-                    score -= 100;
+                score += 100;
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[3].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[3], MessageLists[3].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[3], MessageLists[3].transform.localPosition.y + 130f, .25f);
                 yield return new WaitForSeconds(1.5f);
                 MessageLists[6].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[6], MessageLists[6].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[6], MessageLists[6].transform.localPosition.y + 88f, .25f);
                 yield return new WaitForSeconds(2f);
-                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
+                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 210f, 1f);
                 MessageLists[9].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[9], MessageLists[9].transform.localPosition.y + 100f, .5f);
+                LeanTween.moveLocalY(MessageLists[9], MessageLists[9].transform.localPosition.y + 100f, .25f);
                 break;
             case 12:
-                score += 150;
+                score += 100;
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[4].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[4], MessageLists[4].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[4], MessageLists[4].transform.localPosition.y + 130f, .25f);
                 yield return new WaitForSeconds(1.5f);
-                MessageLists[7].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[7], MessageLists[7].transform.localPosition.y + 200f, .5f);
+                MessageLists[6].SetActive(true);
+                LeanTween.moveLocalY(MessageLists[6], MessageLists[6].transform.localPosition.y + 88f, .25f);
                 yield return new WaitForSeconds(2f);
-                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
+                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 245f, 1f);
                 MessageLists[9].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[9], MessageLists[9].transform.localPosition.y + 100f, .5f);
+                LeanTween.moveLocalY(MessageLists[9], MessageLists[9].transform.localPosition.y + 100f, .25f);
                 break;
             case 13:
-                score += 150;
+                score += 100;
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[5].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[5], MessageLists[5].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[5], MessageLists[5].transform.localPosition.y + 130f, .25f);
                 yield return new WaitForSeconds(1.5f);
-                MessageLists[8].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[8], MessageLists[8].transform.localPosition.y + 200f, .5f);
+                MessageLists[6].SetActive(true);
+                LeanTween.moveLocalY(MessageLists[6], MessageLists[6].transform.localPosition.y + 88f, .25f);
                 yield return new WaitForSeconds(2f);
-                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
+                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 245f, 1f);
                 MessageLists[9].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[9], MessageLists[9].transform.localPosition.y + 100f, .5f);
+                LeanTween.moveLocalY(MessageLists[9], MessageLists[9].transform.localPosition.y + 100f, .25f);
                 break;
             case 21:
                 if (score - 100 < 0)
@@ -249,50 +246,40 @@ public class ScamMinigame2Manager : MonoBehaviour
                     score -= 100;
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[10].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[10], MessageLists[10].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[10], MessageLists[10].transform.localPosition.y + 100f, .25f);
                 yield return new WaitForSeconds(1.5f);
                 MessageLists[13].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[13], MessageLists[13].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[13], MessageLists[13].transform.localPosition.y + 100f, .25f);
                 yield return new WaitForSeconds(2f);
                 LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
                 MessageLists[15].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[15], MessageLists[15].transform.localPosition.y + 100f, .5f);
+                LeanTween.moveLocalY(MessageLists[15], MessageLists[15].transform.localPosition.y + 100f, .25f);
                 break;
             case 22:
-                if (score - 100 < 0)
+                if (score - 50 < 0)
                     score = 0;
 
                 else
-                    score -= 100;
+                    score -= 50;
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[11].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[11], MessageLists[11].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[11], MessageLists[11].transform.localPosition.y + 480f, .25f);
                 yield return new WaitForSeconds(1.5f);
+                startingFade.SetActive(true);
                 MessageLists[21].SetActive(true);
-                MessageLists[21].GetComponent<Image>().color = new Color(1, 1, 1, 0);
-                StartCoroutine(FadeImage(MessageLists[21]));
-                yield return new WaitForSeconds(1.5f);
-                MessageLists[22].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[22], MessageLists[22].transform.localPosition.y + 500f, .5f);
-                //MessageLists[13].SetActive(true);
-                //LeanTween.moveLocalY(MessageLists[13], MessageLists[13].transform.localPosition.y + 200f, .5f);
-                //yield return new WaitForSeconds(2f);
-                //LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
-                //MessageLists[15].SetActive(true);
-                //LeanTween.moveLocalY(MessageLists[15], MessageLists[15].transform.localPosition.y + 100f, .5f);
                 break;
             case 23:
-                score += 150;
+                score += 100;
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[12].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[12], MessageLists[12].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[12], MessageLists[12].transform.localPosition.y + 200f, .25f);
                 yield return new WaitForSeconds(1.5f);
                 MessageLists[14].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[14], MessageLists[14].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[14], MessageLists[14].transform.localPosition.y + 200f, .25f);
                 yield return new WaitForSeconds(2f);
                 LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
-                MessageLists[15].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[15], MessageLists[15].transform.localPosition.y + 100f, .5f);
+                MessageLists[20].SetActive(true);
+                LeanTween.moveLocalY(MessageLists[20], MessageLists[20].transform.localPosition.y + 250f, .25f);
                 break;
             case 24:
                 if (score - 200 < 0)
@@ -309,53 +296,46 @@ public class ScamMinigame2Manager : MonoBehaviour
                 PlayCutscene();
                 break;
             case 31:
-                if (score - 100 < 0)
-                    score = 0;
-
-                else
-                    score -= 100;
+                score = GameManager.INSTANCE.currentScamScore;
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[16].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[16], MessageLists[16].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[16], MessageLists[16].transform.localPosition.y + 200f, .25f);
                 yield return new WaitForSeconds(1.5f);
                 MessageLists[18].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[18], MessageLists[18].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[18], MessageLists[18].transform.localPosition.y + 200f, .25f);
                 yield return new WaitForSeconds(2f);
-                LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
-                MessageLists[20].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[20], MessageLists[20].transform.localPosition.y + 100f, .5f);
-                
+                PlayCutscene();
                 break;
             case 32:
                 score += 100;
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[17].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[17], MessageLists[17].transform.localPosition.y + 200f, .5f);
+                LeanTween.moveLocalY(MessageLists[17], MessageLists[17].transform.localPosition.y + 200f, .25f);
                 yield return new WaitForSeconds(1.5f);
                 MessageLists[19].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[19], MessageLists[19].transform.localPosition.y + 200f, .5f);
-                yield return new WaitForSeconds(2f);
+                LeanTween.moveLocalY(MessageLists[19], MessageLists[19].transform.localPosition.y + 200f, .25f);
+                yield return new WaitForSeconds(1.5f);
+                MessageLists[14].SetActive(true);
+                LeanTween.moveLocalY(MessageLists[14], MessageLists[14].transform.localPosition.y + 55f, .25f);
+                yield return new WaitForSeconds(1.5f);
                 LeanTween.moveLocalY(MessageLists[1], MessageLists[1].transform.localPosition.y + 100f, 1f);
                 MessageLists[20].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[20], MessageLists[20].transform.localPosition.y + 100f, .5f);
-                
+                LeanTween.moveLocalY(MessageLists[20], MessageLists[20].transform.localPosition.y + 100f, .25f);
                 break;
             case 41:
-                if (score - 100 < 0)
-                    score = 0;
-
-                else
-                    score -= 100;
+                score = GameManager.INSTANCE.currentScamScore;
                 MessageLists[26].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[26], MessageLists[26].transform.localPosition.y + 200f, .5f);
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(2f);
                 PlayCutscene();
                 break;
             case 42:
-                score += 100;
+                score += 150;
                 MessageLists[27].SetActive(true);
                 LeanTween.moveLocalY(MessageLists[27], MessageLists[27].transform.localPosition.y + 200f, .5f);
                 yield return new WaitForSeconds(1.5f);
+                MessageLists[7].SetActive(true);
+                LeanTween.moveLocalY(MessageLists[7], MessageLists[7].transform.localPosition.y + 200f, .5f);
                 PlayCutscene();
                 break;
         }
