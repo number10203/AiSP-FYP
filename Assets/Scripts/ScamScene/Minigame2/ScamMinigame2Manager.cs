@@ -161,7 +161,7 @@ public class ScamMinigame2Manager : MonoBehaviour
 
         GameObject buttonPressed = EventSystem.current.currentSelectedGameObject;
         GameObject ui = null;
-        switch(buttonID){
+        switch (buttonID) {
             case 1:
                 score += 100;
                 MessageLists[23].SetActive(true);
@@ -240,8 +240,8 @@ public class ScamMinigame2Manager : MonoBehaviour
                 break;
             case 21:
                 if (score - 100 < 0)
-                   score = 0;
-                
+                    score = 0;
+
                 else
                     score -= 100;
                 Debug.Log("Replyed" + buttonID);
@@ -258,12 +258,24 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 22:
                 if (score - 50 < 0)
                     score = 0;
-
                 else
                     score -= 50;
                 Debug.Log("Replyed" + buttonID);
                 MessageLists[11].SetActive(true);
-                LeanTween.moveLocalY(MessageLists[11], MessageLists[11].transform.localPosition.y + 480f, .25f);
+                if (MessageLists[6].activeInHierarchy)
+                {
+                    LeanTween.moveLocalY(MessageLists[11], MessageLists[11].transform.localPosition.y + 75f, .25f);
+                    MessageLists[9].SetActive(false);
+                }
+                else if (MessageLists[22].activeInHierarchy)
+                {
+                    LeanTween.moveLocalY(MessageLists[11], MessageLists[11].transform.localPosition.y + 240f, .25f);
+                    MessageLists[2].SetActive(false);
+                }
+                else
+                {
+                    LeanTween.moveLocalY(MessageLists[11], MessageLists[11].transform.localPosition.y + 480f, .25f);
+                }
                 yield return new WaitForSeconds(1.5f);
                 startingFade.SetActive(true);
                 MessageLists[21].SetActive(true);
@@ -282,16 +294,27 @@ public class ScamMinigame2Manager : MonoBehaviour
                 LeanTween.moveLocalY(MessageLists[20], MessageLists[20].transform.localPosition.y + 250f, .25f);
                 break;
             case 24:
-                if (score - 200 < 0)
-                    score = 0;
-
-                else
-                    score -= 200;
-                yield return new WaitForSeconds(1.5f);
-                PlayCutscene();
+                score += 200;
+                MessageLists[21].SetActive(false);
                 break;
             case 25:
-                score += 100;
+                score = GameManager.INSTANCE.currentScamScore;
+                MessageLists[8].SetActive(true);
+                TextMeshProUGUI[] credentials = new TextMeshProUGUI[2];
+                credentials = MessageLists[8].GetComponentsInChildren<TextMeshProUGUI>();
+                credentials[1].gameObject.SetActive(false);
+                foreach (TextMeshProUGUI field in credentials)
+                {
+                    field.gameObject.SetActive(true);
+                    int originalLength = field.text.Length;
+                    string originalText = field.text;
+                    field.text = "";
+                    for (int i = 0; i < originalLength; i++)
+                    {
+                        field.text += originalText[i];
+                        yield return new WaitForSeconds(0.5f);
+                    }
+                }
                 yield return new WaitForSeconds(1.5f);
                 PlayCutscene();
                 break;
