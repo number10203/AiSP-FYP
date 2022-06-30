@@ -14,6 +14,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
     private AudioManager audioManager;
     public AudioClip Bonk;
     public AudioClip Heartbreak;
+    public AudioClip Combo_Hit;
 
     private bool wasHit = false;
 
@@ -142,6 +143,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
             this.GetComponentsInChildren<Image>(true)[4].sprite = plusText;
             ScamManager_1.Instance.score += currentEntity.score;
             StartCoroutine(AnimateBonkRight());
+            audioManager.Play(Combo_Hit);
         }
 
         if (entityAnimator != null)
@@ -156,10 +158,10 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
 
     IEnumerator AnimateBonkRight()
     {
-        //RectTransform thisTransformBonk = this.transform.GetChild(4).GetComponent<RectTransform>();
-        //thisTransformBonk.sizeDelta = new Vector2(currentEntity.entitySprite.rect.width * 0.02f, currentEntity.entitySprite.rect.height * 0.02f);
+        RectTransform thisTransformBonk = this.transform.GetChild(4).GetComponent<RectTransform>();
+        thisTransformBonk.sizeDelta = new Vector2(currentEntity.entitySprite.rect.width * 0.02f, currentEntity.entitySprite.rect.height * 0.02f);
         this.transform.GetChild(4).gameObject.SetActive(true);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.35f);
         this.transform.GetChild(4).gameObject.SetActive(false);
     }
 
