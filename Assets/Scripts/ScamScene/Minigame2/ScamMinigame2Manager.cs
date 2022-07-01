@@ -349,7 +349,6 @@ public class ScamMinigame2Manager : MonoBehaviour
             case 25:
                 audioManager.Play(wrongEffect);
                 ResultVFX(false);
-                score = GameManager.INSTANCE.currentScamScore;
                 MessageLists[8].SetActive(true);
                 TextMeshProUGUI[] credentials = new TextMeshProUGUI[2];
                 credentials = MessageLists[8].GetComponentsInChildren<TextMeshProUGUI>();
@@ -363,10 +362,14 @@ public class ScamMinigame2Manager : MonoBehaviour
                     for (int i = 0; i < originalLength; i++)
                     {
                         field.text += originalText[i];
-                        yield return new WaitForSeconds(0.5f);
+                        yield return new WaitForSeconds(0.1f);
                     }
                 }
-                yield return new WaitForSeconds(1.5f);
+                credentials[0].transform.parent.parent.GetChild(4).GetComponent<Button>().interactable = true;
+                break;
+            case 26:
+                score = GameManager.INSTANCE.currentScamScore;
+                startingFade.SetActive(true);
                 PlayCutscene();
                 break;
             case 31:
@@ -509,19 +512,7 @@ public class ScamMinigame2Manager : MonoBehaviour
     IEnumerator ResultAnimation(bool result)
     {
         if (result)
-        {
-            foreach (Image background in phoneBackgrounds)
-            {
-                background.color = new Color32(46, 204, 113, 255);
-            }
-        }
-        else
-        {
-            foreach (Image background in phoneBackgrounds)
-            {
-                background.color = new Color32(192, 57, 43, 255);
-            }
-        }
+            yield break;
 
         float originalPos = phone.transform.localPosition.x;
         for (int i = 0; i < 10; i++)
@@ -532,10 +523,6 @@ public class ScamMinigame2Manager : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
         LeanTween.moveLocalX(phone, originalPos, .1f);
-        foreach (Image background in phoneBackgrounds)
-        {
-            background.color = new Color32(255, 255, 255, 255);
-        }
         yield break;
     }
     IEnumerator FadeImage(GameObject img)
