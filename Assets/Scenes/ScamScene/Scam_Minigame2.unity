@@ -1498,7 +1498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &147145630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6460,10 +6460,10 @@ MonoBehaviour:
   stripesGameobject: {fileID: 1141392731}
   scoreSlider: {fileID: 431003493}
   BGM: {fileID: 8300000, guid: bb1966f2c11ddc74caee19ccdd8178db, type: 3}
-  starPop1: {fileID: 0}
-  starPop2: {fileID: 0}
-  starPop3: {fileID: 0}
-  starEnd: {fileID: 0}
+  starPop1: {fileID: 8300000, guid: d21d311286b152a41a2352af0298d660, type: 3}
+  starPop2: {fileID: 8300000, guid: ef91301e8394b804dbffb2538c17346b, type: 3}
+  starPop3: {fileID: 8300000, guid: 898428d349cccc442bdf3d8cc8db35a4, type: 3}
+  starEnd: {fileID: 8300000, guid: 2b76978458c23b548a88a50716b975e9, type: 3}
   correctEffect: {fileID: 8300000, guid: e8b0192d45c307e41ae2e91d6a956c03, type: 3}
   wrongEffect: {fileID: 8300000, guid: 82aa5ab57aa30c341b415dbcc33a4c77, type: 3}
   startingFade: {fileID: 2003003611}
@@ -9985,7 +9985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1084453854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17360,7 +17360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -179}
+  m_AnchoredPosition: {x: 256, y: -340}
   m_SizeDelta: {x: 512, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2039144333
