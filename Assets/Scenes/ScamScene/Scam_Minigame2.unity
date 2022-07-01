@@ -9217,7 +9217,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: A card transaction of $500 has been transferred from your PBS/DOSB to Grabjek
-    on 10 JUNE 16:11 (SGT) was completed. If unauthorised, <color=#0000FF><u>http://PBS-real.com</u><color=#000000>
+    on 10 JUNE 16:11 (SGT) was completed. If unauthorised, <color=#67a5e3><u>http://PBS-real.com</u><color=#000000>
     now
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
@@ -14592,7 +14592,7 @@ MonoBehaviour:
     a transaction involving your card numbering $500 on 10 JUNE 16:11 (SGT).
 
     If
-    unauthorised, pls head to our website at <color=#0000FF><u>http://PBS-real.com</u><color=#000000>
+    unauthorised, pls head to our website at <color=#67a5e3><u>http://PBS-real.com</u><color=#000000>
     now.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
