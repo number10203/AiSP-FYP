@@ -30,12 +30,18 @@ public class ScamSpawner1 : MonoBehaviour
     public void Start()
     {
         Instance = this;
+        spawnPointOrigin.gameObject.SetActive(true);
         //starttime += Time.time;
 
         spawnspeed = 3;
 
+        float screenWidth = Screen.currentResolution.width;
+        float screenHeight = Screen.currentResolution.height;
 
-        SetSpawnPoints(rows, columns, 400, 200, 75, -75);
+        Debug.Log("Height: " + screenHeight + ", Width: " + screenWidth);
+        float yOffset = screenHeight * -0.15f;
+        float availableHeight = screenHeight * 0.9f;
+        SetSpawnPoints(rows, columns, (int) screenWidth / (columns + 1), (int)availableHeight / (rows + 1), 0, (int) yOffset);
 
         StartCoroutine(SpawnWave(2));
         //StartCoroutine(SpawnScammer(6));
@@ -44,11 +50,12 @@ public class ScamSpawner1 : MonoBehaviour
 
     private void SetSpawnPoints(int rows, int columns, int xInterval, int yInterval, int xOffSet = 0, int yOffSet = 0)
     {
-        for (int i = 0; i < rows; i++)
+        for (int i = 1; i <= rows; i++)
         {
-            for (int j = 0; j < columns; j++)
+            for (int j = 1; j <= columns; j++)
             {
-                Vector3 newPosition = spawnPointOrigin.position + new Vector3(j * xInterval + xOffSet, i * -yInterval + yOffSet, 0);
+                Vector3 newPosition = spawnPointOrigin.position + new Vector3(xInterval * j + xOffSet, -yInterval * i + yOffSet);
+                //Vector3 newPosition = spawnPointOrigin.position + new Vector3(j * xInterval + xOffSet, i * -yInterval + yOffSet, 0);
                 Transform spawnPoint = Instantiate(spawnPointOrigin, newPosition, Quaternion.identity);
                 spawnPoints.Add(spawnPoint);
                 spawnPoint.parent = spawnPointOrigin.transform;
@@ -131,6 +138,10 @@ public class ScamSpawner1 : MonoBehaviour
         yield return null;
     }
 
+    public void OnDisable()
+    {
+        spawnPointOrigin.gameObject.SetActive(false);
+    }
     public void DeleteEntity(GameObject canvasOfEntity)
     {
         StartCoroutine(DestroyScamEntity(canvasOfEntity));
