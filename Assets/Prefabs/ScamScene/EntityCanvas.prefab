@@ -429,7 +429,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   Bonk: {fileID: 8300000, guid: 6d58429a50f1ccd438a680050e66f521, type: 3}
   Heartbreak: {fileID: 8300000, guid: 3a370f2b3988cdb43b539e9b545cd97a, type: 3}
-  Combo_Hit: {fileID: 8300000, guid: 8a1541074b410f446a8afa1de634a4f8, type: 3}
+  Combo_Hit: {fileID: 8300000, guid: 64d10096dc623f74ab6e02ca61d92c4a, type: 3}
   plusText: {fileID: 21300000, guid: 84f4565051bad4c4baaf3ba64a718817, type: 3}
   minusText: {fileID: 21300000, guid: d4064072ad5f08340826182e2ce18243, type: 3}
   maximumTimeUntilSpawn: 0
