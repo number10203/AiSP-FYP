@@ -36,8 +36,8 @@ public class ScamSpawner1 : MonoBehaviour
 
         spawnspeed = 3;
 
-        float screenWidth = spawnPointOrigin.sizeDelta.x;
-        float screenHeight = spawnPointOrigin.sizeDelta.y;
+        float screenWidth = 1280;
+        float screenHeight = spawnPointOrigin.sizeDelta.y / 1080 * 720;
 
         Debug.Log("Height: " + screenHeight + ", Width: " + screenWidth);
         SetSpawnPoints(rows, columns, (int) screenWidth / (columns + 1), (int)screenHeight / (rows + 1), 0, 0);
