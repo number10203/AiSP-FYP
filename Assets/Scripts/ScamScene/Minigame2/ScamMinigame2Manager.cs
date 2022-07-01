@@ -28,6 +28,7 @@ public class ScamMinigame2Manager : MonoBehaviour
     [SerializeField] private GameObject tick, cross;
     [SerializeField] private Image[] phoneBackgrounds;
     [SerializeField] private GameObject phone;
+    [SerializeField] private Animator AhHuatStatusAnimator;
 
     private bool star1Anim = false, star2Anim = false, star3Anim = false;
 
@@ -442,7 +443,7 @@ public class ScamMinigame2Manager : MonoBehaviour
                 {
                     float pos = MessageLists[27].transform.localPosition.y;
                     LeanTween.moveLocalY(MessageLists[27], pos - 100f, 0f);
-                    LeanTween.moveLocalY(MessageLists[27], MessageLists[27].transform.localPosition.y + 100f, .25f);
+                    LeanTween.moveLocalY(MessageLists[27], MessageLists[27].transform.localPosition.y + 150f, .25f);
                     yield return new WaitForSeconds(1.5f);
                     MessageLists[7].SetActive(true);
                     LeanTween.moveLocalY(MessageLists[7], MessageLists[7].transform.localPosition.y + 380f, .5f);
@@ -475,6 +476,7 @@ public class ScamMinigame2Manager : MonoBehaviour
                     MessageLists[7].SetActive(true);
                     LeanTween.moveLocalY(MessageLists[7], MessageLists[7].transform.localPosition.y + 620f, .5f);
                 }
+                yield return new WaitForSeconds(2f);
                 PlayCutscene();
                 break;
         }
@@ -537,19 +539,26 @@ public class ScamMinigame2Manager : MonoBehaviour
 
     IEnumerator ResultAnimation(bool result)
     {
-        if (result)
-            yield break;
-
-        float originalPos = phone.transform.localPosition.x;
-        for (int i = 0; i < 10; i++)
+        if (!result)
         {
-            LeanTween.moveLocalX(phone, originalPos - 7f, .1f);
-            yield return new WaitForSeconds(.1f);
-            LeanTween.moveLocalX(phone, originalPos + 7f, .1f);
-            yield return new WaitForSeconds(.1f);
+            float originalPos = phone.transform.localPosition.x;
+            AhHuatStatusAnimator.SetTrigger("wrongChoice");
+            for (int i = 0; i < 10; i++)
+            {
+                LeanTween.moveLocalX(phone, originalPos - 7f, .1f);
+                yield return new WaitForSeconds(.1f);
+                LeanTween.moveLocalX(phone, originalPos + 7f, .1f);
+                yield return new WaitForSeconds(.1f);
+            }
+            AhHuatStatusAnimator.SetTrigger("resetStatus");
+            LeanTween.moveLocalX(phone, originalPos, .1f);
         }
-        LeanTween.moveLocalX(phone, originalPos, .1f);
-        yield break;
+        else
+        {
+            AhHuatStatusAnimator.SetTrigger("correctChoice");
+            yield return new WaitForSeconds(2f);
+            AhHuatStatusAnimator.SetTrigger("resetStatus");
+        }
     }
     IEnumerator FadeImage(GameObject img)
     {
