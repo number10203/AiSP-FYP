@@ -21,7 +21,14 @@ public class ScamSpawner1 : MonoBehaviour
     public int rows;
     public int columns;
     
-    public List<Transform> spawnPoints = new List<Transform>();
+    public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
+
+    [System.Serializable]
+    public class SpawnPoint
+    {
+        public Transform point;
+        public bool occupied;
+    }
 
     public static ScamSpawner1 Instance
     {
@@ -36,11 +43,7 @@ public class ScamSpawner1 : MonoBehaviour
 
         spawnspeed = 3;
 
-        float screenWidth = 1280;
-        float screenHeight = spawnPointOrigin.sizeDelta.y / 1080 * 720;
-
         Debug.Log("Height: " + Screen.currentResolution.height + ", Width: " + Screen.currentResolution.width);
-        SetSpawnPoints(rows, columns, (int) screenWidth / (columns + 1), (int)screenHeight / (rows + 1), 0, 0);
 
         StartCoroutine(SpawnWave(2));
         //StartCoroutine(SpawnScammer(6));
@@ -57,7 +60,7 @@ public class ScamSpawner1 : MonoBehaviour
                 Vector3 newPosition = spawnPointReference.position + new Vector3(xInterval * j + xOffSet, -yInterval * i + yOffSet);
                 //Vector3 newPosition = spawnPointOrigin.position + new Vector3(j * xInterval + xOffSet, i * -yInterval + yOffSet, 0);
                 Transform spawnPoint = Instantiate(spawnPointReference, newPosition, Quaternion.identity);
-                spawnPoints.Add(spawnPoint);
+                //spawnPoints.Add(spawnPoint);
                 spawnPoint.parent = spawnPointOrigin.transform;
             }
         }
@@ -119,18 +122,15 @@ public class ScamSpawner1 : MonoBehaviour
             SelectSprite = 0;
 
             //Find a valid spawnpoint
-            Transform pointGiven = FindValidPoint();
+            SpawnPoint pointGiven = FindValidPoint();
 
-            if (pointGiven == null)
+            if (pointGiven.point == null)
                 continue;
 
-            GameObject scammerSpawned = Instantiate(scammerPrefab[SelectSprite], pointGiven.position, Quaternion.identity);
+            GameObject scammerSpawned = Instantiate(scammerPrefab[SelectSprite], pointGiven.point.position, Quaternion.identity);
             scammerSpawned.transform.parent = this.transform.parent.transform;
             scammerSpawned.GetComponentInChildren<ScamEntity>().spawnPoint = pointGiven;
-            scammerSpawned.transform.GetChild(0).GetComponent<RectTransform>().position = pointGiven.position;
-
-
-            pointGiven.gameObject.SetActive(false);
+            scammerSpawned.transform.GetChild(0).GetComponent<RectTransform>().position = pointGiven.point.position;
 
         }
 
@@ -157,16 +157,16 @@ public class ScamSpawner1 : MonoBehaviour
 
     #region Helper Functions
 
-    private Transform FindValidPoint()
+    private SpawnPoint FindValidPoint()
     {
-        Transform validPoint = null;
+        SpawnPoint validPoint = new SpawnPoint();
         bool vacantSpawnPoints = true;
 
-        while (validPoint == null && vacantSpawnPoints)
+        while (vacantSpawnPoints)
         {
-            foreach (Transform point in spawnPoints)
+            foreach (SpawnPoint point in spawnPoints)
             {
-                if (point.gameObject.activeSelf)
+                if (!point.occupied)
                 {
                     vacantSpawnPoints = true;
                     break;
@@ -175,8 +175,11 @@ public class ScamSpawner1 : MonoBehaviour
                 vacantSpawnPoints = false;
             }
             int indexOfSpawnPointToCheck = Random.Range(0, spawnPoints.Count);
-            if (spawnPoints[indexOfSpawnPointToCheck].gameObject.activeSelf)
-                validPoint = spawnPoints[indexOfSpawnPointToCheck].transform;
+            if (!spawnPoints[indexOfSpawnPointToCheck].occupied)
+            {
+                spawnPoints[indexOfSpawnPointToCheck].occupied = true;
+                return spawnPoints[indexOfSpawnPointToCheck];
+            }
         }
         return validPoint;
     }

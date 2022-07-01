@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ScamEntity : MonoBehaviour, IPointerDownHandler
 {
-    public Transform spawnPoint;
+    public ScamSpawner1.SpawnPoint spawnPoint;
     private Canvas rend;
     private BoxCollider2D inputCollider;
     private Image spriteRenderer;
@@ -77,7 +77,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
         inputCollider.size = new Vector2(thisTransform.rect.width, thisTransform.rect.height);
         rend = this.transform.parent.gameObject.GetComponent<Canvas>();
 
-        int spawnPointIndex = spawnPoint.GetSiblingIndex();
+        int spawnPointIndex = spawnPoint.point.GetSiblingIndex();
         if (spawnPointIndex == 0)
             spawnPointIndex++;
         float rowOfSpawnPoint = Mathf.Ceil((float) spawnPointIndex / (float) ScamSpawner1.Instance.columns);
@@ -213,7 +213,7 @@ public class ScamEntity : MonoBehaviour, IPointerDownHandler
     public void DespawnEntity()
     {
         this.gameObject.SetActive(false);
-        spawnPoint.gameObject.SetActive(true);
+        spawnPoint.occupied = false;
         ScamSpawner1.Instance.DeleteEntity(this.transform.parent.gameObject);
     }
 }
