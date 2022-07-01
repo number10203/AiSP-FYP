@@ -446,7 +446,9 @@ public class ScamMinigame2Manager : MonoBehaviour
                     LeanTween.moveLocalY(MessageLists[27], MessageLists[27].transform.localPosition.y + 150f, .25f);
                     yield return new WaitForSeconds(1.5f);
                     MessageLists[7].SetActive(true);
-                    LeanTween.moveLocalY(MessageLists[7], MessageLists[7].transform.localPosition.y + 380f, .5f);
+                    pos = MessageLists[7].transform.localPosition.y;
+                    LeanTween.moveLocalY(MessageLists[7], pos - 100f, 0f);
+                    LeanTween.moveLocalY(MessageLists[7], MessageLists[7].transform.localPosition.y + 150f, .5f);
                 }
                 else if (MessageLists[12].activeInHierarchy)
                 {
