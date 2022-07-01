@@ -7,6 +7,7 @@ public class ScamSpawner1 : MonoBehaviour
     public GameObject mainCanvas;
     public GameObject[] scammerPrefab;
     public RectTransform spawnPointOrigin;
+    public RectTransform spawnPointReference;
     //private int NumberOfBushesToSpawn;
     private int Numberspawned;
     private int SelectSprite;
@@ -35,13 +36,11 @@ public class ScamSpawner1 : MonoBehaviour
 
         spawnspeed = 3;
 
-        float screenWidth = Screen.currentResolution.width;
-        float screenHeight = Screen.currentResolution.height;
+        float screenWidth = spawnPointOrigin.sizeDelta.x;
+        float screenHeight = spawnPointOrigin.sizeDelta.y;
 
         Debug.Log("Height: " + screenHeight + ", Width: " + screenWidth);
-        float yOffset = screenHeight * -0.15f;
-        float availableHeight = screenHeight * 0.9f;
-        SetSpawnPoints(rows, columns, (int) screenWidth / (columns + 1), (int)availableHeight / (rows + 1), 0, (int) yOffset);
+        SetSpawnPoints(rows, columns, (int) screenWidth / (columns + 1), (int)screenHeight / (rows + 1), 0, 0);
 
         StartCoroutine(SpawnWave(2));
         //StartCoroutine(SpawnScammer(6));
@@ -50,17 +49,19 @@ public class ScamSpawner1 : MonoBehaviour
 
     private void SetSpawnPoints(int rows, int columns, int xInterval, int yInterval, int xOffSet = 0, int yOffSet = 0)
     {
+        spawnPointReference.gameObject.SetActive(true);
         for (int i = 1; i <= rows; i++)
         {
             for (int j = 1; j <= columns; j++)
             {
-                Vector3 newPosition = spawnPointOrigin.position + new Vector3(xInterval * j + xOffSet, -yInterval * i + yOffSet);
+                Vector3 newPosition = spawnPointReference.position + new Vector3(xInterval * j + xOffSet, -yInterval * i + yOffSet);
                 //Vector3 newPosition = spawnPointOrigin.position + new Vector3(j * xInterval + xOffSet, i * -yInterval + yOffSet, 0);
-                Transform spawnPoint = Instantiate(spawnPointOrigin, newPosition, Quaternion.identity);
+                Transform spawnPoint = Instantiate(spawnPointReference, newPosition, Quaternion.identity);
                 spawnPoints.Add(spawnPoint);
                 spawnPoint.parent = spawnPointOrigin.transform;
             }
         }
+        spawnPointReference.gameObject.SetActive(false);
     }
 
     //private void ResetSpawnPoint(Transform currentpos)
