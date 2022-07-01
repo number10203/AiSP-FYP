@@ -258,7 +258,8 @@ MonoBehaviour:
   m_text: You sound a bit fake ah...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -374,7 +375,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -390,7 +392,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -780,7 +783,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -796,7 +800,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1129,7 +1134,8 @@ MonoBehaviour:
   m_text: My ID is Chew Ah Huat
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1339,7 +1345,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1355,7 +1362,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1693,7 +1701,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1709,7 +1718,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1883,7 +1893,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1899,7 +1910,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -2119,7 +2131,8 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
-  m_sharedMaterial: {fileID: 3096951717148847316, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
+  m_sharedMaterial: {fileID: 3096951717148847316, guid: c5f20498d3d31014995ad6971c8fc9ac,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2352,7 +2365,8 @@ MonoBehaviour:
     I will go ask my son'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2666,7 +2680,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 4c6b2c9ffff7c594ea4cfb2918f3385c, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -2682,7 +2697,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -2855,7 +2871,8 @@ MonoBehaviour:
   m_text: I don't even know you
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3764,7 +3781,8 @@ MonoBehaviour:
   m_text: No sir pls wait
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3898,7 +3916,8 @@ MonoBehaviour:
   m_text: Thank you sir, just give me a moment to check
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4032,7 +4051,8 @@ MonoBehaviour:
   m_text: Aiyo.. What is this?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4166,7 +4186,8 @@ MonoBehaviour:
   m_text: I don't want
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4302,7 +4323,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -4318,7 +4340,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -4625,7 +4648,8 @@ MonoBehaviour:
   m_text: Sir, I will also need your password
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5289,7 +5313,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -5305,7 +5330,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -5630,7 +5656,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -5646,7 +5673,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -5797,7 +5825,8 @@ MonoBehaviour:
     I give you my bank account details'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6065,7 +6094,8 @@ MonoBehaviour:
   m_text: 'Score: 0000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
-  m_sharedMaterial: {fileID: 3096951717148847316, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
+  m_sharedMaterial: {fileID: 3096951717148847316, guid: c5f20498d3d31014995ad6971c8fc9ac,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6201,7 +6231,8 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
-  m_sharedMaterial: {fileID: 3096951717148847316, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
+  m_sharedMaterial: {fileID: 3096951717148847316, guid: c5f20498d3d31014995ad6971c8fc9ac,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6555,7 +6586,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -6571,7 +6603,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -6873,7 +6906,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ...
+  m_Text: '...'
 --- !u!222 &744765498
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7020,7 +7053,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -7036,7 +7070,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -7397,7 +7432,8 @@ MonoBehaviour:
   m_text: My password is 1951Feb19
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7902,7 +7938,8 @@ MonoBehaviour:
   m_text: Aiyo.. What is this?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8088,11 +8125,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'You have reached customer service
 
-    Please provide your User ID and
-    password for your bank account'
+    Please provide your User ID and password for your bank account'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8228,7 +8265,8 @@ MonoBehaviour:
     I will go ask my son'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8362,7 +8400,8 @@ MonoBehaviour:
   m_text: 'I will click on the link '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8725,7 +8764,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -8741,7 +8781,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -8810,7 +8851,8 @@ MonoBehaviour:
     now
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8941,10 +8983,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ...
+  m_text: '...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9080,7 +9123,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -9096,7 +9140,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -9580,7 +9625,8 @@ MonoBehaviour:
   m_text: X
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10259,11 +10305,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sir, don't worry I can help you get your money. You just have to trust
-    me sir.
+  m_text: Sir, don't worry I can help you get your money. You just have to trust me
+    sir.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10399,7 +10446,8 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
-  m_sharedMaterial: {fileID: 3096951717148847316, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
+  m_sharedMaterial: {fileID: 3096951717148847316, guid: c5f20498d3d31014995ad6971c8fc9ac,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10533,7 +10581,8 @@ MonoBehaviour:
   m_text: Why?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10667,7 +10716,8 @@ MonoBehaviour:
   m_text: I don't even know you
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10801,7 +10851,8 @@ MonoBehaviour:
   m_text: Who are you?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10935,7 +10986,8 @@ MonoBehaviour:
   m_text: How did you get my number?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11185,7 +11237,8 @@ MonoBehaviour:
   m_text: It is for verification sir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11469,7 +11522,8 @@ MonoBehaviour:
   m_text: Why should I trust you?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11605,7 +11659,8 @@ MonoBehaviour:
     I give you my bank account details'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11814,7 +11869,8 @@ MonoBehaviour:
   m_text: I don't want
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11987,7 +12043,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -12003,7 +12060,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -12601,7 +12659,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -12617,7 +12676,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -12686,7 +12746,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 4c6b2c9ffff7c594ea4cfb2918f3385c, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -12702,7 +12763,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -13395,7 +13457,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 4c6b2c9ffff7c594ea4cfb2918f3385c, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -13411,7 +13474,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -13661,7 +13725,8 @@ MonoBehaviour:
   m_text: I will click on the link
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13912,7 +13977,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 4c6b2c9ffff7c594ea4cfb2918f3385c, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -13928,7 +13994,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -14100,15 +14167,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Good day sir
 
-    You have reached customer service. We have detected
-    a transaction involving your card numbering $500 on 10 JUNE 16:11 (SGT).
+    You have reached customer service. We have detected a transaction involving your
+    card numbering $500 on 10 JUNE 16:11 (SGT).
 
-    If
-    unauthorised, pls head to our website at <color=#0000FF><u>http://PBS-real.com</u><color=#000000>
+    If unauthorised, pls head to our website at <color=#0000FF><u>http://PBS-real.com</u><color=#000000>
     now.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14319,7 +14386,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -14335,7 +14403,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -14510,7 +14579,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -14526,7 +14596,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -14921,7 +14992,8 @@ MonoBehaviour:
   m_text: How did you get my number?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15055,7 +15127,8 @@ MonoBehaviour:
   m_text: My ID is Chew Ah Huat
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15262,7 +15335,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -15278,7 +15352,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -15603,7 +15678,8 @@ MonoBehaviour:
   m_text: Who are you?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15995,7 +16071,8 @@ MonoBehaviour:
   m_text: Why?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16129,7 +16206,8 @@ MonoBehaviour:
   m_text: Why should I trust you?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16925,7 +17003,8 @@ MonoBehaviour:
   m_text: My password is 1951Feb19
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17136,7 +17215,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -17152,7 +17232,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -17401,7 +17482,8 @@ MonoBehaviour:
   m_text: You sound a bit fake ah...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
-  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
+  m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17537,7 +17619,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: bdec8490b1edac94f879eb1d8d751711,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -17553,7 +17636,8 @@ MonoBehaviour:
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: ef5011c6fe3f09b4da5de9b571b38efa,
+              type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -17649,51 +17733,63 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4619114166412249776, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249776, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_Name
       value: CollectParticleEffect
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.38
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e, type: 3}
+    - target: {fileID: 4619114166412249783, guid: 899fa2376186c994baee933257446e9e,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -17701,6 +17797,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 899fa2376186c994baee933257446e9e, type: 3}
 --- !u!1 &7625352986155355497 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4619114166412249776, guid: 899fa2376186c994baee933257446e9e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4619114166412249776, guid: 899fa2376186c994baee933257446e9e,
+    type: 3}
   m_PrefabInstance: {fileID: 3010887246782597081}
   m_PrefabAsset: {fileID: 0}
