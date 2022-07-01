@@ -1482,7 +1482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &147145630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4048,7 +4048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Aiyo.. What is this?
+  m_text: Aiyo, what is this?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
   m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
@@ -5820,9 +5820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Okay can
-
-    I give you my bank account details'
+  m_text: Okay can I give you my bank account details
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b4771bd0247144d8f3968b3da3e4e6, type: 2}
   m_sharedMaterial: {fileID: -8979297301294576794, guid: e3b4771bd0247144d8f3968b3da3e4e6,
@@ -11116,7 +11114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1276573389
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12722,7 +12720,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 90.8, y: -218.75}
-  m_SizeDelta: {x: 250, y: 85.915}
+  m_SizeDelta: {x: 250, y: 74.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438266708
 MonoBehaviour:
