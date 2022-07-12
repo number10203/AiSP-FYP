@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class ScamSpawner1 : MonoBehaviour
 {
+    //Global Variable
+    public static ScamSpawner1 INSTANCE
+    {
+        get; private set;
+    }
+
+    //Public variables
     public GameObject mainCanvas;
     public GameObject[] scammerPrefab;
     public RectTransform spawnPointOrigin;
     public RectTransform spawnPointReference;
-    //private int NumberOfBushesToSpawn;
-    private int Numberspawned;
-    private int SelectSprite;
     public float starttime;
-    private float timeinterval;
-    private int spawnspeed;
-    private float nexttime;
-    private int wavecheck;
-
-    [Header("How many rows and columns to generate spawnpoints in")]
     public int rows;
     public int columns;
-    
     public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
-
     [System.Serializable]
     public class SpawnPoint
     {
@@ -30,14 +26,16 @@ public class ScamSpawner1 : MonoBehaviour
         public bool occupied;
     }
 
-    public static ScamSpawner1 Instance
-    {
-        get; private set;
-    }
+    //Private variables
+    private int Numberspawned;
+    private int SelectSprite;
+    private float timeinterval;
+    private int spawnspeed;
+
 
     public void Start()
     {
-        Instance = this;
+        INSTANCE = this;
         spawnPointOrigin.gameObject.SetActive(true);
         //starttime += Time.time;
 
@@ -50,29 +48,6 @@ public class ScamSpawner1 : MonoBehaviour
 
     }
 
-    private void SetSpawnPoints(int rows, int columns, int xInterval, int yInterval, int xOffSet = 0, int yOffSet = 0)
-    {
-        spawnPointReference.gameObject.SetActive(true);
-        for (int i = 1; i <= rows; i++)
-        {
-            for (int j = 1; j <= columns; j++)
-            {
-                Vector3 newPosition = spawnPointReference.position + new Vector3(xInterval * j + xOffSet, -yInterval * i + yOffSet);
-                //Vector3 newPosition = spawnPointOrigin.position + new Vector3(j * xInterval + xOffSet, i * -yInterval + yOffSet, 0);
-                Transform spawnPoint = Instantiate(spawnPointReference, newPosition, Quaternion.identity);
-                //spawnPoints.Add(spawnPoint);
-                spawnPoint.parent = spawnPointOrigin.transform;
-            }
-        }
-        spawnPointReference.gameObject.SetActive(false);
-    }
-
-    //private void ResetSpawnPoint(Transform currentpos)
-    //{
-    //    spawnPoints.Add(currentpos);
-
-    //}
-
     private IEnumerator SpawnWave(int numberOfWaves)
     {
         //TO DO:
@@ -84,8 +59,6 @@ public class ScamSpawner1 : MonoBehaviour
             StartCoroutine(SpawnScammer(20 * spawnspeed));
             //waiting time for one wave
             yield return new WaitForSeconds(50);
-            //checks what wave it is
-            wavecheck += 1;
             //increase speed
             spawnspeed += 2;
         }
@@ -155,8 +128,6 @@ public class ScamSpawner1 : MonoBehaviour
         Destroy(entity);
     }
 
-    #region Helper Functions
-
     private SpawnPoint FindValidPoint()
     {
         SpawnPoint validPoint = new SpawnPoint();
@@ -183,6 +154,4 @@ public class ScamSpawner1 : MonoBehaviour
         }
         return validPoint;
     }
-
-    #endregion
 }
