@@ -168,9 +168,9 @@ public class IdentityTheftManager_2 : MonoBehaviour
         //endCutscene.SetActive(false);
         //results.SetActive(true);
 
-        if (score > GameManager.INSTANCE.globalScamScore)
+        if (score > GameManager.INSTANCE.globalIdentityScore)
         {
-            GameManager.INSTANCE.globalScamScore = score;
+            GameManager.INSTANCE.globalIdentityScore = score;
         }
     }
 
