@@ -8,11 +8,6 @@ using UnityEngine.UI;
 
 public class IdentityTheftManager_1 : MonoBehaviour
 {
-    public static IdentityTheftManager_1 Instance
-    {
-        get; private set;
-    }
-
     [Header("UI References")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
@@ -35,8 +30,6 @@ public class IdentityTheftManager_1 : MonoBehaviour
     [SerializeField] private GameObject minigame;
     [SerializeField] private float secondsUntilFinish;
 
-    //[SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
-
     private GameObject cutsceneAudio;
 
     internal int score = 0;
@@ -46,14 +39,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+
     }
     private void Start()
     {
