@@ -21,8 +21,6 @@ public class IdentityTheftManager_1 : MonoBehaviour
     [SerializeField] private GameObject results;
 
     [Header ("Audio References")]
-    [SerializeField] private AudioClip loseAudio;
-    [SerializeField] private AudioClip winAudio;
     [SerializeField] private AudioClip startCutscene_1;
     private AudioManager audioManager;
 
@@ -35,12 +33,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
     internal int score = 0;
     private int counter = 0;
     private bool gameEnd = false;
-    private bool toggleText = false;
 
-    private void Awake()
-    {
-
-    }
     private void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -75,7 +68,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         {
             results.SetActive(true);
             minigame.SetActive(false);
-            GameManager.INSTANCE.currentScamScore = score;
+            GameManager.INSTANCE.currentIdentityScore = score;
 
             if (counter != score)
             {
@@ -133,7 +126,6 @@ public class IdentityTheftManager_1 : MonoBehaviour
     {
         instructions.gameObject.SetActive(false);
         minigame.gameObject.SetActive(true);
-        //canvasGroup.blocksRaycasts = true;
     }
 
     public void DoPickupCall()
