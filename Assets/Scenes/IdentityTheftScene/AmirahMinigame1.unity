@@ -1165,6 +1165,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8608565747737067945, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
 --- !u!1 &317940572
@@ -3707,9 +3711,9 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -423104485908034605, guid: 5d52006f1946229489aa34d12663dfee, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 5781553465163830507, guid: 5d52006f1946229489aa34d12663dfee, type: 3}
+    m_Data: {fileID: 333886463644600609, guid: b421dfcde2c01e74490ca3c237c414aa, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 7182166385339920857, guid: 5d52006f1946229489aa34d12663dfee, type: 3}
+    m_Data: {fileID: 4677668701694415862, guid: b421dfcde2c01e74490ca3c237c414aa, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 8903311925061747881, guid: 5d52006f1946229489aa34d12663dfee, type: 3}
   - m_RefCount: 3
