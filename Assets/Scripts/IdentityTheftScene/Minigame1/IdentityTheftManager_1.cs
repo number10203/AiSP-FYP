@@ -47,7 +47,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (score < 0)
             score = 0;
 
-        scoreText.text = "Score: " + score;
+        //scoreText.text = "Score: " + score;
         
     }
 
@@ -56,11 +56,11 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (minigame.activeInHierarchy)
         {
             secondsUntilFinish -= Time.deltaTime;
-            timerText.text = "Time Left: " + (int) secondsUntilFinish + "s";
+            //timerText.text = "Time Left: " + (int) secondsUntilFinish + "s";
 
             if (secondsUntilFinish <= 0.0f)
             {
-                gameEnd = true;
+                //gameEnd = true;
             }
         }
 
@@ -85,10 +85,10 @@ public class IdentityTheftManager_1 : MonoBehaviour
         sceneTransition.SetActive(false);
 
         // Init cutscene
-        startCutscene.SetActive(true);
+        startCutscene.SetActive(false);
         infographic.SetActive(false);
         instructions.SetActive(false);
-        minigame.SetActive(false);
+        minigame.SetActive(true);
         results.SetActive(false);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
         subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
