@@ -1043,7 +1043,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3626505105840650852, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3626505105840650852, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
       propertyPath: m_LocalScale.x
@@ -1064,6 +1064,10 @@ PrefabInstance:
     - target: {fileID: 3626505105840650852, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
       propertyPath: m_LocalPosition.y
       value: 282
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626505105840650852, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3875915481597680801, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
       propertyPath: m_Pivot.x
@@ -1167,7 +1171,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608565747737067945, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152531340953856387, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152531340953856387, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152531340953856387, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152531340953856387, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c41ab3a9a3b969e46ab0413de502f7a4, type: 3}
@@ -1483,7 +1503,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &531417825
 MonoBehaviour:
@@ -1657,7 +1677,7 @@ Transform:
   - {fileID: 1659103649}
   - {fileID: 1947180253}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &642130414
 GameObject:
@@ -2156,7 +2176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1006644780
 MonoBehaviour:
@@ -3840,7 +3860,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 502564665}
-  boundary: {fileID: 1659103652}
 --- !u!1 &1685000542
 GameObject:
   m_ObjectHideFlags: 0
@@ -4293,6 +4312,7 @@ GameObject:
   - component: {fileID: 1882031506}
   - component: {fileID: 1882031508}
   - component: {fileID: 1882031507}
+  - component: {fileID: 1882031509}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -4358,7 +4378,7 @@ TilemapRenderer:
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
-  m_SortOrder: 0
+  m_SortOrder: 2
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
@@ -5380,6 +5400,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1882031509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882031505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ae6b48a3a92f847bc977b89c7f35db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1914368152
 GameObject:
   m_ObjectHideFlags: 0
@@ -5636,7 +5668,7 @@ Transform:
   - {fileID: 469683395}
   - {fileID: 642130415}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1962512073
 MonoBehaviour:

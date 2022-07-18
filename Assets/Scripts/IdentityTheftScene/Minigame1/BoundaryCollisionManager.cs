@@ -6,7 +6,12 @@ using UnityEngine.Tilemaps;
 public class BoundaryCollisionManager : MonoBehaviour
 {
     public IdentityPlayerController playerController;
-    public Tilemap boundary;
+    private Tilemap boundary;
+
+    private void Start()
+    {
+        boundary = GetComponent<Tilemap>();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision Detected");
