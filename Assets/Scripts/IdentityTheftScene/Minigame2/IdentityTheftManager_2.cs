@@ -29,7 +29,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
     [SerializeField] private AudioClip loseAudio;
     [SerializeField] private AudioClip winAudio;
     [SerializeField] private AudioClip startCutscene_1;
-    private AudioManager audioManager;
+    public AudioManager audioManager;
 
     [Header("Minigame References")]
     [SerializeField] private GameObject minigame;
@@ -39,10 +39,12 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
     private GameObject cutsceneAudio;
 
-    internal int score = 0;
+    internal int score;
     private int counter = 0;
     private bool gameEnd = false;
     private bool toggleText = false;
+
+    [HideInInspector] public bool isWin = false, isLose = false;
 
     private void Awake()
     {
@@ -60,7 +62,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         InitGameObjects();
 
-        GameManager.INSTANCE.currentScamScore = 0;
+        score = GameManager.INSTANCE.currentIdentityScore;
     }
 
     private void FixedUpdate()
@@ -74,22 +76,22 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
     private void Update()
     {
-        if (minigame.activeInHierarchy)
-        {
-            secondsUntilFinish -= Time.deltaTime;
-            timerText.text = "Time Left: " + (int)secondsUntilFinish + "s";
+        //if (minigame.activeInHierarchy)
+        //{
+        //    secondsUntilFinish -= Time.deltaTime;
+        //    timerText.text = "Time Left: " + (int)secondsUntilFinish + "s";
 
-            if (secondsUntilFinish <= 0.0f)
-            {
-                gameEnd = true;
-            }
-        }
+        //    if (secondsUntilFinish <= 0.0f)
+        //    {
+        //        gameEnd = true;
+        //    }
+        //}
 
         if (gameEnd)
         {
             results.SetActive(true);
             minigame.SetActive(false);
-            GameManager.INSTANCE.currentScamScore = score;
+            GameManager.INSTANCE.currentIdentityScore = score;
 
             if (counter != score)
             {
@@ -102,18 +104,18 @@ public class IdentityTheftManager_2 : MonoBehaviour
     private void InitGameObjects()
     {
         // Init transitions
-        startingFade.SetActive(true);
-        sceneTransition.SetActive(false);
+        //startingFade.SetActive(true);
+        //sceneTransition.SetActive(false);
 
         // Init cutscene
-        startCutscene.SetActive(true);
-        infographic.SetActive(false);
-        instructions.SetActive(false);
-        minigame.SetActive(false);
+        //startCutscene.SetActive(true);
+        //infographic.SetActive(false);
+        //instructions.SetActive(false);
+        minigame.SetActive(true);
         results.SetActive(false);
-        cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
-        subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
-        StartCoroutine(TransitionToGame(30f));
+        //cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
+        //subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
+        //StartCoroutine(TransitionToGame(30f));
     }
 
     private IEnumerator TransitionToGame(float time)
