@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class IdentityPlayerController : MonoBehaviour
 {
     public Rigidbody2D playerBody;
     public float speed;
-    private bool changedDirection;
+    public Tilemap floorMap;
+    public List<Vector4> turningHistory = new List<Vector4>();
+    public List<GameObject> characterList = new List<GameObject>();
     private float timeUntilMovement;
     private float timePassed = 0f;
+    private Vector3 startPos, endPos;
+    private Vector3 prevDir;
     public Vector3 direction
     {
         private set;
@@ -19,42 +24,50 @@ public class IdentityPlayerController : MonoBehaviour
     {
         timeUntilMovement = 1 / speed;
         direction = new Vector3(1, 0);
+        startPos = transform.position;
+        endPos = startPos + direction;
     }
-    // Update is called once per frame
+
     void Update()
     {
-        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && direction.x == 0f && !changedDirection)
+        CheckForInput();
+        timePassed += Time.deltaTime;
+        transform.position = Vector3.Lerp(startPos, endPos, timePassed / timeUntilMovement);
+
+        if (timePassed >= timeUntilMovement)
+        {
+            timePassed = 0f;
+            Vector4 newTurn = new Vector4(transform.position.x, transform.position.y - 1);
+            newTurn.w = Time.time;
+            turningHistory.Add(newTurn);
+            startPos = transform.position;
+            endPos = startPos + direction;
+            prevDir = direction;
+        }
+    }
+
+    void CheckForInput()
+    {
+        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && prevDir.x == 0f)
         {
             direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
-            changedDirection = true;
         }
 
-        if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f && direction.y == 0f && !changedDirection)
+        if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f && prevDir.y == 0f)
         {
             direction = new Vector3(0, Input.GetAxisRaw("Vertical"), 0);
-            changedDirection = true;
-        }
-
-        if (timePassed <= timeUntilMovement)
-        {
-            timePassed += Time.deltaTime;
-        }
-        else
-        {
-            playerBody.MovePosition(new Vector2(Mathf.Round(playerBody.position.x), Mathf.Round(playerBody.position.y)));
-            playerBody.velocity = direction * speed;
-            //playerBody.MovePosition(transform.position += direction);
-            //transform.position = Vector3.MoveTowards(transform.position, targetPosition, 5f * Time.fixedDeltaTime);
-            timePassed = 0f;
-            changedDirection = false;
         }
     }
 
     public void SetPosition(Vector3 newPosition)
     {
-        playerBody.MovePosition(newPosition);
+        Vector3Int cellPosition = floorMap.WorldToCell(newPosition);
+        transform.position = floorMap.GetCellCenterWorld(cellPosition);
         playerBody.SetRotation(0f);
         playerBody.velocity = direction * speed;
         timePassed = 0f;
     }
+
+    
+
 }

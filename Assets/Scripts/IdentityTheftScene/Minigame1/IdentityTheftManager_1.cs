@@ -14,6 +14,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
     public TextMeshProUGUI endScoreText;
     public GameObject infographic;
     public AudioClip BGM;
+    public float timeRemaining;
     [SerializeField] private GameObject startingFade, sceneTransition;
     [SerializeField] private GameObject startCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
@@ -26,6 +27,9 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     [Header ("Minigame References")]
     [SerializeField] private GameObject minigame;
+    [SerializeField] private GameObject minigameEnvironment;
+    [SerializeField] private GameObject minigameProgressPanel;
+    [SerializeField] private IdentityPlayerController player;
     [SerializeField] private float secondsUntilFinish;
 
     private GameObject cutsceneAudio;
@@ -39,7 +43,8 @@ public class IdentityTheftManager_1 : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         InitGameObjects();
 
-        GameManager.INSTANCE.currentScamScore = 0;
+        GameManager.INSTANCE.currentIdentityScore = 0;
+        Minigame1EventHandler.instance.onGameEnd += EndGame;
     }
 
     private void FixedUpdate()
@@ -47,7 +52,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (score < 0)
             score = 0;
 
-        //scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + score;
         
     }
 
@@ -55,25 +60,13 @@ public class IdentityTheftManager_1 : MonoBehaviour
     {
         if (minigame.activeInHierarchy)
         {
-            secondsUntilFinish -= Time.deltaTime;
+            //secondsUntilFinish -= Time.deltaTime;
             //timerText.text = "Time Left: " + (int) secondsUntilFinish + "s";
+            UpdateProgress();
 
             if (secondsUntilFinish <= 0.0f)
             {
-                //gameEnd = true;
-            }
-        }
-
-        if (gameEnd)
-        {
-            results.SetActive(true);
-            minigame.SetActive(false);
-            GameManager.INSTANCE.currentIdentityScore = score;
-
-            if (counter != score)
-            {
-                counter += 5;
-                endScoreText.text = "Score: " + counter;
+                //EndGame();
             }
         }
     }
@@ -85,14 +78,56 @@ public class IdentityTheftManager_1 : MonoBehaviour
         sceneTransition.SetActive(false);
 
         // Init cutscene
-        startCutscene.SetActive(false);
+        startCutscene.SetActive(true);
         infographic.SetActive(false);
         instructions.SetActive(false);
-        minigame.SetActive(true);
+        minigame.SetActive(false);
         results.SetActive(false);
+        minigameEnvironment.SetActive(false);
+        player.gameObject.SetActive(false);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
         subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
         StartCoroutine(TransitionToGame(30f));
+    }
+
+    private void UpdateProgress()
+    {
+        TextMeshProUGUI[] texts = minigameProgressPanel.GetComponentsInChildren<TextMeshProUGUI>();
+        //string password = "";
+        foreach (GameObject character in player.characterList)
+        {
+            char[] SpecialChars = "!@#$%^&*()-_".ToCharArray();
+            if (char.IsUpper(character.GetComponent<SpriteRenderer>().name[0]))
+            {
+                texts[1].fontStyle = FontStyles.Strikethrough;
+            }
+            if (character.GetComponent<SpriteRenderer>().name.IndexOfAny(SpecialChars) == -1)
+            {
+                texts[2].fontStyle = FontStyles.Strikethrough;
+            }
+        }
+        if (player.characterList.Count >= 12)
+        {
+            texts[0].fontStyle = FontStyles.Strikethrough;
+        }
+
+        score = GameManager.INSTANCE.currentIdentityScore;
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("Game Ended");
+        //Minigame1EventHandler.instance.CleanUpTrigger();
+        results.SetActive(true);
+        minigame.SetActive(false);
+        GameManager.INSTANCE.currentIdentityScore = score;
+        minigameEnvironment.SetActive(false);
+
+        if (counter != score)
+        {
+            counter += 5;
+            endScoreText.text = "Score: " + counter;
+        }
     }
 
     private IEnumerator TransitionToGame(float time)
@@ -114,7 +149,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
     {
         subtitleManager.SetTimer(22.00f);
         startCutscene.GetComponent<Cutscene>().SkipCutscene();
-        startCutscene.GetComponent<Animator>().Play("AhHuatStartingCutscene_Unskippable");
+        startCutscene.GetComponent<Animator>().Play("AmirahStartingCutscene_Unskippable");
 
         Destroy(cutsceneAudio.gameObject);
 
@@ -126,17 +161,8 @@ public class IdentityTheftManager_1 : MonoBehaviour
     {
         instructions.gameObject.SetActive(false);
         minigame.gameObject.SetActive(true);
-    }
-
-    public void DoPickupCall()
-    {
-        StartCoroutine(PickupCall());
-    }
-
-    private IEnumerator PickupCall()
-    {
-        score += 50;
-        yield return new WaitForSeconds(1f);
+        minigameEnvironment.SetActive(true);
+        player.gameObject.SetActive(true);
     }
 
     private IEnumerator StopCutscene(float time)
@@ -160,7 +186,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
     public void NextMinigame()
     {
         sceneTransition.SetActive(true);
-        SceneController.INSTANCE.LoadSceneAsync(7);
+        SceneController.INSTANCE.LoadSceneAsync(9);
     }
 
     public void RestartLevel()
