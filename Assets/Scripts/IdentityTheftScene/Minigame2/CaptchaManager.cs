@@ -66,7 +66,7 @@ public class CaptchaManager : MonoBehaviour
                 if(!captchaImage[i].GetComponent<Captcha>().isBad)
                 {
                     IdentityTheftManager_2.Instance.score += 100;
-                    this.gameObject.SetActive(false);
+                    this.enabled = false;
                     Debug.Log(IdentityTheftManager_2.Instance.score);
                 }
                 

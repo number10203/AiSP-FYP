@@ -101,7 +101,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             {
                 texts[1].fontStyle = FontStyles.Strikethrough;
             }
-            if (character.GetComponent<SpriteRenderer>().name.IndexOfAny(SpecialChars) == -1)
+            if (character.GetComponent<SpriteRenderer>().name.IndexOfAny(SpecialChars) != -1)
             {
                 texts[2].fontStyle = FontStyles.Strikethrough;
             }
@@ -120,10 +120,10 @@ public class IdentityTheftManager_1 : MonoBehaviour
         //Minigame1EventHandler.instance.CleanUpTrigger();
         results.SetActive(true);
         minigame.SetActive(false);
-        GameManager.INSTANCE.currentIdentityScore = score;
+        score = GameManager.INSTANCE.currentIdentityScore;
         minigameEnvironment.SetActive(false);
 
-        if (counter != score)
+        while (counter != score)
         {
             counter += 5;
             endScoreText.text = "Score: " + counter;
