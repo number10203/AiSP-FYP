@@ -12,8 +12,12 @@ public class Captcha : MonoBehaviour
 
     public bool isSelected = false;
     public bool isBad = false;
+    public bool hasScored = false;
+    public int Length = 6;
 
     private IdentityTheftManager_2 manager;
+
+    
 
     public static Captcha Instance
     {
@@ -33,12 +37,26 @@ public class Captcha : MonoBehaviour
 
 
     // Set gameobject child to virus and change tag
-    public void SetToVirus()
+    public void SetCaptcha()
     {
-        //isBad = true;
-        //transform.GetChild(0).gameObject.SetActive(true);
-        //transform.GetChild(1).gameObject.SetActive(false);
-        //tag = "RealVirus";
+
+        int Rand = Random.Range(0, 6);
+        if (CaptchaManager.Instance.captchaOrder.Contains(Rand))
+        {
+            transform.GetChild(Rand).gameObject.SetActive(true);
+            if (Rand <= 2)
+            {
+                isBad = true;
+            }
+
+            CaptchaManager.Instance.captchaOrder.Remove(Rand);
+        }
+        else
+        {
+            SetCaptcha();
+        }
+
+        Debug.Log(Rand);
     }
 
     // Set gameobject child to virus and change tag

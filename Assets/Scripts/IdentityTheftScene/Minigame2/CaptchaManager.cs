@@ -6,6 +6,12 @@ using UnityEngine.EventSystems;
 
 public class CaptchaManager : MonoBehaviour
 {
+    public static CaptchaManager Instance
+    {
+        get;
+        private set;
+    }
+
     public GameObject captchaPrefab;
     public Transform captchaOrigin;
 
@@ -17,42 +23,62 @@ public class CaptchaManager : MonoBehaviour
 
     Toggle m_Toggle;
     private int selectedObjects;
+    private int quiz = 0;
 
     private List<GameObject> captchaImage = new List<GameObject>();
+    public List<int> captchaOrder = new List<int>();
 
 
     private void Start()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
         SpawnCaptcha();
     }
 
     private void Update()
     {
-        //if (selected == true)
-        //{
-        //    if (addscore == true)
-        //    {
-        //        IdentityTheftManager_2.Instance.score += 100;
-        //        addscore = false;
-        //    }
-        //}
+
 
     }
 
     private void SpawnCaptcha()
     {
-        // for the columns
-        for (int i = 0; i <= 2; i++)
+        switch (quiz)
         {
-            // for the rows
-            for (int j = 0; j <= 1; j++)
-            {
-                Vector3 pos = new Vector3((i - 1) * 5.25f , (j - 0.7f) * 3.5f);
-                captchaImage.Add(Instantiate(captchaPrefab, pos, Quaternion.identity, captchaOrigin));
-            }
+            case 0:
+                int z = 0;
+                captchaOrder = new List<int>() { 0, 1, 2, 3, 4, 5 };
+                // for the columns
+                for (int i = 0; i <= 2; i++)
+                {
+                    // for the rows
+                    for (int j = 0; j <= 1; j++)
+                    {
+                        Vector3 pos = new Vector3((i - 1) * 5.25f, (j - 0.7f) * 3.5f);
+                        captchaImage.Add(Instantiate(captchaPrefab, pos, Quaternion.identity, captchaOrigin));
+                        captchaImage[z].GetComponent<Captcha>().SetCaptcha();
+                        z++;
+
+                    }
+                }
+                break;
+
+            case 1:
+                Debug.Log("WIP");
+                break;
         }
+    
 
     }
+
+
 
 
     public void CheckList()
@@ -65,18 +91,42 @@ public class CaptchaManager : MonoBehaviour
             {
                 if(!captchaImage[i].GetComponent<Captcha>().isBad)
                 {
-                    IdentityTheftManager_2.Instance.score += 100;
-                    this.enabled = false;
-                    Debug.Log(IdentityTheftManager_2.Instance.score);
+                    if(captchaImage[i].GetComponent<Captcha>().hasScored == false)
+                    {
+                        IdentityTheftManager_2.Instance.score += 100;
+                        captchaImage[i].GetComponent<Captcha>().hasScored = true;
+                    }                                   
                 }
-                
+                else
+                {
+                    if (captchaImage[i].GetComponent<Captcha>().hasScored == false)
+                    {
+                        IdentityTheftManager_2.Instance.score -= 100;
+                        captchaImage[i].GetComponent<Captcha>().hasScored = true;
+                    }
+                }
+
+                this.enabled = false;
+
             }
+        }
+        
+        if(quiz <= 2)
+        {
+            Clear();
+            ++quiz;
+            SpawnCaptcha();
+        }
+        else if(quiz > 2)
+        {
+            Clear();
         }
     }
 
-    // Clear all folders
-    public void Clear()
+    IEnumerator Clear()
     {
+        yield return new WaitForSeconds(0.35f);
+
         foreach (GameObject go in captchaImage)
         {
             Destroy(go);
