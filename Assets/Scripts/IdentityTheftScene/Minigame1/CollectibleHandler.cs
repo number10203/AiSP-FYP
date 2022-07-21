@@ -15,7 +15,7 @@ public class CollectibleHandler : MonoBehaviour
         if (playerController == null)
             return;
 
-        Vector3 correctedPlayerPosition = new Vector3(playerController.transform.position.x, playerController.transform.position.y - 1);
+        Vector3 correctedPlayerPosition = new Vector3(playerController.transform.position.x, playerController.transform.position.y);
         transform.position = GetPosition(playerController.turningHistory, correctedPlayerPosition, timeOffset);
     }
 
@@ -39,7 +39,7 @@ public class CollectibleHandler : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(playerController.transform.position.x, playerController.transform.position.y - 1);
+            transform.position = new Vector3(playerController.transform.position.x, playerController.transform.position.y);
             timeOffset = 1f / playerController.speed;
             Debug.Log("First character");
         }
@@ -88,7 +88,7 @@ public class CollectibleHandler : MonoBehaviour
             return;
 
         frameLengthCollided++;
-        if (frameLengthCollided >= 15)
+        if (frameLengthCollided >= 10)
         {
             Minigame1EventHandler.instance.GameEndTrigger();
             Debug.Log("Collided with tail");

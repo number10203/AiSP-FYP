@@ -78,16 +78,16 @@ public class IdentityTheftManager_1 : MonoBehaviour
         sceneTransition.SetActive(false);
 
         // Init cutscene
-        startCutscene.SetActive(true);
+        startCutscene.SetActive(false);
         infographic.SetActive(false);
         instructions.SetActive(false);
-        minigame.SetActive(false);
+        minigame.SetActive(true);
         results.SetActive(false);
-        minigameEnvironment.SetActive(false);
-        player.gameObject.SetActive(false);
+        minigameEnvironment.SetActive(true);
+        player.gameObject.SetActive(true);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
         subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
-        StartCoroutine(TransitionToGame(30f));
+        //StartCoroutine(TransitionToGame(30f));
     }
 
     private void UpdateProgress()

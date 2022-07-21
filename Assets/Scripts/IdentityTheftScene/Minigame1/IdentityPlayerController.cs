@@ -14,6 +14,7 @@ public class IdentityPlayerController : MonoBehaviour
     private float timePassed = 0f;
     private Vector3 startPos, endPos;
     private Vector3 prevDir;
+    private Animator animator;
     public Vector3 direction
     {
         private set;
@@ -24,8 +25,10 @@ public class IdentityPlayerController : MonoBehaviour
     {
         timeUntilMovement = 1 / speed;
         direction = new Vector3(1, 0);
+        prevDir = new Vector3(1, 0);
         startPos = transform.position;
         endPos = startPos + direction;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -37,13 +40,31 @@ public class IdentityPlayerController : MonoBehaviour
         if (timePassed >= timeUntilMovement)
         {
             timePassed = 0f;
-            Vector4 newTurn = new Vector4(transform.position.x, transform.position.y - 1);
+            Vector4 newTurn = new Vector4(transform.position.x, transform.position.y);
             newTurn.w = Time.time;
             turningHistory.Add(newTurn);
             startPos = transform.position;
             endPos = startPos + direction;
+            if (prevDir != direction)
+            {
+                UpdateAnimation();
+            }
             prevDir = direction;
         }
+    }
+
+    void UpdateAnimation()
+    {
+        if (direction.x > 0)
+            animator.SetTrigger("TurnRight");
+        else if (direction.x < 0)
+            animator.SetTrigger("TurnLeft");
+        else if (direction.y > 0)
+            animator.SetTrigger("TurnUp");
+        else
+            animator.SetTrigger("TurnDown");
+
+        Debug.Log("Direction Changed.");
     }
 
     void CheckForInput()
@@ -51,6 +72,7 @@ public class IdentityPlayerController : MonoBehaviour
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && prevDir.x == 0f)
         {
             direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
+
         }
 
         if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f && prevDir.y == 0f)
