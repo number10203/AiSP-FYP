@@ -19,7 +19,7 @@ public class CaptchaManager : MonoBehaviour
     private BoxCollider2D inputCollider;
     private Image spriteRenderer;
     private Animator entityAnimator;
-    private AudioManager audioManager;
+    private AudioManager audioManager; 
 
     Toggle m_Toggle;
     private int selectedObjects;
@@ -74,10 +74,8 @@ public class CaptchaManager : MonoBehaviour
                 Debug.Log("WIP");
                 break;
         }
-    
 
     }
-
 
 
 
@@ -113,13 +111,13 @@ public class CaptchaManager : MonoBehaviour
         
         if(quiz <= 2)
         {
-            Clear();
+            StartCoroutine(Clear());
             ++quiz;
             SpawnCaptcha();
         }
         else if(quiz > 2)
         {
-            Clear();
+            StartCoroutine(Clear());
         }
     }
 
