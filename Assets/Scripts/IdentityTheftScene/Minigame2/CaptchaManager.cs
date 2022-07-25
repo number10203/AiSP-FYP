@@ -73,6 +73,7 @@ public class CaptchaManager : MonoBehaviour
             case 1:
                 z = 0;
                 captchaOrder = new List<int>() { 0, 1, 2, 3, 4, 5 };
+                captchaImage = new List<GameObject>();
                 // for the columns
                 for (int i = 0; i <= 2; i++)
                 {
