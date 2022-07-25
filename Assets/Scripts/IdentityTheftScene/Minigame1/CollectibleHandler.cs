@@ -5,6 +5,14 @@ using UnityEngine.Tilemaps;
 
 public class CollectibleHandler : MonoBehaviour
 {
+    public enum CharacterType
+    {
+        LOWERCASE,
+        UPPERCASE,
+        SYMBOL,
+        COUNT
+    }
+    public CharacterType type;
     public IdentityPlayerController playerController;
     private bool collected = false;
     private float timeOffset = 0f;
@@ -47,14 +55,14 @@ public class CollectibleHandler : MonoBehaviour
         playerController.characterList.Add(this.gameObject);
         Minigame1EventHandler.instance.EatCharacterTrigger();
         collected = true;
-        GameManager.INSTANCE.currentIdentityScore += 50;
+        GameManager.INSTANCE.currentIdentityScore += 20;
 
         Debug.Log("Successfully added to snake " + playerController.characterList.Count);
     }
     Vector3 GetPosition(List<Vector4> allPoints, Vector3 currentHeadPos, float myTimeOffset)
     {
         if (allPoints == null || allPoints.Count == 0) return Vector3.zero;
-        if (allPoints.Count == 1) return (Vector3)allPoints[0];
+        if (allPoints.Count == 1) return allPoints[0];
 
         Vector3 lastPoint;
         float timeLerpValue;
@@ -64,14 +72,14 @@ public class CollectibleHandler : MonoBehaviour
         {
             if (allPoints[p].w >= myTargetTime)
             {
-                lastPoint = (Vector3)allPoints[p - 1];
-                Vector3 nextPoint = (Vector3)allPoints[p];
+                lastPoint = allPoints[p - 1];
+                Vector3 nextPoint = allPoints[p];
                 timeLerpValue = (myTargetTime - allPoints[p - 1].w) / (allPoints[p].w - allPoints[p - 1].w);
                 return Vector3.Lerp(lastPoint, nextPoint, timeLerpValue);
             }
         }
 
-        lastPoint = (Vector3)allPoints[allPoints.Count - 1];
+        lastPoint = allPoints[allPoints.Count - 1];
         float lastTime = allPoints[allPoints.Count - 1].w;
         timeLerpValue = (myTargetTime - lastTime) / (Time.time - lastTime);
         return Vector3.Lerp(lastPoint, currentHeadPos, timeLerpValue);
