@@ -28,7 +28,7 @@ public class Captcha : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        toggle = GetComponent<Toggle>();
+        toggle = GetComponent<Toggle>();       
         toggle.onValueChanged.AddListener(OnToggleValueChanged);
     }
 
@@ -65,7 +65,7 @@ public class Captcha : MonoBehaviour
             {
                 isBad = true;
             }
-
+            //toggle.targetGraphic = transform.GetChild(Rand).GetComponent<Image>();
             CaptchaManager.Instance.captchaOrder.Remove(Rand);
         }
         else

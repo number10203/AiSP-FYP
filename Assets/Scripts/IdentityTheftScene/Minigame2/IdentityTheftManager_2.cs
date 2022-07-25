@@ -14,13 +14,13 @@ public class IdentityTheftManager_2 : MonoBehaviour
     }
 
     [Header("UI References")]
+    [SerializeField] private GameObject scoreUI, resultsScreen;
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI timerText;
+    //public TextMeshProUGUI timerText;
     public TextMeshProUGUI endScoreText;
-    public GameObject infographic;
-    public AudioClip BGM;
+    public GameObject infographic;    
     [SerializeField] private GameObject startingFade, sceneTransition;
-    [SerializeField] private GameObject startCutscene;
+    [SerializeField] private GameObject endCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject results;
@@ -29,22 +29,28 @@ public class IdentityTheftManager_2 : MonoBehaviour
     [SerializeField] private AudioClip loseAudio;
     [SerializeField] private AudioClip winAudio;
     [SerializeField] private AudioClip startCutscene_1;
+    public AudioClip BGM, starPop1, starPop2, starPop3, starEnd;
     public AudioManager audioManager;
 
     [Header("Minigame References")]
     [SerializeField] private GameObject minigame;
-    [SerializeField] private float secondsUntilFinish;
+    //[SerializeField] private float secondsUntilFinish;
 
-    //[SerializeField] private AudioClip correctEffect, wrongEffect, swooshEffect;
 
     private GameObject cutsceneAudio;
 
-    internal int score;
+    public Slider scoreSlider;
+    public GameObject[] stars;
+    public GameObject confettiParticle, stripesGameobject;
+    private bool star1Anim = false, star2Anim = false, star3Anim = false;
+    private bool starPlay = false;
+
+
+    internal int localScore, score;
     private int counter = 0;
-    private bool gameEnd = false;
     private bool toggleText = false;
 
-    [HideInInspector] public bool isWin = false, isLose = false;
+    [HideInInspector] public bool isWin = false, isLose = false, gameEnded = false ;
 
     private void Awake()
     {
@@ -67,55 +73,108 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (score < 0)
-            score = 0;
+        if (results.activeInHierarchy == true)
+        {
+            stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
+            endScoreText.text = "Total Score: " + localScore;
 
-        scoreText.text = "Score: " + score;
+            if (localScore != score)
+            {
+                localScore += 10;
+
+                scoreSlider.value = Mathf.Lerp(600, localScore, 1.0f);
+            }
+            else
+            {
+                if (score >= 600)
+                {
+                    confettiParticle.SetActive(true);
+                }
+
+                //Play End Star sound here
+                //audioManager.(starEnd);
+
+                if (!starPlay)
+                {
+                    audioManager.PlayAndGetObject(starEnd);
+                    starPlay = true;
+                }
+            }
+        }
+
+
 
     }
 
     private void Update()
     {
-        //if (minigame.activeInHierarchy)
-        //{
-        //    secondsUntilFinish -= Time.deltaTime;
-        //    timerText.text = "Time Left: " + (int)secondsUntilFinish + "s";
-
-        //    if (secondsUntilFinish <= 0.0f)
-        //    {
-        //        gameEnd = true;
-        //    }
-        //}
-
-        if (gameEnd)
+        if(gameEnded == true)
         {
-            results.SetActive(true);
-            minigame.SetActive(false);
-            GameManager.INSTANCE.currentIdentityScore = score;
+            StartCoroutine(StopCutscene(0.0f));
+        }
 
-            if (counter != score)
+        if (localScore >= 900)
+        {
+            if (star3Anim != true)
             {
-                counter += 5;
-                endScoreText.text = "Score: " + counter;
+                stars[2].SetActive(true);
+                stars[2].LeanScale(new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
+                star3Anim = true;
+
+                audioManager.PlayAndGetObject(starPop3);
             }
         }
+        else if (localScore >= 750)
+        {
+            if (star2Anim != true)
+            {
+                stars[1].SetActive(true);
+                stars[1].LeanScale(new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
+                star2Anim = true;
+
+                audioManager.PlayAndGetObject(starPop2);
+            }
+        }
+        else if (localScore >= 600)
+        {
+            if (star1Anim != true)
+            {
+                stars[0].SetActive(true);
+                stars[0].LeanScale(new Vector3(1, 1, 1), 1.0f).setEaseOutExpo();
+                star1Anim = true;
+
+                audioManager.PlayAndGetObject(starPop1);
+            }
+        }
+
+        if (score < 0)
+            score = 0;
+
+        scoreText.text = "Score: " + score;
     }
 
     private void InitGameObjects()
     {
-        // Init transitions
-        //startingFade.SetActive(true);
-        //sceneTransition.SetActive(false);
+        star1Anim = false;
+        star2Anim = false;
+        star3Anim = false;
 
-        // Init cutscene
-        //startCutscene.SetActive(true);
-        //infographic.SetActive(false);
-        //instructions.SetActive(false);
+        startingFade.SetActive(true);
+
+        instructions.SetActive(true);
         minigame.SetActive(true);
+        resultsScreen.SetActive(false);
+        //winCutscene.SetActive(false);
+        //loseCutscene.SetActive(false);        
         results.SetActive(false);
-        //cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
-        //subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
-        //StartCoroutine(TransitionToGame(30f));
+        scoreUI.SetActive(false);
+        confettiParticle.SetActive(false);
+        infographic.SetActive(false);
+
+        foreach (GameObject gameObject in stars)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator TransitionToGame(float time)
@@ -126,24 +185,12 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
         yield return new WaitForSeconds(1.3f);
 
-        startCutscene.SetActive(false);
         instructions.gameObject.SetActive(true);
         sceneTransition.SetActive(false);
         startingFade.SetActive(true);
         audioManager.PlayMusic(BGM);
     }
 
-    public void SkipCutscene()
-    {
-        subtitleManager.SetTimer(22.00f);
-        startCutscene.GetComponent<Cutscene>().SkipCutscene();
-        startCutscene.GetComponent<Animator>().Play("AhHuatStartingCutscene_Unskippable");
-
-        Destroy(cutsceneAudio.gameObject);
-
-        StopAllCoroutines();
-        StartCoroutine(TransitionToGame(5f));
-    }
 
     public void StartGame()
     {
@@ -152,23 +199,13 @@ public class IdentityTheftManager_2 : MonoBehaviour
         //canvasGroup.blocksRaycasts = true;
     }
 
-    public void DoPickupCall()
-    {
-        StartCoroutine(PickupCall());
-    }
-
-    private IEnumerator PickupCall()
-    {
-        score += 50;
-        yield return new WaitForSeconds(1f);
-    }
 
     private IEnumerator StopCutscene(float time)
     {
         yield return new WaitForSeconds(time);
 
-        //endCutscene.SetActive(false);
-        //results.SetActive(true);
+        endCutscene.SetActive(false);
+        results.SetActive(true);
 
         if (score > GameManager.INSTANCE.globalIdentityScore)
         {
@@ -180,13 +217,13 @@ public class IdentityTheftManager_2 : MonoBehaviour
     {
         results.SetActive(false);
         infographic.SetActive(true);
-    }
-    public void NextMinigame()
-    {
-        sceneTransition.SetActive(true);
-        SceneController.INSTANCE.LoadSceneAsync(7);
+        
     }
 
+    public void BackToMainMenu()
+    {
+        SceneController.INSTANCE.LoadScene(1);
+    }
     public void RestartLevel()
     {
         SceneController.INSTANCE.Retry();

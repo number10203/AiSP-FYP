@@ -154,7 +154,7 @@ RectTransform:
   m_Children:
   - {fileID: 504078661}
   m_Father: {fileID: 1239128318}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -627,8 +627,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.2600098, y: 0}
+  m_SizeDelta: {x: 32.61, y: 35.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203573235
 MonoBehaviour:
@@ -1103,8 +1103,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Minigame2Manager, Assembly-CSharp
+      - m_Target: {fileID: 2072446733}
+        m_TargetAssemblyTypeName: IdentityTheftManager_2, Assembly-CSharp
         m_MethodName: ShowInfoGraphic
         m_Mode: 1
         m_Arguments:
@@ -1757,9 +1757,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Minigame2Manager, Assembly-CSharp
-        m_MethodName: NextInstruction
+      - m_Target: {fileID: 2072446733}
+        m_TargetAssemblyTypeName: IdentityTheftManager_2, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1838,7 +1838,7 @@ RectTransform:
   m_Children:
   - {fileID: 1416361722}
   m_Father: {fileID: 1239128318}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2593,7 +2593,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7879de91aecee7047993a43707d174c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b8b124afca0b6849b52951a421c21bb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2846,6 +2846,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 899fa2376186c994baee933257446e9e, type: 3}
+--- !u!1 &952406139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4619114166412249776, guid: 899fa2376186c994baee933257446e9e, type: 3}
+  m_PrefabInstance: {fileID: 952406138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &986288414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,17 +2950,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048060536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1888109498}
-  m_Father: {fileID: 1107935364}
-  m_RootOrder: 0
+  m_Father: {fileID: 1239128318}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 3.7899995, y: -113.10999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1058188982
@@ -3156,7 +3161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1107935364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3167,10 +3172,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1048060537}
+  m_Children: []
   m_Father: {fileID: 1239128318}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3184,7 +3188,7 @@ CanvasGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107935363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -3448,6 +3452,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 933989457}
+  - {fileID: 1048060537}
   - {fileID: 1107935364}
   - {fileID: 549730489}
   - {fileID: 65214696}
@@ -3513,7 +3518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9568628, g: 0.61960787, b: 0.7411765, a: 1}
+  m_Color: {r: 0.0020914965, g: 0.065134995, b: 0.4433962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3641,7 +3646,7 @@ RectTransform:
   - {fileID: 132946213}
   - {fileID: 1429487034}
   m_Father: {fileID: 1239128318}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4520,8 +4525,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Minigame2Manager, Assembly-CSharp
+      - m_Target: {fileID: 2072446733}
+        m_TargetAssemblyTypeName: IdentityTheftManager_2, Assembly-CSharp
         m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
@@ -5170,8 +5175,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Minigame2Manager, Assembly-CSharp
+      - m_Target: {fileID: 2072446733}
+        m_TargetAssemblyTypeName: IdentityTheftManager_2, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
@@ -5940,25 +5945,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f7e4ef88cb3f746b214a2a7130a6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreUI: {fileID: 0}
+  resultsScreen: {fileID: 332773422}
   scoreText: {fileID: 1416361723}
-  timerText: {fileID: 0}
-  endScoreText: {fileID: 0}
-  infographic: {fileID: 0}
-  BGM: {fileID: 0}
-  startingFade: {fileID: 0}
-  sceneTransition: {fileID: 0}
-  startCutscene: {fileID: 0}
+  endScoreText: {fileID: 208273275}
+  infographic: {fileID: 203573233}
+  startingFade: {fileID: 1432146031}
+  sceneTransition: {fileID: 1689001986}
+  endCutscene: {fileID: 67417948}
   subtitleManager: {fileID: 0}
   instructions: {fileID: 65214695}
   results: {fileID: 332773422}
   loseAudio: {fileID: 0}
   winAudio: {fileID: 0}
   startCutscene_1: {fileID: 0}
-  audioManager: {fileID: 0}
+  BGM: {fileID: 0}
+  starPop1: {fileID: 8300000, guid: d21d311286b152a41a2352af0298d660, type: 3}
+  starPop2: {fileID: 8300000, guid: ef91301e8394b804dbffb2538c17346b, type: 3}
+  starPop3: {fileID: 8300000, guid: 898428d349cccc442bdf3d8cc8db35a4, type: 3}
+  starEnd: {fileID: 8300000, guid: 2b76978458c23b548a88a50716b975e9, type: 3}
+  audioManager: {fileID: 1319038309}
   minigame: {fileID: 1239128317}
-  secondsUntilFinish: 0
+  scoreSlider: {fileID: 0}
+  stars: []
+  confettiParticle: {fileID: 952406139}
+  stripesGameobject: {fileID: 805787853}
   isWin: 0
   isLose: 0
+  gameEnded: 0
 --- !u!114 &2072446734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6005,7 +6019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   captchaPrefab:
-  - {fileID: 2149415675397774626, guid: 97ac144c3ad956b4dab4bb54be3888eb, type: 3}
   - {fileID: 361248463605770304, guid: 0e44f73ee2315b2488f748399cb2edfe, type: 3}
+  - {fileID: 2149415675397774626, guid: 97ac144c3ad956b4dab4bb54be3888eb, type: 3}
   captchaOrigin: {fileID: 1048060537}
   captchaOrder: 

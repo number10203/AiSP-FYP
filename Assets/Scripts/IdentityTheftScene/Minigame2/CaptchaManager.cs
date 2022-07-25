@@ -24,6 +24,7 @@ public class CaptchaManager : MonoBehaviour
     Toggle m_Toggle;
     private int selectedObjects;
     private int quiz = 0;
+    private bool clear = false;
 
     private List<GameObject> captchaImage = new List<GameObject>();
     public List<int> captchaOrder = new List<int>();
@@ -61,7 +62,7 @@ public class CaptchaManager : MonoBehaviour
                     // for the rows
                     for (int j = 0; j <= 1; j++)
                     {
-                        Vector3 pos = new Vector3((i - 1) * 5.25f, (j - 0.7f) * 3.5f);
+                        Vector3 pos = new Vector3((i - 1) * 3.75f, (j - 0.7f) * 3.5f);
                         captchaImage.Add(Instantiate(captchaPrefab[quiz], pos, Quaternion.identity, captchaOrigin));
                         captchaImage[z].GetComponent<Captcha>().SetCaptcha();
                         z++;
@@ -80,7 +81,7 @@ public class CaptchaManager : MonoBehaviour
                     // for the rows
                     for (int j = 0; j <= 1; j++)
                     {
-                        Vector3 pos = new Vector3((i - 1) * 5.25f, (j - 0.7f) * 3.5f);
+                        Vector3 pos = new Vector3((i - 1) * 3.75f, (j - 0.7f) * 3.5f);
                         captchaImage.Add(Instantiate(captchaPrefab[quiz], pos, Quaternion.identity, captchaOrigin));
                         captchaImage[z].GetComponent<Captcha>().SetCaptcha();
                         z++;
@@ -123,22 +124,14 @@ public class CaptchaManager : MonoBehaviour
 
             }
         }
-        
-        if(quiz <= 2)
-        {
-            StartCoroutine(Clear());
-            ++quiz;
-            SpawnCaptcha();
-        }
-        else if(quiz > 2)
-        {
-            StartCoroutine(Clear());
-        }
+        ++quiz;
+        StartCoroutine(Clear());
+
     }
 
     IEnumerator Clear()
     {
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.1f);
 
         foreach (GameObject go in captchaImage)
         {
@@ -146,6 +139,24 @@ public class CaptchaManager : MonoBehaviour
         }
 
         captchaImage.Clear();
+
+        clear = true;
+
+        if (quiz <= 1)
+        {        
+           
+            if (clear == true)
+            {
+                SpawnCaptcha();
+                clear = false;
+            }
+
+
+        }
+        else if (quiz > 1)
+        {
+            IdentityTheftManager_2.Instance.gameEnded = true;
+        }
     }
 
 
