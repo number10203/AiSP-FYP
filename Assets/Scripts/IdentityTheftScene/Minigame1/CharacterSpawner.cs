@@ -55,12 +55,15 @@ public class CharacterSpawner : MonoBehaviour
             {
                 case 0:
                     character.GetComponent<SpriteRenderer>().sprite = lowercaseSprites[Random.Range(0, lowercaseSprites.Count - 1)];
+                    character.GetComponent<CollectibleHandler>().type = CollectibleHandler.CharacterType.LOWERCASE;
                     break;
                 case 1:
                     character.GetComponent<SpriteRenderer>().sprite = uppercaseSprites[Random.Range(0, uppercaseSprites.Count - 1)];
+                    character.GetComponent<CollectibleHandler>().type = CollectibleHandler.CharacterType.UPPERCASE;
                     break;
                 case 2:
                     character.GetComponent<SpriteRenderer>().sprite = symbolSprites[Random.Range(0, symbolSprites.Count - 1)];
+                    character.GetComponent<CollectibleHandler>().type = CollectibleHandler.CharacterType.SYMBOL;
                     break;
             }
         }

@@ -45,6 +45,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
         GameManager.INSTANCE.currentIdentityScore = 0;
         Minigame1EventHandler.instance.onGameEnd += EndGame;
+        Minigame1EventHandler.instance.onEatCharacter += UpdateProgress;
     }
 
     private void FixedUpdate()
@@ -60,13 +61,13 @@ public class IdentityTheftManager_1 : MonoBehaviour
     {
         if (minigame.activeInHierarchy)
         {
-            //secondsUntilFinish -= Time.deltaTime;
-            //timerText.text = "Time Left: " + (int) secondsUntilFinish + "s";
+            secondsUntilFinish -= Time.deltaTime;
+            timerText.text = "Time Left: " + (int) secondsUntilFinish + "s";
             UpdateProgress();
 
             if (secondsUntilFinish <= 0.0f)
             {
-                //EndGame();
+                EndGame();
             }
         }
     }
@@ -92,18 +93,18 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     private void UpdateProgress()
     {
-        TextMeshProUGUI[] texts = minigameProgressPanel.GetComponentsInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI[] texts = minigameProgressPanel.GetComponentsInChildren<TextMeshProUGUI>(false);
         //string password = "";
         foreach (GameObject character in player.characterList)
         {
-            char[] SpecialChars = "!@#$%^&*()-_".ToCharArray();
-            if (char.IsUpper(character.GetComponent<SpriteRenderer>().name[0]))
+            switch (character.GetComponent<CollectibleHandler>().type)
             {
-                texts[1].fontStyle = FontStyles.Strikethrough;
-            }
-            if (character.GetComponent<SpriteRenderer>().name.IndexOfAny(SpecialChars) != -1)
-            {
-                texts[2].fontStyle = FontStyles.Strikethrough;
+                case CollectibleHandler.CharacterType.UPPERCASE:
+                    texts[1].fontStyle = FontStyles.Strikethrough;
+                    break;
+                case CollectibleHandler.CharacterType.SYMBOL:
+                    texts[2].fontStyle = FontStyles.Strikethrough;
+                    break;
             }
         }
         if (player.characterList.Count >= 12)
