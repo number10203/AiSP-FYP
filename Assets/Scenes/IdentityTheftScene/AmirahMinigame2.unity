@@ -5966,8 +5966,11 @@ MonoBehaviour:
   starEnd: {fileID: 8300000, guid: 2b76978458c23b548a88a50716b975e9, type: 3}
   audioManager: {fileID: 1319038309}
   minigame: {fileID: 1239128317}
-  scoreSlider: {fileID: 0}
-  stars: []
+  scoreSlider: {fileID: 703034378}
+  stars:
+  - {fileID: 172763040}
+  - {fileID: 2003980953}
+  - {fileID: 2053662577}
   confettiParticle: {fileID: 952406139}
   stripesGameobject: {fileID: 805787853}
   isWin: 0

@@ -69,6 +69,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
         InitGameObjects();
 
         score = GameManager.INSTANCE.currentIdentityScore;
+        localScore = score;
     }
 
     private void FixedUpdate()
@@ -167,7 +168,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
         //winCutscene.SetActive(false);
         //loseCutscene.SetActive(false);        
         results.SetActive(false);
-        scoreUI.SetActive(false);
+        //scoreUI.SetActive(false);
         confettiParticle.SetActive(false);
         infographic.SetActive(false);
 
