@@ -12,17 +12,20 @@ public class CharacterSpawner : MonoBehaviour
     public List<Sprite> lowercaseSprites = new List<Sprite>();
     public List<Sprite> uppercaseSprites = new List<Sprite>();
     public List<Sprite> symbolSprites = new List<Sprite>();
-    private Tilemap floor;
+    public Tilemap floor;
+    public List<GameObject> currentWaveCharacters = new List<GameObject>();
     private Vector3 topLeftCell;
     private float rows, columns;
-    private List<GameObject> currentWaveCharacters = new List<GameObject>();
     private void Start()
     {
-        GetRowsColumns();
         instance = this;
-        topLeftCell = new Vector3((int)(transform.position.x - ((columns - 1) * 0.5)), (int)(transform.position.y + ((rows - 1) * 0.5))); //offset by one due to grid
-        SpawnCharacterWave();
+        floor = GetComponent<Tilemap>();
+        floor.CompressBounds();
         Minigame1EventHandler.instance.onEatCharacter += CharacterCollectTriggered;
+
+        //GetRowsColumns();
+        //topLeftCell = new Vector3((int)(transform.position.x - ((columns - 1) * 0.5)), (int)(transform.position.y + ((rows - 1) * 0.5))); //offset by one due to grid
+        SpawnCharacterWave();
     }
 
     private void GetRowsColumns()
@@ -39,34 +42,40 @@ public class CharacterSpawner : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            Vector3 randomPosition = GeneratePosition();
-            if (randomPosition.x == 0)
-            {
-                Debug.Log("Position Generation failed!");
-                break;
-            }
-
-            Vector3Int cellPosition = floor.WorldToCell(randomPosition);
-            Vector3 cellCenterPosition = floor.GetCellCenterWorld(cellPosition);
-            GameObject character = Instantiate(characterPrefab, cellCenterPosition, Quaternion.identity);
+            GameObject character = Instantiate(characterPrefab, transform.position, Quaternion.identity);
+            character.GetComponent<CollectibleHandler>().spawnerReference = instance;
             currentWaveCharacters.Add(character);
-            int random = Random.Range(0, 3);
-            switch (random)
-            {
-                case 0:
-                    character.GetComponent<SpriteRenderer>().sprite = lowercaseSprites[Random.Range(0, lowercaseSprites.Count - 1)];
-                    character.GetComponent<CollectibleHandler>().type = CollectibleHandler.CharacterType.LOWERCASE;
-                    break;
-                case 1:
-                    character.GetComponent<SpriteRenderer>().sprite = uppercaseSprites[Random.Range(0, uppercaseSprites.Count - 1)];
-                    character.GetComponent<CollectibleHandler>().type = CollectibleHandler.CharacterType.UPPERCASE;
-                    break;
-                case 2:
-                    character.GetComponent<SpriteRenderer>().sprite = symbolSprites[Random.Range(0, symbolSprites.Count - 1)];
-                    character.GetComponent<CollectibleHandler>().type = CollectibleHandler.CharacterType.SYMBOL;
-                    break;
-            }
         }
+        //for (int i = 0; i < 3; i++)
+        //{
+        //    Vector3 randomPosition = GeneratePosition();
+        //    if (randomPosition.x == 0)
+        //    {
+        //        Debug.Log("Position Generation failed!");
+        //        break;
+        //    }
+        //
+        //    Vector3Int cellPosition = floor.WorldToCell(randomPosition);
+        //    Vector3 cellCenterPosition = floor.GetCellCenterWorld(cellPosition);
+        //    GameObject character = Instantiate(characterPrefab, cellCenterPosition, Quaternion.identity);
+        //    currentWaveCharacters.Add(character);
+        //    int random = Random.Range(0, 3);
+        //    switch (random)
+        //    {
+        //        case 0:
+        //            character.GetComponent<SpriteRenderer>().sprite = lowercaseSprites[Random.Range(0, lowercaseSprites.Count - 1)];
+        //            character.GetComponent<CollectibleHandler>().type = CollectibleHandler.CharacterType.LOWERCASE;
+        //            break;
+        //        case 1:
+        //            character.GetComponent<SpriteRenderer>().sprite = uppercaseSprites[Random.Range(0, uppercaseSprites.Count - 1)];
+        //            character.GetComponent<CollectibleHandler>().type = CollectibleHandler.CharacterType.UPPERCASE;
+        //            break;
+        //        case 2:
+        //            character.GetComponent<SpriteRenderer>().sprite = symbolSprites[Random.Range(0, symbolSprites.Count - 1)];
+        //            character.GetComponent<CollectibleHandler>().type = CollectibleHandler.CharacterType.SYMBOL;
+        //            break;
+        //    }
+        //}
     }
 
     private Vector3 GeneratePosition()

@@ -63,8 +63,6 @@ public class IdentityPlayerController : MonoBehaviour
             animator.SetTrigger("TurnUp");
         else
             animator.SetTrigger("TurnDown");
-
-        Debug.Log("Direction Changed.");
     }
 
     void CheckForInput()

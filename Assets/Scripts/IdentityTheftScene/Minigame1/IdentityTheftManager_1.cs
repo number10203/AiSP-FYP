@@ -50,6 +50,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        score = GameManager.INSTANCE.currentIdentityScore;
         if (score < 0)
             score = 0;
 
@@ -63,7 +64,6 @@ public class IdentityTheftManager_1 : MonoBehaviour
         {
             secondsUntilFinish -= Time.deltaTime;
             timerText.text = "Time Left: " + (int) secondsUntilFinish + "s";
-            UpdateProgress();
 
             if (secondsUntilFinish <= 0.0f)
             {
@@ -79,37 +79,84 @@ public class IdentityTheftManager_1 : MonoBehaviour
         sceneTransition.SetActive(false);
 
         // Init cutscene
-        startCutscene.SetActive(false);
+        startCutscene.SetActive(true);
         infographic.SetActive(false);
         instructions.SetActive(false);
-        minigame.SetActive(true);
+        minigame.SetActive(false);
         results.SetActive(false);
-        minigameEnvironment.SetActive(true);
-        player.gameObject.SetActive(true);
+        minigameEnvironment.SetActive(false);
+        player.gameObject.SetActive(false);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
         subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
-        //StartCoroutine(TransitionToGame(30f));
+        StartCoroutine(TransitionToGame(30f));
     }
 
     private void UpdateProgress()
     {
+        int totalCharacters = 0;
+        int uppercaseCharacters = 0;
+        float percentageOfUppercase = 0.0f;
         TextMeshProUGUI[] texts = minigameProgressPanel.GetComponentsInChildren<TextMeshProUGUI>(false);
-        //string password = "";
         foreach (GameObject character in player.characterList)
         {
             switch (character.GetComponent<CollectibleHandler>().type)
             {
+                case CollectibleHandler.CharacterType.LOWERCASE:
+                    totalCharacters++;
+                    break;
                 case CollectibleHandler.CharacterType.UPPERCASE:
-                    texts[1].fontStyle = FontStyles.Strikethrough;
+                    totalCharacters++;
+                    uppercaseCharacters++;
                     break;
                 case CollectibleHandler.CharacterType.SYMBOL:
-                    texts[2].fontStyle = FontStyles.Strikethrough;
+                    texts[2].text = "Collect one special symbol\n1/1 Special Symbol Remaining";
+                    texts[2].color = new Color(0, 1, 0);
                     break;
             }
         }
-        if (player.characterList.Count >= 12)
+        if (player.characterList.Count >= 12 && texts[0].fontStyle != FontStyles.Strikethrough)
         {
+            texts[0].text = "Collect these amount of characters\n";
+            texts[0].text += 12 - player.characterList.Count + " Characters Remaining";
             texts[0].fontStyle = FontStyles.Strikethrough;
+            GameManager.INSTANCE.currentIdentityScore += 100;
+
+            percentageOfUppercase = (float)uppercaseCharacters / (float)totalCharacters;
+            if (percentageOfUppercase >= 0.5f)
+            {
+                texts[1].text = "Ensure that 50% of characters are uppercase upon getting 12 characters\n";
+                texts[1].text += Mathf.RoundToInt(percentageOfUppercase * 100) + "% / 50% Uppercase Characters";
+                texts[1].fontStyle = FontStyles.Strikethrough;
+                texts[1].color = new Color(0, 1, 0);
+                GameManager.INSTANCE.currentIdentityScore += 100;
+            }
+            else
+            {
+                GameManager.INSTANCE.currentIdentityScore -= 100;
+            }
+            if (texts[2].text == "Collect one special symbol\n1/1 Special Symbol Remaining")
+            {
+                GameManager.INSTANCE.currentIdentityScore += 100;
+                texts[2].fontStyle = FontStyles.Strikethrough;
+            }
+            else
+            {
+                GameManager.INSTANCE.currentIdentityScore -= 100;
+            }
+        }
+        else if (texts[0].fontStyle != FontStyles.Strikethrough)
+        {
+            texts[0].text = "Collect these amount of characters\n";
+            texts[0].text += 12 - player.characterList.Count + " Characters Remaining";
+
+            if (uppercaseCharacters != 0)
+                percentageOfUppercase = (float)uppercaseCharacters / (float)totalCharacters;
+            texts[1].text = "Ensure that 50% of characters are uppercase upon getting 12 characters\n";
+            texts[1].text += Mathf.RoundToInt(percentageOfUppercase * 100) + "% / 50% Uppercase Characters";
+            if (percentageOfUppercase >= 0.5f)
+                texts[1].color = new Color(0, 1, 0);
+            else
+                texts[1].color = new Color(1, 0, 0);
         }
 
         score = GameManager.INSTANCE.currentIdentityScore;
@@ -117,11 +164,10 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     private void EndGame()
     {
-        Debug.Log("Game Ended");
-        //Minigame1EventHandler.instance.CleanUpTrigger();
         results.SetActive(true);
         minigame.SetActive(false);
         score = GameManager.INSTANCE.currentIdentityScore;
+        player.gameObject.SetActive(false);
         minigameEnvironment.SetActive(false);
 
         while (counter != score)
