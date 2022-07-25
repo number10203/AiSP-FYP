@@ -6004,6 +6004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c273c1228716940abd2b6ea98b4df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  captchaPrefab: {fileID: 361248463605770304, guid: 0e44f73ee2315b2488f748399cb2edfe, type: 3}
+  captchaPrefab:
+  - {fileID: 2149415675397774626, guid: 97ac144c3ad956b4dab4bb54be3888eb, type: 3}
+  - {fileID: 361248463605770304, guid: 0e44f73ee2315b2488f748399cb2edfe, type: 3}
   captchaOrigin: {fileID: 1048060537}
   captchaOrder: 
