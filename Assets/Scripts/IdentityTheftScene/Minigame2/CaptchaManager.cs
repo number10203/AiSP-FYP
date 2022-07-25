@@ -12,7 +12,7 @@ public class CaptchaManager : MonoBehaviour
         private set;
     }
 
-    public GameObject captchaPrefab;
+    public GameObject[] captchaPrefab;
     public Transform captchaOrigin;
 
     private Canvas rend;
@@ -62,7 +62,7 @@ public class CaptchaManager : MonoBehaviour
                     for (int j = 0; j <= 1; j++)
                     {
                         Vector3 pos = new Vector3((i - 1) * 5.25f, (j - 0.7f) * 3.5f);
-                        captchaImage.Add(Instantiate(captchaPrefab, pos, Quaternion.identity, captchaOrigin));
+                        captchaImage.Add(Instantiate(captchaPrefab[quiz], pos, Quaternion.identity, captchaOrigin));
                         captchaImage[z].GetComponent<Captcha>().SetCaptcha();
                         z++;
 
@@ -71,7 +71,22 @@ public class CaptchaManager : MonoBehaviour
                 break;
 
             case 1:
-                Debug.Log("WIP");
+                z = 0;
+                captchaOrder = new List<int>() { 0, 1, 2, 3, 4, 5 };
+                captchaImage = new List<GameObject>();
+                // for the columns
+                for (int i = 0; i <= 2; i++)
+                {
+                    // for the rows
+                    for (int j = 0; j <= 1; j++)
+                    {
+                        Vector3 pos = new Vector3((i - 1) * 5.25f, (j - 0.7f) * 3.5f);
+                        captchaImage.Add(Instantiate(captchaPrefab[quiz], pos, Quaternion.identity, captchaOrigin));
+                        captchaImage[z].GetComponent<Captcha>().SetCaptcha();
+                        z++;
+
+                    }
+                }
                 break;
         }
 

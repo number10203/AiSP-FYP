@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Captcha : MonoBehaviour
 {
+    private Toggle toggle;
     public AudioClip correct, wrong;
 
     private Camera mainCam;
@@ -27,7 +28,8 @@ public class Captcha : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        toggle = GetComponent<Toggle>();
+        toggle.onValueChanged.AddListener(OnToggleValueChanged);
     }
 
     void Update()
@@ -35,6 +37,21 @@ public class Captcha : MonoBehaviour
 
     }
 
+    private void OnToggleValueChanged(bool isOn)
+    {
+        ColorBlock cb = toggle.colors;
+        if (isOn)
+        {
+            cb.normalColor = Color.gray;
+            cb.highlightedColor = Color.gray;
+        }
+        else
+        {
+            cb.normalColor = Color.white;
+            cb.highlightedColor = Color.white;
+        }
+        toggle.colors = cb;
+    }
 
     // Set gameobject child to virus and change tag
     public void SetCaptcha()
@@ -65,66 +82,6 @@ public class Captcha : MonoBehaviour
         isSelected = !isSelected;
     }
 
-    // When mouse is up, check if within distance of trashbin object
-    // If within range, check if correct object
-    void OnMouseUp()
-    {
-
-
-
-        //if (Vector3.Distance(transform.position, manager.trashbinPos) <= 2)
-        //{
-        //    GameObject temp = Instantiate(particleEffect, manager.trashbinPos, Quaternion.identity);
-        //    Destroy(temp, 0.5f);
-
-            //    if (gameObject.CompareTag("RealVirus"))
-            //    {
-            //        manager.score += 200;
-            //        manager.correntAns++;
-
-            //        manager.audioManager.Play(correct);
-
-            //        spawner.virusCount--;
-            //        gameObject.SetActive(false);
-            //    }
-            //    else if (gameObject.CompareTag("FakeVirus"))
-            //    {
-            //        if (manager.score > 50)
-            //        {
-            //            manager.score -= 100;
-            //        }
-            //        manager.wrongAns++;
-
-            //        manager.audioManager.Play(wrong);
-
-            //        spawner.virusCount--;
-            //        gameObject.SetActive(false);
-            //    }
-
-            //    if ((manager.correntAns + manager.wrongAns) >= 3)
-            //    {
-            //        if (manager.correntAns > manager.wrongAns)
-            //        {
-            //            manager.isWin = true;
-            //        }
-            //        else
-            //        {
-            //            manager.isLose = true;
-            //        }
-
-            //        //manager.endPanel.SetActive(true);
-            //    }
-            //    else if (spawner.virusCount <= 2)
-            //    {
-            //        spawner.Clear();
-            //        ++manager.qnNumber;
-            //        spawner.Spawn();
-            //    }
-            //    else if (spawner.virusCount > 2)
-            //    {
-            //        spawner.Clear();
-            //    }
-            //}
-    }
+ 
 
 }
