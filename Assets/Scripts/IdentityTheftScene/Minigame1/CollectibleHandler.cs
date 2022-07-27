@@ -9,6 +9,7 @@ public class CollectibleHandler : MonoBehaviour
     {
         LOWERCASE,
         UPPERCASE,
+        NUMERAL,
         SYMBOL,
         COUNT
     }
@@ -63,8 +64,8 @@ public class CollectibleHandler : MonoBehaviour
         this.gameObject.name = "Assimilated";
         playerController.characterList.Add(this.gameObject);
         Minigame1EventHandler.instance.EatCharacterTrigger();
-        collected = true;
         GameManager.INSTANCE.currentIdentityScore += 10;
+        collected = true;
 
         Debug.Log("Successfully added to snake " + playerController.characterList.Count);
     }
@@ -107,7 +108,7 @@ public class CollectibleHandler : MonoBehaviour
         Vector3 cellCenterPosition = spawnerReference.floor.GetCellCenterWorld(cellPosition);
         transform.position = cellCenterPosition;
         StartCoroutine(SpawnAnimation());
-        int random = Random.Range(0, 3);
+        int random = Random.Range(0, 4);
         switch (random)
         {
             case 0:
@@ -119,6 +120,10 @@ public class CollectibleHandler : MonoBehaviour
                 type = CharacterType.UPPERCASE;
                 break;
             case 2:
+                GetComponent<SpriteRenderer>().sprite = spawnerReference.numeralSprites[Random.Range(0, spawnerReference.numeralSprites.Count - 1)];
+                type = CharacterType.NUMERAL;
+                break;
+            case 3:
                 GetComponent<SpriteRenderer>().sprite = spawnerReference.symbolSprites[Random.Range(0, spawnerReference.symbolSprites.Count - 1)];
                 type = CharacterType.SYMBOL;
                 break;

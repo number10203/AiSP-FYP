@@ -28,15 +28,15 @@ public class IdentityTheftManager_1 : MonoBehaviour
     [Header ("Minigame References")]
     [SerializeField] private GameObject minigame;
     [SerializeField] private GameObject minigameEnvironment;
-    [SerializeField] private GameObject minigameProgressPanel;
+    [SerializeField] private GameObject minigameCharacterPanel;
+    [SerializeField] private GameObject minigameTypePanel;
     [SerializeField] private IdentityPlayerController player;
-    [SerializeField] private float secondsUntilFinish;
 
     private GameObject cutsceneAudio;
 
     internal int score = 0;
+    private float timer = 0;
     private int counter = 0;
-    private bool gameEnd = false;
 
     private void Start()
     {
@@ -62,13 +62,8 @@ public class IdentityTheftManager_1 : MonoBehaviour
     {
         if (minigame.activeInHierarchy)
         {
-            secondsUntilFinish -= Time.deltaTime;
-            timerText.text = "Time Left: " + (int) secondsUntilFinish + "s";
-
-            if (secondsUntilFinish <= 0.0f)
-            {
-                EndGame();
-            }
+            timer += Time.deltaTime;
+            timerText.text = "Time Spent: " + (int) timer + "s";
         }
     }
 
@@ -87,76 +82,62 @@ public class IdentityTheftManager_1 : MonoBehaviour
         minigameEnvironment.SetActive(false);
         player.gameObject.SetActive(false);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
-        subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
-        StartCoroutine(TransitionToGame(30f));
+        subtitleManager.InitSubtitles("Amirah_Cutscene1_Eng");
+        StartCoroutine(TransitionToGame(15f));
     }
 
     private void UpdateProgress()
     {
-        int totalCharacters = 0;
-        int uppercaseCharacters = 0;
-        float percentageOfUppercase = 0.0f;
-        TextMeshProUGUI[] texts = minigameProgressPanel.GetComponentsInChildren<TextMeshProUGUI>(false);
-        foreach (GameObject character in player.characterList)
+        TextMeshProUGUI characterText = minigameCharacterPanel.GetComponentInChildren<TextMeshProUGUI>(false);
+        //Transform[] typeCollectionArray = minigameTypePanel.GetComponentsInChildren<Transform>();
+        Animator[] typeCollectionAnimators = minigameTypePanel.GetComponentsInChildren<Animator>();
+        //foreach(Transform type in typeCollectionArray)
+        //{
+        //    typeCollectionAnimators.Add(type.GetComponentInChildren<Animator>());
+        //}
+
+        characterText.text = player.characterList.Count + "/15\nCharacters Collected";
+        if (player.characterList.Count >= 15)
         {
-            switch (character.GetComponent<CollectibleHandler>().type)
+            GameManager.INSTANCE.currentIdentityScore += 10;
+            EndGame();
+            return;
+        }
+
+        foreach (GameObject characters in player.characterList)
+        {
+            CollectibleHandler characterHandler = characters.GetComponent<CollectibleHandler>();
+            switch (characterHandler.type)
             {
-                case CollectibleHandler.CharacterType.LOWERCASE:
-                    totalCharacters++;
-                    break;
                 case CollectibleHandler.CharacterType.UPPERCASE:
-                    totalCharacters++;
-                    uppercaseCharacters++;
+                    if (!typeCollectionAnimators[0].GetCurrentAnimatorStateInfo(0).IsName("TypeCollected"))
+                    {
+                        GameManager.INSTANCE.currentIdentityScore += 50;
+                        typeCollectionAnimators[0].SetTrigger("Collected");
+                    }
+                    break;
+                case CollectibleHandler.CharacterType.LOWERCASE:
+                    if (!typeCollectionAnimators[1].GetCurrentAnimatorStateInfo(0).IsName("TypeCollected"))
+                    {
+                        GameManager.INSTANCE.currentIdentityScore += 50;
+                        typeCollectionAnimators[1].SetTrigger("Collected");
+                    }
+                    break;
+                case CollectibleHandler.CharacterType.NUMERAL:
+                    if (!typeCollectionAnimators[2].GetCurrentAnimatorStateInfo(0).IsName("TypeCollected"))
+                    {
+                        GameManager.INSTANCE.currentIdentityScore += 50;
+                        typeCollectionAnimators[2].SetTrigger("Collected");
+                    }
                     break;
                 case CollectibleHandler.CharacterType.SYMBOL:
-                    texts[2].text = "Collect one special symbol\n1/1 Special Symbol Remaining";
-                    texts[2].color = new Color(0, 1, 0);
+                    if (!typeCollectionAnimators[3].GetCurrentAnimatorStateInfo(0).IsName("TypeCollected"))
+                    {
+                        GameManager.INSTANCE.currentIdentityScore += 50;
+                        typeCollectionAnimators[3].SetTrigger("Collected");
+                    }
                     break;
             }
-        }
-        if (player.characterList.Count >= 12 && texts[0].fontStyle != FontStyles.Strikethrough)
-        {
-            texts[0].text = "Collect these amount of characters\n";
-            texts[0].text += 12 - player.characterList.Count + " Characters Remaining";
-            texts[0].fontStyle = FontStyles.Strikethrough;
-            GameManager.INSTANCE.currentIdentityScore += 100;
-
-            percentageOfUppercase = (float)uppercaseCharacters / (float)totalCharacters;
-            if (percentageOfUppercase >= 0.5f)
-            {
-                texts[1].text = "Ensure that 50% of characters are uppercase upon getting 12 characters\n";
-                texts[1].text += Mathf.RoundToInt(percentageOfUppercase * 100) + "% / 50% Uppercase Characters";
-                texts[1].fontStyle = FontStyles.Strikethrough;
-                texts[1].color = new Color(0, 1, 0);
-                GameManager.INSTANCE.currentIdentityScore += 100;
-            }
-            else
-            {
-                GameManager.INSTANCE.currentIdentityScore -= 100;
-            }
-            if (texts[2].text == "Collect one special symbol\n1/1 Special Symbol Remaining")
-            {
-                GameManager.INSTANCE.currentIdentityScore += 100;
-                texts[2].fontStyle = FontStyles.Strikethrough;
-            }
-            else
-            {
-                GameManager.INSTANCE.currentIdentityScore -= 100;
-            }
-        }
-        else if (texts[0].fontStyle != FontStyles.Strikethrough)
-        {
-            texts[0].text = "Collect these amount of characters\n";
-            texts[0].text += 12 - player.characterList.Count + " Characters Remaining";
-
-            if (uppercaseCharacters != 0)
-                percentageOfUppercase = (float)uppercaseCharacters / (float)totalCharacters;
-            texts[1].text = "Ensure that 50% of characters are uppercase upon getting 12 characters\n";
-            texts[1].text += Mathf.RoundToInt(percentageOfUppercase * 100) + "% / 50% Uppercase Characters";
-            if (percentageOfUppercase >= 0.5f)
-                texts[1].color = new Color(0, 1, 0);
-            else
-                texts[1].color = new Color(1, 0, 0);
         }
 
         score = GameManager.INSTANCE.currentIdentityScore;
@@ -166,14 +147,28 @@ public class IdentityTheftManager_1 : MonoBehaviour
     {
         results.SetActive(true);
         minigame.SetActive(false);
-        score = GameManager.INSTANCE.currentIdentityScore;
-        player.gameObject.SetActive(false);
         minigameEnvironment.SetActive(false);
+        player.gameObject.SetActive(false);
+
+        float multiplier = 1.8f;
+        float timeOverMaxBonus = timer - 30f;
+
+        if (timeOverMaxBonus % 5 != 0)
+            timeOverMaxBonus -= timeOverMaxBonus % 5;
+        multiplier -= (timeOverMaxBonus / 5 * 0.2f);
+        if (multiplier <= 1f || GameManager.INSTANCE.currentIdentityScore < 350)
+            multiplier = 1f;
+        else if (multiplier > 1.8f)
+            multiplier = 1.8f;
+        endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
+
+        GameManager.INSTANCE.currentIdentityScore = Mathf.RoundToInt(multiplier * GameManager.INSTANCE.currentIdentityScore / 10) * 10;
+        score = GameManager.INSTANCE.currentIdentityScore;
 
         while (counter != score)
         {
             counter += 5;
-            endScoreText.text = "Score: " + counter;
+            endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
         }
     }
 
@@ -194,7 +189,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     public void SkipCutscene()
     {
-        subtitleManager.SetTimer(22.00f);
+        subtitleManager.SetTimer(10.00f);
         startCutscene.GetComponent<Cutscene>().SkipCutscene();
         startCutscene.GetComponent<Animator>().Play("AmirahStartingCutscene_Unskippable");
 

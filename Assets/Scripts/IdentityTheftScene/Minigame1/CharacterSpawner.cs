@@ -11,6 +11,7 @@ public class CharacterSpawner : MonoBehaviour
     public GameObject player;
     public List<Sprite> lowercaseSprites = new List<Sprite>();
     public List<Sprite> uppercaseSprites = new List<Sprite>();
+    public List<Sprite> numeralSprites = new List<Sprite>();
     public List<Sprite> symbolSprites = new List<Sprite>();
     public Tilemap floor;
     public List<GameObject> currentWaveCharacters = new List<GameObject>();
