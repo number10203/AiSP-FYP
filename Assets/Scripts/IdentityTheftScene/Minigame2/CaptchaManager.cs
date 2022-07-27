@@ -62,7 +62,7 @@ public class CaptchaManager : MonoBehaviour
                     // for the rows
                     for (int j = 0; j <= 1; j++)
                     {
-                        Vector3 pos = new Vector3((i - 1) * 3.75f, (j - 0.7f) * 3.5f);
+                        Vector3 pos = new Vector3((i - 1) * 3.50f, (j - 0.8f) * 3.65f);
                         captchaImage.Add(Instantiate(captchaPrefab[quiz], pos, Quaternion.identity, captchaOrigin));
                         captchaImage[z].GetComponent<Captcha>().SetCaptcha();
                         z++;
@@ -81,7 +81,7 @@ public class CaptchaManager : MonoBehaviour
                     // for the rows
                     for (int j = 0; j <= 1; j++)
                     {
-                        Vector3 pos = new Vector3((i - 1) * 3.75f, (j - 0.7f) * 3.5f);
+                        Vector3 pos = new Vector3((i - 1) * 3.50f, (j - 0.8f) * 3.65f);
                         captchaImage.Add(Instantiate(captchaPrefab[quiz], pos, Quaternion.identity, captchaOrigin));
                         captchaImage[z].GetComponent<Captcha>().SetCaptcha();
                         z++;
@@ -97,19 +97,24 @@ public class CaptchaManager : MonoBehaviour
 
     public void CheckList()
     {
+        int z = 0;
+
         for (int i = 0; i < captchaImage.Count; ++i)
         {
             if (!captchaImage[i].GetComponent<Captcha>().isSelected)
+            {
+                z += 1;
                 continue;
+            }
             else
             {
-                if(!captchaImage[i].GetComponent<Captcha>().isBad)
+                if (!captchaImage[i].GetComponent<Captcha>().isBad)
                 {
-                    if(captchaImage[i].GetComponent<Captcha>().hasScored == false)
+                    if (captchaImage[i].GetComponent<Captcha>().hasScored == false)
                     {
                         IdentityTheftManager_2.Instance.score += 100;
                         captchaImage[i].GetComponent<Captcha>().hasScored = true;
-                    }                                   
+                    }
                 }
                 else
                 {
@@ -124,8 +129,11 @@ public class CaptchaManager : MonoBehaviour
 
             }
         }
-        ++quiz;
-        StartCoroutine(Clear());
+        if(z != captchaImage.Count)
+        {
+            ++quiz;
+            StartCoroutine(Clear());
+        }
 
     }
 

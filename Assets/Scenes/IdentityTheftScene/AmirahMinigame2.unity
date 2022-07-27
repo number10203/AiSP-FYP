@@ -1842,8 +1842,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 638, y: 447.4}
-  m_SizeDelta: {x: 598.124, y: 185.197}
+  m_AnchoredPosition: {x: 727.73, y: 475}
+  m_SizeDelta: {x: 464.53, y: 143.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549730490
 MonoBehaviour:
@@ -2593,7 +2593,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8b8b124afca0b6849b52951a421c21bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 897ecc62fbb9a574380c257f6ab08741, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5261,8 +5261,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 734.78, y: -378.37}
-  m_SizeDelta: {x: 166.45, y: 79.26}
+  m_AnchoredPosition: {x: 825, y: -364.49}
+  m_SizeDelta: {x: 176.89, y: 84.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1888109499
 MonoBehaviour:
@@ -6023,6 +6023,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   captchaPrefab:
   - {fileID: 361248463605770304, guid: 0e44f73ee2315b2488f748399cb2edfe, type: 3}
-  - {fileID: 2149415675397774626, guid: 97ac144c3ad956b4dab4bb54be3888eb, type: 3}
+  - {fileID: 6641195486431453604, guid: 6514b9b54f7d80249945956911349b5c, type: 3}
   captchaOrigin: {fileID: 1048060537}
   captchaOrder: 

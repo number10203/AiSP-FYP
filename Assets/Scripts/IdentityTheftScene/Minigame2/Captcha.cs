@@ -40,15 +40,19 @@ public class Captcha : MonoBehaviour
     private void OnToggleValueChanged(bool isOn)
     {
         ColorBlock cb = toggle.colors;
+        Image image = GetComponentInChildren<Image>(false);
+        var blue = new Color(51.0f/255, 144.0f/255, 255.0f/255);
         if (isOn)
         {
-            cb.normalColor = Color.gray;
-            cb.highlightedColor = Color.gray;
+            cb.normalColor = blue;
+            cb.highlightedColor = blue;
+            image.color = blue;
         }
         else
         {
             cb.normalColor = Color.white;
             cb.highlightedColor = Color.white;
+            image.color = Color.white;
         }
         toggle.colors = cb;
     }
@@ -64,8 +68,7 @@ public class Captcha : MonoBehaviour
             if (Rand <= 2)
             {
                 isBad = true;
-            }
-            //toggle.targetGraphic = transform.GetChild(Rand).GetComponent<Image>();
+            }            
             CaptchaManager.Instance.captchaOrder.Remove(Rand);
         }
         else
