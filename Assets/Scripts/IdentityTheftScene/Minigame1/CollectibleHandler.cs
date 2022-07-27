@@ -108,7 +108,11 @@ public class CollectibleHandler : MonoBehaviour
         Vector3 cellCenterPosition = spawnerReference.floor.GetCellCenterWorld(cellPosition);
         transform.position = cellCenterPosition;
         StartCoroutine(SpawnAnimation());
-        int random = Random.Range(0, 4);
+        int random;
+        if (spawnerReference.numeralSymbolEnabled)
+            random = Random.Range(0, 4);
+        else
+            random = Random.Range(0, 2);
         switch (random)
         {
             case 0:

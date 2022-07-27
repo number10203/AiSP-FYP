@@ -15,6 +15,7 @@ public class CharacterSpawner : MonoBehaviour
     public List<Sprite> symbolSprites = new List<Sprite>();
     public Tilemap floor;
     public List<GameObject> currentWaveCharacters = new List<GameObject>();
+    public bool numeralSymbolEnabled = false;
     private Vector3 topLeftCell;
     private float rows, columns;
     private void Start()
@@ -116,6 +117,9 @@ public class CharacterSpawner : MonoBehaviour
     public void CharacterCollectTriggered()
     {
         Debug.Log("Clearing wave");
+        if (player.GetComponent<IdentityPlayerController>().characterList.Count >= 10)
+            numeralSymbolEnabled = true;
+
         for (int i = 0; i < currentWaveCharacters.Count; i++)
         {
             if (currentWaveCharacters[i].GetComponent<CollectibleHandler>().playerController == null)

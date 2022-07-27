@@ -156,7 +156,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (timeOverMaxBonus % 5 != 0)
             timeOverMaxBonus -= timeOverMaxBonus % 5;
         multiplier -= (timeOverMaxBonus / 5 * 0.2f);
-        if (multiplier <= 1f || GameManager.INSTANCE.currentIdentityScore < 350)
+        if (multiplier <= 1f || player.characterList.Count >= 15)
             multiplier = 1f;
         else if (multiplier > 1.8f)
             multiplier = 1.8f;

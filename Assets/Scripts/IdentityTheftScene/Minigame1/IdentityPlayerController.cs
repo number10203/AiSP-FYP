@@ -10,9 +10,12 @@ public class IdentityPlayerController : MonoBehaviour
     public Tilemap floorMap;
     public List<Vector4> turningHistory = new List<Vector4>();
     public List<GameObject> characterList = new List<GameObject>();
+    public int DistToDetect = 20;
     private float timeUntilMovement;
     private float timePassed = 0f;
-    private Vector3 startPos, endPos;
+    private Vector3 startPos, endPos; 
+    private Vector2 startTapPos;
+    private bool isScreenPressed = false;
     private Vector3 prevDir;
     private Animator animator;
     public Vector3 direction
@@ -67,6 +70,45 @@ public class IdentityPlayerController : MonoBehaviour
 
     void CheckForInput()
     {
+        if (isScreenPressed == false && Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        {
+            startTapPos = Input.touches[0].position;
+            isScreenPressed = true;
+            Debug.Log("Swipe beginning!");
+        }
+        if (isScreenPressed && Input.GetMouseButtonUp(0))
+        {
+            isScreenPressed = false;
+        }
+
+        if (isScreenPressed)
+        {
+            if (Input.touches[0].position.y >= startTapPos.y + DistToDetect)
+            {
+                isScreenPressed = false;
+                direction = new Vector3(0, 1, 0);
+                Debug.Log("Attempted to swipe!");
+            }
+            else if (Input.touches[0].position.y <= startTapPos.y - DistToDetect)
+            {
+                isScreenPressed = false;
+                direction = new Vector3(0, -1, 0);
+                Debug.Log("Attempted to swipe!");
+            }
+            else if (Input.touches[0].position.x >= startTapPos.x + DistToDetect)
+            {
+                isScreenPressed = false;
+                direction = new Vector3(1, 0, 0);
+                Debug.Log("Attempted to swipe!");
+            }
+            else if (Input.touches[0].position.x <= startTapPos.x - DistToDetect)
+            {
+                isScreenPressed = false;
+                direction = new Vector3(-1, 0, 0);
+                Debug.Log("Attempted to swipe!");
+            }
+        }
+
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && prevDir.x == 0f)
         {
             direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
