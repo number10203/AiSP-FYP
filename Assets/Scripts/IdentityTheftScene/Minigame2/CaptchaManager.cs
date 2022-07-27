@@ -89,6 +89,25 @@ public class CaptchaManager : MonoBehaviour
                     }
                 }
                 break;
+
+            case 2:
+                z = 0;
+                captchaOrder = new List<int>() { 0, 1, 2, 3, 4, 5 };
+                captchaImage = new List<GameObject>();
+                // for the columns
+                for (int i = 0; i <= 2; i++)
+                {
+                    // for the rows
+                    for (int j = 0; j <= 1; j++)
+                    {
+                        Vector3 pos = new Vector3((i - 1) * 3.50f, (j - 0.8f) * 3.65f);
+                        captchaImage.Add(Instantiate(captchaPrefab[quiz], pos, Quaternion.identity, captchaOrigin));
+                        captchaImage[z].GetComponent<Captcha>().SetCaptcha();
+                        z++;
+
+                    }
+                }
+                break;
         }
 
     }
@@ -150,7 +169,7 @@ public class CaptchaManager : MonoBehaviour
 
         clear = true;
 
-        if (quiz <= 1)
+        if (quiz <= 2)
         {        
            
             if (clear == true)
@@ -161,7 +180,7 @@ public class CaptchaManager : MonoBehaviour
 
 
         }
-        else if (quiz > 1)
+        else if (quiz > 2)
         {
             IdentityTheftManager_2.Instance.gameEnded = true;
         }

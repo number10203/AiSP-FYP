@@ -6024,5 +6024,6 @@ MonoBehaviour:
   captchaPrefab:
   - {fileID: 361248463605770304, guid: 0e44f73ee2315b2488f748399cb2edfe, type: 3}
   - {fileID: 6641195486431453604, guid: 6514b9b54f7d80249945956911349b5c, type: 3}
+  - {fileID: 1856492588350538659, guid: fcdfc2470c8310941b689a10293ab690, type: 3}
   captchaOrigin: {fileID: 1048060537}
   captchaOrder: 
