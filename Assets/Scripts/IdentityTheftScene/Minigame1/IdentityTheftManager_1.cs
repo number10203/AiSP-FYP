@@ -85,7 +85,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         player.gameObject.SetActive(false);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
         subtitleManager.InitSubtitles("Amirah_Cutscene1_Eng");
-        StartCoroutine(TransitionToGame(15f));
+        StartCoroutine(TransitionToGame(28f));
     }
 
     private void UpdateProgress()
@@ -149,7 +149,6 @@ public class IdentityTheftManager_1 : MonoBehaviour
         {
             Destroy(character);
         }
-        player.characterList.Clear();
         if (player.characterList.Count < 15)
             minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Game Over!\nTap to continue...";
         else
@@ -175,6 +174,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             multiplier = 1f;
         else if (multiplier > 1.8f)
             multiplier = 1.8f;
+        player.characterList.Clear();
         endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
 
         GameManager.INSTANCE.currentIdentityScore = Mathf.RoundToInt(multiplier * GameManager.INSTANCE.currentIdentityScore / 10) * 10;
@@ -205,14 +205,14 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     public void SkipCutscene()
     {
-        subtitleManager.SetTimer(10.00f);
+        subtitleManager.SetTimer(22.00f);
         startCutscene.GetComponent<Cutscene>().SkipCutscene();
         startCutscene.GetComponent<Animator>().Play("AmirahStartingCutscene_Unskippable");
 
         Destroy(cutsceneAudio.gameObject);
 
         StopAllCoroutines();
-        StartCoroutine(TransitionToGame(5f));
+        StartCoroutine(TransitionToGame(6f));
     }
 
     public void StartGame()
