@@ -38,6 +38,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
     internal int score = 0;
     private float timer = 0;
     private int counter = 0;
+    private bool gameEnd = false;
 
     private void Start()
     {
@@ -61,7 +62,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     private void Update()
     {
-        if (minigame.activeInHierarchy)
+        if (minigame.activeInHierarchy && !gameEnd && player.GetComponent<IdentityPlayerController>().StartGame)
         {
             timer += Time.deltaTime;
             timerText.text = "Time Spent: " + (int) timer + "s";
@@ -140,8 +141,15 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     private void EndGame()
     {
+        gameEnd = true;
         player.gameObject.SetActive(false);
         minigameStartPanel.SetActive(true);
+
+        foreach (GameObject character in player.characterList)
+        {
+            Destroy(character);
+        }
+        player.characterList.Clear();
         if (player.characterList.Count < 15)
             minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Game Over!\nTap to continue...";
         else

@@ -131,7 +131,7 @@ public class CaptchaManager : MonoBehaviour
                 {
                     if (captchaImage[i].GetComponent<Captcha>().hasScored == false)
                     {
-                        IdentityTheftManager_2.Instance.score += 100;
+                        GameManager.INSTANCE.currentIdentityScore += 100;
                         captchaImage[i].GetComponent<Captcha>().hasScored = true;
                     }
                 }
@@ -139,7 +139,7 @@ public class CaptchaManager : MonoBehaviour
                 {
                     if (captchaImage[i].GetComponent<Captcha>().hasScored == false)
                     {
-                        IdentityTheftManager_2.Instance.score -= 100;
+                        GameManager.INSTANCE.currentIdentityScore -= 100;
                         captchaImage[i].GetComponent<Captcha>().hasScored = true;
                     }
                 }
