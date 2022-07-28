@@ -148,6 +148,9 @@ public class IdentityTheftManager_2 : MonoBehaviour
             }
         }
 
+        if (score != GameManager.INSTANCE.currentIdentityScore)
+            score = GameManager.INSTANCE.currentIdentityScore;
+
         if (score < 0)
             score = 0;
 

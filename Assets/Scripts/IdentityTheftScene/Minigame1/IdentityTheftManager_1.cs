@@ -30,6 +30,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
     [SerializeField] private GameObject minigameEnvironment;
     [SerializeField] private GameObject minigameCharacterPanel;
     [SerializeField] private GameObject minigameTypePanel;
+    [SerializeField] private GameObject minigameStartPanel;
     [SerializeField] private IdentityPlayerController player;
 
     private GameObject cutsceneAudio;
@@ -99,7 +100,6 @@ public class IdentityTheftManager_1 : MonoBehaviour
         characterText.text = player.characterList.Count + "/15\nCharacters Collected";
         if (player.characterList.Count >= 15)
         {
-            GameManager.INSTANCE.currentIdentityScore += 10;
             EndGame();
             return;
         }
@@ -145,10 +145,22 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     private void EndGame()
     {
-        results.SetActive(true);
-        minigame.SetActive(false);
-        minigameEnvironment.SetActive(false);
         player.gameObject.SetActive(false);
+        minigameStartPanel.SetActive(true);
+        if (player.characterList.Count < 15)
+            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Game Over!\nTap to continue...";
+        else
+            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "You win!\nTap to continue...";
+        StartCoroutine(ShowMinigameEndPanel());
+    }
+
+    private IEnumerator ShowMinigameEndPanel()
+    {
+        while (minigameStartPanel.activeSelf)
+            yield return null;
+        results.SetActive(true);
+        minigameEnvironment.SetActive(false);
+        minigame.SetActive(false);
 
         float multiplier = 1.8f;
         float timeOverMaxBonus = timer - 30f;
@@ -156,7 +168,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (timeOverMaxBonus % 5 != 0)
             timeOverMaxBonus -= timeOverMaxBonus % 5;
         multiplier -= (timeOverMaxBonus / 5 * 0.2f);
-        if (multiplier <= 1f || player.characterList.Count >= 15)
+        if (multiplier <= 1f || player.characterList.Count < 15)
             multiplier = 1f;
         else if (multiplier > 1.8f)
             multiplier = 1.8f;
@@ -170,6 +182,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             counter += 5;
             endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
         }
+        yield return null;
     }
 
     private IEnumerator TransitionToGame(float time)
@@ -205,6 +218,12 @@ public class IdentityTheftManager_1 : MonoBehaviour
         minigame.gameObject.SetActive(true);
         minigameEnvironment.SetActive(true);
         player.gameObject.SetActive(true);
+    }
+
+    public void TapToStart()
+    {
+        minigameStartPanel.SetActive(false);
+        player.GetComponent<IdentityPlayerController>().StartGame = true;
     }
 
     private IEnumerator StopCutscene(float time)

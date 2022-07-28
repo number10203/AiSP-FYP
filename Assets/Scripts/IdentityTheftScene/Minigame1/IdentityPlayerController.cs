@@ -11,6 +11,7 @@ public class IdentityPlayerController : MonoBehaviour
     public List<Vector4> turningHistory = new List<Vector4>();
     public List<GameObject> characterList = new List<GameObject>();
     public int DistToDetect = 20;
+    public bool StartGame = false;
     private float timeUntilMovement;
     private float timePassed = 0f;
     private Vector3 startPos, endPos; 
@@ -36,6 +37,9 @@ public class IdentityPlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!StartGame)
+            return;
+
         CheckForInput();
         timePassed += Time.deltaTime;
         transform.position = Vector3.Lerp(startPos, endPos, timePassed / timeUntilMovement);
@@ -83,25 +87,25 @@ public class IdentityPlayerController : MonoBehaviour
 
         if (isScreenPressed)
         {
-            if (Input.touches[0].position.y >= startTapPos.y + DistToDetect)
+            if (Input.touches[0].position.y >= startTapPos.y + DistToDetect && prevDir.y == 0f)
             {
                 isScreenPressed = false;
                 direction = new Vector3(0, 1, 0);
-                Debug.Log("Attempted to swipe!");
+                Debug.Log("Attempted to swipe!"); 
             }
-            else if (Input.touches[0].position.y <= startTapPos.y - DistToDetect)
+            else if (Input.touches[0].position.y <= startTapPos.y - DistToDetect && prevDir.y == 0f)
             {
                 isScreenPressed = false;
                 direction = new Vector3(0, -1, 0);
                 Debug.Log("Attempted to swipe!");
             }
-            else if (Input.touches[0].position.x >= startTapPos.x + DistToDetect)
+            else if (Input.touches[0].position.x >= startTapPos.x + DistToDetect && prevDir.x == 0f)
             {
                 isScreenPressed = false;
                 direction = new Vector3(1, 0, 0);
                 Debug.Log("Attempted to swipe!");
             }
-            else if (Input.touches[0].position.x <= startTapPos.x - DistToDetect)
+            else if (Input.touches[0].position.x <= startTapPos.x - DistToDetect && prevDir.x == 0f)
             {
                 isScreenPressed = false;
                 direction = new Vector3(-1, 0, 0);
@@ -112,7 +116,6 @@ public class IdentityPlayerController : MonoBehaviour
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && prevDir.x == 0f)
         {
             direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
-
         }
 
         if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f && prevDir.y == 0f)

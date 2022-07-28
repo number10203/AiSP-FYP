@@ -29,7 +29,6 @@ public class CharacterSpawner : MonoBehaviour
         //topLeftCell = new Vector3((int)(transform.position.x - ((columns - 1) * 0.5)), (int)(transform.position.y + ((rows - 1) * 0.5))); //offset by one due to grid
         SpawnCharacterWave();
     }
-
     private void GetRowsColumns()
     {
         floor = GetComponent<Tilemap>();
