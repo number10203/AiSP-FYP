@@ -90,12 +90,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
     private void UpdateProgress()
     {
         TextMeshProUGUI characterText = minigameCharacterPanel.GetComponentInChildren<TextMeshProUGUI>(false);
-        //Transform[] typeCollectionArray = minigameTypePanel.GetComponentsInChildren<Transform>();
         Animator[] typeCollectionAnimators = minigameTypePanel.GetComponentsInChildren<Animator>();
-        //foreach(Transform type in typeCollectionArray)
-        //{
-        //    typeCollectionAnimators.Add(type.GetComponentInChildren<Animator>());
-        //}
 
         characterText.text = player.characterList.Count + "/15\nCharacters Collected";
         if (player.characterList.Count >= 15)
@@ -236,6 +231,53 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (score > GameManager.INSTANCE.globalScamScore)
         {
             GameManager.INSTANCE.globalScamScore = score;
+        }
+    }
+
+    public void NextInstructions()
+    {
+        List<Transform> pages = new List<Transform>();
+        foreach (Transform child in instructions.GetComponentsInChildren<Transform>(true))
+        {
+            if (child.name.StartsWith("Page"))
+                pages.Add(child);
+        }
+
+        foreach (Transform page in pages)
+        {
+            if (page.gameObject.activeSelf)
+            {
+                page.gameObject.SetActive(false);
+
+                if (page.GetSiblingIndex() < pages.Count - 1)
+                    pages[page.GetSiblingIndex() + 1].gameObject.SetActive(true);
+                else
+                    StartGame();
+                return;
+            }
+        }
+    }
+
+    public void PreviousInstructions()
+    {
+        List<Transform> pages = new List<Transform>();
+        foreach (Transform child in instructions.GetComponentsInChildren<Transform>(true))
+        {
+            if (child.name.StartsWith("Page"))
+                pages.Add(child);
+        }
+
+        foreach (Transform page in pages)
+        {
+            if (page.gameObject.activeSelf)
+            {
+                page.gameObject.SetActive(false);
+
+                if (page.GetSiblingIndex() > 0)
+                    pages[page.GetSiblingIndex() - 1].gameObject.SetActive(true);
+                else
+                    return;
+            }
         }
     }
 
