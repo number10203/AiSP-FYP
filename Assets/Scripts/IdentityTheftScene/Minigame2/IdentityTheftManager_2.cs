@@ -46,7 +46,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
     private bool starPlay = false;
 
 
-    internal int localScore, score;
+    internal int localScore = 0, score;
     private int counter = 0;
     private bool toggleText = false;
 
@@ -69,7 +69,6 @@ public class IdentityTheftManager_2 : MonoBehaviour
         InitGameObjects();
 
         score = GameManager.INSTANCE.currentIdentityScore;
-        localScore = score;
     }
 
     private void FixedUpdate()
