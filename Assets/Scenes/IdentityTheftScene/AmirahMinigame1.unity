@@ -7598,7 +7598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time Spent: 90s'
+  m_text: 'Time Spent: 0s'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 6c462d894b5cc764295be4c2ee600829, type: 2}
@@ -7625,7 +7625,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62.9
+  m_fontSize: 68.65
   m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 1
