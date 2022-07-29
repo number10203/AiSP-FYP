@@ -205,8 +205,9 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     public void SkipCutscene()
     {
-        subtitleManager.SetTimer(22.00f);
+        subtitleManager.SetTimer(21.15f);
         startCutscene.GetComponent<Cutscene>().SkipCutscene();
+        //startCutscene.GetComponent<Cutscene>().PlayUnskippable();
         startCutscene.GetComponent<Animator>().Play("AmirahStartingCutscene_Unskippable");
 
         Destroy(cutsceneAudio.gameObject);

@@ -4545,7 +4545,7 @@ MonoBehaviour:
   subtitleManager: {fileID: 1212688997}
   instructions: {fileID: 1129881397}
   results: {fileID: 1845063876}
-  startCutscene_1: {fileID: 8300000, guid: e94f879df97b530449272dcb0fd208fa, type: 3}
+  startCutscene_1: {fileID: 0}
   minigame: {fileID: 318677350}
   minigameEnvironment: {fileID: 574999223}
   minigameCharacterPanel: {fileID: 1974110816}
