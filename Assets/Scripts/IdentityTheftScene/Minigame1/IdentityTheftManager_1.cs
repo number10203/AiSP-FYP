@@ -93,7 +93,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         TextMeshProUGUI characterText = minigameCharacterPanel.GetComponentInChildren<TextMeshProUGUI>(false);
         Animator[] typeCollectionAnimators = minigameTypePanel.GetComponentsInChildren<Animator>();
 
-        characterText.text = player.characterList.Count + "/15\nCharacters Collected";
+        characterText.text = player.characterList.Count + "/15\nCharacters";
         if (player.characterList.Count >= 15)
         {
             EndGame();
