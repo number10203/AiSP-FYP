@@ -133,6 +133,8 @@ public class CaptchaManager : MonoBehaviour
                     {
                         IdentityTheftManager_2.Instance.score += 100;
                         captchaImage[i].GetComponent<Captcha>().hasScored = true;
+                        entityAnimator = captchaImage[i].GetComponent<Animator>();
+                        entityAnimator.Play("Captcha_FlipR");
                     }
                 }
                 else
@@ -158,7 +160,7 @@ public class CaptchaManager : MonoBehaviour
 
     IEnumerator Clear()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(30.0f);
 
         foreach (GameObject go in captchaImage)
         {
