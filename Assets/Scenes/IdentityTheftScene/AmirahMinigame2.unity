@@ -6815,7 +6815,7 @@ MonoBehaviour:
   loseAudio: {fileID: 0}
   winAudio: {fileID: 0}
   startCutscene_1: {fileID: 0}
-  BGM: {fileID: 0}
+  BGM: {fileID: 8300000, guid: 98c9a308ba087bf46be3fb8892164c58, type: 3}
   starPop1: {fileID: 8300000, guid: d21d311286b152a41a2352af0298d660, type: 3}
   starPop2: {fileID: 8300000, guid: ef91301e8394b804dbffb2538c17346b, type: 3}
   starPop3: {fileID: 8300000, guid: 898428d349cccc442bdf3d8cc8db35a4, type: 3}

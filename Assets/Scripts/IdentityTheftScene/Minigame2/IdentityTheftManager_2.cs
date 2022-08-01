@@ -68,6 +68,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         InitGameObjects();
 
+        audioManager.PlayMusic(BGM);
         score = GameManager.INSTANCE.currentIdentityScore;
     }
 
