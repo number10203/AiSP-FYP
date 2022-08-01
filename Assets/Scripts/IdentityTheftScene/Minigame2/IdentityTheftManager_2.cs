@@ -147,9 +147,6 @@ public class IdentityTheftManager_2 : MonoBehaviour
             }
         }
 
-        if (score != GameManager.INSTANCE.currentIdentityScore)
-            score = GameManager.INSTANCE.currentIdentityScore;
-
         if (score < 0)
             score = 0;
 
@@ -226,6 +223,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneController.INSTANCE.LoadScene(1);
+        GameManager.INSTANCE.currentIdentityScore = 0;
     }
     public void RestartLevel()
     {
