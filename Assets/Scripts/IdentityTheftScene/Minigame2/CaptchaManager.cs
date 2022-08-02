@@ -25,6 +25,7 @@ public class CaptchaManager : MonoBehaviour
     private int selectedObjects;
     private int quiz = 0;
     private bool clear = false;
+    private bool checkPost = false;
 
     private List<GameObject> captchaImage = new List<GameObject>();
     public List<int> captchaOrder = new List<int>();
@@ -152,9 +153,10 @@ public class CaptchaManager : MonoBehaviour
 
             }
         }
-        if(z != captchaImage.Count)
+        if(z != captchaImage.Count && !checkPost)
         {
             ++quiz;
+            checkPost = true;
             StartCoroutine(Clear());
         }
 
@@ -170,7 +172,7 @@ public class CaptchaManager : MonoBehaviour
         }
 
         captchaImage.Clear();
-
+        checkPost = false;
         clear = true;
 
         if (quiz <= 2)
