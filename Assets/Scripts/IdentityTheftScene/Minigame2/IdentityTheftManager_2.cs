@@ -20,7 +20,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
     public TextMeshProUGUI endScoreText;
     public GameObject infographic;    
     [SerializeField] private GameObject startingFade, sceneTransition;
-    [SerializeField] private GameObject endCutscene;
+    [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject results;
@@ -50,7 +50,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
     private int counter = 0;
     private bool toggleText = false;
 
-    [HideInInspector] public bool isWin = false, isLose = false, gameEnded = false ;
+    [HideInInspector] public bool isWin = false, isLose = false;
 
     private void Awake()
     {
@@ -109,11 +109,6 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
     private void Update()
     {
-        if(gameEnded == true)
-        {
-            StartCoroutine(StopCutscene(0.0f));
-        }
-
         if (localScore >= 900)
         {
             if (star3Anim != true)
@@ -200,12 +195,38 @@ public class IdentityTheftManager_2 : MonoBehaviour
         //canvasGroup.blocksRaycasts = true;
     }
 
+    public void PlayCutscene()
+    {
+        audioManager.StopMusic();
+
+        minigame.SetActive(false);
+        resultsScreen.SetActive(true);
+
+        if (score >= 600)
+        {
+            subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
+            subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Eng");
+            winCutscene.SetActive(true);
+            audioManager.Play(winAudio);
+            StartCoroutine(StopCutscene(32f));
+        }
+        else
+        {
+            subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
+            subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
+            loseCutscene.SetActive(true);
+            audioManager.Play(loseAudio);
+            StartCoroutine(StopCutscene(6f));
+        }
+    }
+
 
     private IEnumerator StopCutscene(float time)
     {
         yield return new WaitForSeconds(time);
 
-        endCutscene.SetActive(false);
+        winCutscene.SetActive(false);
+        loseCutscene.SetActive(false);
         results.SetActive(true);
 
         if (score > GameManager.INSTANCE.globalIdentityScore)
@@ -216,7 +237,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
     public void ShowInfoGraphic()
     {
-        results.SetActive(false);
+        resultsScreen.SetActive(false);
         infographic.SetActive(true);
         
     }

@@ -188,7 +188,7 @@ public class CaptchaManager : MonoBehaviour
         }
         else if (quiz > 2)
         {
-            IdentityTheftManager_2.Instance.gameEnded = true;
+            IdentityTheftManager_2.Instance.PlayCutscene();
         }
     }
 
