@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScamScene/Scam_Minigame2.unity
     guid: 1a655595c376ed24bac43cfa88279750
+  - enabled: 1
+    path: Assets/Scenes/IdentityTheftScene/AmirahMinigame1.unity
+    guid: d1bed7df4ca96ec4887633730dad5b6a
+  - enabled: 1
+    path: Assets/Scenes/IdentityTheftScene/AmirahMinigame2.unity
+    guid: e7cb9eb51db0f15478e56b6644a288d9
   m_configObjects: {}
