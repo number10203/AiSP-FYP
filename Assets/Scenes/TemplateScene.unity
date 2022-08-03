@@ -661,6 +661,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FPSTarget: 144
+  globalShoppingScore: 0
+  currentShoppingScore: 0
+  globalMalwareScore: 0
+  currentMalwareScore: 0
+  globalScamScore: 0
+  currentScamScore: 0
 --- !u!1 &2110629783
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,3 +730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d66a0d62d8a92c41b107d09a8d825ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasDialogue: 0
+  MusicSource: {fileID: 0}
+  EffectsSource: []
+  DialogueSource: {fileID: 0}
+  dialogueManager: {fileID: 0}

@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
 
     public int globalScamScore, currentScamScore;
 
+    public int globalIdentityScore, currentIdentityScore;
+
     private void Start()
     {
         QualitySettings.vSyncCount = 0;

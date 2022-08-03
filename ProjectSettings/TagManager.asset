@@ -13,6 +13,8 @@ TagManager:
   - FakeVirus
   - MalwarePopup
   - ScamCutscene
+  - CorrectCapt
+  - WrongCapt
   layers:
   - Default
   - TransparentFX
