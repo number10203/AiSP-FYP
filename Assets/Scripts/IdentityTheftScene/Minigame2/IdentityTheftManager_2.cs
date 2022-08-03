@@ -213,10 +213,10 @@ public class IdentityTheftManager_2 : MonoBehaviour
         else
         {
             subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
+            subtitleManager.InitSubtitles("Amirah_Cutscene_Lose");
             loseCutscene.SetActive(true);
             audioManager.Play(loseAudio);
-            StartCoroutine(StopCutscene(6f));
+            StartCoroutine(StopCutscene(8f));
         }
     }
 
