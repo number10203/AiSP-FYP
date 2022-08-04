@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class LevelSelectManager : MonoBehaviour
 {
     // Public variables
-    public GameObject[] shoppingStars, malwareStars, scamStars;
+    public GameObject[] shoppingStars, malwareStars, scamStars, identityStars;
 
     // Private variables
     [SerializeField] private float buttonAnimScale = 1.2f;
     [SerializeField] private float buttonAnimDuration = 1f;
     [SerializeField] private GameObject sceneTransition;
 
-    private int shoppingScore, malwareScore, scamScore;
+    private int shoppingScore, malwareScore, scamScore, identityScore;
 
     private SceneController sceneController;
 
@@ -24,6 +24,7 @@ public class LevelSelectManager : MonoBehaviour
 
         sceneController = SceneController.INSTANCE;
 
+        identityScore = GameManager.INSTANCE.globalIdentityScore;
         shoppingScore = GameManager.INSTANCE.globalShoppingScore;
         malwareScore = GameManager.INSTANCE.globalMalwareScore;
         scamScore = GameManager.INSTANCE.globalScamScore;
@@ -39,6 +40,11 @@ public class LevelSelectManager : MonoBehaviour
         }
 
         foreach (GameObject i in scamStars)
+        {
+            i.SetActive(false);
+        }
+
+        foreach (GameObject i in identityStars)
         {
             i.SetActive(false);
         }
@@ -94,6 +100,23 @@ public class LevelSelectManager : MonoBehaviour
         else if (scamScore >= 900)
         {
             foreach (GameObject gameObject in scamStars)
+            {
+                gameObject.SetActive(true);
+            }
+        }
+
+        if (identityScore >= 600 && identityScore < 750)
+        {
+            identityStars[0].SetActive(true);
+        }
+        else if (identityScore >= 750 && identityScore < 900)
+        {
+            identityStars[0].SetActive(true);
+            identityStars[1].SetActive(true);
+        }
+        else if (identityScore >= 900)
+        {
+            foreach (GameObject gameObject in identityStars)
             {
                 gameObject.SetActive(true);
             }
