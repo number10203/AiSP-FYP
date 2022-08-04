@@ -1,14 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HighscoreTable : MonoBehaviour {
-
+public class HighscoreTableScript : MonoBehaviour {
+    public GameObject scoreText;
     private Transform entryContainer;
     private Transform entryTemplate;
     private List<Transform> highscoreEntryTransformList;
 
+    //public GameObject field1, field2, field3;
+    private char[] alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+    int globalTotalScore;
     private void Awake() {
         entryContainer = transform.Find("highscoreEntryContainer");
         entryTemplate = entryContainer.Find("highscoreEntryTemplate");
@@ -17,20 +22,19 @@ public class HighscoreTable : MonoBehaviour {
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
-
-        if (highscores == null) {
-            // There's no stored table, initialize
-            Debug.Log("Initializing table with default values...");
-            AddHighscoreEntry(1000000, "CMK");
-            AddHighscoreEntry(897621, "JOE");
-            AddHighscoreEntry(872931, "DAV");
-            AddHighscoreEntry(785123, "CAT");
-            AddHighscoreEntry(542024, "MAX");
-            AddHighscoreEntry(68245, "AAA");
-            // Reload
-            jsonString = PlayerPrefs.GetString("highscoreTable");
-            highscores = JsonUtility.FromJson<Highscores>(jsonString);
-        }
+        //if (highscores == null) {
+        //    // There's no stored table, initialize
+        //    Debug.Log("Initializing table with default values...");
+        //    AddHighscoreEntry(1000000, "CMK");
+        //    AddHighscoreEntry(897621, "JOE");
+        //    AddHighscoreEntry(872931, "DAV");
+        //    AddHighscoreEntry(785123, "CAT");
+        //    AddHighscoreEntry(542024, "MAX");
+        //    AddHighscoreEntry(68245, "AAA");
+        //    // Reload
+        //    jsonString = PlayerPrefs.GetString("highscoreTable");
+        //    highscores = JsonUtility.FromJson<Highscores>(jsonString);
+        //}
 
         // Sort entry list by Score
         for (int i = 0; i < highscores.highscoreEntryList.Count; i++) {
@@ -45,9 +49,19 @@ public class HighscoreTable : MonoBehaviour {
         }
 
         highscoreEntryTransformList = new List<Transform>();
-        foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList) {
-            CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
+        
+        //foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList) {
+        //    CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
+        //}
+
+        for (int i = 0; i < 10; i++)
+        {
+            CreateHighscoreEntryTransform(highscores.highscoreEntryList[i], entryContainer, highscoreEntryTransformList);
         }
+
+        globalTotalScore = GameManager.INSTANCE.globalShoppingScore + GameManager.INSTANCE.globalMalwareScore
+            + GameManager.INSTANCE.globalScamScore;
+        scoreText.GetComponent<TextMeshProUGUI>().text = globalTotalScore.ToString();
     }
 
     private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList) {
@@ -112,4 +126,33 @@ public class HighscoreTable : MonoBehaviour {
         public string name;
     }
 
+    public void AlphabetIncrease(GameObject field)
+    {
+        char[] AlphabetArray = field.GetComponent<TextMeshProUGUI>().text.ToCharArray();
+        char AlphabetNow = AlphabetArray[0];
+        int found = new String(alphabetArray).IndexOf(AlphabetNow);
+        if (found == 25)
+            found = -1;
+        field.GetComponent<TextMeshProUGUI>().text = alphabetArray[found+1].ToString();
+    }
+
+    public void AlphabetDecrease(GameObject field)
+    {
+        char[] AlphabetArray = field.GetComponent<TextMeshProUGUI>().text.ToCharArray();
+        char AlphabetNow = AlphabetArray[0];
+        int found = new String(alphabetArray).IndexOf(AlphabetNow);
+        if (found == 0)
+            found = 26;
+        field.GetComponent<TextMeshProUGUI>().text = alphabetArray[found - 1].ToString();
+    }
+
+    public void UploadScore()
+    {
+        string nameString = GameObject.Find("FirstLetterText").GetComponent<TextMeshProUGUI>().text +
+              GameObject.Find("SecondLetterText").GetComponent<TextMeshProUGUI>().text +
+              GameObject.Find("ThirdLetterText").GetComponent<TextMeshProUGUI>().text;
+
+        AddHighscoreEntry(globalTotalScore, nameString);
+
+    }
 }
