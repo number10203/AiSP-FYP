@@ -205,10 +205,10 @@ public class IdentityTheftManager_2 : MonoBehaviour
         if (score >= 600)
         {
             subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Eng");
+            subtitleManager.InitSubtitles("Amirah_Cutscene_Win");
             winCutscene.SetActive(true);
             audioManager.Play(winAudio);
-            StartCoroutine(StopCutscene(32f));
+            StartCoroutine(StopCutscene(30f));
         }
         else
         {
