@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IdentityTheftScene/AmirahMinigame2.unity
     guid: e7cb9eb51db0f15478e56b6644a288d9
+  - enabled: 1
+    path: Assets/Scenes/HighscoreTableScene.unity
+    guid: 7b983534fcd6adb4d8ec50e55837c14a
   m_configObjects: {}
