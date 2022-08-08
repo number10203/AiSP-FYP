@@ -7439,7 +7439,7 @@ MonoBehaviour:
   instructions: {fileID: 65214695}
   results: {fileID: 1569923968}
   loseAudio: {fileID: 8300000, guid: 42362d1a9334c0c438656e0baf7bea41, type: 3}
-  winAudio: {fileID: 0}
+  winAudio: {fileID: 8300000, guid: 8ad7246828528674497841c3893c5b26, type: 3}
   startCutscene_1: {fileID: 0}
   BGM: {fileID: 8300000, guid: 98c9a308ba087bf46be3fb8892164c58, type: 3}
   starPop1: {fileID: 8300000, guid: d21d311286b152a41a2352af0298d660, type: 3}
