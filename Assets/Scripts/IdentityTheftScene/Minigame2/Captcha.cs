@@ -11,6 +11,7 @@ public class Captcha : MonoBehaviour
     private Camera mainCam;
     private float CameraZDistance;
 
+    private bool isFlipping = false;
     public bool isSelected = false;
     public bool isBad = false;
     public bool hasScored = false;

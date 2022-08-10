@@ -21,7 +21,6 @@ public class CaptchaManager : MonoBehaviour
     private Animator entityAnimator;
     private AudioManager audioManager; 
 
-    Toggle m_Toggle;
     private int selectedObjects;
     private int quiz = 0;
     private bool clear = false;
@@ -122,36 +121,31 @@ public class CaptchaManager : MonoBehaviour
         for (int i = 0; i < captchaImage.Count; ++i)
         {
             if (!captchaImage[i].GetComponent<Captcha>().isSelected)
-            {
-                z += 1;
-                continue;
+            {                
+                z += 1;                           
             }
             else
             {
-                if (!captchaImage[i].GetComponent<Captcha>().isBad)
+                if (captchaImage[i].GetComponent<Captcha>().hasScored == false)
                 {
-                    if (captchaImage[i].GetComponent<Captcha>().hasScored == false)
+                    if (!captchaImage[i].GetComponent<Captcha>().isBad)
                     {
                         IdentityTheftManager_2.Instance.score += 100;
                         captchaImage[i].GetComponent<Captcha>().hasScored = true;
                         entityAnimator = captchaImage[i].GetComponent<Animator>();
                         entityAnimator.Play("Captcha_FlipR");
+
                     }
-                }
-                else
-                {
-                    if (captchaImage[i].GetComponent<Captcha>().hasScored == false)
+                    else
                     {
                         IdentityTheftManager_2.Instance.score -= 100;
                         captchaImage[i].GetComponent<Captcha>().hasScored = true;
                         entityAnimator = captchaImage[i].GetComponent<Animator>();
                         entityAnimator.Play("Captcha_FlipW");
                     }
-                }
-
-                this.enabled = false;
-
+                }                
             }
+            captchaImage[i].GetComponent<Toggle>().interactable = false;
         }
         if(z != captchaImage.Count && !checkPost)
         {
@@ -159,11 +153,19 @@ public class CaptchaManager : MonoBehaviour
             checkPost = true;
             StartCoroutine(Clear());
         }
+        else if (z == captchaImage.Count && !checkPost)
+        {
+            for (int i = 0; i < captchaImage.Count; ++i)
+            {
+                captchaImage[i].GetComponent<Toggle>().interactable = true;
+            }
+        }
 
     }
 
     IEnumerator Clear()
     {
+
         yield return new WaitForSeconds(3.0f);
 
         foreach (GameObject go in captchaImage)
