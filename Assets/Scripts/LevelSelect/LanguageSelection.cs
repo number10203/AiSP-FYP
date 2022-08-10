@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class LanguageSelection : MonoBehaviour
 {
     public List<Sprite> supportedLanguageSprites = new List<Sprite>();
-    private bool isSelecting = false;
+    private bool isOpening = false;
+    private bool isToggled = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,17 +23,22 @@ public class LanguageSelection : MonoBehaviour
 
             if (language.name == "EN")
             {
-                obj.GetComponent<Button>().onClick.AddListener(OpenSelection);
+                obj.GetComponent<Button>().onClick.AddListener(ToggleSelection);
             }
         }
         Image[] languageOptions = this.GetComponentsInChildren<Image>(true);
         languageOptions[0].transform.SetAsLastSibling();
     }
 
-    public void OpenSelection()
+    public void ToggleSelection()
     {
+        if (isOpening)
+            return;
+
         Image[] languageOptions = this.GetComponentsInChildren<Image>(true);
-        if (!isSelecting)
+        isOpening = true;
+        isToggled = !isToggled;
+        if (isToggled)
             for (int i = 0; i < languageOptions.Length; i++)
             {
                 if (i == languageOptions.Length - 1)
@@ -43,7 +49,7 @@ public class LanguageSelection : MonoBehaviour
                 GameObject obj = languageOptions[i].gameObject;
                 obj.SetActive(true);
                 StartCoroutine(LerpRectTransformY(obj, -this.GetComponent<RectTransform>().sizeDelta.y * (i + 1), 1f));
-                //obj.GetComponent<Button>().onClick.AddListener(SelectOption);
+                obj.GetComponent<Button>().onClick.AddListener(delegate { SelectOption(obj); });
             }
         else
             for (int i = 0; i < languageOptions.Length; i++)
@@ -52,18 +58,30 @@ public class LanguageSelection : MonoBehaviour
                 {
                     continue;
                 }
+
                 GameObject obj = languageOptions[i].gameObject;
+                obj.SetActive(true);
                 StartCoroutine(LerpRectTransformY(obj, this.GetComponent<RectTransform>().sizeDelta.y * (i + 1), 1f));
-                //obj.GetComponent<Button>().onClick.AddListener(SelectOption);
+                obj.GetComponent<Button>().onClick.AddListener(delegate { SelectOption(obj); });
             }
-        isSelecting = !isSelecting;
     }
 
-    public void SelectOption()
+    public void SelectOption(GameObject selectedObject)
     {
+        if (isOpening)
+            return;
 
+        ToggleSelection();
+        selectedObject.transform.SetAsLastSibling();
+
+        Image[] languageOptions = this.GetComponentsInChildren<Image>(true);
+        foreach (Image image in languageOptions)
+        {
+            image.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
+        }
+
+        selectedObject.GetComponent<Button>().onClick.AddListener(ToggleSelection);
     }
-
     private IEnumerator LerpRectTransformY(GameObject obj, float changeInPosition, float timeToTake)
     {
         RectTransform transform = obj.GetComponent<RectTransform>();
@@ -91,5 +109,6 @@ public class LanguageSelection : MonoBehaviour
             }
         }
         transform.position = new Vector3(transform.position.x, targetYPos);
+        isOpening = false;
     }
 }
