@@ -19,6 +19,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
     [SerializeField] private GameObject startCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private GameObject instructions;
+    [SerializeField] private Sprite[] instructionLanguagePg1, instructionLanguagePg2, instructionLanguagePg3, instructionLanguagePg4;
     [SerializeField] private GameObject results;
 
     [Header ("Audio References")]
@@ -39,6 +40,8 @@ public class IdentityTheftManager_1 : MonoBehaviour
     private float timer = 0;
     private int counter = 0;
     private bool gameEnd = false;
+    public int languageNumber;
+    private RawImage instructionImage;
 
     private void Start()
     {
@@ -48,6 +51,40 @@ public class IdentityTheftManager_1 : MonoBehaviour
         GameManager.INSTANCE.currentIdentityScore = 0;
         Minigame1EventHandler.instance.onGameEnd += EndGame;
         Minigame1EventHandler.instance.onEatCharacter += UpdateProgress;
+
+
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            languageNumber = 1;
+            instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
+            instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
+            instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
+            instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            languageNumber = 2;
+            instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
+            instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
+            instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
+            instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            languageNumber = 3;
+            instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
+            instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
+            instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
+            instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+        }
+        else
+        {
+            languageNumber = 0;
+            instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
+            instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
+            instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
+            instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+        }
     }
 
     private void FixedUpdate()

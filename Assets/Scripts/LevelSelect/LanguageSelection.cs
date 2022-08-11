@@ -80,6 +80,24 @@ public class LanguageSelection : MonoBehaviour
             image.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
         }
 
+        if(selectedObject.name == "CN")
+        {
+            GameManager.INSTANCE.chosenLanguage = GameManager.LANGUAGE.CHINESE;
+        }
+        else if (selectedObject.name == "BM")
+        {
+            GameManager.INSTANCE.chosenLanguage = GameManager.LANGUAGE.MALAY;           
+        }
+        else if (selectedObject.name == "TM")
+        {
+            GameManager.INSTANCE.chosenLanguage = GameManager.LANGUAGE.TAMIL;            
+        }
+        else
+        {
+            GameManager.INSTANCE.chosenLanguage = GameManager.LANGUAGE.ENGLISH;            
+        }
+        Debug.Log(GameManager.INSTANCE.chosenLanguage);
+
         selectedObject.GetComponent<Button>().onClick.AddListener(ToggleSelection);
     }
     private IEnumerator LerpRectTransformY(GameObject obj, float changeInPosition, float timeToTake)

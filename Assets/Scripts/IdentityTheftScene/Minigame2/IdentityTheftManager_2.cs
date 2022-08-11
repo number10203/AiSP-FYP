@@ -23,6 +23,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
     [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private GameObject instructions;
+    [SerializeField] private Texture[] instructionLanguage;
     [SerializeField] private GameObject results;
 
     [Header("Audio References")]
@@ -49,6 +50,8 @@ public class IdentityTheftManager_2 : MonoBehaviour
     internal int localScore = 0, score;
     private int counter = 0;
     private bool toggleText = false;
+    public int languageNumber;
+    private RawImage instructionImage;
 
     [HideInInspector] public bool isWin = false, isLose = false;
 
@@ -70,6 +73,28 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
         audioManager.PlayMusic(BGM);
         score = GameManager.INSTANCE.currentIdentityScore;
+        instructionImage = instructions.GetComponent<RawImage>();
+
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            languageNumber = 1;
+            instructionImage.texture = instructionLanguage[languageNumber];           
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            languageNumber = 2;
+            instructionImage.texture = instructionLanguage[languageNumber];
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            languageNumber = 3;
+            instructionImage.texture = instructionLanguage[languageNumber];
+        }
+        else
+        {
+            languageNumber = 0;
+            instructionImage.texture = instructionLanguage[languageNumber];
+        }
     }
 
     private void FixedUpdate()
@@ -147,6 +172,8 @@ public class IdentityTheftManager_2 : MonoBehaviour
             score = 0;
 
         scoreText.text = "Score: " + score;
+
+
     }
 
     private void InitGameObjects()

@@ -23,6 +23,7 @@ public class CaptchaManager : MonoBehaviour
 
     private int selectedObjects;
     private int quiz = 0;
+    private int languageNumber;
     private bool clear = false;
     private bool checkPost = false;
 
@@ -32,6 +33,8 @@ public class CaptchaManager : MonoBehaviour
 
     private void Start()
     {
+        languageNumber = IdentityTheftManager_2.Instance.languageNumber * 2;
+
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -82,7 +85,7 @@ public class CaptchaManager : MonoBehaviour
                     for (int j = 0; j <= 1; j++)
                     {
                         Vector3 pos = new Vector3((i - 1) * 3.50f, (j - 0.8f) * 3.65f);
-                        captchaImage.Add(Instantiate(captchaPrefab[quiz], pos, Quaternion.identity, captchaOrigin));
+                        captchaImage.Add(Instantiate(captchaPrefab[quiz + languageNumber], pos, Quaternion.identity, captchaOrigin));
                         captchaImage[z].GetComponent<Captcha>().SetCaptcha();
                         z++;
 
@@ -101,7 +104,7 @@ public class CaptchaManager : MonoBehaviour
                     for (int j = 0; j <= 1; j++)
                     {
                         Vector3 pos = new Vector3((i - 1) * 3.50f, (j - 0.8f) * 3.65f);
-                        captchaImage.Add(Instantiate(captchaPrefab[quiz], pos, Quaternion.identity, captchaOrigin));
+                        captchaImage.Add(Instantiate(captchaPrefab[quiz + languageNumber], pos, Quaternion.identity, captchaOrigin));
                         captchaImage[z].GetComponent<Captcha>().SetCaptcha();
                         z++;
 
