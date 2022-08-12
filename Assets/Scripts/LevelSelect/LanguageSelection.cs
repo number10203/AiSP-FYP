@@ -23,7 +23,7 @@ public class LanguageSelection : MonoBehaviour
 
             if (language.name == "EN")
             {
-                obj.GetComponent<Button>().onClick.AddListener(ToggleSelection);
+                obj.GetComponent<Button>().onClick.AddListener(ToggleSelection);                
             }
         }
         Image[] languageOptions = this.GetComponentsInChildren<Image>(true);

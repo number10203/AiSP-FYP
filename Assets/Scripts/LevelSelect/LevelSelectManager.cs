@@ -8,6 +8,7 @@ public class LevelSelectManager : MonoBehaviour
 {
     // Public variables
     public GameObject[] shoppingStars, malwareStars, scamStars, identityStars;
+    public Text HighscoreText, StoryText, JennieText, EthanText, AhHuatText, AmirahText;
 
     // Private variables
     [SerializeField] private float buttonAnimScale = 1.2f;
@@ -15,6 +16,7 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] private GameObject sceneTransition;
 
     private int shoppingScore, malwareScore, scamScore, identityScore;
+    private int languageNumber;
 
     private SceneController sceneController;
 
@@ -120,6 +122,24 @@ public class LevelSelectManager : MonoBehaviour
             {
                 gameObject.SetActive(true);
             }
+        }
+
+
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            languageNumber = 1;           
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            languageNumber = 2;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            languageNumber = 3;
+        }
+        else
+        {
+            languageNumber = 0;
         }
     }
 

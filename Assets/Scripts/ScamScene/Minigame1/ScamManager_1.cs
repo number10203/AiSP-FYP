@@ -42,6 +42,7 @@ public class ScamManager_1 : MonoBehaviour
     internal int score = 0;
     private int counter = 0;
     private bool gameEnd = false;
+    private int languageNumber;
 
     private void Awake()
     {
@@ -60,6 +61,23 @@ public class ScamManager_1 : MonoBehaviour
         InitGameObjects();
 
         GameManager.INSTANCE.currentScamScore = 0;
+
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            languageNumber = 1;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            languageNumber = 2;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            languageNumber = 3;
+        }
+        else
+        {
+            languageNumber = 0;
+        }
     }
 
     private void FixedUpdate()

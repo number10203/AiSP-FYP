@@ -36,6 +36,7 @@ public class ScamMinigame2Manager : MonoBehaviour
     private int correct = 0;
     private int localScore = 0, score;
     private AudioManager audioManager;
+    private int languageNumber;
 
 
     // Start is called before the first frame update
@@ -48,6 +49,22 @@ public class ScamMinigame2Manager : MonoBehaviour
         score = GameManager.INSTANCE.currentScamScore;
         audioManager.PlayMusic(BGM);
 
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            languageNumber = 1;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            languageNumber = 2;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            languageNumber = 3;
+        }
+        else
+        {
+            languageNumber = 0;
+        }
     }
 
     private void FixedUpdate()

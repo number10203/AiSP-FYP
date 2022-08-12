@@ -43,6 +43,7 @@ public class Minigame2Manager : MonoBehaviour
     private int qnNumber = 0;
     private int correct = 0;
     private int localScore = 0, score;
+    private int languageNumber;
 
     private AudioManager audioManager;
 
@@ -55,6 +56,23 @@ public class Minigame2Manager : MonoBehaviour
 
         score = GameManager.INSTANCE.currentShoppingScore;
         audioManager.PlayMusic(BGM);
+
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            languageNumber = 1;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            languageNumber = 2;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            languageNumber = 3;
+        }
+        else
+        {
+            languageNumber = 0;
+        }
     }
 
     private void FixedUpdate()
