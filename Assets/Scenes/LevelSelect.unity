@@ -604,7 +604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -60, y: -55}
+  m_AnchoredPosition: {x: -60, y: -51.63098}
   m_SizeDelta: {x: 230, y: 57.5}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &271490275
@@ -1605,7 +1605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -20}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 274, y: 282}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &647068003
@@ -1806,8 +1806,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Story Select
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 58c91168dac97364d9a9adf780b418a4, type: 2}
-  m_sharedMaterial: {fileID: -1322413030311147911, guid: 58c91168dac97364d9a9adf780b418a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
+  m_sharedMaterial: {fileID: 3096951717148847316, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1965,6 +1965,10 @@ MonoBehaviour:
   EthanText: {fileID: 1034181461}
   AhHuatText: {fileID: 1498818350}
   AmirahText: {fileID: 442584653}
+  ENFont: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
+  CNFont: {fileID: 11400000, guid: aff0381b25fb60142abfb8a58398ab21, type: 2}
+  BMFont: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
+  TMFont: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
   buttonAnimScale: 1.2
   buttonAnimDuration: 1
   sceneTransition: {fileID: 880864861}

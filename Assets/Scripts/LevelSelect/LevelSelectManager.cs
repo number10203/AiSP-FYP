@@ -145,10 +145,15 @@ public class LevelSelectManager : MonoBehaviour
         {
             languageNumber = 2;
             StoryText.text = "Pemilihan Cerita";
+            StoryText.font = ENFont;
             JennieText.text = "Jennie";
+            JennieText.font = ENFont;
             EthanText.text = "Ethan";
+            EthanText.font = ENFont;
             AhHuatText.text = "Ah Huat";
+            AhHuatText.font = ENFont;
             AmirahText.text = "Amirah";
+            AmirahText.font = ENFont;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
