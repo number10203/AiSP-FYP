@@ -247,7 +247,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 35928097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -258,13 +258,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 3c983bf54b9ffb340a1fd463f94785d0, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  m_Sprite: {fileID: 21300000, guid: 3c983bf54b9ffb340a1fd463f94785d0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &35928100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1895,7 +1898,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 360304024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1906,13 +1909,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b0a4c40c1569148478c27d93c845011a, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  m_Sprite: {fileID: 21300000, guid: b0a4c40c1569148478c27d93c845011a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &360304027
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3514,7 +3520,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 839354951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -3525,13 +3531,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: fd8f7192a7305644f8385db24e6caf91, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  m_Sprite: {fileID: 21300000, guid: fd8f7192a7305644f8385db24e6caf91, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &839354954
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4544,6 +4553,26 @@ MonoBehaviour:
   startCutscene: {fileID: 98957698}
   subtitleManager: {fileID: 1212688997}
   instructions: {fileID: 1129881397}
+  instructionLanguagePg1:
+  - {fileID: 21300000, guid: 7124d9173f7202b4bba684950d6c6ef5, type: 3}
+  - {fileID: 21300000, guid: 1decc3b854a00df4a96a477abd99d120, type: 3}
+  - {fileID: 21300000, guid: 1decc3b854a00df4a96a477abd99d120, type: 3}
+  - {fileID: 21300000, guid: 7124d9173f7202b4bba684950d6c6ef5, type: 3}
+  instructionLanguagePg2:
+  - {fileID: 21300000, guid: 3c983bf54b9ffb340a1fd463f94785d0, type: 3}
+  - {fileID: 21300000, guid: f2e824d18a4745545b4f59a104478755, type: 3}
+  - {fileID: 21300000, guid: 3c983bf54b9ffb340a1fd463f94785d0, type: 3}
+  - {fileID: 0}
+  instructionLanguagePg3:
+  - {fileID: 21300000, guid: b0a4c40c1569148478c27d93c845011a, type: 3}
+  - {fileID: 21300000, guid: a1d876d27d491e943b1c22f6f3280a35, type: 3}
+  - {fileID: 21300000, guid: b0a4c40c1569148478c27d93c845011a, type: 3}
+  - {fileID: 21300000, guid: b0a4c40c1569148478c27d93c845011a, type: 3}
+  instructionLanguagePg4:
+  - {fileID: 21300000, guid: fd8f7192a7305644f8385db24e6caf91, type: 3}
+  - {fileID: 21300000, guid: 8126e12d5a15ba543bf33446dcd0fd6c, type: 3}
+  - {fileID: 21300000, guid: fd8f7192a7305644f8385db24e6caf91, type: 3}
+  - {fileID: 21300000, guid: fd8f7192a7305644f8385db24e6caf91, type: 3}
   results: {fileID: 1845063876}
   startCutscene_1: {fileID: 0}
   minigame: {fileID: 318677350}
@@ -4552,6 +4581,7 @@ MonoBehaviour:
   minigameTypePanel: {fileID: 1767702867}
   minigameStartPanel: {fileID: 1339676169}
   player: {fileID: 502564665}
+  languageNumber: 0
 --- !u!114 &1212689001
 MonoBehaviour:
   m_ObjectHideFlags: 0

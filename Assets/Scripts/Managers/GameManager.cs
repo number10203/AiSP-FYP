@@ -8,6 +8,15 @@ public class GameManager : MonoBehaviour
     // Single Instance creation
     private static GameManager _INSTANCE = null;
 
+    public enum LANGUAGE
+    {
+        ENGLISH,
+        CHINESE,
+        MALAY,
+        TAMIL,
+        COUNT
+    }
+    
     // Allow calling of singleton to other
     public static GameManager INSTANCE
     {
@@ -50,6 +59,8 @@ public class GameManager : MonoBehaviour
 
     // FPS Target
     public int FPSTarget = 144;
+
+    public LANGUAGE chosenLanguage = LANGUAGE.ENGLISH;
 
     // Global score = score to used for everywhere, current score = score to used when moving to minigame2
     public int globalShoppingScore, currentShoppingScore;

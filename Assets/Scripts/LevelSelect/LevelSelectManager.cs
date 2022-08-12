@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 using UnityEngine.UI;
 
 public class LevelSelectManager : MonoBehaviour
 {
     // Public variables
     public GameObject[] shoppingStars, malwareStars, scamStars, identityStars;
+    public TextMeshProUGUI StoryText, JennieText, EthanText, AhHuatText, AmirahText;
+    public TMP_FontAsset ENFont, CNFont, BMFont, TMFont;
 
     // Private variables
     [SerializeField] private float buttonAnimScale = 1.2f;
@@ -15,6 +18,7 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] private GameObject sceneTransition;
 
     private int shoppingScore, malwareScore, scamScore, identityScore;
+    private int languageNumber;
 
     private SceneController sceneController;
 
@@ -120,6 +124,59 @@ public class LevelSelectManager : MonoBehaviour
             {
                 gameObject.SetActive(true);
             }
+        }
+
+        //Language change
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            languageNumber = 1;
+            StoryText.text = "故事选择";
+            StoryText.font = CNFont;
+            JennieText.text = "珍妮";
+            JennieText.font = CNFont;
+            EthanText.text = "伊桑";
+            EthanText.font = CNFont;
+            AhHuatText.text = "阿发";
+            AhHuatText.font = CNFont;
+            AmirahText.text = "阿米拉";
+            AmirahText.font = CNFont;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            languageNumber = 2;
+            StoryText.text = "Pemilihan Cerita";
+            StoryText.font = ENFont;
+            JennieText.text = "Jennie";
+            JennieText.font = ENFont;
+            EthanText.text = "Ethan";
+            EthanText.font = ENFont;
+            AhHuatText.text = "Ah Huat";
+            AhHuatText.font = ENFont;
+            AmirahText.text = "Amirah";
+            AmirahText.font = ENFont;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            languageNumber = 3;
+            StoryText.text = "கதை தேர்வு";
+            JennieText.text = "ஜென்னி";
+            EthanText.text = "ஈதன்";
+            AhHuatText.text = "ஆ ஹுவாட்";
+            AmirahText.text = "அமிரா";
+        }
+        else
+        {
+            languageNumber = 0;
+            StoryText.text = "Story Select";
+            StoryText.font = ENFont;
+            JennieText.text = "Jennie";
+            JennieText.font = ENFont;
+            EthanText.text = "Ethan";
+            EthanText.font = ENFont;
+            AhHuatText.text = "Ah Huat";
+            AhHuatText.font = ENFont;
+            AmirahText.text = "Amirah";
+            AmirahText.font = ENFont;
         }
     }
 

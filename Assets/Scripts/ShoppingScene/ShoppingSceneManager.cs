@@ -49,6 +49,8 @@ public class ShoppingSceneManager : MonoBehaviour
     private AudioManager audioManager;
     private InstructionsManager instructionsManager;
 
+    private int languageNumber;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +61,23 @@ public class ShoppingSceneManager : MonoBehaviour
         gacha = GameObject.Find("CurrentSceneManager").GetComponent<Gacha>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         instructionsManager = GetComponent<InstructionsManager>();
+
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            languageNumber = 1;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            languageNumber = 2;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            languageNumber = 3;
+        }
+        else
+        {
+            languageNumber = 0;
+        }
 
         InitGameObjects();
     }
