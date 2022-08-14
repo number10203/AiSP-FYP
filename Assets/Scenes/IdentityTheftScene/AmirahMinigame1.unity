@@ -4575,6 +4575,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd8f7192a7305644f8385db24e6caf91, type: 3}
   results: {fileID: 1845063876}
   startCutscene_1: {fileID: 0}
+  collectSFX: {fileID: 8300000, guid: 6087c7f720c631b4f9d1409144a11c10, type: 3}
   minigame: {fileID: 318677350}
   minigameEnvironment: {fileID: 574999223}
   minigameCharacterPanel: {fileID: 1974110816}
