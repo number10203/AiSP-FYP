@@ -18,6 +18,9 @@ public class Minigame2Manager : MonoBehaviour
 
     public GameObject infographic;
 
+    public GameObject infographicImage;
+    public Sprite[] infographicLanguage;
+
     public Slider scoreSlider;
 
     public AudioClip BGM, starPop1, starPop2, starPop3, starEnd;
@@ -34,6 +37,7 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private AudioClip loseAudio, winAudio;
     [SerializeField] private GameObject instructions1, instructions2, results;
+    [SerializeField] private Sprite[] instructions1Language, instructions2Language;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject[] productLists;
     [SerializeField] private GameObject tick, cross;
@@ -60,18 +64,29 @@ public class Minigame2Manager : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
+            infographicImage.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
+            instructions1.GetComponent<Image>().sprite = instructions1Language[languageNumber];
+            instructions2.GetComponent<Image>().sprite = instructions2Language[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
+            infographicImage.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
+            instructions1.GetComponent<Image>().sprite = instructions1Language[languageNumber];
+            instructions2.GetComponent<Image>().sprite = instructions2Language[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
+            infographicImage.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
+            instructions1.GetComponent<Image>().sprite = instructions1Language[languageNumber];
+            instructions2.GetComponent<Image>().sprite = instructions2Language[languageNumber];
         }
         else
         {
             languageNumber = 0;
+            infographicImage.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
+
         }
     }
 

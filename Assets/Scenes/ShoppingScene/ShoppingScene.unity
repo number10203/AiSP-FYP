@@ -171,7 +171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 182902507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -182,13 +182,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 7ec813e384a6c2b4aa2295708835648f, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  m_Sprite: {fileID: 21300000, guid: 7ec813e384a6c2b4aa2295708835648f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &182902510
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1182,6 +1185,11 @@ MonoBehaviour:
   music: {fileID: 8300000, guid: bb4ff3e742b7962469d5d24c2c33de7d, type: 3}
   endScoreText: {fileID: 1525022191}
   infographic: {fileID: 796500259}
+  infographicLanguage:
+  - {fileID: 21300000, guid: bbb3b27dd24b0854e9ef619719d090cb, type: 3}
+  - {fileID: 21300000, guid: c7c01968ffc69104db89e9a8f9a143d4, type: 3}
+  - {fileID: 21300000, guid: c7c01968ffc69104db89e9a8f9a143d4, type: 3}
+  - {fileID: 21300000, guid: c7c01968ffc69104db89e9a8f9a143d4, type: 3}
   gameStarted: 0
   gameEnded: 0
   score: 0
@@ -1260,10 +1268,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288eebc825add5a44be8b2a2e33e26ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  languageNumber: 0
   pages:
   - {fileID: 1573292518}
   - {fileID: 182902507}
   - {fileID: 1829365235}
+  instructionLanguagePg1:
+  - {fileID: 21300000, guid: db41707f5aed0964cb03f92d74b84aed, type: 3}
+  - {fileID: 21300000, guid: 13227f2bfc042a44597641705d60441b, type: 3}
+  - {fileID: 21300000, guid: 13227f2bfc042a44597641705d60441b, type: 3}
+  - {fileID: 21300000, guid: 13227f2bfc042a44597641705d60441b, type: 3}
+  instructionLanguagePg2:
+  - {fileID: 21300000, guid: 7ec813e384a6c2b4aa2295708835648f, type: 3}
+  - {fileID: 21300000, guid: 19c8b4c65e4f93b40bdfd20df3cd3192, type: 3}
+  - {fileID: 21300000, guid: 19c8b4c65e4f93b40bdfd20df3cd3192, type: 3}
+  - {fileID: 21300000, guid: 19c8b4c65e4f93b40bdfd20df3cd3192, type: 3}
+  instructionLanguagePg3:
+  - {fileID: 21300000, guid: 89596ed3f1a874a4685e5f7f75407b11, type: 3}
+  - {fileID: 21300000, guid: c609c5f580773c5419d939056d064602, type: 3}
+  - {fileID: 21300000, guid: c609c5f580773c5419d939056d064602, type: 3}
+  - {fileID: 21300000, guid: c609c5f580773c5419d939056d064602, type: 3}
 --- !u!114 &700458207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4502,7 +4526,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1829365235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -4513,13 +4537,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 89596ed3f1a874a4685e5f7f75407b11, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  m_Sprite: {fileID: 21300000, guid: 89596ed3f1a874a4685e5f7f75407b11, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1829365238
 CanvasRenderer:
   m_ObjectHideFlags: 0

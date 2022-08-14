@@ -20,6 +20,7 @@ public class ShoppingSceneManager : MonoBehaviour
     public TextMeshProUGUI endScoreText;
 
     public GameObject infographic;
+    public Sprite[] infographicLanguage;
 
     [HideInInspector] public bool gameStarted = false;
     [HideInInspector] public bool gameEnded = false;
@@ -65,18 +66,22 @@ public class ShoppingSceneManager : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
         else
         {
             languageNumber = 0;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
 
         InitGameObjects();
