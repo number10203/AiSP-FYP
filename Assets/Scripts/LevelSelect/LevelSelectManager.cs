@@ -159,10 +159,15 @@ public class LevelSelectManager : MonoBehaviour
         {
             languageNumber = 3;
             StoryText.text = "கதை தேர்வு";
+            StoryText.font = TMFont;
             JennieText.text = "ஜென்னி";
+            JennieText.font = TMFont;
             EthanText.text = "ஈதன்";
+            EthanText.font = TMFont;
             AhHuatText.text = "ஆ ஹுவாட்";
+            AhHuatText.font = TMFont;
             AmirahText.text = "அமிரா";
+            AmirahText.font = TMFont;
         }
         else
         {

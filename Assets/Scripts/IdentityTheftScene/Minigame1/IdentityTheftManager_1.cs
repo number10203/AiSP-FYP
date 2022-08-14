@@ -24,6 +24,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     [Header ("Audio References")]
     [SerializeField] private AudioClip startCutscene_1;
+    [SerializeField] private AudioClip collectSFX;
     private AudioManager audioManager;
 
     [Header ("Minigame References")]
@@ -127,6 +128,8 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     private void UpdateProgress()
     {
+        audioManager.Play(collectSFX);
+
         TextMeshProUGUI characterText = minigameCharacterPanel.GetComponentInChildren<TextMeshProUGUI>(false);
         Animator[] typeCollectionAnimators = minigameTypePanel.GetComponentsInChildren<Animator>();
 
