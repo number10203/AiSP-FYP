@@ -23,7 +23,9 @@ public class IdentityTheftManager_2 : MonoBehaviour
     [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private GameObject instructions;
+    [SerializeField] private GameObject background;
     [SerializeField] private Texture[] instructionLanguage;
+    [SerializeField] private Sprite[] BGLanguage;
     [SerializeField] private GameObject results;
 
     [Header("Audio References")]
@@ -78,22 +80,26 @@ public class IdentityTheftManager_2 : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
-            instructionImage.texture = instructionLanguage[languageNumber];           
+            instructionImage.texture = instructionLanguage[languageNumber];
+            background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
             instructionImage.texture = instructionLanguage[languageNumber];
+            background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
             instructionImage.texture = instructionLanguage[languageNumber];
+            background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else
         {
             languageNumber = 0;
             instructionImage.texture = instructionLanguage[languageNumber];
+            background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
     }
 
