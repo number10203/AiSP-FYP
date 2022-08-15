@@ -158,9 +158,10 @@ public class LevelSelectManager : MonoBehaviour
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
-            StoryText.text = "கதை தேர்வு";
+            StoryText.text = "கைத ேதர்வ";  
             StoryText.font = TMFont;
-            JennieText.text = "ஜென்னி";
+            //JennieText.text = "ஜென்னி";
+            JennieText.text = "ெஜன்னி";
             JennieText.font = TMFont;
             EthanText.text = "ஈதன்";
             EthanText.font = TMFont;

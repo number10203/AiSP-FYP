@@ -1968,7 +1968,7 @@ MonoBehaviour:
   ENFont: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
   CNFont: {fileID: 11400000, guid: aff0381b25fb60142abfb8a58398ab21, type: 2}
   BMFont: {fileID: 11400000, guid: c5f20498d3d31014995ad6971c8fc9ac, type: 2}
-  TMFont: {fileID: 11400000, guid: 4d842df32be3559418f97982e09db751, type: 2}
+  TMFont: {fileID: 11400000, guid: 1e5c9cc0672bc9d4497010f7473eda04, type: 2}
   buttonAnimScale: 1.2
   buttonAnimDuration: 1
   sceneTransition: {fileID: 880864861}
