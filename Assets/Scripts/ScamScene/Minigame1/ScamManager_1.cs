@@ -18,11 +18,13 @@ public class ScamManager_1 : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI endScoreText;
     public GameObject infographic;
+    [SerializeField] private Sprite[] infographicLanguage;
     public AudioClip BGM;
     [SerializeField] private GameObject startingFade, sceneTransition;
     [SerializeField] private GameObject startCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private GameObject instructions;
+    [SerializeField] private Sprite[] instructionsLanguage;
     [SerializeField] private GameObject results;
 
     [Header ("Audio References")]
@@ -65,18 +67,23 @@ public class ScamManager_1 : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];      
+
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
         else
         {
             languageNumber = 0;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
     }
 

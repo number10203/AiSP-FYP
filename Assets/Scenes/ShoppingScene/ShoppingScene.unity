@@ -1276,18 +1276,18 @@ MonoBehaviour:
   instructionLanguagePg1:
   - {fileID: 21300000, guid: db41707f5aed0964cb03f92d74b84aed, type: 3}
   - {fileID: 21300000, guid: 13227f2bfc042a44597641705d60441b, type: 3}
-  - {fileID: 21300000, guid: 13227f2bfc042a44597641705d60441b, type: 3}
-  - {fileID: 21300000, guid: 13227f2bfc042a44597641705d60441b, type: 3}
+  - {fileID: 21300000, guid: 40be7ded3f8c7204885696ad060b6ae6, type: 3}
+  - {fileID: 21300000, guid: 849324dae746ab74eaf552492f992652, type: 3}
   instructionLanguagePg2:
   - {fileID: 21300000, guid: 7ec813e384a6c2b4aa2295708835648f, type: 3}
   - {fileID: 21300000, guid: 19c8b4c65e4f93b40bdfd20df3cd3192, type: 3}
-  - {fileID: 21300000, guid: 19c8b4c65e4f93b40bdfd20df3cd3192, type: 3}
-  - {fileID: 21300000, guid: 19c8b4c65e4f93b40bdfd20df3cd3192, type: 3}
+  - {fileID: 21300000, guid: f9ce45b8f1a297d42a2897f9304f9a4d, type: 3}
+  - {fileID: 21300000, guid: 8f76a6e4d048e324597a37b7ce8f764f, type: 3}
   instructionLanguagePg3:
   - {fileID: 21300000, guid: 89596ed3f1a874a4685e5f7f75407b11, type: 3}
   - {fileID: 21300000, guid: c609c5f580773c5419d939056d064602, type: 3}
-  - {fileID: 21300000, guid: c609c5f580773c5419d939056d064602, type: 3}
-  - {fileID: 21300000, guid: c609c5f580773c5419d939056d064602, type: 3}
+  - {fileID: 21300000, guid: 9791fd5ce6849a04096d29554cd15c8e, type: 3}
+  - {fileID: 21300000, guid: f743f4876155bd04b85fedf02417f549, type: 3}
 --- !u!114 &700458207
 MonoBehaviour:
   m_ObjectHideFlags: 0

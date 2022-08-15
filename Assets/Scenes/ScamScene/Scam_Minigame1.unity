@@ -1855,12 +1855,18 @@ MonoBehaviour:
   timerText: {fileID: 600683654}
   endScoreText: {fileID: 361984618}
   infographic: {fileID: 1384526406}
+  infographicLanguage: []
   BGM: {fileID: 8300000, guid: bb1966f2c11ddc74caee19ccdd8178db, type: 3}
   startingFade: {fileID: 1169532392}
   sceneTransition: {fileID: 66061648}
   startCutscene: {fileID: 169649106}
   subtitleManager: {fileID: 779635398}
   instructions: {fileID: 1035982779}
+  instructionsLanguage:
+  - {fileID: 21300000, guid: bc67c83d8f9750e4f88ac9b32ebad72a, type: 3}
+  - {fileID: 21300000, guid: cde120c0393ebba499f0d461b0ac4609, type: 3}
+  - {fileID: 21300000, guid: cde120c0393ebba499f0d461b0ac4609, type: 3}
+  - {fileID: 21300000, guid: cde120c0393ebba499f0d461b0ac4609, type: 3}
   results: {fileID: 613925649}
   loseAudio: {fileID: 0}
   winAudio: {fileID: 0}
