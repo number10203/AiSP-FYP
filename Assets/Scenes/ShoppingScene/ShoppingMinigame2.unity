@@ -2810,8 +2810,8 @@ MonoBehaviour:
   infographicLanguage:
   - {fileID: 21300000, guid: ff2f28e2a86cee04b80eb4d52a08b21c, type: 3}
   - {fileID: 21300000, guid: 588ea06b9ef6f8d4e9044800a0b1795c, type: 3}
-  - {fileID: 21300000, guid: 588ea06b9ef6f8d4e9044800a0b1795c, type: 3}
-  - {fileID: 21300000, guid: 588ea06b9ef6f8d4e9044800a0b1795c, type: 3}
+  - {fileID: 21300000, guid: 638801f3a936e1346a859525cb56163a, type: 3}
+  - {fileID: 21300000, guid: 318e4d570608e8b42af43cd939229960, type: 3}
   scoreSlider: {fileID: 431003493}
   BGM: {fileID: 8300000, guid: bb4ff3e742b7962469d5d24c2c33de7d, type: 3}
   starPop1: {fileID: 8300000, guid: d21d311286b152a41a2352af0298d660, type: 3}
