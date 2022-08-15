@@ -2836,13 +2836,13 @@ MonoBehaviour:
   instructions1Language:
   - {fileID: 21300000, guid: 1de5f364dfd4f664f8fe96195d08e1e7, type: 3}
   - {fileID: 21300000, guid: e0d24d0813a6b9d45863305d10f8773a, type: 3}
-  - {fileID: 21300000, guid: e0d24d0813a6b9d45863305d10f8773a, type: 3}
-  - {fileID: 21300000, guid: e0d24d0813a6b9d45863305d10f8773a, type: 3}
+  - {fileID: 21300000, guid: 821fc71190003254fb5e8c2f613ecdf0, type: 3}
+  - {fileID: 21300000, guid: 1311c500dd4c40e4085d7bf3efeed845, type: 3}
   instructions2Language:
   - {fileID: 21300000, guid: dd7e887eecb1dcd4ca937e189e8c717e, type: 3}
   - {fileID: 21300000, guid: 36876c70a194f4b4193ed93f1cc8048a, type: 3}
-  - {fileID: 21300000, guid: 36876c70a194f4b4193ed93f1cc8048a, type: 3}
-  - {fileID: 21300000, guid: 36876c70a194f4b4193ed93f1cc8048a, type: 3}
+  - {fileID: 21300000, guid: cb7db2482d8662c47a394f388b88dc75, type: 3}
+  - {fileID: 21300000, guid: 4f1dd5407b1f2d14fbfedf70c4151abe, type: 3}
   canvasGroup: {fileID: 1410657250}
   productLists:
   - {fileID: 366093956}
