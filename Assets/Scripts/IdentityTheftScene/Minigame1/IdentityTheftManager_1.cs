@@ -13,6 +13,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI endScoreText;
     public GameObject infographic;
+    [SerializeField] private Sprite[] infographicLanguages;
     public AudioClip BGM;
     public float timeRemaining;
     [SerializeField] private GameObject startingFade, sceneTransition;
@@ -57,6 +58,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
@@ -65,6 +67,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
@@ -73,6 +76,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
@@ -81,6 +85,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         else
         {
             languageNumber = 0;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];

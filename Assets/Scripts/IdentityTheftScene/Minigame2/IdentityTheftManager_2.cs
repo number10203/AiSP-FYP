@@ -18,7 +18,8 @@ public class IdentityTheftManager_2 : MonoBehaviour
     public TextMeshProUGUI scoreText;
     //public TextMeshProUGUI timerText;
     public TextMeshProUGUI endScoreText;
-    public GameObject infographic;    
+    public GameObject infographic;
+    [SerializeField] private Sprite[] infographicLanguages;
     [SerializeField] private GameObject startingFade, sceneTransition;
     [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
@@ -80,24 +81,28 @@ public class IdentityTheftManager_2 : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructionImage.texture = instructionLanguage[languageNumber];
             background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructionImage.texture = instructionLanguage[languageNumber];
             background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructionImage.texture = instructionLanguage[languageNumber];
             background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else
         {
             languageNumber = 0;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructionImage.texture = instructionLanguage[languageNumber];
             background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }

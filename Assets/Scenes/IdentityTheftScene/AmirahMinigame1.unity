@@ -4546,6 +4546,11 @@ MonoBehaviour:
   timerText: {fileID: 1871512484}
   endScoreText: {fileID: 1978367963}
   infographic: {fileID: 537100148}
+  infographicLanguages:
+  - {fileID: 21300000, guid: b2ef492e8239f3c4f9e34d4a5f6edb2e, type: 3}
+  - {fileID: 21300000, guid: da4cdc9c51c1f0d4da35e2c0390d3115, type: 3}
+  - {fileID: 21300000, guid: a74242d87ba6d604387a00b137d50f7d, type: 3}
+  - {fileID: 21300000, guid: a25d62b1c26019b43b401c40198fe2df, type: 3}
   BGM: {fileID: 8300000, guid: e463a05691fe87744ae10fd5014dfea7, type: 3}
   timeRemaining: 0
   startingFade: {fileID: 681343162}
@@ -4555,24 +4560,24 @@ MonoBehaviour:
   instructions: {fileID: 1129881397}
   instructionLanguagePg1:
   - {fileID: 21300000, guid: 7124d9173f7202b4bba684950d6c6ef5, type: 3}
-  - {fileID: 21300000, guid: 1decc3b854a00df4a96a477abd99d120, type: 3}
-  - {fileID: 21300000, guid: 1decc3b854a00df4a96a477abd99d120, type: 3}
-  - {fileID: 21300000, guid: 7124d9173f7202b4bba684950d6c6ef5, type: 3}
+  - {fileID: 21300000, guid: c4c66c7c66ac2334398c9c63e2e1c97c, type: 3}
+  - {fileID: 21300000, guid: 5b594d938197afa42bd3b84b508a9170, type: 3}
+  - {fileID: 21300000, guid: 95f730e598d40a44dbef4aad0211c9cd, type: 3}
   instructionLanguagePg2:
   - {fileID: 21300000, guid: 3c983bf54b9ffb340a1fd463f94785d0, type: 3}
   - {fileID: 21300000, guid: f2e824d18a4745545b4f59a104478755, type: 3}
-  - {fileID: 21300000, guid: 3c983bf54b9ffb340a1fd463f94785d0, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: fdee800899a4e2b4bb29065e0d886253, type: 3}
+  - {fileID: 21300000, guid: c39327f031bbdac448e6d346787703d3, type: 3}
   instructionLanguagePg3:
   - {fileID: 21300000, guid: b0a4c40c1569148478c27d93c845011a, type: 3}
   - {fileID: 21300000, guid: a1d876d27d491e943b1c22f6f3280a35, type: 3}
-  - {fileID: 21300000, guid: b0a4c40c1569148478c27d93c845011a, type: 3}
-  - {fileID: 21300000, guid: b0a4c40c1569148478c27d93c845011a, type: 3}
+  - {fileID: 21300000, guid: 9586b80d33b3e2440a234b737aeab2ea, type: 3}
+  - {fileID: 21300000, guid: 263c932951eeb8749b04964010736b5c, type: 3}
   instructionLanguagePg4:
   - {fileID: 21300000, guid: fd8f7192a7305644f8385db24e6caf91, type: 3}
-  - {fileID: 21300000, guid: 8126e12d5a15ba543bf33446dcd0fd6c, type: 3}
-  - {fileID: 21300000, guid: fd8f7192a7305644f8385db24e6caf91, type: 3}
-  - {fileID: 21300000, guid: fd8f7192a7305644f8385db24e6caf91, type: 3}
+  - {fileID: 21300000, guid: e9921e87e807fde429e23dce004ad8fa, type: 3}
+  - {fileID: 21300000, guid: d5773b429839a974e90f6b20683ae6ff, type: 3}
+  - {fileID: 21300000, guid: 1aedca3e791d95f40a3ecb6be1bf970b, type: 3}
   results: {fileID: 1845063876}
   startCutscene_1: {fileID: 0}
   collectSFX: {fileID: 8300000, guid: 6087c7f720c631b4f9d1409144a11c10, type: 3}
