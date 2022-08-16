@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -40,6 +40,8 @@ public class ShoppingSceneManager : MonoBehaviour
     [SerializeField] private CutsceneSubtitleManager cutsceneSubtitles;
 
     [SerializeField] private float ySpawn;
+    [SerializeField] private TMP_FontAsset CNFont;
+    [SerializeField] private TMP_FontAsset TMFont;
 
     private int counter; // Used to count the score up in the end screen.
     private GameObject cutsceneAudio;
@@ -101,7 +103,26 @@ public class ShoppingSceneManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        scoreText.text = "Score: " + score;
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            scoreText.text = "分数: " + score;
+            scoreText.font = CNFont;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            scoreText.text = "Skor: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
+            scoreText.GetComponentInChildren<TextMeshPro>().outlineWidth = 0.2f;
+            // scoreText.outlineWidth = 0.2f;
+            //scoreText.outlineColor = new Color32(0, 0, 0, 255);
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+        }
     }
 
     private void InitGameObjects()
@@ -113,7 +134,25 @@ public class ShoppingSceneManager : MonoBehaviour
         // Init cutscene
         cutsceneObj.SetActive(true);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
-        cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Eng");
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Chinese");
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Malay");
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Tamil");
+            cutsceneSubtitles.captions.font = TMFont;
+            cutsceneSubtitles.captions.outlineWidth = 0.2f;
+            cutsceneSubtitles.captions.outlineColor = new Color32(0, 0, 0, 255);
+        }
+        else
+        {
+            cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Eng");
+        }
         StartCoroutine(TransitionToGame(30f));
 
         // Init GUI
