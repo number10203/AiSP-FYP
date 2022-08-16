@@ -7015,8 +7015,8 @@ MonoBehaviour:
   BGLanguage:
   - {fileID: 21300000, guid: 93b67e734992b7d4180d3d9da64aa622, type: 3}
   - {fileID: 21300000, guid: 12e54b698f057584da5f375d24cf5784, type: 3}
-  - {fileID: 21300000, guid: 12e54b698f057584da5f375d24cf5784, type: 3}
-  - {fileID: 21300000, guid: 12e54b698f057584da5f375d24cf5784, type: 3}
+  - {fileID: 21300000, guid: 8542dc8f59eb04f4da7a2b0d680b61dc, type: 3}
+  - {fileID: 21300000, guid: c349145a33ff10d49ab9e875c01f2a39, type: 3}
   results: {fileID: 1569923968}
   loseAudio: {fileID: 8300000, guid: 42362d1a9334c0c438656e0baf7bea41, type: 3}
   winAudio: {fileID: 8300000, guid: 8ad7246828528674497841c3893c5b26, type: 3}
