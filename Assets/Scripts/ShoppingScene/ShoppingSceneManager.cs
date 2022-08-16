@@ -96,7 +96,25 @@ public class ShoppingSceneManager : MonoBehaviour
             if (counter != score)
             {
                 counter += 5;
-                endScoreText.text = "Score: " + counter;
+                if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+                {
+                    endScoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + counter;
+                    endScoreText.font = CNFont;
+                    endScoreText.GetComponentInChildren<TextMeshPro>().outlineWidth = 0.2f;
+                }
+                else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+                {
+                    endScoreText.text = "Skor: " + counter;
+                }
+                else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+                {
+                    endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + counter;
+                    endScoreText.GetComponentInChildren<TextMeshPro>().outlineWidth = 0.2f;
+                }
+                else
+                {
+                    endScoreText.text = "Score: " + counter;
+                }
             }
         }
     }
@@ -105,8 +123,9 @@ public class ShoppingSceneManager : MonoBehaviour
     {
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
-            scoreText.text = "分数: " + score;
+            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
             scoreText.font = CNFont;
+            scoreText.GetComponentInChildren<TextMeshPro>().outlineWidth = 0.2f;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -137,6 +156,8 @@ public class ShoppingSceneManager : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Chinese");
+            cutsceneSubtitles.captions.font = CNFont;
+            cutsceneSubtitles.captions.outlineWidth = 0.2f;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -147,7 +168,6 @@ public class ShoppingSceneManager : MonoBehaviour
             cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Tamil");
             cutsceneSubtitles.captions.font = TMFont;
             cutsceneSubtitles.captions.outlineWidth = 0.2f;
-            cutsceneSubtitles.captions.outlineColor = new Color32(0, 0, 0, 255);
         }
         else
         {
