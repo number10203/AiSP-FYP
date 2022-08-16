@@ -18,7 +18,6 @@ public class ScamManager_1 : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI endScoreText;
     public GameObject infographic;
-    [SerializeField] private Sprite[] infographicLanguage;
     public AudioClip BGM;
     [SerializeField] private GameObject startingFade, sceneTransition;
     [SerializeField] private GameObject startCutscene;
@@ -26,6 +25,8 @@ public class ScamManager_1 : MonoBehaviour
     [SerializeField] private GameObject instructions;
     [SerializeField] private Sprite[] instructionsLanguage;
     [SerializeField] private GameObject results;
+    [SerializeField] private TMP_FontAsset CNFont, TLFont;
+    [SerializeField] private Sprite CNInfographic, MLInfographic, TLInfographic;
 
     [Header ("Audio References")]
     [SerializeField] private AudioClip loseAudio;
@@ -67,23 +68,22 @@ public class ScamManager_1 : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
-            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];      
+            infographic.GetComponent<Image>().sprite = CNInfographic;      
 
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
-            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
+            infographic.GetComponent<Image>().sprite = MLInfographic;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
-            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
+            infographic.GetComponent<Image>().sprite = TLInfographic;
         }
         else
         {
             languageNumber = 0;
-            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
     }
 

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -29,6 +29,10 @@ public class ScamMinigame2Manager : MonoBehaviour
     [SerializeField] private Image[] phoneBackgrounds;
     [SerializeField] private GameObject phone;
     [SerializeField] private Animator AhHuatStatusAnimator;
+    [SerializeField] private TMP_FontAsset CNFont, TLFont;
+    [SerializeField] private Sprite CNInstructions, MLInstructions, TLInstructions;
+    [SerializeField] private Sprite CNInfographic, MLInfographic, TLInfographic;
+    [SerializeField] private Image infographic;
 
     private bool star1Anim = false, star2Anim = false, star3Anim = false;
 
@@ -52,14 +56,20 @@ public class ScamMinigame2Manager : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
+            instructions.GetComponentInChildren<Image>().sprite = CNInstructions;
+            infographic.sprite = CNInfographic;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
+            instructions.GetComponentInChildren<Image>().sprite = MLInstructions;
+            infographic.sprite = MLInfographic;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
+            instructions.GetComponentInChildren<Image>().sprite = TLInstructions;
+            infographic.sprite = TLInfographic;
         }
         else
         {
@@ -72,7 +82,22 @@ public class ScamMinigame2Manager : MonoBehaviour
         if (results.activeInHierarchy == true)
         {
             stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
-            endScoreText.text = "Total Score: " + localScore;
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                endScoreText.text = "<font=\"CHINA SDF1\">" + "总分: " + "</font>" + localScore;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                endScoreText.text = "Jumlah Skor: " + localScore;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "ெமாத்த மதிப்பெண்: " + "</font>" + localScore;
+            }
+            else
+            {
+                endScoreText.text = "Total Score: " + localScore;
+            }
 
             if (localScore != score)
             {
@@ -135,7 +160,22 @@ public class ScamMinigame2Manager : MonoBehaviour
             }
         }
 
-        scoreText.text = "Score: " + score;
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            scoreText.text = "Skor: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+        }
     }
     private void InitGameObjects()
     {

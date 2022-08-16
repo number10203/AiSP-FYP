@@ -7042,6 +7042,15 @@ MonoBehaviour:
   - {fileID: 1297256484}
   phone: {fileID: 211575866}
   AhHuatStatusAnimator: {fileID: 1952507139}
+  CNFont: {fileID: 11400000, guid: aff0381b25fb60142abfb8a58398ab21, type: 2}
+  TLFont: {fileID: 11400000, guid: 03b0a60c43ec1fb4f829250298cc2d70, type: 2}
+  CNInstructions: {fileID: 21300000, guid: 67dd957fec55c734e834198f093f3aa8, type: 3}
+  MLInstructions: {fileID: 21300000, guid: bab9c825f9acfa741b37105713f14111, type: 3}
+  TLInstructions: {fileID: 21300000, guid: 2b93994d394af39458a7c0d39930d803, type: 3}
+  CNInfographic: {fileID: 21300000, guid: 02236a9d72c59c44fbcc48025b886d0b, type: 3}
+  MLInfographic: {fileID: 21300000, guid: 4899742d584eef5489f62b61366bf0f0, type: 3}
+  TLInfographic: {fileID: 21300000, guid: da6dd3a1639c14c4f9b1bb79d84ef50e, type: 3}
+  infographic: {fileID: 1634920762}
 --- !u!1 &702709385
 GameObject:
   m_ObjectHideFlags: 0

@@ -1868,6 +1868,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cde120c0393ebba499f0d461b0ac4609, type: 3}
   - {fileID: 21300000, guid: cde120c0393ebba499f0d461b0ac4609, type: 3}
   results: {fileID: 613925649}
+  CNFont: {fileID: 11400000, guid: aff0381b25fb60142abfb8a58398ab21, type: 2}
+  TLFont: {fileID: 11400000, guid: 03b0a60c43ec1fb4f829250298cc2d70, type: 2}
+  CNInfographic: {fileID: 21300000, guid: 92f5c8e96ce7c904fa4899b5483538f2, type: 3}
+  MLInfographic: {fileID: 21300000, guid: fd98e0af94fcee64e82731cda8cbb5f2, type: 3}
+  TLInforgraphic: {fileID: 21300000, guid: 99a3f91f3e5b4ca47936334325f657dc, type: 3}
   loseAudio: {fileID: 0}
   winAudio: {fileID: 0}
   startCutscene_1: {fileID: 0}
