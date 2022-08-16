@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LanguageSelection : MonoBehaviour
 {
     public List<Sprite> supportedLanguageSprites = new List<Sprite>();
+    public LevelSelectManager levelManager;
     private bool isOpening = false;
     private bool isToggled = false;
     // Start is called before the first frame update
@@ -97,6 +98,7 @@ public class LanguageSelection : MonoBehaviour
             GameManager.INSTANCE.chosenLanguage = GameManager.LANGUAGE.ENGLISH;            
         }
         Debug.Log(GameManager.INSTANCE.chosenLanguage);
+        levelManager.LanguageChange();
 
         selectedObject.GetComponent<Button>().onClick.AddListener(ToggleSelection);
     }

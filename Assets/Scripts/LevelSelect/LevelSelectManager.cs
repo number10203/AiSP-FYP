@@ -125,7 +125,19 @@ public class LevelSelectManager : MonoBehaviour
                 gameObject.SetActive(true);
             }
         }
+    }
 
+    private IEnumerator FixTamilText(string textToFix, TextMeshProUGUI textComponent)
+    {
+        textComponent.text = textToFix;
+        textComponent.font = TMFont;
+        textComponent.GetComponent<CharReplacerTamil>().enabled = true;
+        yield return null;
+        textComponent.text = textComponent.GetComponent<CharReplacerTamil>().Convertedvalue;
+    }
+
+    public void LanguageChange()
+    {
         //Language change
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
@@ -158,17 +170,11 @@ public class LevelSelectManager : MonoBehaviour
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
-            StoryText.text = "கைத ேதர்வ";  
-            StoryText.font = TMFont;
-            //JennieText.text = "ஜென்னி";
-            JennieText.text = "ெஜன்னி";
-            JennieText.font = TMFont;
-            EthanText.text = "ஈதன்";
-            EthanText.font = TMFont;
-            AhHuatText.text = "ஆ ஹுவாட்";
-            AhHuatText.font = TMFont;
-            AmirahText.text = "அமிரா";
-            AmirahText.font = TMFont;
+            StartCoroutine(FixTamilText("கதையை தேர்ந்தெடுக்கவும்", StoryText));
+            StartCoroutine(FixTamilText("ஜென்னி", JennieText));
+            StartCoroutine(FixTamilText("ஈதன்", EthanText));
+            StartCoroutine(FixTamilText("ஆ ஹுவாட்", AhHuatText));
+            StartCoroutine(FixTamilText("அமிரா", AmirahText));
         }
         else
         {
