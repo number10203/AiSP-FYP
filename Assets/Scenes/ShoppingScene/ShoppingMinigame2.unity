@@ -2850,6 +2850,8 @@ MonoBehaviour:
   - {fileID: 302656397}
   tick: {fileID: 7514544654595240439, guid: 02a0ba3d11edde8419cb313522f883a2, type: 3}
   cross: {fileID: 4532121912327519011, guid: 4d82dcfe3cdd0e14490215a97911fa71, type: 3}
+  CNFont: {fileID: 11400000, guid: aff0381b25fb60142abfb8a58398ab21, type: 2}
+  TMFont: {fileID: 11400000, guid: 03b0a60c43ec1fb4f829250298cc2d70, type: 2}
 --- !u!114 &700458204
 MonoBehaviour:
   m_ObjectHideFlags: 0

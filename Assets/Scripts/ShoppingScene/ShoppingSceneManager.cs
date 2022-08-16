@@ -99,8 +99,6 @@ public class ShoppingSceneManager : MonoBehaviour
                 if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
                 {
                     endScoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + counter;
-                    endScoreText.font = CNFont;
-                    endScoreText.GetComponentInChildren<TextMeshPro>().outlineWidth = 0.2f;
                 }
                 else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
                 {
@@ -109,7 +107,6 @@ public class ShoppingSceneManager : MonoBehaviour
                 else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
                 {
                     endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + counter;
-                    endScoreText.GetComponentInChildren<TextMeshPro>().outlineWidth = 0.2f;
                 }
                 else
                 {
@@ -124,8 +121,6 @@ public class ShoppingSceneManager : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
-            scoreText.font = CNFont;
-            scoreText.GetComponentInChildren<TextMeshPro>().outlineWidth = 0.2f;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -134,9 +129,6 @@ public class ShoppingSceneManager : MonoBehaviour
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
-            scoreText.GetComponentInChildren<TextMeshPro>().outlineWidth = 0.2f;
-            // scoreText.outlineWidth = 0.2f;
-            //scoreText.outlineColor = new Color32(0, 0, 0, 255);
         }
         else
         {
@@ -157,7 +149,6 @@ public class ShoppingSceneManager : MonoBehaviour
         {
             cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Chinese");
             cutsceneSubtitles.captions.font = CNFont;
-            cutsceneSubtitles.captions.outlineWidth = 0.2f;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -167,7 +158,6 @@ public class ShoppingSceneManager : MonoBehaviour
         {
             cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Tamil");
             cutsceneSubtitles.captions.font = TMFont;
-            cutsceneSubtitles.captions.outlineWidth = 0.2f;
         }
         else
         {

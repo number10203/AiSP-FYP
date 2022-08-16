@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -41,6 +41,7 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject[] productLists;
     [SerializeField] private GameObject tick, cross;
+    [SerializeField] private TMP_FontAsset CNFont, TMFont;
 
     private bool star1Anim = false, star2Anim = false, star3Anim = false;
 
@@ -95,7 +96,22 @@ public class Minigame2Manager : MonoBehaviour
         if (results.activeInHierarchy == true)
         {
             stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
-            endScoreText.text = "Total Score: " + localScore;
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                endScoreText.text = "<font=\"CHINA SDF1\">" + "总分: " + "</font>" + localScore;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                endScoreText.text = "Jumlah Skor: " + localScore;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "ெமாத்த மதிப்பெண்: " + "</font>" + localScore;
+            }
+            else
+            {
+                endScoreText.text = "Total Score: " + localScore;
+            }
 
             if (localScore != score)
             {
@@ -157,8 +173,22 @@ public class Minigame2Manager : MonoBehaviour
                 audioManager.PlayAndGetObject(starPop1);
             }
         }
-
-        scoreText.text = "Score: " + score;
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            scoreText.text = "Skor: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+        }
     }
 
     private void InitGameObjects()
@@ -276,17 +306,69 @@ public class Minigame2Manager : MonoBehaviour
 
         if (score >= 600)
         {
-            subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
-            endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
-            audioManager.Play(winAudio);
-            StartCoroutine(StopCutscene(17f));
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                subtitleManager.InitSubtitles("Jennie_Cutscene3_Chinese");
+                subtitleManager.captions.font = CNFont;
+                endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(17f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                subtitleManager.InitSubtitles("Jennie_Cutscene3_Malay");
+                endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(17f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                subtitleManager.InitSubtitles("Jennie_Cutscene3_Tamil");
+                subtitleManager.captions.font = TMFont;
+                endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(17f));
+            }
+            else
+            {
+                subtitleManager.InitSubtitles("Jennie_Cutscene3_Eng");
+                endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(17f));
+            }
         }
         else
         {
-            subtitleManager.InitSubtitles("Jennie_Cutscene2_Eng");
-            endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
-            audioManager.Play(loseAudio);
-            StartCoroutine(StopCutscene(6f));
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                subtitleManager.InitSubtitles("Jennie_Cutscene2_Chinese");
+                subtitleManager.captions.font = CNFont;
+                endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(6f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                subtitleManager.InitSubtitles("Jennie_Cutscene2_Malay");
+                endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(6f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                subtitleManager.InitSubtitles("Jennie_Cutscene2_Tamil");
+                subtitleManager.captions.font = TMFont;
+                endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(6f));
+            }
+            else
+            {
+                subtitleManager.InitSubtitles("Jennie_Cutscene2_Eng");
+                endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(6f));
+            }
         }
     }
 
