@@ -19,13 +19,14 @@ public class IdentityTheftManager_2 : MonoBehaviour
     //public TextMeshProUGUI timerText;
     public TextMeshProUGUI endScoreText;
     public GameObject infographic;
+    public GameObject infographicImage;
     [SerializeField] private Sprite[] infographicLanguages;
     [SerializeField] private GameObject startingFade, sceneTransition;
     [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject background;
-    [SerializeField] private Texture[] instructionLanguage;
+    [SerializeField] private Sprite[] instructionLanguage;
     [SerializeField] private Sprite[] BGLanguage;
     [SerializeField] private GameObject results;
 
@@ -54,7 +55,6 @@ public class IdentityTheftManager_2 : MonoBehaviour
     private int counter = 0;
     private bool toggleText = false;
     public int languageNumber;
-    private RawImage instructionImage;
 
     [HideInInspector] public bool isWin = false, isLose = false;
 
@@ -76,34 +76,33 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
         audioManager.PlayMusic(BGM);
         score = GameManager.INSTANCE.currentIdentityScore;
-        instructionImage = instructions.GetComponent<RawImage>();
 
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
-            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
-            instructionImage.texture = instructionLanguage[languageNumber];
+            infographicImage.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
+            instructions.GetComponent<Image>().sprite = instructionLanguage[languageNumber];
             background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
-            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
-            instructionImage.texture = instructionLanguage[languageNumber];
+            infographicImage.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
+            instructions.GetComponent<Image>().sprite = instructionLanguage[languageNumber];
             background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
-            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
-            instructionImage.texture = instructionLanguage[languageNumber];
+            infographicImage.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
+            instructions.GetComponent<Image>().sprite = instructionLanguage[languageNumber];
             background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else
         {
             languageNumber = 0;
-            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
-            instructionImage.texture = instructionLanguage[languageNumber];
+            infographicImage.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
+            instructions.GetComponent<Image>().sprite = instructionLanguage[languageNumber];
             background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
     }
