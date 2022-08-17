@@ -27,6 +27,7 @@ public class LevelSelectManager : MonoBehaviour
         Time.timeScale = 1;
 
         sceneController = SceneController.INSTANCE;
+        LanguageChange();
 
         identityScore = GameManager.INSTANCE.globalIdentityScore;
         shoppingScore = GameManager.INSTANCE.globalShoppingScore;
