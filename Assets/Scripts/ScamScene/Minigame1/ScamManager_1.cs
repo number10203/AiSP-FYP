@@ -95,7 +95,7 @@ public class ScamManager_1 : MonoBehaviour
 
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
-            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+            scoreText.text ="分数: " + score;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -103,7 +103,7 @@ public class ScamManager_1 : MonoBehaviour
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
-            scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
+            scoreText.text = "மதிப்பெண்: " + score;
         }
         else
         {
@@ -118,7 +118,7 @@ public class ScamManager_1 : MonoBehaviour
             secondsUntilFinish -= Time.deltaTime;
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
-                timerText.text = "<font=\"CHINA SDF1\">" + "剩余时间: " + "</font>" + (int)secondsUntilFinish + "s";
+                timerText.text = "剩余时间: " + (int)secondsUntilFinish + "s";
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
             {
@@ -126,7 +126,7 @@ public class ScamManager_1 : MonoBehaviour
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
-                timerText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "ெமாத்த மதிப்பெண்: " + "</font>" + (int)secondsUntilFinish + "s";
+                timerText.text = "ெமாத்த மதிப்பெண்: " + (int)secondsUntilFinish + "s";
             }
             else
             {
@@ -150,7 +150,7 @@ public class ScamManager_1 : MonoBehaviour
                 counter += 5;
                 if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
                 {
-                    endScoreText.text = "<font=\"CHINA SDF1\">" + "总分: " + "</font>" + counter;
+                    endScoreText.text =  "总分: " + counter;
                 }
                 else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
                 {
@@ -158,7 +158,7 @@ public class ScamManager_1 : MonoBehaviour
                 }
                 else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
                 {
-                    endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "ெமாத்த மதிப்பெண்: " + "</font>" + counter;
+                    endScoreText.text = "ெமாத்த மதிப்பெண்: " + counter;
                 }
                 else
                 {
