@@ -27,6 +27,7 @@ public class ScamManager_1 : MonoBehaviour
     [SerializeField] private GameObject results;
     [SerializeField] private TMP_FontAsset CNFont, TLFont;
     [SerializeField] private Sprite CNInfographic, MLInfographic, TLInfographic;
+    [SerializeField] private Sprite[] instructionPages2 = new Sprite[3];
 
     [Header ("Audio References")]
     [SerializeField] private AudioClip loseAudio;
@@ -214,14 +215,20 @@ public class ScamManager_1 : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             instructions.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Chinese");
+            instructions.transform.GetChild(1).GetComponent<Image>().sprite = instructionPages2[languageNumber - 1];
+            instructions.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(1339, 861);
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             instructions.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Malay");
+            instructions.transform.GetChild(1).GetComponent<Image>().sprite = instructionPages2[languageNumber - 1];
+            instructions.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(1339, 861);
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             instructions.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Tamil");
+            instructions.transform.GetChild(1).GetComponent<Image>().sprite = instructionPages2[languageNumber - 1];
+            instructions.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(1339, 861);
         }
         else
         {

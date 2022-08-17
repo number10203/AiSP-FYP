@@ -761,16 +761,50 @@ AnimationClip:
     path: NegativeScoreText
     classID: 224
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1339
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_SizeDelta.x
+    path: 
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 861
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_SizeDelta.y
+    path: 
+    classID: 224
+    script: {fileID: 0}
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 298345e7e6bedef40a557858e05d380b, type: 3}
+      value: {fileID: 21300000, guid: 2f417e1170d8e8641a332850102f526e, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 7ec971889cbda6e4da072ea842d7337c, type: 3}
-    - time: 0.31666666
-      value: {fileID: 21300000, guid: 7ec971889cbda6e4da072ea842d7337c, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 7ec971889cbda6e4da072ea842d7337c, type: 3}
+      value: {fileID: 21300000, guid: 4389e7ea185031544a02f6b145233992, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -1025,11 +1059,23 @@ AnimationClip:
       typeID: 224
       customType: 28
       isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 1967290853
+      script: {fileID: 0}
+      typeID: 224
+      customType: 28
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 38095219
+      script: {fileID: 0}
+      typeID: 224
+      customType: 28
+      isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 298345e7e6bedef40a557858e05d380b, type: 3}
-    - {fileID: 21300000, guid: 7ec971889cbda6e4da072ea842d7337c, type: 3}
-    - {fileID: 21300000, guid: 7ec971889cbda6e4da072ea842d7337c, type: 3}
-    - {fileID: 21300000, guid: 7ec971889cbda6e4da072ea842d7337c, type: 3}
+    - {fileID: 21300000, guid: 2f417e1170d8e8641a332850102f526e, type: 3}
+    - {fileID: 21300000, guid: 4389e7ea185031544a02f6b145233992, type: 3}
     - {fileID: 21300000, guid: fa783e1717a1aec41a0b2a166f234fb3, type: 3}
     - {fileID: 6663041640970127073, guid: d3709decd200022468a7a10d96373799, type: 3}
     - {fileID: -8803928067744896879, guid: d3709decd200022468a7a10d96373799, type: 3}
@@ -1803,6 +1849,44 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
     path: NegativeScoreText
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1339
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_SizeDelta.x
+    path: 
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 861
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_SizeDelta.y
+    path: 
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []

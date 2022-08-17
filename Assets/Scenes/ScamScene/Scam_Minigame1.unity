@@ -2394,7 +2394,11 @@ MonoBehaviour:
   TLFont: {fileID: 11400000, guid: 03b0a60c43ec1fb4f829250298cc2d70, type: 2}
   CNInfographic: {fileID: 21300000, guid: 92f5c8e96ce7c904fa4899b5483538f2, type: 3}
   MLInfographic: {fileID: 21300000, guid: fd98e0af94fcee64e82731cda8cbb5f2, type: 3}
-  TLInfographic: {fileID: 0}
+  TLInfographic: {fileID: 21300000, guid: 99a3f91f3e5b4ca47936334325f657dc, type: 3}
+  instructionPages2:
+  - {fileID: 21300000, guid: 6251f7ad5f6855a4d9180abd6daad677, type: 3}
+  - {fileID: 21300000, guid: 8323bc6aebcc24e43b657bab206d875b, type: 3}
+  - {fileID: 21300000, guid: f787256a7b1298648b9f0cd656b98efa, type: 3}
   loseAudio: {fileID: 0}
   winAudio: {fileID: 0}
   startCutscene_1: {fileID: 0}
@@ -3165,7 +3169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1035982780
 RectTransform:
   m_ObjectHideFlags: 0
