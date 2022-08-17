@@ -41,7 +41,6 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject[] productLists;
     [SerializeField] private GameObject tick, cross;
-    [SerializeField] private TMP_FontAsset CNFont, TMFont;
 
     private bool star1Anim = false, star2Anim = false, star3Anim = false;
 
@@ -98,7 +97,7 @@ public class Minigame2Manager : MonoBehaviour
             stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
-                endScoreText.text = "<font=\"CHINA SDF1\">" + "总分: " + "</font>" + localScore;
+                endScoreText.text ="总分: " + localScore;
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
             {
@@ -106,7 +105,7 @@ public class Minigame2Manager : MonoBehaviour
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
-                endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "ெமாத்த மதிப்பெண்: " + "</font>" + localScore;
+                endScoreText.text = "ெமாத்த மதிப்பெண்: " + localScore;
             }
             else
             {
@@ -175,7 +174,7 @@ public class Minigame2Manager : MonoBehaviour
         }
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
-            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+            scoreText.text = "分数: " + score;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -183,7 +182,7 @@ public class Minigame2Manager : MonoBehaviour
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
-            scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
+            scoreText.text = "மதிப்பெண்: " + score;
         }
         else
         {
@@ -309,7 +308,6 @@ public class Minigame2Manager : MonoBehaviour
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
                 subtitleManager.InitSubtitles("Jennie_Cutscene3_Chinese");
-                subtitleManager.captions.font = CNFont;
                 endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
                 audioManager.Play(winAudio);
                 StartCoroutine(StopCutscene(17f));
@@ -324,7 +322,6 @@ public class Minigame2Manager : MonoBehaviour
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
                 subtitleManager.InitSubtitles("Jennie_Cutscene3_Tamil");
-                subtitleManager.captions.font = TMFont;
                 endCutscene.GetComponent<Animator>().Play("JennieWinCutscene");
                 audioManager.Play(winAudio);
                 StartCoroutine(StopCutscene(17f));
@@ -342,7 +339,6 @@ public class Minigame2Manager : MonoBehaviour
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
                 subtitleManager.InitSubtitles("Jennie_Cutscene2_Chinese");
-                subtitleManager.captions.font = CNFont;
                 endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
                 audioManager.Play(loseAudio);
                 StartCoroutine(StopCutscene(6f));
@@ -357,7 +353,6 @@ public class Minigame2Manager : MonoBehaviour
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
                 subtitleManager.InitSubtitles("Jennie_Cutscene2_Tamil");
-                subtitleManager.captions.font = TMFont;
                 endCutscene.GetComponent<Animator>().Play("JennieLoseCutscene");
                 audioManager.Play(loseAudio);
                 StartCoroutine(StopCutscene(6f));

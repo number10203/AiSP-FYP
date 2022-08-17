@@ -115,7 +115,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
-                endScoreText.text = "<font=\"CHINA SDF1\">" + "总分: " + "</font>" + localScore;
+                endScoreText.text = "总分: "+ localScore;
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
             {
@@ -123,7 +123,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
-                endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "ெமாத்த மதிப்பெண்: " + "</font>" + localScore;
+                endScoreText.text = "ெமாத்த மதிப்பெண்: " + localScore;
             }
             else
             {
@@ -193,7 +193,7 @@ public class ScamMinigame2Manager : MonoBehaviour
 
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
-            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+            scoreText.text = "分数: " + score;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -201,7 +201,7 @@ public class ScamMinigame2Manager : MonoBehaviour
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
-            scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
+            scoreText.text = "மதிப்பெண்: " + score;
         }
         else
         {

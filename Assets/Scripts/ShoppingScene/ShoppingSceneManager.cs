@@ -40,8 +40,6 @@ public class ShoppingSceneManager : MonoBehaviour
     [SerializeField] private CutsceneSubtitleManager cutsceneSubtitles;
 
     [SerializeField] private float ySpawn;
-    [SerializeField] private TMP_FontAsset CNFont;
-    [SerializeField] private TMP_FontAsset TMFont;
 
     private int counter; // Used to count the score up in the end screen.
     private GameObject cutsceneAudio;
@@ -98,7 +96,7 @@ public class ShoppingSceneManager : MonoBehaviour
                 counter += 5;
                 if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
                 {
-                    endScoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + counter;
+                    endScoreText.text = "分数: " + counter;
                 }
                 else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
                 {
@@ -106,7 +104,7 @@ public class ShoppingSceneManager : MonoBehaviour
                 }
                 else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
                 {
-                    endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + counter;
+                    endScoreText.text = "மதிப்பெண்: " + counter;
                 }
                 else
                 {
@@ -120,7 +118,7 @@ public class ShoppingSceneManager : MonoBehaviour
     {
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
-            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+            scoreText.text = "分数: " + score;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -128,7 +126,7 @@ public class ShoppingSceneManager : MonoBehaviour
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
-            scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
+            scoreText.text = "மதிப்பெண்: " + score;
         }
         else
         {
@@ -148,7 +146,6 @@ public class ShoppingSceneManager : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Chinese");
-            cutsceneSubtitles.captions.font = CNFont;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -157,7 +154,6 @@ public class ShoppingSceneManager : MonoBehaviour
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Tamil");
-            cutsceneSubtitles.captions.font = TMFont;
         }
         else
         {

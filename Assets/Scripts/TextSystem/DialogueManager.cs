@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     // Reading from text file
     [Header("Text File")]
-    [SerializeField] private TextAsset dialogueFile;
+    public TextAsset dialogueFile;
 
     // Used for streamingassets icons/sprites
     [Header("Icon Assets")]
