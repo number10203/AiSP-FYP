@@ -72,6 +72,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().text = "小写";
             minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().text = "数字";
             minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().text = "符号";
+            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "点击这里开始!";
 
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
@@ -88,6 +89,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().text = "Huruf kecil";
             minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().text = "Nombor";
             minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().text = "Simbol";
+            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Ketik di sini untuk mula!";
 
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
@@ -109,7 +111,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
             minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
             minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
-
+            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "ெதாடங்க இங்கே தட்ட௚ம்!";
         }
         else
         {

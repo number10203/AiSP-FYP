@@ -115,22 +115,20 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
-                endScoreText.text = "总分: " + score;
+                endScoreText.text = "总分: " + localScore;
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
             {
-                endScoreText.text = "Jumlah skor: " + score;
+                endScoreText.text = "Jumlah skor: " + localScore;
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
-                endScoreText.text = "Score: " + score;
+                endScoreText.text = "ெமாத்த மதிப்பெண்: " + localScore;
             }
             else
             {
-                endScoreText.text = "Score: " + score;
+                endScoreText.text = "Total Score: " + localScore;
             }
-
-            endScoreText.text = "Total Score: " + localScore;
 
             if (localScore != score)
             {
@@ -209,7 +207,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
-            scoreText.text = "Score: " + score;
+            scoreText.text = "மதிப்பெண்: " + score;
         }
         else
         {
