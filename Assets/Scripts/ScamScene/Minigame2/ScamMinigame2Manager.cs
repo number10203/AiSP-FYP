@@ -33,6 +33,7 @@ public class ScamMinigame2Manager : MonoBehaviour
     [SerializeField] private Sprite CNInstructions, MLInstructions, TLInstructions;
     [SerializeField] private Sprite CNInfographic, MLInfographic, TLInfographic;
     [SerializeField] private Image infographic;
+    [SerializeField] private List<Sprite> replyTextsLanguages = new List<Sprite>();
 
     private bool star1Anim = false, star2Anim = false, star3Anim = false;
 
@@ -57,18 +58,48 @@ public class ScamMinigame2Manager : MonoBehaviour
         {
             languageNumber = 1;
             instructions.GetComponentInChildren<Image>().sprite = CNInstructions;
+            instructions.GetComponentInChildren<Image>().SetNativeSize();
+            for (int i = 0; i < 3; i++)
+            {
+                Transform reply = instructions.transform.GetChild(0).transform.GetChild(i);
+                reply.GetComponent<Image>().sprite = replyTextsLanguages[0 + i];
+                reply.GetComponent<Image>().SetNativeSize();
+                reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, reply.GetComponent<RectTransform>().anchoredPosition.y);
+            }
             infographic.sprite = CNInfographic;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
             instructions.GetComponentInChildren<Image>().sprite = MLInstructions;
+            instructions.GetComponentInChildren<Image>().SetNativeSize();
+            for (int i = 0; i < 3; i++)
+            {
+                Transform reply = instructions.transform.GetChild(0).transform.GetChild(i);
+                reply.GetComponent<Image>().sprite = replyTextsLanguages[3 + i];
+                reply.GetComponent<Image>().SetNativeSize();
+                if (i != 1)
+                    reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, reply.GetComponent<RectTransform>().anchoredPosition.y);
+                else
+                    reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, -160f);
+            }
             infographic.sprite = MLInfographic;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
             instructions.GetComponentInChildren<Image>().sprite = TLInstructions;
+            instructions.GetComponentInChildren<Image>().SetNativeSize();
+            for (int i = 0; i < 3; i++)
+            {
+                Transform reply = instructions.transform.GetChild(0).transform.GetChild(i);
+                reply.GetComponent<Image>().sprite = replyTextsLanguages[6 + i];
+                reply.GetComponent<Image>().SetNativeSize();
+                if (i != 1)
+                    reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, reply.GetComponent<RectTransform>().anchoredPosition.y);
+                else
+                    reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, -150f);
+            }
             infographic.sprite = TLInfographic;
         }
         else

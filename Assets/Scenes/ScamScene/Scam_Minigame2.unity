@@ -6721,8 +6721,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 246, y: -169}
-  m_SizeDelta: {x: 259, y: 85}
+  m_AnchoredPosition: {x: 262, y: -169}
+  m_SizeDelta: {x: 227, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684864189
 MonoBehaviour:
@@ -7051,6 +7051,16 @@ MonoBehaviour:
   MLInfographic: {fileID: 21300000, guid: 4899742d584eef5489f62b61366bf0f0, type: 3}
   TLInfographic: {fileID: 21300000, guid: da6dd3a1639c14c4f9b1bb79d84ef50e, type: 3}
   infographic: {fileID: 1634920762}
+  replyTextsLanguages:
+  - {fileID: 21300000, guid: f73764670217b1145a0e0b072748206a, type: 3}
+  - {fileID: 21300000, guid: 8e702db9b3dca224fabbc84a694f143d, type: 3}
+  - {fileID: 21300000, guid: 34a5f4192fe1c644facc1f3c46b2b471, type: 3}
+  - {fileID: 21300000, guid: e20f53ef10752e546bafde80a9a0c8de, type: 3}
+  - {fileID: 21300000, guid: 6c776e58db261b7498f35f3f0f4ca7d0, type: 3}
+  - {fileID: 21300000, guid: a1829100426e3044bb62ab54964dbabc, type: 3}
+  - {fileID: 21300000, guid: 79ca8ae44ba6410408058c88002c2d77, type: 3}
+  - {fileID: 21300000, guid: 77c39910adfaa1346a282e910efb53c2, type: 3}
+  - {fileID: 21300000, guid: 988dbb5c370ed01498e93a2f1c687366, type: 3}
 --- !u!1 &702709385
 GameObject:
   m_ObjectHideFlags: 0
@@ -8946,7 +8956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.13, y: -174.13}
+  m_AnchoredPosition: {x: 19.2, y: -174.13}
   m_SizeDelta: {x: 768.89, y: 361.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850152914
@@ -10705,8 +10715,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 246, y: -268}
-  m_SizeDelta: {x: 259, y: 85}
+  m_AnchoredPosition: {x: 225, y: -268}
+  m_SizeDelta: {x: 301, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1053335024
 MonoBehaviour:

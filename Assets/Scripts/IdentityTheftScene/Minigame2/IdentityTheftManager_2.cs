@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -181,8 +181,22 @@ public class IdentityTheftManager_2 : MonoBehaviour
         if (score < 0)
             score = 0;
 
-        scoreText.text = "Score: " + score;
-
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            scoreText.text = "Skor: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            scoreText.text = "Score: " + score;
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+        }
 
     }
 

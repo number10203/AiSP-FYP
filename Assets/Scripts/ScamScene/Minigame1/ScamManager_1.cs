@@ -27,6 +27,7 @@ public class ScamManager_1 : MonoBehaviour
     [SerializeField] private GameObject results;
     [SerializeField] private TMP_FontAsset CNFont, TLFont;
     [SerializeField] private Sprite CNInfographic, MLInfographic, TLInfographic;
+    [SerializeField] private Sprite[] instructionPages2 = new Sprite[3];
 
     [Header ("Audio References")]
     [SerializeField] private AudioClip loseAudio;
@@ -92,8 +93,22 @@ public class ScamManager_1 : MonoBehaviour
         if (score < 0)
             score = 0;
 
-        scoreText.text = "Score: " + score;
-        
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            scoreText.text = "Skor: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+        }
     }
 
     private void Update()
@@ -101,7 +116,22 @@ public class ScamManager_1 : MonoBehaviour
         if (minigame.activeInHierarchy)
         {
             secondsUntilFinish -= Time.deltaTime;
-            timerText.text = "Time Left: " + (int) secondsUntilFinish + "s";
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                timerText.text = "<font=\"CHINA SDF1\">" + "剩余时间: " + "</font>" + (int)secondsUntilFinish + "s";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                timerText.text = "Masa yang tinggal: " + (int)secondsUntilFinish + "s";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                timerText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "ெமாத்த மதிப்பெண்: " + "</font>" + (int)secondsUntilFinish + "s";
+            }
+            else
+            {
+                timerText.text = "Time Left: " + (int)secondsUntilFinish + "s";
+            }
 
             if (secondsUntilFinish <= 0.0f)
             {
@@ -118,7 +148,22 @@ public class ScamManager_1 : MonoBehaviour
             if (counter != score)
             {
                 counter += 5;
-                endScoreText.text = "Score: " + counter;
+                if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+                {
+                    endScoreText.text = "<font=\"CHINA SDF1\">" + "总分: " + "</font>" + counter;
+                }
+                else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+                {
+                    endScoreText.text = "Jumlah Skor: " + counter;
+                }
+                else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+                {
+                    endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "ெமாத்த மதிப்பெண்: " + "</font>" + counter;
+                }
+                else
+                {
+                    endScoreText.text = "Total Score: " + counter;
+                }
             }
         }
     }
@@ -136,7 +181,24 @@ public class ScamManager_1 : MonoBehaviour
         minigame.SetActive(false);
         results.SetActive(false);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
-        subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            subtitleManager.InitSubtitles("AhHuat_Cutscene1_Chinese");
+            subtitleManager.captions.font = CNFont;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            subtitleManager.InitSubtitles("AhHuat_Cutscene1_Malay");
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            subtitleManager.InitSubtitles("AhHuat_Cutscene1_Tamil");
+            subtitleManager.captions.font = TLFont;
+        }
+        else
+        {
+            subtitleManager.InitSubtitles("AhHuat_Cutscene1_Eng");
+        }
         StartCoroutine(TransitionToGame(30f));
     }
 
@@ -150,6 +212,28 @@ public class ScamManager_1 : MonoBehaviour
 
         startCutscene.SetActive(false);
         instructions.gameObject.SetActive(true);
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            instructions.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Chinese");
+            instructions.transform.GetChild(1).GetComponent<Image>().sprite = instructionPages2[languageNumber - 1];
+            instructions.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(1339, 861);
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            instructions.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Malay");
+            instructions.transform.GetChild(1).GetComponent<Image>().sprite = instructionPages2[languageNumber - 1];
+            instructions.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(1339, 861);
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            instructions.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Tamil");
+            instructions.transform.GetChild(1).GetComponent<Image>().sprite = instructionPages2[languageNumber - 1];
+            instructions.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(1339, 861);
+        }
+        else
+        {
+            instructions.transform.GetChild(0).GetComponent<Animator>().SetTrigger("English");
+        }
         sceneTransition.SetActive(false);
         startingFade.SetActive(true);
         audioManager.PlayMusic(BGM);
@@ -195,6 +279,30 @@ public class ScamManager_1 : MonoBehaviour
         if (score > GameManager.INSTANCE.globalScamScore)
         {
             GameManager.INSTANCE.globalScamScore = score;
+        }
+    }
+
+    public void NextInstruction()
+    {
+        for (int i = 0; i < instructions.transform.childCount; i++)
+        {
+            if (instructions.transform.GetChild(i).gameObject.activeSelf && i < instructions.transform.childCount - 1)
+            {
+                instructions.transform.GetChild(i).gameObject.SetActive(false);
+                instructions.transform.GetChild(i + 1).gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void PreviousInstruction()
+    {
+        for (int i = 0; i < instructions.transform.childCount; i++)
+        {
+            if (instructions.transform.GetChild(i).gameObject.activeSelf && i > 0)
+            {
+                instructions.transform.GetChild(i).gameObject.SetActive(false);
+                instructions.transform.GetChild(i - 1).gameObject.SetActive(true);
+            }
         }
     }
 

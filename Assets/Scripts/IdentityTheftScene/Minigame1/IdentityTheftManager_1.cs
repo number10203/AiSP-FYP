@@ -36,6 +36,9 @@ public class IdentityTheftManager_1 : MonoBehaviour
     [SerializeField] private GameObject minigameStartPanel;
     [SerializeField] private IdentityPlayerController player;
 
+    [SerializeField] private TMP_FontAsset CNFont;
+    [SerializeField] private TMP_FontAsset TMFont;
+
     private GameObject cutsceneAudio;
 
     internal int score = 0;
@@ -63,6 +66,8 @@ public class IdentityTheftManager_1 : MonoBehaviour
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+            timerText.text = "<font=\"CHINA SDF1\">" + "消耗时间: " + "</font>" + (int)timer + "s";
+
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -72,6 +77,8 @@ public class IdentityTheftManager_1 : MonoBehaviour
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+            timerText.text = "Masa yang dihabiskan: " + (int)timer + "s";
+
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
@@ -81,6 +88,8 @@ public class IdentityTheftManager_1 : MonoBehaviour
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+            timerText.text = "Time Spent: " + (int)timer + "s";
+
         }
         else
         {
@@ -90,6 +99,8 @@ public class IdentityTheftManager_1 : MonoBehaviour
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+            timerText.text = "Time Spent: " + (int)timer + "s";
+
         }
     }
 
@@ -99,8 +110,24 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (score < 0)
             score = 0;
 
-        scoreText.text = "Score: " + score;
-        
+        //scoreText.text = "Score: " + score;
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            scoreText.text = "Skor: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            //scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+        }
+
     }
 
     private void Update()
@@ -108,7 +135,23 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (minigame.activeInHierarchy && !gameEnd && player.GetComponent<IdentityPlayerController>().StartGame)
         {
             timer += Time.deltaTime;
-            timerText.text = "Time Spent: " + (int) timer + "s";
+
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                timerText.text = "<font=\"CHINA SDF1\">" + "消耗时间: " + "</font>" + (int)timer + "s";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                timerText.text = "Masa yang dihabiskan: " + (int)timer + "s";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                //timerText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "செலவிட்ட நேரம்: " + "</font>" + (int)timer + "s";
+            }
+            else
+            {
+                timerText.text = "Time Spent: " + (int)timer + "s";
+            }
         }
     }
 
@@ -127,7 +170,24 @@ public class IdentityTheftManager_1 : MonoBehaviour
         minigameEnvironment.SetActive(false);
         player.gameObject.SetActive(false);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
-        subtitleManager.InitSubtitles("Amirah_Cutscene1_Eng");
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            subtitleManager.InitSubtitles("Amirah_Cutscene1_CN");
+            subtitleManager.captions.font = CNFont;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            subtitleManager.InitSubtitles("Amirah_Cutscene1_BM");
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            subtitleManager.InitSubtitles("Amirah_Cutscene1_TM");
+            subtitleManager.captions.font = TMFont;
+        }
+        else
+        {
+            subtitleManager.InitSubtitles("Amirah_Cutscene1_Eng");
+        }
         StartCoroutine(TransitionToGame(28f));
     }
 
@@ -195,9 +255,44 @@ public class IdentityTheftManager_1 : MonoBehaviour
             Destroy(character);
         }
         if (player.characterList.Count < 15)
-            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Game Over!\nTap to continue...";
+        {
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<font=\"CHINA SDF1\">" + "游戏结束\n点击继续..." + "</font>";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Permainan tamat!\nKetik untuk teruskan...";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                //minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<font=\"NotoSansTamil-Bold SDF\">" + "கேம் ஓவர்!\nதொடர தட்டவும்..." + "</font>";
+            }
+            else
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Game Over!\nTap to continue...";
+            }
+
+        }
         else
-            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "You win!\nTap to continue...";
+        {
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<font=\"CHINA SDF1\">" + "你赢了！\n点击继续..." + "</font>";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Awak menang!!\nKetik untuk teruskan...";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                //minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<font=\"NotoSansTamil-Bold SDF\">" + "நீ வெற்றி பெற்றாய்!!\nதொடர தட்டவும்..." + "</font>";
+            }
+            else
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "You win!\nTap to continue...";
+            }
+        }
         StartCoroutine(ShowMinigameEndPanel());
     }
 
@@ -220,7 +315,23 @@ public class IdentityTheftManager_1 : MonoBehaviour
         else if (multiplier > 1.8f)
             multiplier = 1.8f;
         player.characterList.Clear();
-        endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
+
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            endScoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + counter + "<font=\"CHINA SDF1\">" + "\n时间倍数: " + "</font>" + multiplier + "x";
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            endScoreText.text = "Skor: " + counter + "\nPengganda masa: " + multiplier + "x";
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            //endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + counter + "<font=\"NotoSansTamil-Bold SDF\">" + "\nநேரம் பெருக்கி: " + "</font>" + multiplier + "x";
+        }
+        else
+        {
+            endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
+        }
 
         GameManager.INSTANCE.currentIdentityScore = Mathf.RoundToInt(multiplier * GameManager.INSTANCE.currentIdentityScore / 10) * 10;
         score = GameManager.INSTANCE.currentIdentityScore;
@@ -228,7 +339,22 @@ public class IdentityTheftManager_1 : MonoBehaviour
         while (counter != score)
         {
             counter += 5;
-            endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                endScoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + counter + "<font=\"CHINA SDF1\">" + "\n时间倍数: " + "</font>" + multiplier + "x";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                endScoreText.text = "Skor: " + counter + "\nPengganda masa: " + multiplier + "x";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                //endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + counter + "<font=\"NotoSansTamil-Bold SDF\">" + "\nநேரம் பெருக்கி: " + "</font>" + multiplier + "x";
+            }
+            else
+            {
+                endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
+            }
         }
         yield return null;
     }
