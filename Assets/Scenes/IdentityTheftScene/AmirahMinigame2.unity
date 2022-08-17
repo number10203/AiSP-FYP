@@ -7003,6 +7003,7 @@ MonoBehaviour:
   scoreText: {fileID: 1416361723}
   endScoreText: {fileID: 208273275}
   infographic: {fileID: 203573233}
+  infographicImage: {fileID: 1162097352}
   infographicLanguages:
   - {fileID: 21300000, guid: 468a4e8a80067734994efb2d1bf3d4b3, type: 3}
   - {fileID: 21300000, guid: 11862c6d7294a7a43897265e59825926, type: 3}
