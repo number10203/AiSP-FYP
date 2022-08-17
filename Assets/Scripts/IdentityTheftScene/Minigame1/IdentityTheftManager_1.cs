@@ -98,7 +98,17 @@ public class IdentityTheftManager_1 : MonoBehaviour
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
-            timerText.text = "Time Spent: " + (int)timer + "s";
+            timerText.text = "செலவி஑ம் நேரம்: " + (int)timer + "s";
+            minigameCharacterPanel.transform.Find("score").GetComponent<TextMeshProUGUI>().text = "0/15\nபாத்திரங்கள்";
+            minigameTypePanel.transform.Find("UpperCheck").GetComponent<TextMeshProUGUI>().text = "பெரிய ஆங்கில எ஦த்஗க்கள்";
+            minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().text = "சிறிய ஆங்கில எ஦த்஗க்கள்";
+            minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().text = "எண்";
+            minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().text = "சின்னம்";
+            minigameCharacterPanel.transform.Find("score").GetComponent<TextMeshProUGUI>().fontSize = 29f;
+            minigameTypePanel.transform.Find("UpperCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
+            minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
+            minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
+            minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
 
         }
         else
@@ -136,7 +146,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
-            //scoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + score;
+            scoreText.text = "மதிப்பெண்: " + score;
         }
         else
         {
@@ -161,7 +171,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
-                //timerText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "செலவிட்ட நேரம்: " + "</font>" + (int)timer + "s";
+                timerText.text = "செலவி஑ம் நேரம்: " + (int)timer + "s";
             }
             else
             {
@@ -188,7 +198,6 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             subtitleManager.InitSubtitles("Amirah_Cutscene1_CN");
-            subtitleManager.captions.font = CNFont;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -197,7 +206,6 @@ public class IdentityTheftManager_1 : MonoBehaviour
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             subtitleManager.InitSubtitles("Amirah_Cutscene1_TM");
-            subtitleManager.captions.font = TMFont;
         }
         else
         {
@@ -212,8 +220,22 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
         TextMeshProUGUI characterText = minigameCharacterPanel.GetComponentInChildren<TextMeshProUGUI>(false);
         Animator[] typeCollectionAnimators = minigameTypePanel.GetComponentsInChildren<Animator>();
-
-        characterText.text = player.characterList.Count + "/15\nCharacters";
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            characterText.text = player.characterList.Count + "/15\n字符";
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            characterText.text = player.characterList.Count + "/15\nHuruf";
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            characterText.text = player.characterList.Count + "/15\nபாத்திரங்கள்";
+        }
+        else
+        {
+            characterText.text = player.characterList.Count + "/15\nCharacters";
+        }
         if (player.characterList.Count >= 15)
         {
             EndGame();
@@ -281,7 +303,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
-                //minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<font=\"NotoSansTamil-Bold SDF\">" + "கேம் ஓவர்!\nதொடர தட்டவும்..." + "</font>";
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "கேம் ஓவர்!\nெதாடர தட்ட௚ம்...";
             }
             else
             {
@@ -301,7 +323,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
-                //minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<font=\"NotoSansTamil-Bold SDF\">" + "நீ வெற்றி பெற்றாய்!!\nதொடர தட்டவும்..." + "</font>";
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "நீ வெற்றி பெற்றாய்!\nெதாடர தட்ட௚ம்...";
             }
             else
             {
@@ -341,7 +363,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
-            //endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + counter + "<font=\"NotoSansTamil-Bold SDF\">" + "\nநேரம் பெருக்கி: " + "</font>" + multiplier + "x";
+            endScoreText.text = "மதிப்பெண்: " + counter + "\nநேரம் பெ஠க்கி: " + multiplier + "x";
         }
         else
         {
@@ -364,7 +386,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
-                //endScoreText.text = "<font=\"NotoSansTamil-Bold SDF\">" + "மதிப்பெண்: " + "</font>" + counter + "<font=\"NotoSansTamil-Bold SDF\">" + "\nநேரம் பெருக்கி: " + "</font>" + multiplier + "x";
+                endScoreText.text = "மதிப்பெண்: " + counter + "\nநேரம் பெ஠க்கி: " + multiplier + "x";
             }
             else
             {
