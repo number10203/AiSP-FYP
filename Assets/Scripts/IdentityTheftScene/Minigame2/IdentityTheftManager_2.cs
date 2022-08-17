@@ -112,6 +112,24 @@ public class IdentityTheftManager_2 : MonoBehaviour
         if (results.activeInHierarchy == true)
         {
             stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
+
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                endScoreText.text = "总分: " + score;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                endScoreText.text = "Jumlah skor: " + score;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                endScoreText.text = "Score: " + score;
+            }
+            else
+            {
+                endScoreText.text = "Score: " + score;
+            }
+
             endScoreText.text = "Total Score: " + localScore;
 
             if (localScore != score)
@@ -183,7 +201,7 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
-            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+            scoreText.text =  "分数: " + score;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {

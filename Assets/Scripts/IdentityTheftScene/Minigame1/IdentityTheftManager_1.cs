@@ -66,7 +66,12 @@ public class IdentityTheftManager_1 : MonoBehaviour
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
-            timerText.text = "<font=\"CHINA SDF1\">" + "消耗时间: " + "</font>" + (int)timer + "s";
+            timerText.text = "消耗时间: " + (int)timer + "s";
+            minigameCharacterPanel.transform.Find("score").GetComponent<TextMeshProUGUI>().text = "0/15\n字符";
+            minigameTypePanel.transform.Find("UpperCheck").GetComponent<TextMeshProUGUI>().text = "大写";
+            minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().text = "小写";
+            minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().text = "数字";
+            minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().text = "符号";
 
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
@@ -78,6 +83,11 @@ public class IdentityTheftManager_1 : MonoBehaviour
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
             timerText.text = "Masa yang dihabiskan: " + (int)timer + "s";
+            minigameCharacterPanel.transform.Find("score").GetComponent<TextMeshProUGUI>().text = "0/15\nHuruf";
+            minigameTypePanel.transform.Find("UpperCheck").GetComponent<TextMeshProUGUI>().text = "Huruf besar";
+            minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().text = "Huruf kecil";
+            minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().text = "Nombor";
+            minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().text = "Simbol";
 
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
@@ -100,6 +110,11 @@ public class IdentityTheftManager_1 : MonoBehaviour
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
             timerText.text = "Time Spent: " + (int)timer + "s";
+            minigameCharacterPanel.transform.Find("score").GetComponent<TextMeshProUGUI>().text = "0/15\nCharacters";
+            minigameTypePanel.transform.Find("UpperCheck").GetComponent<TextMeshProUGUI>().text = "Uppercase";
+            minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().text = "Lowercase";
+            minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().text = "Number";
+            minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().text = "Symbol";
 
         }
     }
@@ -113,7 +128,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         //scoreText.text = "Score: " + score;
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
-            scoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + score;
+            scoreText.text = "分数: " + score;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -138,7 +153,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
-                timerText.text = "<font=\"CHINA SDF1\">" + "消耗时间: " + "</font>" + (int)timer + "s";
+                timerText.text = "消耗时间: " + (int)timer + "s";
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
             {
@@ -258,7 +273,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         {
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
-                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<font=\"CHINA SDF1\">" + "游戏结束\n点击继续..." + "</font>";
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text ="游戏结束\n点击继续...";
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
             {
@@ -278,7 +293,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
         {
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
-                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<font=\"CHINA SDF1\">" + "你赢了！\n点击继续..." + "</font>";
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text =  "你赢了！\n点击继续..." ;
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
             {
@@ -318,7 +333,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
-            endScoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + counter + "<font=\"CHINA SDF1\">" + "\n时间倍数: " + "</font>" + multiplier + "x";
+            endScoreText.text =  "分数: "  + counter  + "\n时间倍数: " + multiplier + "x";
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -341,7 +356,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
             counter += 5;
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
-                endScoreText.text = "<font=\"CHINA SDF1\">" + "分数: " + "</font>" + counter + "<font=\"CHINA SDF1\">" + "\n时间倍数: " + "</font>" + multiplier + "x";
+                endScoreText.text =  "分数: " + counter + "\n时间倍数: " + multiplier + "x";
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
             {
