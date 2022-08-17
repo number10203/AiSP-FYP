@@ -676,7 +676,6 @@ public class ScamMinigame2Manager : MonoBehaviour
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
                 subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Chinese");
-                subtitleManager.captions.font = CNFont;
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
             {
@@ -685,7 +684,6 @@ public class ScamMinigame2Manager : MonoBehaviour
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
                 subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Tamil");
-                subtitleManager.captions.font = TLFont;
             }
             else
             {
@@ -701,7 +699,6 @@ public class ScamMinigame2Manager : MonoBehaviour
             if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
             {
                 subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose_Chinese");
-                subtitleManager.captions.font = CNFont;
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
             {
@@ -710,7 +707,6 @@ public class ScamMinigame2Manager : MonoBehaviour
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
                 subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose_Tamil");
-                subtitleManager.captions.font = TLFont;
             }
             else
             {
