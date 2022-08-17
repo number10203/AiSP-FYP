@@ -1,0 +1,9 @@
+[Actors]Ethan,???,Malware
+0:Saya perlu mencari semua virus dalam komputer saya!
+1:Muahahaha
+0:Siapa disana?
+1:Ini saya... 
+1:Mimpi ngeri terburuk awak!
+2:Saya Malware, dan saya bertanggungjawab untuk merosakkan komputer anda!
+2:Saya boleh menjejaki maklumat peribadi anda dan menjangkiti komputer anda dengan iklan!
+0:Tidak jika saya boleh membantunya!
