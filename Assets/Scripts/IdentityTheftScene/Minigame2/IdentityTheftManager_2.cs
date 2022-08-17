@@ -273,19 +273,75 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
         if (score >= 600)
         {
-            subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("Amirah_Cutscene_Win");
-            winCutscene.SetActive(true);
-            audioManager.Play(winAudio);
-            StartCoroutine(StopCutscene(30f));
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Win_CN");
+                winCutscene.SetActive(true);
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(30f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Win_BM");
+                winCutscene.SetActive(true);
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(30f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Win_TM");
+                winCutscene.SetActive(true);
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(30f));
+            }
+            else
+            {
+                subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Win");
+                winCutscene.SetActive(true);
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(30f));
+            }
+
         }
         else
         {
-            subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("Amirah_Cutscene_Lose");
-            loseCutscene.SetActive(true);
-            audioManager.Play(loseAudio);
-            StartCoroutine(StopCutscene(8f));
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Lose_CN");
+                loseCutscene.SetActive(true);
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(8f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Lose_BM");
+                loseCutscene.SetActive(true);
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(8f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Lose_TM");
+                loseCutscene.SetActive(true);
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(8f));
+            }
+            else
+            {
+                subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Lose");
+                loseCutscene.SetActive(true);
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(8f));
+            }
+
         }
     }
 
