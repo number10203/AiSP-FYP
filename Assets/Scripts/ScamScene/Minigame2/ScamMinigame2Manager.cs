@@ -673,7 +673,24 @@ public class ScamMinigame2Manager : MonoBehaviour
         if (score >= 600)
         {
             subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Eng");
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Chinese");
+                subtitleManager.captions.font = CNFont;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Malay");
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Tamil");
+                subtitleManager.captions.font = TLFont;
+            }
+            else
+            {
+                subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Eng");
+            }
             winCutscene.SetActive(true);
             audioManager.Play(winAudio);
             StartCoroutine(StopCutscene(32f));
@@ -681,7 +698,24 @@ public class ScamMinigame2Manager : MonoBehaviour
         else
         {
             subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose_Chinese");
+                subtitleManager.captions.font = CNFont;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose_Malay");
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose_Tamil");
+                subtitleManager.captions.font = TLFont;
+            }
+            else
+            {
+                subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
+            }
             loseCutscene.SetActive(true);
             audioManager.Play(loseAudio);
             StartCoroutine(StopCutscene(6f));
