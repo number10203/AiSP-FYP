@@ -123,7 +123,7 @@ public class ScamMinigame2Manager : MonoBehaviour
             }
             else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
             {
-                endScoreText.text = "ெமாத்த மதிப்பெண்: "+ localScore;
+                endScoreText.text = "ெமாத்த மதிப்பெண்: " + localScore;
             }
             else
             {
