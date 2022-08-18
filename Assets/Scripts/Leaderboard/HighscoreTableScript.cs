@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class HighscoreTableScript : MonoBehaviour {
@@ -11,8 +12,9 @@ public class HighscoreTableScript : MonoBehaviour {
     private Transform entryTemplate;
     private List<Transform> highscoreEntryTransformList;
 
-    public string highscoreURL = "https://gmsrv1.asip.sg/var/www/html/index.php";
+    public string highscoreURL = "http://127.0.0.1/index.php";
     private string url = "(empty)";
+    private string data;
     private string action;
     private string parameters;
     //public GameObject field1, field2, field3;
@@ -23,51 +25,48 @@ public class HighscoreTableScript : MonoBehaviour {
         entryTemplate = entryContainer.Find("highscoreEntryTemplate");
 
         entryTemplate.gameObject.SetActive(false);
+        parameters = "";
+        action = "get";
 
-        string jsonString = PlayerPrefs.GetString("highscoreTable");
-        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
-        //if (highscores == null) {
-        //    // There's no stored table, initialize
-        //    Debug.Log("Initializing table with default values...");
-        //    AddHighscoreEntry(1000000, "CMK");
-        //    AddHighscoreEntry(897621, "JOE");
-        //    AddHighscoreEntry(872931, "DAV");
-        //    AddHighscoreEntry(785123, "CAT");
-        //    AddHighscoreEntry(542024, "MAX");
-        //    AddHighscoreEntry(68245, "AAA");
-        //    // Reload
-        //    jsonString = PlayerPrefs.GetString("highscoreTable");
-        //    highscores = JsonUtility.FromJson<Highscores>(jsonString);
-        //}
+        //AddHighscoreEntry(globalTotalScore, nameString);
+        url = highscoreURL + "?action=" + action + parameters;
+        Debug.Log(url);
+        StartCoroutine(GetRequest(url));
 
-        // Sort entry list by Score
-        for (int i = 0; i < highscores.highscoreEntryList.Count; i++) {
-            for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++) {
-                if (highscores.highscoreEntryList[j].score > highscores.highscoreEntryList[i].score) {
-                    // Swap
-                    HighscoreEntry tmp = highscores.highscoreEntryList[i];
-                    highscores.highscoreEntryList[i] = highscores.highscoreEntryList[j];
-                    highscores.highscoreEntryList[j] = tmp;
-                }
-            }
-        }
-
-        highscoreEntryTransformList = new List<Transform>();
         
         //foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList) {
         //    CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
         //}
 
-        for (int i = 0; i < 10; i++)
-        {
-            CreateHighscoreEntryTransform(highscores.highscoreEntryList[i], entryContainer, highscoreEntryTransformList);
-        }
 
         globalTotalScore = GameManager.INSTANCE.globalShoppingScore + GameManager.INSTANCE.globalMalwareScore
             + GameManager.INSTANCE.globalScamScore;
         scoreText.GetComponent<TextMeshProUGUI>().text = globalTotalScore.ToString();
     }
+    [Serializable]
+    class OneScore
+    {
+        public string PlayerName;
+        public int Score;
+    }
+    [Serializable]
+    class ScoreList
+    {
+        public List<OneScore> scores = new List<OneScore>();
+    }
 
+    void Deserialize(String RawJSON)
+    {
+        ScoreList sb = JsonUtility.FromJson<ScoreList>(RawJSON); //convert raw json to objects
+                                                                 //OPTIONAL: to show its really broken down into separate objects
+        //displayTxt.text += "List Data:\n";
+        for (int a = 0; a < sb.scores.Count; a++)
+        {
+            OneScore oneScore = sb.scores[a];
+            Debug.Log(oneScore.PlayerName + "," + oneScore.Score);
+            //displayTxt.text += (oneScore.PlayerName + "," + oneScore.Score + "\n");
+        }
+    }
     private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList) {
         float templateHeight = 45f;
         Transform entryTransform = Instantiate(entryTemplate, container);
@@ -79,11 +78,11 @@ public class HighscoreTableScript : MonoBehaviour {
 
         entryTransform.Find("posText").GetComponent<Text>().text = rank.ToString();
 
-        int score = highscoreEntry.score;
+        int score = highscoreEntry.Score;
 
         entryTransform.Find("scoreText").GetComponent<Text>().text = score.ToString();
 
-        string name = highscoreEntry.name;
+        string name = highscoreEntry.PlayerName;
         entryTransform.Find("nameText").GetComponent<Text>().text = name;
 
         // Set background visible odds and evens, easier to read
@@ -95,7 +94,7 @@ public class HighscoreTableScript : MonoBehaviour {
 
     private void AddHighscoreEntry(int score, string name) {
         // Create HighscoreEntry
-        HighscoreEntry highscoreEntry = new HighscoreEntry { score = score, name = name };
+        HighscoreEntry highscoreEntry = new HighscoreEntry { Score = score, PlayerName = name };
         
         // Load saved Highscores
         string jsonString = PlayerPrefs.GetString("highscoreTable");
@@ -104,12 +103,12 @@ public class HighscoreTableScript : MonoBehaviour {
         if (highscores == null) {
             // There's no stored table, initialize
             highscores = new Highscores() {
-                highscoreEntryList = new List<HighscoreEntry>()
+                scores = new List<HighscoreEntry>()
             };
         }
 
         // Add new entry to Highscores
-        highscores.highscoreEntryList.Add(highscoreEntry);
+        highscores.scores.Add(highscoreEntry);
 
         // Save updated Highscores
         string json = JsonUtility.ToJson(highscores);
@@ -117,17 +116,20 @@ public class HighscoreTableScript : MonoBehaviour {
         PlayerPrefs.Save();
     }
 
+
+    [System.Serializable]
     private class Highscores {
-        public List<HighscoreEntry> highscoreEntryList;
+        public List<HighscoreEntry> scores;
     }
 
     /*
      * Represents a single High score entry
      * */
     [System.Serializable] 
-    private class HighscoreEntry {
-        public int score;
-        public string name;
+    private class HighscoreEntry
+    {
+        public string PlayerName;
+        public int Score;
     }
 
     public void AlphabetIncrease(GameObject field)
@@ -169,4 +171,48 @@ public class HighscoreTableScript : MonoBehaviour {
         WWW www = new WWW(url);
         yield return www;
     }
+
+    private IEnumerator GetRequest(string URL)
+    {
+        WWW www = new WWW(URL);
+        yield return www;
+
+        if (www.error != null)
+        {
+            yield break;
+        }
+        Debug.Log(www.text);
+
+        for (int i = 0; i < www.text.Length; i++)
+        {
+            if (www.text[i] == '\n')
+            {
+                data = www.text.Substring(0, i + 1);
+                break;
+            }
+        }
+        Debug.Log(data);
+        Highscores highscores = JsonUtility.FromJson<Highscores>(data);
+
+        // Sort entry list by Score
+        for (int i = 0; i < highscores.scores.Count; i++)
+        {
+            for (int j = i + 1; j < highscores.scores.Count; j++)
+            {
+                if (highscores.scores[j].Score > highscores.scores[i].Score)
+                {
+                    // Swap
+                    HighscoreEntry tmp = highscores.scores[i];
+                    highscores.scores[i] = highscores.scores[j];
+                    highscores.scores[j] = tmp;
+                }
+            }
+        }
+        highscoreEntryTransformList = new List<Transform>();
+        for (int i = 0; i < highscores.scores.Count; i++)
+        {
+            CreateHighscoreEntryTransform(highscores.scores[i], entryContainer, highscoreEntryTransformList);
+        }
+    }
+
 }
