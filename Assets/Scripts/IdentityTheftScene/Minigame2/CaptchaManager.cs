@@ -19,7 +19,8 @@ public class CaptchaManager : MonoBehaviour
     private BoxCollider2D inputCollider;
     private Image spriteRenderer;
     private Animator entityAnimator;
-    private AudioManager audioManager; 
+    public AudioClip cardFlip;
+    public AudioManager audioManager;
 
     private int selectedObjects;
     private int quiz = 0;
@@ -33,6 +34,8 @@ public class CaptchaManager : MonoBehaviour
 
     private void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
         languageNumber = IdentityTheftManager_2.Instance.languageNumber * 2;
 
         if (Instance != null && Instance != this)
@@ -137,7 +140,7 @@ public class CaptchaManager : MonoBehaviour
                         captchaImage[i].GetComponent<Captcha>().hasScored = true;
                         entityAnimator = captchaImage[i].GetComponent<Animator>();
                         entityAnimator.Play("Captcha_FlipR");
-
+                        audioManager.Play(cardFlip);
                     }
                     else
                     {
@@ -145,6 +148,7 @@ public class CaptchaManager : MonoBehaviour
                         captchaImage[i].GetComponent<Captcha>().hasScored = true;
                         entityAnimator = captchaImage[i].GetComponent<Animator>();
                         entityAnimator.Play("Captcha_FlipW");
+                        audioManager.Play(cardFlip);
                     }
                 }                
             }

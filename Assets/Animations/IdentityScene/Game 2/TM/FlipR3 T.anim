@@ -54,7 +54,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 5f037bef4e438da4ab8b0b3d6b7bc938, type: 3}
+      value: {fileID: 21300000, guid: bd8b874938c92f34283c3c25969e8096, type: 3}
     - time: 0.33333334
       value: {fileID: 21300000, guid: 8a48aa51d8e10394cacb55a4951e13ed, type: 3}
     attribute: m_Sprite
@@ -63,7 +63,7 @@ AnimationClip:
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 159e4f868aa9817468d430f1a95d012c, type: 3}
+      value: {fileID: 21300000, guid: 2f3e0f73ad5a25d469742fd8a2fca5dd, type: 3}
     - time: 0.33333334
       value: {fileID: 21300000, guid: 8a48aa51d8e10394cacb55a4951e13ed, type: 3}
     attribute: m_Sprite
@@ -72,7 +72,7 @@ AnimationClip:
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: b2c5586efb51bc040a619fc783c9eccd, type: 3}
+      value: {fileID: 21300000, guid: f8c0dfe1342ba4145b0631bd54de354c, type: 3}
     - time: 0.33333334
       value: {fileID: 21300000, guid: 8a48aa51d8e10394cacb55a4951e13ed, type: 3}
     attribute: m_Sprite
@@ -115,11 +115,11 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 5f037bef4e438da4ab8b0b3d6b7bc938, type: 3}
+    - {fileID: 21300000, guid: bd8b874938c92f34283c3c25969e8096, type: 3}
     - {fileID: 21300000, guid: 8a48aa51d8e10394cacb55a4951e13ed, type: 3}
-    - {fileID: 21300000, guid: 159e4f868aa9817468d430f1a95d012c, type: 3}
+    - {fileID: 21300000, guid: 2f3e0f73ad5a25d469742fd8a2fca5dd, type: 3}
     - {fileID: 21300000, guid: 8a48aa51d8e10394cacb55a4951e13ed, type: 3}
-    - {fileID: 21300000, guid: b2c5586efb51bc040a619fc783c9eccd, type: 3}
+    - {fileID: 21300000, guid: f8c0dfe1342ba4145b0631bd54de354c, type: 3}
     - {fileID: 21300000, guid: 8a48aa51d8e10394cacb55a4951e13ed, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2

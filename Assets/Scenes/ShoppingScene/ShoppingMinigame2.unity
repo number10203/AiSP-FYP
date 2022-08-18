@@ -2307,7 +2307,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 561274792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -2318,13 +2318,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: dd7e887eecb1dcd4ca937e189e8c717e, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  m_Sprite: {fileID: 21300000, guid: dd7e887eecb1dcd4ca937e189e8c717e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &561274795
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2380,7 +2383,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 677354307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -2391,13 +2394,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1de5f364dfd4f664f8fe96195d08e1e7, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  m_Sprite: {fileID: 21300000, guid: 1de5f364dfd4f664f8fe96195d08e1e7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &677354310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2800,6 +2806,12 @@ MonoBehaviour:
   confettiParticle: {fileID: 7625352986155355497}
   stripesGameobject: {fileID: 1141392731}
   infographic: {fileID: 147145629}
+  infographicImage: {fileID: 1634920760}
+  infographicLanguage:
+  - {fileID: 21300000, guid: ff2f28e2a86cee04b80eb4d52a08b21c, type: 3}
+  - {fileID: 21300000, guid: 588ea06b9ef6f8d4e9044800a0b1795c, type: 3}
+  - {fileID: 21300000, guid: 638801f3a936e1346a859525cb56163a, type: 3}
+  - {fileID: 21300000, guid: 318e4d570608e8b42af43cd939229960, type: 3}
   scoreSlider: {fileID: 431003493}
   BGM: {fileID: 8300000, guid: bb4ff3e742b7962469d5d24c2c33de7d, type: 3}
   starPop1: {fileID: 8300000, guid: d21d311286b152a41a2352af0298d660, type: 3}
@@ -2821,6 +2833,16 @@ MonoBehaviour:
   instructions1: {fileID: 677354307}
   instructions2: {fileID: 561274792}
   results: {fileID: 726536849}
+  instructions1Language:
+  - {fileID: 21300000, guid: 1de5f364dfd4f664f8fe96195d08e1e7, type: 3}
+  - {fileID: 21300000, guid: e0d24d0813a6b9d45863305d10f8773a, type: 3}
+  - {fileID: 21300000, guid: 821fc71190003254fb5e8c2f613ecdf0, type: 3}
+  - {fileID: 21300000, guid: 1311c500dd4c40e4085d7bf3efeed845, type: 3}
+  instructions2Language:
+  - {fileID: 21300000, guid: dd7e887eecb1dcd4ca937e189e8c717e, type: 3}
+  - {fileID: 21300000, guid: 36876c70a194f4b4193ed93f1cc8048a, type: 3}
+  - {fileID: 21300000, guid: cb7db2482d8662c47a394f388b88dc75, type: 3}
+  - {fileID: 21300000, guid: 4f1dd5407b1f2d14fbfedf70c4151abe, type: 3}
   canvasGroup: {fileID: 1410657250}
   productLists:
   - {fileID: 366093956}
@@ -2828,6 +2850,8 @@ MonoBehaviour:
   - {fileID: 302656397}
   tick: {fileID: 7514544654595240439, guid: 02a0ba3d11edde8419cb313522f883a2, type: 3}
   cross: {fileID: 4532121912327519011, guid: 4d82dcfe3cdd0e14490215a97911fa71, type: 3}
+  CNFont: {fileID: 11400000, guid: aff0381b25fb60142abfb8a58398ab21, type: 2}
+  TMFont: {fileID: 11400000, guid: 03b0a60c43ec1fb4f829250298cc2d70, type: 2}
 --- !u!114 &700458204
 MonoBehaviour:
   m_ObjectHideFlags: 0

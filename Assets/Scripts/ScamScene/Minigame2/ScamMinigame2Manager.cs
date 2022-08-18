@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -29,6 +29,13 @@ public class ScamMinigame2Manager : MonoBehaviour
     [SerializeField] private Image[] phoneBackgrounds;
     [SerializeField] private GameObject phone;
     [SerializeField] private Animator AhHuatStatusAnimator;
+    [SerializeField] private TMP_FontAsset CNFont, TLFont;
+    [SerializeField] private Sprite CNInstructions, MLInstructions, TLInstructions;
+    [SerializeField] private Sprite CNInfographic, MLInfographic, TLInfographic;
+    [SerializeField] private Image infographic;
+    [SerializeField] private List<Sprite> replyTextsLanguages = new List<Sprite>();
+    [SerializeField] private Material EnglishMaterialFix;
+    [SerializeField] private GameObject ChineseMessageList, MalayMessageList, TamilMessageList;
 
     private bool star1Anim = false, star2Anim = false, star3Anim = false;
 
@@ -52,14 +59,92 @@ public class ScamMinigame2Manager : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
+            instructions.GetComponentInChildren<Image>().sprite = CNInstructions;
+            instructions.GetComponentInChildren<Image>().SetNativeSize();
+            for (int i = 0; i < 3; i++)
+            {
+                Transform reply = instructions.transform.GetChild(0).transform.GetChild(i);
+                reply.GetComponent<Image>().sprite = replyTextsLanguages[0 + i];
+                reply.GetComponent<Image>().SetNativeSize();
+                reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, reply.GetComponent<RectTransform>().anchoredPosition.y);
+            }
+            infographic.sprite = CNInfographic;
+
+            RectTransform[] allObjects = ChineseMessageList.GetComponentsInChildren<RectTransform>(true);
+            for (int i = 0; i < MessageLists.Length; i++)
+            {
+                foreach (RectTransform rectTransform in allObjects)
+                {
+                    if (rectTransform.gameObject.name == MessageLists[i].name)
+                    {
+                        MessageLists[i] = rectTransform.gameObject;
+                        break;
+                    }
+                }
+            }
+            ChineseMessageList.SetActive(true);
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
+            instructions.GetComponentInChildren<Image>().sprite = MLInstructions;
+            instructions.GetComponentInChildren<Image>().SetNativeSize();
+            for (int i = 0; i < 3; i++)
+            {
+                Transform reply = instructions.transform.GetChild(0).transform.GetChild(i);
+                reply.GetComponent<Image>().sprite = replyTextsLanguages[3 + i];
+                reply.GetComponent<Image>().SetNativeSize();
+                if (i != 1)
+                    reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, reply.GetComponent<RectTransform>().anchoredPosition.y);
+                else
+                    reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, -160f);
+            }
+            infographic.sprite = MLInfographic;
+
+            RectTransform[] allObjects = MalayMessageList.GetComponentsInChildren<RectTransform>(true);
+            for (int i = 0; i < MessageLists.Length; i++)
+            {
+                foreach (RectTransform rectTransform in allObjects)
+                {
+                    if (rectTransform.gameObject.name == MessageLists[i].name)
+                    {
+                        MessageLists[i] = rectTransform.gameObject;
+                        break;
+                    }
+                }
+            }
+            MalayMessageList.SetActive(true);
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
+            instructions.GetComponentInChildren<Image>().sprite = TLInstructions;
+            instructions.GetComponentInChildren<Image>().SetNativeSize();
+            for (int i = 0; i < 3; i++)
+            {
+                Transform reply = instructions.transform.GetChild(0).transform.GetChild(i);
+                reply.GetComponent<Image>().sprite = replyTextsLanguages[6 + i];
+                reply.GetComponent<Image>().SetNativeSize();
+                if (i != 1)
+                    reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, reply.GetComponent<RectTransform>().anchoredPosition.y);
+                else
+                    reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, -150f);
+            }
+            infographic.sprite = TLInfographic;
+
+            RectTransform[] allObjects = TamilMessageList.GetComponentsInChildren<RectTransform>(true);
+            for (int i = 0; i < MessageLists.Length; i++)
+            {
+                foreach (RectTransform rectTransform in allObjects)
+                {
+                    if (rectTransform.gameObject.name == MessageLists[i].name)
+                    {
+                        MessageLists[i] = rectTransform.gameObject;
+                        break;
+                    }
+                }
+            }
+            TamilMessageList.SetActive(true);
         }
         else
         {
@@ -72,7 +157,22 @@ public class ScamMinigame2Manager : MonoBehaviour
         if (results.activeInHierarchy == true)
         {
             stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
-            endScoreText.text = "Total Score: " + localScore;
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                endScoreText.text = "总分: "+ localScore;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                endScoreText.text = "Jumlah Skor: " + localScore;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                endScoreText.text = "ெமாத்த மதிப்பெண்: " + localScore;
+            }
+            else
+            {
+                endScoreText.text = "Total Score: " + localScore;
+            }
 
             if (localScore != score)
             {
@@ -135,7 +235,22 @@ public class ScamMinigame2Manager : MonoBehaviour
             }
         }
 
-        scoreText.text = "Score: " + score;
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            scoreText.text = "分数: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            scoreText.text = "Skor: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            scoreText.text = "மதிப்பெண்: " + score;
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+        }
     }
     private void InitGameObjects()
     {
@@ -602,7 +717,22 @@ public class ScamMinigame2Manager : MonoBehaviour
         if (score >= 600)
         {
             subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Eng");
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Chinese");
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Malay");
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Tamil");
+            }
+            else
+            {
+                subtitleManager.InitSubtitles("AhHuat_CutsceneWin_Eng");
+            }
             winCutscene.SetActive(true);
             audioManager.Play(winAudio);
             StartCoroutine(StopCutscene(32f));
@@ -610,7 +740,22 @@ public class ScamMinigame2Manager : MonoBehaviour
         else
         {
             subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose_Chinese");
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose_Malay");
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose_Tamil");
+            }
+            else
+            {
+                subtitleManager.InitSubtitles("AhHuat_Cutscene_Lose");
+            }
             loseCutscene.SetActive(true);
             audioManager.Play(loseAudio);
             StartCoroutine(StopCutscene(6f));

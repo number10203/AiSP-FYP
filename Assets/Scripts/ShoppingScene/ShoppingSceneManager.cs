@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -20,6 +20,7 @@ public class ShoppingSceneManager : MonoBehaviour
     public TextMeshProUGUI endScoreText;
 
     public GameObject infographic;
+    public Sprite[] infographicLanguage;
 
     [HideInInspector] public bool gameStarted = false;
     [HideInInspector] public bool gameEnded = false;
@@ -65,18 +66,22 @@ public class ShoppingSceneManager : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
         else
         {
             languageNumber = 0;
+            infographic.GetComponent<Image>().sprite = infographicLanguage[languageNumber];
         }
 
         InitGameObjects();
@@ -89,14 +94,44 @@ public class ShoppingSceneManager : MonoBehaviour
             if (counter != score)
             {
                 counter += 5;
-                endScoreText.text = "Score: " + counter;
+                if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+                {
+                    endScoreText.text = "分数: " + counter;
+                }
+                else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+                {
+                    endScoreText.text = "Skor: " + counter;
+                }
+                else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+                {
+                    endScoreText.text = "மதிப்பெண்: " + counter;
+                }
+                else
+                {
+                    endScoreText.text = "Score: " + counter;
+                }
             }
         }
     }
 
     private void FixedUpdate()
     {
-        scoreText.text = "Score: " + score;
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            scoreText.text = "分数: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            scoreText.text = "Skor: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            scoreText.text = "மதிப்பெண்: " + score;
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+        }
     }
 
     private void InitGameObjects()
@@ -108,7 +143,22 @@ public class ShoppingSceneManager : MonoBehaviour
         // Init cutscene
         cutsceneObj.SetActive(true);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
-        cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Eng");
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Chinese");
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Malay");
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Tamil");
+        }
+        else
+        {
+            cutsceneSubtitles.InitSubtitles("Jennie_Cutscene1_Eng");
+        }
         StartCoroutine(TransitionToGame(30f));
 
         // Init GUI

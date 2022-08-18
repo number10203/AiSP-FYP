@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LanguageSelection : MonoBehaviour
 {
     public List<Sprite> supportedLanguageSprites = new List<Sprite>();
+    public LevelSelectManager levelManager;
     private bool isOpening = false;
     private bool isToggled = false;
     // Start is called before the first frame update
@@ -21,13 +22,25 @@ public class LanguageSelection : MonoBehaviour
             RectTransform transform = obj.GetComponent<RectTransform>();
             transform.sizeDelta = this.GetComponent<RectTransform>().sizeDelta;
 
-            if (language.name == "EN")
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.ENGLISH && obj.name == "EN")
             {
                 obj.GetComponent<Button>().onClick.AddListener(ToggleSelection);                
             }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE && obj.name == "CN")
+            {
+                obj.GetComponent<Button>().onClick.AddListener(ToggleSelection);
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY && obj.name == "BM")
+            {
+                obj.GetComponent<Button>().onClick.AddListener(ToggleSelection);
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL && obj.name == "TL")
+            {
+                obj.GetComponent<Button>().onClick.AddListener(ToggleSelection);
+            }
         }
         Image[] languageOptions = this.GetComponentsInChildren<Image>(true);
-        languageOptions[0].transform.SetAsLastSibling();
+        languageOptions[(int)GameManager.INSTANCE.chosenLanguage].transform.SetAsLastSibling();
     }
 
     public void ToggleSelection()
@@ -97,6 +110,7 @@ public class LanguageSelection : MonoBehaviour
             GameManager.INSTANCE.chosenLanguage = GameManager.LANGUAGE.ENGLISH;            
         }
         Debug.Log(GameManager.INSTANCE.chosenLanguage);
+        levelManager.LanguageChange();
 
         selectedObject.GetComponent<Button>().onClick.AddListener(ToggleSelection);
     }

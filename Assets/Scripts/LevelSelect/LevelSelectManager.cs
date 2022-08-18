@@ -10,7 +10,6 @@ public class LevelSelectManager : MonoBehaviour
     // Public variables
     public GameObject[] shoppingStars, malwareStars, scamStars, identityStars;
     public TextMeshProUGUI StoryText, JennieText, EthanText, AhHuatText, AmirahText;
-    public TMP_FontAsset ENFont, CNFont, BMFont, TMFont;
 
     // Private variables
     [SerializeField] private float buttonAnimScale = 1.2f;
@@ -27,6 +26,7 @@ public class LevelSelectManager : MonoBehaviour
         Time.timeScale = 1;
 
         sceneController = SceneController.INSTANCE;
+        LanguageChange();
 
         identityScore = GameManager.INSTANCE.globalIdentityScore;
         shoppingScore = GameManager.INSTANCE.globalShoppingScore;
@@ -125,58 +125,54 @@ public class LevelSelectManager : MonoBehaviour
                 gameObject.SetActive(true);
             }
         }
+    }
 
+    private IEnumerator FixTamilText(string textToFix, TextMeshProUGUI textComponent)
+    {
+        textComponent.text = textToFix;
+        textComponent.GetComponent<CharReplacerTamil>().enabled = true;
+        yield return null;
+        textComponent.text = textComponent.GetComponent<CharReplacerTamil>().Convertedvalue;
+    }
+
+    public void LanguageChange()
+    {
         //Language change
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
             StoryText.text = "故事选择";
-            StoryText.font = CNFont;
             JennieText.text = "珍妮";
-            JennieText.font = CNFont;
             EthanText.text = "伊桑";
-            EthanText.font = CNFont;
             AhHuatText.text = "阿发";
-            AhHuatText.font = CNFont;
             AmirahText.text = "阿米拉";
-            AmirahText.font = CNFont;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
             StoryText.text = "Pemilihan Cerita";
-            StoryText.font = ENFont;
             JennieText.text = "Jennie";
-            JennieText.font = ENFont;
             EthanText.text = "Ethan";
-            EthanText.font = ENFont;
             AhHuatText.text = "Ah Huat";
-            AhHuatText.font = ENFont;
             AmirahText.text = "Amirah";
-            AmirahText.font = ENFont;
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
-            StoryText.text = "கதை தேர்வு";
-            JennieText.text = "ஜென்னி";
-            EthanText.text = "ஈதன்";
-            AhHuatText.text = "ஆ ஹுவாட்";
-            AmirahText.text = "அமிரா";
+            StartCoroutine(FixTamilText("கதையை தேர்ந்தெடுக்கவும்", StoryText));
+            StartCoroutine(FixTamilText("ஜென்னி", JennieText));
+            StartCoroutine(FixTamilText("ஈதன்", EthanText));
+            StartCoroutine(FixTamilText("ஆ ஹுவாட்", AhHuatText));
+            StartCoroutine(FixTamilText("அமிரா", AmirahText));
         }
         else
         {
             languageNumber = 0;
             StoryText.text = "Story Select";
-            StoryText.font = ENFont;
             JennieText.text = "Jennie";
-            JennieText.font = ENFont;
             EthanText.text = "Ethan";
-            EthanText.font = ENFont;
             AhHuatText.text = "Ah Huat";
-            AhHuatText.font = ENFont;
             AmirahText.text = "Amirah";
-            AmirahText.font = ENFont;
         }
     }
 

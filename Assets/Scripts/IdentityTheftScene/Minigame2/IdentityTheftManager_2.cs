@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,12 +18,16 @@ public class IdentityTheftManager_2 : MonoBehaviour
     public TextMeshProUGUI scoreText;
     //public TextMeshProUGUI timerText;
     public TextMeshProUGUI endScoreText;
-    public GameObject infographic;    
+    public GameObject infographic;
+    public GameObject infographicImage;
+    [SerializeField] private Sprite[] infographicLanguages;
     [SerializeField] private GameObject startingFade, sceneTransition;
     [SerializeField] private GameObject winCutscene, loseCutscene;
     [SerializeField] private CutsceneSubtitleManager subtitleManager;
     [SerializeField] private GameObject instructions;
-    [SerializeField] private Texture[] instructionLanguage;
+    [SerializeField] private GameObject background;
+    [SerializeField] private Sprite[] instructionLanguage;
+    [SerializeField] private Sprite[] BGLanguage;
     [SerializeField] private GameObject results;
 
     [Header("Audio References")]
@@ -51,7 +55,6 @@ public class IdentityTheftManager_2 : MonoBehaviour
     private int counter = 0;
     private bool toggleText = false;
     public int languageNumber;
-    private RawImage instructionImage;
 
     [HideInInspector] public bool isWin = false, isLose = false;
 
@@ -73,27 +76,34 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
         audioManager.PlayMusic(BGM);
         score = GameManager.INSTANCE.currentIdentityScore;
-        instructionImage = instructions.GetComponent<RawImage>();
 
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
-            instructionImage.texture = instructionLanguage[languageNumber];           
+            infographicImage.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
+            instructions.GetComponent<Image>().sprite = instructionLanguage[languageNumber];
+            background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
-            instructionImage.texture = instructionLanguage[languageNumber];
+            infographicImage.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
+            instructions.GetComponent<Image>().sprite = instructionLanguage[languageNumber];
+            background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
-            instructionImage.texture = instructionLanguage[languageNumber];
+            infographicImage.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
+            instructions.GetComponent<Image>().sprite = instructionLanguage[languageNumber];
+            background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
         else
         {
             languageNumber = 0;
-            instructionImage.texture = instructionLanguage[languageNumber];
+            infographicImage.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
+            instructions.GetComponent<Image>().sprite = instructionLanguage[languageNumber];
+            background.GetComponent<Image>().sprite = BGLanguage[languageNumber];
         }
     }
 
@@ -102,7 +112,23 @@ public class IdentityTheftManager_2 : MonoBehaviour
         if (results.activeInHierarchy == true)
         {
             stripesGameobject.transform.localRotation *= Quaternion.Euler(0, 0, -1);
-            endScoreText.text = "Total Score: " + localScore;
+
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                endScoreText.text = "总分: " + localScore;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                endScoreText.text = "Jumlah skor: " + localScore;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                endScoreText.text = "ெமாத்த மதிப்பெண்: " + localScore;
+            }
+            else
+            {
+                endScoreText.text = "Total Score: " + localScore;
+            }
 
             if (localScore != score)
             {
@@ -171,8 +197,22 @@ public class IdentityTheftManager_2 : MonoBehaviour
         if (score < 0)
             score = 0;
 
-        scoreText.text = "Score: " + score;
-
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            scoreText.text =  "分数: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            scoreText.text = "Skor: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            scoreText.text = "மதிப்பெண்: " + score;
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+        }
 
     }
 
@@ -231,19 +271,75 @@ public class IdentityTheftManager_2 : MonoBehaviour
 
         if (score >= 600)
         {
-            subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("Amirah_Cutscene_Win");
-            winCutscene.SetActive(true);
-            audioManager.Play(winAudio);
-            StartCoroutine(StopCutscene(30f));
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Win_CN");
+                winCutscene.SetActive(true);
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(30f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Win_BM");
+                winCutscene.SetActive(true);
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(30f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Win_TM");
+                winCutscene.SetActive(true);
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(30f));
+            }
+            else
+            {
+                subtitleManager.captions = winCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Win");
+                winCutscene.SetActive(true);
+                audioManager.Play(winAudio);
+                StartCoroutine(StopCutscene(30f));
+            }
+
         }
         else
         {
-            subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
-            subtitleManager.InitSubtitles("Amirah_Cutscene_Lose");
-            loseCutscene.SetActive(true);
-            audioManager.Play(loseAudio);
-            StartCoroutine(StopCutscene(8f));
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Lose_CN");
+                loseCutscene.SetActive(true);
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(8f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Lose_BM");
+                loseCutscene.SetActive(true);
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(8f));
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Lose_TM");
+                loseCutscene.SetActive(true);
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(8f));
+            }
+            else
+            {
+                subtitleManager.captions = loseCutscene.GetComponentInChildren<TextMeshProUGUI>();
+                subtitleManager.InitSubtitles("Amirah_Cutscene_Lose");
+                loseCutscene.SetActive(true);
+                audioManager.Play(loseAudio);
+                StartCoroutine(StopCutscene(8f));
+            }
+
         }
     }
 

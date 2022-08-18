@@ -13,6 +13,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI endScoreText;
     public GameObject infographic;
+    [SerializeField] private Sprite[] infographicLanguages;
     public AudioClip BGM;
     public float timeRemaining;
     [SerializeField] private GameObject startingFade, sceneTransition;
@@ -24,6 +25,7 @@ public class IdentityTheftManager_1 : MonoBehaviour
 
     [Header ("Audio References")]
     [SerializeField] private AudioClip startCutscene_1;
+    [SerializeField] private AudioClip collectSFX;
     private AudioManager audioManager;
 
     [Header ("Minigame References")]
@@ -33,6 +35,9 @@ public class IdentityTheftManager_1 : MonoBehaviour
     [SerializeField] private GameObject minigameTypePanel;
     [SerializeField] private GameObject minigameStartPanel;
     [SerializeField] private IdentityPlayerController player;
+
+    [SerializeField] private TMP_FontAsset CNFont;
+    [SerializeField] private TMP_FontAsset TMFont;
 
     private GameObject cutsceneAudio;
 
@@ -56,34 +61,73 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+            timerText.text = "消耗时间: " + (int)timer + "s";
+            minigameCharacterPanel.transform.Find("score").GetComponent<TextMeshProUGUI>().text = "0/15\n字符";
+            minigameTypePanel.transform.Find("UpperCheck").GetComponent<TextMeshProUGUI>().text = "大写";
+            minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().text = "小写";
+            minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().text = "数字";
+            minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().text = "符号";
+            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "点击这里开始!";
+
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+            timerText.text = "Masa yang dihabiskan: " + (int)timer + "s";
+            minigameCharacterPanel.transform.Find("score").GetComponent<TextMeshProUGUI>().text = "0/15\nHuruf";
+            minigameTypePanel.transform.Find("UpperCheck").GetComponent<TextMeshProUGUI>().text = "Huruf besar";
+            minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().text = "Huruf kecil";
+            minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().text = "Nombor";
+            minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().text = "Simbol";
+            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Ketik di sini untuk mula!";
+
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+            timerText.text = "செலவி஑ம் நேரம்: " + (int)timer + "s";
+            minigameCharacterPanel.transform.Find("score").GetComponent<TextMeshProUGUI>().text = "0/15\nபாத்திரங்கள்";
+            minigameTypePanel.transform.Find("UpperCheck").GetComponent<TextMeshProUGUI>().text = "பெரிய ஆங்கில எ஦த்஗க்கள்";
+            minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().text = "சிறிய ஆங்கில எ஦த்஗க்கள்";
+            minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().text = "எண்";
+            minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().text = "சின்னம்";
+            minigameCharacterPanel.transform.Find("score").GetComponent<TextMeshProUGUI>().fontSize = 29f;
+            minigameTypePanel.transform.Find("UpperCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
+            minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
+            minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
+            minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().fontSize = 29f;
+            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "ெதாடங்க இங்கே தட்ட௚ம்!";
         }
         else
         {
             languageNumber = 0;
+            infographic.GetComponent<Image>().sprite = infographicLanguages[languageNumber];
             instructions.transform.Find("Page1").GetComponent<Image>().sprite = instructionLanguagePg1[languageNumber];
             instructions.transform.Find("Page2").GetComponent<Image>().sprite = instructionLanguagePg2[languageNumber];
             instructions.transform.Find("Page3").GetComponent<Image>().sprite = instructionLanguagePg3[languageNumber];
             instructions.transform.Find("Page4").GetComponent<Image>().sprite = instructionLanguagePg4[languageNumber];
+            timerText.text = "Time Spent: " + (int)timer + "s";
+            minigameCharacterPanel.transform.Find("score").GetComponent<TextMeshProUGUI>().text = "0/15\nCharacters";
+            minigameTypePanel.transform.Find("UpperCheck").GetComponent<TextMeshProUGUI>().text = "Uppercase";
+            minigameTypePanel.transform.Find("LowerCheck").GetComponent<TextMeshProUGUI>().text = "Lowercase";
+            minigameTypePanel.transform.Find("NumeralCheck").GetComponent<TextMeshProUGUI>().text = "Number";
+            minigameTypePanel.transform.Find("SymbolCheck").GetComponent<TextMeshProUGUI>().text = "Symbol";
+
         }
     }
 
@@ -93,8 +137,24 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (score < 0)
             score = 0;
 
-        scoreText.text = "Score: " + score;
-        
+        //scoreText.text = "Score: " + score;
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            scoreText.text = "分数: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            scoreText.text = "Skor: " + score;
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            scoreText.text = "மதிப்பெண்: " + score;
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+        }
+
     }
 
     private void Update()
@@ -102,7 +162,23 @@ public class IdentityTheftManager_1 : MonoBehaviour
         if (minigame.activeInHierarchy && !gameEnd && player.GetComponent<IdentityPlayerController>().StartGame)
         {
             timer += Time.deltaTime;
-            timerText.text = "Time Spent: " + (int) timer + "s";
+
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                timerText.text = "消耗时间: " + (int)timer + "s";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                timerText.text = "Masa yang dihabiskan: " + (int)timer + "s";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                timerText.text = "செலவி஑ம் நேரம்: " + (int)timer + "s";
+            }
+            else
+            {
+                timerText.text = "Time Spent: " + (int)timer + "s";
+            }
         }
     }
 
@@ -121,16 +197,47 @@ public class IdentityTheftManager_1 : MonoBehaviour
         minigameEnvironment.SetActive(false);
         player.gameObject.SetActive(false);
         cutsceneAudio = audioManager.PlayAndGetObject(startCutscene_1);
-        subtitleManager.InitSubtitles("Amirah_Cutscene1_Eng");
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            subtitleManager.InitSubtitles("Amirah_Cutscene1_CN");
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            subtitleManager.InitSubtitles("Amirah_Cutscene1_BM");
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            subtitleManager.InitSubtitles("Amirah_Cutscene1_TM");
+        }
+        else
+        {
+            subtitleManager.InitSubtitles("Amirah_Cutscene1_Eng");
+        }
         StartCoroutine(TransitionToGame(28f));
     }
 
     private void UpdateProgress()
     {
+        audioManager.Play(collectSFX);
+
         TextMeshProUGUI characterText = minigameCharacterPanel.GetComponentInChildren<TextMeshProUGUI>(false);
         Animator[] typeCollectionAnimators = minigameTypePanel.GetComponentsInChildren<Animator>();
-
-        characterText.text = player.characterList.Count + "/15\nCharacters";
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            characterText.text = player.characterList.Count + "/15\n字符";
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            characterText.text = player.characterList.Count + "/15\nHuruf";
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            characterText.text = player.characterList.Count + "/15\nபாத்திரங்கள்";
+        }
+        else
+        {
+            characterText.text = player.characterList.Count + "/15\nCharacters";
+        }
         if (player.characterList.Count >= 15)
         {
             EndGame();
@@ -187,9 +294,44 @@ public class IdentityTheftManager_1 : MonoBehaviour
             Destroy(character);
         }
         if (player.characterList.Count < 15)
-            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Game Over!\nTap to continue...";
+        {
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text ="游戏结束\n点击继续...";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Permainan tamat!\nKetik untuk teruskan...";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "கேம் ஓவர்!\nெதாடர தட்ட௚ம்...";
+            }
+            else
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Game Over!\nTap to continue...";
+            }
+
+        }
         else
-            minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "You win!\nTap to continue...";
+        {
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text =  "你赢了！\n点击继续..." ;
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Awak menang!!\nKetik untuk teruskan...";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "நீ வெற்றி பெற்றாய்!\nெதாடர தட்ட௚ம்...";
+            }
+            else
+            {
+                minigameStartPanel.GetComponentInChildren<TextMeshProUGUI>().text = "You win!\nTap to continue...";
+            }
+        }
         StartCoroutine(ShowMinigameEndPanel());
     }
 
@@ -212,7 +354,23 @@ public class IdentityTheftManager_1 : MonoBehaviour
         else if (multiplier > 1.8f)
             multiplier = 1.8f;
         player.characterList.Clear();
-        endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
+
+        if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+        {
+            endScoreText.text =  "分数: "  + counter  + "\n时间倍数: " + multiplier + "x";
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+        {
+            endScoreText.text = "Skor: " + counter + "\nPengganda masa: " + multiplier + "x";
+        }
+        else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+        {
+            endScoreText.text = "மதிப்பெண்: " + counter + "\nநேரம் பெ஠க்கி: " + multiplier + "x";
+        }
+        else
+        {
+            endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
+        }
 
         GameManager.INSTANCE.currentIdentityScore = Mathf.RoundToInt(multiplier * GameManager.INSTANCE.currentIdentityScore / 10) * 10;
         score = GameManager.INSTANCE.currentIdentityScore;
@@ -220,7 +378,22 @@ public class IdentityTheftManager_1 : MonoBehaviour
         while (counter != score)
         {
             counter += 5;
-            endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
+            if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
+            {
+                endScoreText.text =  "分数: " + counter + "\n时间倍数: " + multiplier + "x";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
+            {
+                endScoreText.text = "Skor: " + counter + "\nPengganda masa: " + multiplier + "x";
+            }
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
+            {
+                endScoreText.text = "மதிப்பெண்: " + counter + "\nநேரம் பெ஠க்கி: " + multiplier + "x";
+            }
+            else
+            {
+                endScoreText.text = "Score: " + counter + "\nTime Multiplier: " + multiplier + "x";
+            }
         }
         yield return null;
     }
