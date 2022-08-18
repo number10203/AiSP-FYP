@@ -11,6 +11,10 @@ public class HighscoreTableScript : MonoBehaviour {
     private Transform entryTemplate;
     private List<Transform> highscoreEntryTransformList;
 
+    public string highscoreURL = "https://gmsrv1.asip.sg/var/www/html/index.php";
+    private string url = "(empty)";
+    private string action;
+    private string parameters;
     //public GameObject field1, field2, field3;
     private char[] alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
     int globalTotalScore;
@@ -148,11 +152,21 @@ public class HighscoreTableScript : MonoBehaviour {
 
     public void UploadScore()
     {
+        
         string nameString = GameObject.Find("FirstLetterText").GetComponent<TextMeshProUGUI>().text +
               GameObject.Find("SecondLetterText").GetComponent<TextMeshProUGUI>().text +
               GameObject.Find("ThirdLetterText").GetComponent<TextMeshProUGUI>().text;
+        parameters = "&player=" + nameString + "&score=" + globalTotalScore;
+        action = "set";
+        //AddHighscoreEntry(globalTotalScore, nameString);
+        StartCoroutine(LoadWWW());
 
-        AddHighscoreEntry(globalTotalScore, nameString);
+    }
 
+    private IEnumerator LoadWWW()
+    {
+        url = highscoreURL + "?action=" + action + parameters;
+        WWW www = new WWW(url);
+        yield return www;
     }
 }
