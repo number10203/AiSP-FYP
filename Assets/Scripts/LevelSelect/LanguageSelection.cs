@@ -34,7 +34,7 @@ public class LanguageSelection : MonoBehaviour
             {
                 obj.GetComponent<Button>().onClick.AddListener(ToggleSelection);
             }
-            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL && obj.name == "TL")
+            else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL && obj.name == "TM")
             {
                 obj.GetComponent<Button>().onClick.AddListener(ToggleSelection);
             }

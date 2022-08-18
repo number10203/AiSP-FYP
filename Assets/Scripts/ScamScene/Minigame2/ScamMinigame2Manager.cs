@@ -29,7 +29,6 @@ public class ScamMinigame2Manager : MonoBehaviour
     [SerializeField] private Image[] phoneBackgrounds;
     [SerializeField] private GameObject phone;
     [SerializeField] private Animator AhHuatStatusAnimator;
-    [SerializeField] private TMP_FontAsset CNFont, TLFont;
     [SerializeField] private Sprite CNInstructions, MLInstructions, TLInstructions;
     [SerializeField] private Sprite CNInfographic, MLInfographic, TLInfographic;
     [SerializeField] private Image infographic;
