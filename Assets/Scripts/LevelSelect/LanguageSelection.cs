@@ -61,7 +61,7 @@ public class LanguageSelection : MonoBehaviour
 
                 GameObject obj = languageOptions[i].gameObject;
                 obj.SetActive(true);
-                StartCoroutine(LerpRectTransformY(obj, -this.GetComponent<RectTransform>().sizeDelta.y * (i + 1), 1f));
+                StartCoroutine(LerpRectTransformY(obj, -this.GetComponent<RectTransform>().sizeDelta.y * (i + 1), 1.1f));
                 obj.GetComponent<Button>().onClick.AddListener(delegate { SelectOption(obj); });
             }
         else
@@ -74,8 +74,8 @@ public class LanguageSelection : MonoBehaviour
 
                 GameObject obj = languageOptions[i].gameObject;
                 obj.SetActive(true);
-                StartCoroutine(LerpRectTransformY(obj, this.GetComponent<RectTransform>().sizeDelta.y * (i + 1), 1f));
-                obj.GetComponent<Button>().onClick.AddListener(delegate { SelectOption(obj); });
+                StartCoroutine(LerpRectTransformY(obj, this.GetComponent<RectTransform>().sizeDelta.y * (i + 1), 1.1f));
+                obj.GetComponent<Button>().onClick.RemoveAllListeners();
             }
     }
 
@@ -88,10 +88,6 @@ public class LanguageSelection : MonoBehaviour
         selectedObject.transform.SetAsLastSibling();
 
         Image[] languageOptions = this.GetComponentsInChildren<Image>(true);
-        foreach (Image image in languageOptions)
-        {
-            image.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
-        }
 
         if(selectedObject.name == "CN")
         {
@@ -127,6 +123,7 @@ public class LanguageSelection : MonoBehaviour
                 timePassed += Time.deltaTime;
                 float newYPos = Mathf.Lerp(transform.position.y, targetYPos, timePassed / timeToTake);
                 transform.position = new Vector3(transform.position.x, newYPos);
+                isOpening = true;
                 yield return null;
             }
         }
@@ -137,6 +134,7 @@ public class LanguageSelection : MonoBehaviour
                 timePassed += Time.deltaTime;
                 float newYPos = Mathf.Lerp(transform.position.y, targetYPos, timePassed / timeToTake);
                 transform.position = new Vector3(transform.position.x, newYPos);
+                isOpening = true;
                 yield return null;
             }
         }
