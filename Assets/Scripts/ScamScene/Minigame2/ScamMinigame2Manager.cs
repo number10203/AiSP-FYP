@@ -34,6 +34,8 @@ public class ScamMinigame2Manager : MonoBehaviour
     [SerializeField] private Sprite CNInfographic, MLInfographic, TLInfographic;
     [SerializeField] private Image infographic;
     [SerializeField] private List<Sprite> replyTextsLanguages = new List<Sprite>();
+    [SerializeField] private Material EnglishMaterialFix;
+    [SerializeField] private GameObject ChineseMessageList, MalayMessageList, TamilMessageList;
 
     private bool star1Anim = false, star2Anim = false, star3Anim = false;
 
@@ -67,6 +69,20 @@ public class ScamMinigame2Manager : MonoBehaviour
                 reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, reply.GetComponent<RectTransform>().anchoredPosition.y);
             }
             infographic.sprite = CNInfographic;
+
+            RectTransform[] allObjects = ChineseMessageList.GetComponentsInChildren<RectTransform>(true);
+            for (int i = 0; i < MessageLists.Length; i++)
+            {
+                foreach (RectTransform rectTransform in allObjects)
+                {
+                    if (rectTransform.gameObject.name == MessageLists[i].name)
+                    {
+                        MessageLists[i] = rectTransform.gameObject;
+                        break;
+                    }
+                }
+            }
+            ChineseMessageList.SetActive(true);
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
@@ -84,6 +100,20 @@ public class ScamMinigame2Manager : MonoBehaviour
                     reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, -160f);
             }
             infographic.sprite = MLInfographic;
+
+            RectTransform[] allObjects = MalayMessageList.GetComponentsInChildren<RectTransform>(true);
+            for (int i = 0; i < MessageLists.Length; i++)
+            {
+                foreach (RectTransform rectTransform in allObjects)
+                {
+                    if (rectTransform.gameObject.name == MessageLists[i].name)
+                    {
+                        MessageLists[i] = rectTransform.gameObject;
+                        break;
+                    }
+                }
+            }
+            MalayMessageList.SetActive(true);
         }
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
@@ -101,6 +131,20 @@ public class ScamMinigame2Manager : MonoBehaviour
                     reply.GetComponent<RectTransform>().anchoredPosition = new Vector2(375.5f - reply.GetComponent<RectTransform>().sizeDelta.x / 2, -150f);
             }
             infographic.sprite = TLInfographic;
+
+            RectTransform[] allObjects = TamilMessageList.GetComponentsInChildren<RectTransform>(true);
+            for (int i = 0; i < MessageLists.Length; i++)
+            {
+                foreach (RectTransform rectTransform in allObjects)
+                {
+                    if (rectTransform.gameObject.name == MessageLists[i].name)
+                    {
+                        MessageLists[i] = rectTransform.gameObject;
+                        break;
+                    }
+                }
+            }
+            TamilMessageList.SetActive(true);
         }
         else
         {
