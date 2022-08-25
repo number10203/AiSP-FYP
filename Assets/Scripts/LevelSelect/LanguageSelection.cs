@@ -113,32 +113,34 @@ public class LanguageSelection : MonoBehaviour
     private IEnumerator LerpRectTransformY(GameObject obj, float changeInPosition, float timeToTake)
     {
         RectTransform transform = obj.GetComponent<RectTransform>();
-        float targetYPos = transform.position.y + changeInPosition;
+        float targetYPos = transform.anchoredPosition.y + changeInPosition;
         float timePassed = 0;
 
         if (changeInPosition > 0)
         {
-            while (targetYPos > obj.GetComponent<RectTransform>().position.y)
+            while (timePassed < timeToTake)
             {
                 timePassed += Time.deltaTime;
-                float newYPos = Mathf.Lerp(transform.position.y, targetYPos, timePassed / timeToTake);
-                transform.position = new Vector3(transform.position.x, newYPos);
+                float newYPos = Mathf.Lerp(transform.anchoredPosition.y, targetYPos, timePassed / timeToTake);
+                transform.anchoredPosition = new Vector3(transform.anchoredPosition.x, newYPos);
                 isOpening = true;
+                Debug.Log("Increasing! " + timePassed);
                 yield return null;
             }
         }
         else
         {
-            while (targetYPos < obj.GetComponent<RectTransform>().position.y)
+            while (timePassed < timeToTake)
             {
                 timePassed += Time.deltaTime;
-                float newYPos = Mathf.Lerp(transform.position.y, targetYPos, timePassed / timeToTake);
-                transform.position = new Vector3(transform.position.x, newYPos);
+                float newYPos = Mathf.Lerp(transform.anchoredPosition.y, targetYPos, timePassed / timeToTake);
+                transform.anchoredPosition = new Vector3(transform.anchoredPosition.x, newYPos);
                 isOpening = true;
+                Debug.Log("Decreasing!" + timePassed);
                 yield return null;
             }
         }
-        transform.position = new Vector3(transform.position.x, targetYPos);
+        transform.anchoredPosition = new Vector3(transform.anchoredPosition.x, targetYPos);
         isOpening = false;
     }
 }

@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1558389058}
-  highscoreURL: http://127.0.0.1/index.php
+  transition: {fileID: 546754703}
 --- !u!1 &79197617
 GameObject:
   m_ObjectHideFlags: 0

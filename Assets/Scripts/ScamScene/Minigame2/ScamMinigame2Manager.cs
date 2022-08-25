@@ -58,6 +58,8 @@ public class ScamMinigame2Manager : MonoBehaviour
         if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.CHINESE)
         {
             languageNumber = 1;
+            canvasGroup.gameObject.SetActive(false);
+            phone = ChineseMessageList.transform.GetChild(0).GetChild(0).gameObject;
             instructions.GetComponentInChildren<Image>().sprite = CNInstructions;
             instructions.GetComponentInChildren<Image>().SetNativeSize();
             for (int i = 0; i < 3; i++)
@@ -86,6 +88,8 @@ public class ScamMinigame2Manager : MonoBehaviour
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.MALAY)
         {
             languageNumber = 2;
+            canvasGroup.gameObject.SetActive(false);
+            phone = ChineseMessageList.transform.GetChild(0).GetChild(0).gameObject;
             instructions.GetComponentInChildren<Image>().sprite = MLInstructions;
             instructions.GetComponentInChildren<Image>().SetNativeSize();
             for (int i = 0; i < 3; i++)
@@ -117,6 +121,8 @@ public class ScamMinigame2Manager : MonoBehaviour
         else if (GameManager.INSTANCE.chosenLanguage == GameManager.LANGUAGE.TAMIL)
         {
             languageNumber = 3;
+            canvasGroup.gameObject.SetActive(false);
+            phone = ChineseMessageList.transform.GetChild(0).GetChild(0).gameObject;
             instructions.GetComponentInChildren<Image>().sprite = TLInstructions;
             instructions.GetComponentInChildren<Image>().SetNativeSize();
             for (int i = 0; i < 3; i++)
@@ -279,7 +285,6 @@ public class ScamMinigame2Manager : MonoBehaviour
     public void StartGame()
     {
         instructions.SetActive(false);
-        canvasGroup.gameObject.SetActive(true);
         scoreUI.SetActive(true);
         canvasGroup.blocksRaycasts = true;
     }

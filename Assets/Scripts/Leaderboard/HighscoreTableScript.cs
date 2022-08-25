@@ -8,15 +8,14 @@ using UnityEngine.UI;
 
 public class HighscoreTableScript : MonoBehaviour {
     public GameObject scoreText;
+    public GameObject transition;
     private Transform entryContainer;
     private Transform entryTemplate;
     private List<Transform> highscoreEntryTransformList;
 
-    public string highscoreURL = "http://127.0.0.1/index.php";
-    private string url = "(empty)";
+    private string uploadURL = "http://127.0.0.1/backend/AddScore.php";
+    private string downloadURL = "http://127.0.0.1/backend/ReadScoreboard.php";
     private string data;
-    private string action;
-    private string parameters;
     //public GameObject field1, field2, field3;
     private char[] alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
     int globalTotalScore;
@@ -25,18 +24,7 @@ public class HighscoreTableScript : MonoBehaviour {
         entryTemplate = entryContainer.Find("highscoreEntryTemplate");
 
         entryTemplate.gameObject.SetActive(false);
-        parameters = "";
-        action = "get";
-
-        //AddHighscoreEntry(globalTotalScore, nameString);
-        url = highscoreURL + "?action=" + action + parameters;
-        Debug.Log(url);
-        StartCoroutine(GetRequest(url));
-
-        
-        //foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList) {
-        //    CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
-        //}
+        StartCoroutine(GetRequest(downloadURL));
 
 
         globalTotalScore = GameManager.INSTANCE.globalShoppingScore + GameManager.INSTANCE.globalMalwareScore
@@ -154,40 +142,66 @@ public class HighscoreTableScript : MonoBehaviour {
 
     public void UploadScore()
     {
-        
+        //parameters = "&player=" + nameString + "&score=" + globalTotalScore;
+        //action = "set";
+        //AddHighscoreEntry(globalTotalScore, nameString);
+        StartCoroutine(UploadScoreOnline());
+    }
+
+    private IEnumerator UploadScoreOnline()
+    {
         string nameString = GameObject.Find("FirstLetterText").GetComponent<TextMeshProUGUI>().text +
               GameObject.Find("SecondLetterText").GetComponent<TextMeshProUGUI>().text +
               GameObject.Find("ThirdLetterText").GetComponent<TextMeshProUGUI>().text;
-        parameters = "&player=" + nameString + "&score=" + globalTotalScore;
-        action = "set";
-        //AddHighscoreEntry(globalTotalScore, nameString);
-        StartCoroutine(LoadWWW());
+        WWWForm form = new WWWForm();
+        form.AddField("player", nameString);
+        form.AddField("score", globalTotalScore);
+        UnityWebRequest webreq = UnityWebRequest.Post(uploadURL, form);
+        yield return webreq.SendWebRequest();
 
+        switch (webreq.result)
+        {
+            case UnityWebRequest.Result.Success:
+                SceneController.INSTANCE.LoadSceneAsync(10);
+                StartCoroutine(ActivateLoadedScene());
+                break;
+            default:
+                Debug.Log("Error");
+                break;
+        }
     }
 
-    private IEnumerator LoadWWW()
+    private IEnumerator ActivateLoadedScene()
     {
-        url = highscoreURL + "?action=" + action + parameters;
-        WWW www = new WWW(url);
-        yield return www;
+        transition.SetActive(true);
+
+        yield return new WaitForSeconds(1.3f);
+
+        SceneController.INSTANCE.ActivateLoadedScene();
     }
 
     private IEnumerator GetRequest(string URL)
     {
-        WWW www = new WWW(URL);
-        yield return www;
+        WWWForm form = new WWWForm();
+        UnityWebRequest webreq = UnityWebRequest.Get(URL);
+        yield return webreq.SendWebRequest();
 
-        if (www.error != null)
+        string receivedData = "";
+        switch (webreq.result)
         {
-            yield break;
+            case UnityWebRequest.Result.Success:
+                receivedData = webreq.downloadHandler.text;
+                break;
+            default:
+                Debug.Log("Error");
+                break;
         }
-        Debug.Log(www.text);
 
-        for (int i = 0; i < www.text.Length; i++)
+        for (int i = 0; i < receivedData.Length; i++)
         {
-            if (www.text[i] == '\n')
+            if (receivedData[i] == '\n')
             {
-                data = www.text.Substring(0, i + 1);
+                data = receivedData.Substring(0, i + 1);
                 break;
             }
         }
