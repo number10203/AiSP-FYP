@@ -13,8 +13,8 @@ public class HighscoreTableScript : MonoBehaviour {
     private Transform entryTemplate;
     private List<Transform> highscoreEntryTransformList;
 
-    private string uploadURL = "http://127.0.0.1/backend/AddScore.php";
-    private string downloadURL = "http://127.0.0.1/backend/ReadScoreboard.php";
+    private string uploadURL = "https://gmsrv1.aisp.sg/backend/AddScore.php";
+    private string downloadURL = "https://gmsrv1.aisp.sg/backend/ReadScoreboard.php";
     private string data;
     //public GameObject field1, field2, field3;
     private char[] alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
