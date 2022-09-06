@@ -152,7 +152,9 @@ public class HighscoreTableScript : MonoBehaviour {
     {
         string nameString = GameObject.Find("FirstLetterText").GetComponent<TextMeshProUGUI>().text +
               GameObject.Find("SecondLetterText").GetComponent<TextMeshProUGUI>().text +
-              GameObject.Find("ThirdLetterText").GetComponent<TextMeshProUGUI>().text;
+              GameObject.Find("ThirdLetterText").GetComponent<TextMeshProUGUI>().text +
+              GameObject.Find("FourthLetterText").GetComponent<TextMeshProUGUI>().text +
+              GameObject.Find("FifthLetterText").GetComponent<TextMeshProUGUI>().text;
         WWWForm form = new WWWForm();
         form.AddField("player", nameString);
         form.AddField("score", globalTotalScore);
