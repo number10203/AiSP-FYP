@@ -28,7 +28,7 @@ public class HighscoreTableScript : MonoBehaviour {
 
 
         globalTotalScore = GameManager.INSTANCE.globalShoppingScore + GameManager.INSTANCE.globalMalwareScore
-            + GameManager.INSTANCE.globalScamScore;
+            + GameManager.INSTANCE.globalScamScore + GameManager.INSTANCE.globalIdentityScore;
         scoreText.GetComponent<TextMeshProUGUI>().text = globalTotalScore.ToString();
     }
     [Serializable]
